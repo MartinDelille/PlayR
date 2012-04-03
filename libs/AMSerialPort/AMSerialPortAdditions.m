@@ -42,7 +42,6 @@
 #import "AMSerialPortAdditions.h"
 #import "AMSerialErrors.h"
 
-
 @interface AMSerialPort (AMSerialPortAdditionsPrivate)
 - (void)readDataInBackgroundThread;
 - (void)writeDataInBackgroundThread:(NSData *)data;
@@ -164,7 +163,13 @@
 - (BOOL)writeData:(NSData *)data error:(NSError **)error
 {
 #ifdef AMSerialDebug
-	NSLog(@"•wrote: %@ • %@", data, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//	NSLog(@"•wrote: %@ • %@", data, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+	NSString * tmp = [NSString stringWithFormat:@"%x : ", length];
+	unsigned char * buffer = (unsigned char*)bytes;
+	for (int i=0; i<length; i++) {
+		tmp = [NSString stringWithFormat:@"%@ %x", tmp, buffer[i]];
+	}
+	NSLog(tmp);
 #endif
 
 	BOOL result = NO;

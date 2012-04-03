@@ -56,6 +56,7 @@
 #define B230400	230400
  */
 
+
 #import "AMSDKCompatibility.h"
 
 #include <stdio.h>
@@ -80,6 +81,7 @@
 #define	AMSerialOptionOutputFlowControl @"AMSerialOptionOutputFlowControl"
 #define	AMSerialOptionEcho @"AMSerialOptionEcho"
 #define	AMSerialOptionCanonicalMode @"AMSerialOptionCanonicalMode"
+
 
 // By default, debug code is preprocessed out.  If you would like to compile with debug code enabled,
 // "#define AMSerialDebug" before including any AMSerialPort headers, as in your prefix header
