@@ -1,0 +1,237 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		580865AC152B44C30006989A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580865AB152B44C30006989A /* Foundation.framework */; };
+		580865AF152B44C30006989A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580865AE152B44C30006989A /* main.m */; };
+		580865B3152B44C30006989A /* SerialTest01.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580865B2152B44C30006989A /* SerialTest01.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		580865A5152B44C30006989A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				580865B3152B44C30006989A /* SerialTest01.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		580865A7152B44C30006989A /* SerialTest01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SerialTest01; sourceTree = BUILT_PRODUCTS_DIR; };
+		580865AB152B44C30006989A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		580865AE152B44C30006989A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		580865B1152B44C30006989A /* SerialTest01-Prefix.pch */ = {isa = PBXFileReference; path = "SerialTest01-Prefix.pch"; sourceTree = "<group>"; };
+		580865B2152B44C30006989A /* SerialTest01.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SerialTest01.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		580865A4152B44C30006989A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580865AC152B44C30006989A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5808659C152B44C30006989A = {
+			isa = PBXGroup;
+			children = (
+				580865AD152B44C30006989A /* SerialTest01 */,
+				580865AA152B44C30006989A /* Frameworks */,
+				580865A8152B44C30006989A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		580865A8152B44C30006989A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				580865A7152B44C30006989A /* SerialTest01 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		580865AA152B44C30006989A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				580865AB152B44C30006989A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		580865AD152B44C30006989A /* SerialTest01 */ = {
+			isa = PBXGroup;
+			children = (
+				580865AE152B44C30006989A /* main.m */,
+				580865B2152B44C30006989A /* SerialTest01.1 */,
+				580865B0152B44C30006989A /* Supporting Files */,
+			);
+			path = SerialTest01;
+			sourceTree = "<group>";
+		};
+		580865B0152B44C30006989A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				580865B1152B44C30006989A /* SerialTest01-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		580865A6152B44C30006989A /* SerialTest01 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 580865B6152B44C30006989A /* Build configuration list for PBXNativeTarget "SerialTest01" */;
+			buildPhases = (
+				580865A3152B44C30006989A /* Sources */,
+				580865A4152B44C30006989A /* Frameworks */,
+				580865A5152B44C30006989A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SerialTest01;
+			productName = SerialTest01;
+			productReference = 580865A7152B44C30006989A /* SerialTest01 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5808659E152B44C30006989A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 580865A1152B44C30006989A /* Build configuration list for PBXProject "SerialTest01" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5808659C152B44C30006989A;
+			productRefGroup = 580865A8152B44C30006989A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				580865A6152B44C30006989A /* SerialTest01 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		580865A3152B44C30006989A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580865AF152B44C30006989A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		580865B4152B44C30006989A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		580865B5152B44C30006989A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		580865B7152B44C30006989A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SerialTest01/SerialTest01-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		580865B8152B44C30006989A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SerialTest01/SerialTest01-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		580865A1152B44C30006989A /* Build configuration list for PBXProject "SerialTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				580865B4152B44C30006989A /* Debug */,
+				580865B5152B44C30006989A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		580865B6152B44C30006989A /* Build configuration list for PBXNativeTarget "SerialTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				580865B7152B44C30006989A /* Debug */,
+				580865B8152B44C30006989A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5808659E152B44C30006989A /* Project object */;
+}
