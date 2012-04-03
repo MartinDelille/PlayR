@@ -84,45 +84,24 @@ NSString *const AMSerialPortListRemovedPorts = @"AMSerialPortListRemovedPorts";
 	(void)zone;
     return self;
 }
- 
-- (id)retain
-{
-    return self;
-}
- 
-- (NSUInteger)retainCount
-{
-    return NSUIntegerMax;  //denotes an object that cannot be released
-}
- 
-- (oneway void)release
-{
-    //do nothing
-}
- 
-- (id)autorelease
-{
-    return self;
-}
 
 - (void)dealloc
 {
-	[portList release]; portList = nil;
-	[super dealloc];
+	 portList = nil;
 }
 
 #endif
 
 + (NSEnumerator *)portEnumerator
 {
-	return [[[AMStandardEnumerator alloc] initWithCollection:[AMSerialPortList sharedPortList]
-		countSelector:@selector(count) objectAtIndexSelector:@selector(objectAtIndex:)] autorelease];
+	return [[AMStandardEnumerator alloc] initWithCollection:[AMSerialPortList sharedPortList]
+		countSelector:@selector(count) objectAtIndexSelector:@selector(objectAtIndex:)];
 }
 
 + (NSEnumerator *)portEnumeratorForSerialPortsOfType:(NSString *)serialTypeKey
 {
-	return [[[AMStandardEnumerator alloc] initWithCollection:[[AMSerialPortList sharedPortList]
-		serialPortsOfType:serialTypeKey] countSelector:@selector(count) objectAtIndexSelector:@selector(objectAtIndex:)] autorelease];
+	return [[AMStandardEnumerator alloc] initWithCollection:[[AMSerialPortList sharedPortList]
+		serialPortsOfType:serialTypeKey] countSelector:@selector(count) objectAtIndexSelector:@selector(objectAtIndex:)];
 }
 
 - (AMSerialPort *)portByPath:(NSString *)bsdPath
@@ -152,9 +131,9 @@ NSString *const AMSerialPortListRemovedPorts = @"AMSerialPortListRemovedPorts";
 		CFStringRef serviceType = (CFStringRef)IORegistryEntryCreateCFProperty(serialService, CFSTR(kIOSerialBSDTypeKey), kCFAllocatorDefault, 0);
 		if (modemName && bsdPath) {
 			// If the port already exists in the list of ports, we want that one.  We only create a new one as a last resort.
-			serialPort = [self portByPath:(NSString*)bsdPath];
+			serialPort = [self portByPath:(__bridge NSString*)bsdPath];
 			if (serialPort == nil) {
-				serialPort = [[[AMSerialPort alloc] init:(NSString*)bsdPath withName:(NSString*)modemName type:(NSString*)serviceType] autorelease];
+				serialPort = [[AMSerialPort alloc] init:(__bridge NSString*)bsdPath withName:(__bridge NSString*)modemName type:(__bridge NSString*)serviceType];
 			}
 		}
 		if (modemName) {
@@ -302,7 +281,7 @@ static void AMSerialPortWasRemovedNotification(void *refcon, io_iterator_t itera
 - (id)init
 {
 	if ((self = [super init])) {
-		portList = [[NSMutableArray array] retain];
+		portList = [NSMutableArray array];
 	
 		[self addAllSerialPortsToArray:portList];
 		[self registerForSerialPortChangeNotifications];
@@ -337,7 +316,7 @@ static void AMSerialPortWasRemovedNotification(void *refcon, io_iterator_t itera
 
 - (NSArray *)serialPorts
 {
-	return [[portList copy] autorelease];
+	return [portList copy];
 }
 
 - (NSArray *)serialPortsOfType:(NSString *)serialTypeKey

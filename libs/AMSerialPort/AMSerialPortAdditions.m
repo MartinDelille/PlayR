@@ -123,7 +123,7 @@
 	NSString *result = nil;
 	NSData *data = [self readAndStopAfterBytes:NO bytes:0 stopAtChar:NO stopChar:0 error:error];
 	if (data) {
-		result = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+		result = [[NSString alloc] initWithData:data encoding:encoding];
 	}
 	return result;
 }
@@ -133,7 +133,7 @@
 	NSString *result = nil;
 	NSData *data = [self readAndStopAfterBytes:YES bytes:bytes stopAtChar:NO stopChar:0 error:error];
 	if (data) {
-		result = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+		result = [[NSString alloc] initWithData:data encoding:encoding];
 	}
 	return result;
 }
@@ -144,7 +144,7 @@
 	NSString *result = nil;
 	NSData *data = [self readAndStopAfterBytes:NO bytes:0 stopAtChar:YES stopChar:stopChar error:error];
 	if (data) {
-		result = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+		result = [[NSString alloc] initWithData:data encoding:encoding];
 	}
 	return result;
 }
@@ -154,7 +154,7 @@
 	NSString *result = nil;
 	NSData *data = [self readAndStopAfterBytes:YES bytes:bytes stopAtChar:YES stopChar:stopChar error:error];
 	if (data) {
-		result = [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+		result = [[NSString alloc] initWithData:data encoding:encoding];
 	}
 	return result;
 }
@@ -200,11 +200,12 @@
 	return result;
 }
 
-- (BOOL)writeString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(NSError **)error
+-(BOOL)writeString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(NSError **)error
 {
 	NSData *data = [string dataUsingEncoding:encoding];
 	return [self writeData:data error:error];
 }
+
 
 - (BOOL)writeBytes:(const void *)bytes length:(NSUInteger)length error:(NSError **)error
 {
@@ -329,25 +330,25 @@ static int64_t AMMicrosecondsSinceBoot (void)
 
 	localBuffer = malloc(AMSER_MAXBUFSIZE);
 	stopReadInBackground = NO;
-	NSAutoreleasePool *localAutoreleasePool = [[NSAutoreleasePool alloc] init];
-	[closeLock lock];
-	if ((fileDescriptor >= 0) && (!stopReadInBackground)) {
-		//NSLog(@"readDataInBackgroundThread - [closeLock lock]");
-		localReadFDs = (fd_set*)malloc(sizeof(fd_set));
-		FD_ZERO(localReadFDs);
-		FD_SET(fileDescriptor, localReadFDs);
-		[closeLock unlock];
-		//NSLog(@"readDataInBackgroundThread - [closeLock unlock]");
-		int res = select(fileDescriptor+1, localReadFDs, nil, nil, nil); // timeout);
-		if ((res >= 1) && (fileDescriptor >= 0)) {
-			bytesRead = read(fileDescriptor, localBuffer, AMSER_MAXBUFSIZE);
+	@autoreleasepool {
+		[closeLock lock];
+		if ((fileDescriptor >= 0) && (!stopReadInBackground)) {
+			//NSLog(@"readDataInBackgroundThread - [closeLock lock]");
+			localReadFDs = (fd_set*)malloc(sizeof(fd_set));
+			FD_ZERO(localReadFDs);
+			FD_SET(fileDescriptor, localReadFDs);
+			[closeLock unlock];
+			//NSLog(@"readDataInBackgroundThread - [closeLock unlock]");
+			int res = select(fileDescriptor+1, localReadFDs, nil, nil, nil); // timeout);
+			if ((res >= 1) && (fileDescriptor >= 0)) {
+				bytesRead = read(fileDescriptor, localBuffer, AMSER_MAXBUFSIZE);
+			}
+			data = [NSData dataWithBytes:localBuffer length:bytesRead];
+			[delegate performSelectorOnMainThread:@selector(serialPortReadData:) withObject:[NSDictionary dictionaryWithObjectsAndKeys: self, @"serialPort", data, @"data", nil] waitUntilDone:NO];
+		} else {
+			[closeLock unlock];
 		}
-		data = [NSData dataWithBytes:localBuffer length:bytesRead];
-		[delegate performSelectorOnMainThread:@selector(serialPortReadData:) withObject:[NSDictionary dictionaryWithObjectsAndKeys: self, @"serialPort", data, @"data", nil] waitUntilDone:NO];
-	} else {
-		[closeLock unlock];
 	}
-	[localAutoreleasePool drain];
 	free(localReadFDs);
 	free(localBuffer);
 
@@ -440,51 +441,49 @@ static int64_t AMMicrosecondsSinceBoot (void)
 	long estimatedTime;
 	BOOL error = NO;
 	
-	NSAutoreleasePool *localAutoreleasePool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 
-	[data retain];
-	localBuffer = malloc(AMSER_MAXBUFSIZE);
-	stopWriteInBackground = NO;
-	[writeLock lock];	// write in sequence
-	pos = 0;
-	dataLen = [data length];
-	speed = [self speed];
-	estimatedTime = (dataLen*8)/speed;
-	if (estimatedTime > 3) { // will take more than 3 seconds
-		notificationSent = YES;
-		[self reportProgress:pos dataLen:dataLen];
-		nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
-	} else {
-		nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:2.0];
-	}
-	while (!stopWriteInBackground && (pos < dataLen) && !error) {
-		bufferLen = MIN(AMSER_MAXBUFSIZE, dataLen-pos);
+		localBuffer = malloc(AMSER_MAXBUFSIZE);
+		stopWriteInBackground = NO;
+		[writeLock lock];	// write in sequence
+		pos = 0;
+		dataLen = [data length];
+		speed = [self speed];
+		estimatedTime = (dataLen*8)/speed;
+		if (estimatedTime > 3) { // will take more than 3 seconds
+			notificationSent = YES;
+			[self reportProgress:pos dataLen:dataLen];
+			nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
+		} else {
+			nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:2.0];
+		}
+		while (!stopWriteInBackground && (pos < dataLen) && !error) {
+			bufferLen = MIN(AMSER_MAXBUFSIZE, dataLen-pos);
 
-		[data getBytes:localBuffer range:NSMakeRange(pos, bufferLen)];
-		written = write(fileDescriptor, localBuffer, bufferLen);
-		error = (written == 0); // error condition
-		if (error)
-			break;
-		pos += written;
+			[data getBytes:localBuffer range:NSMakeRange(pos, bufferLen)];
+			written = write(fileDescriptor, localBuffer, bufferLen);
+			error = (written == 0); // error condition
+			if (error)
+				break;
+			pos += written;
 
-		if ([(NSDate *)[NSDate date] compare:nextNotificationDate] == NSOrderedDescending) {
-			if (notificationSent || (pos < dataLen)) { // not for last block only
-				notificationSent = YES;
-				[self reportProgress:pos dataLen:dataLen];
-				nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
+			if ([(NSDate *)[NSDate date] compare:nextNotificationDate] == NSOrderedDescending) {
+				if (notificationSent || (pos < dataLen)) { // not for last block only
+					notificationSent = YES;
+					[self reportProgress:pos dataLen:dataLen];
+					nextNotificationDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
+				}
 			}
 		}
+		if (notificationSent) {
+			[self reportProgress:pos dataLen:dataLen];
+		}
+		stopWriteInBackground = NO;
+		[writeLock unlock];
+		countWriteInBackgroundThreads--;
+		
+		free(localBuffer);
 	}
-	if (notificationSent) {
-		[self reportProgress:pos dataLen:dataLen];
-	}
-	stopWriteInBackground = NO;
-	[writeLock unlock];
-	countWriteInBackgroundThreads--;
-	
-	free(localBuffer);
-	[data release];
-	[localAutoreleasePool drain];
 }
 
 - (id)am_readTarget
@@ -495,8 +494,6 @@ static int64_t AMMicrosecondsSinceBoot (void)
 - (void)am_setReadTarget:(id)newReadTarget
 {
 	if (am_readTarget != newReadTarget) {
-		[newReadTarget retain];
-		[am_readTarget release];
 		am_readTarget = newReadTarget;
 	}
 }

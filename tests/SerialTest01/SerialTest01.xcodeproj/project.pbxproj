@@ -10,6 +10,9 @@
 		580865AC152B44C30006989A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580865AB152B44C30006989A /* Foundation.framework */; };
 		580865AF152B44C30006989A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580865AE152B44C30006989A /* main.m */; };
 		580865B3152B44C30006989A /* SerialTest01.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580865B2152B44C30006989A /* SerialTest01.1 */; };
+		580865BA152B47FD0006989A /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 580865B9152B47FD0006989A /* libAMSerialPort.a */; };
+		580865BC152B48100006989A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580865BB152B48100006989A /* IOKit.framework */; };
+		580865C2152B4E350006989A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580865C1152B4E350006989A /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +32,11 @@
 		580865A7152B44C30006989A /* SerialTest01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SerialTest01; sourceTree = BUILT_PRODUCTS_DIR; };
 		580865AB152B44C30006989A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		580865AE152B44C30006989A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		580865B1152B44C30006989A /* SerialTest01-Prefix.pch */ = {isa = PBXFileReference; path = "SerialTest01-Prefix.pch"; sourceTree = "<group>"; };
+		580865B1152B44C30006989A /* SerialTest01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SerialTest01-Prefix.pch"; sourceTree = "<group>"; };
 		580865B2152B44C30006989A /* SerialTest01.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SerialTest01.1; sourceTree = "<group>"; };
+		580865B9152B47FD0006989A /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SerialTest-coighmnxcvnrdncrnwpwahlvttvw/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		580865BB152B48100006989A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		580865C1152B4E350006989A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				580865C2152B4E350006989A /* CoreServices.framework in Frameworks */,
+				580865BC152B48100006989A /* IOKit.framework in Frameworks */,
+				580865BA152B47FD0006989A /* libAMSerialPort.a in Frameworks */,
 				580865AC152B44C30006989A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +57,10 @@
 		5808659C152B44C30006989A = {
 			isa = PBXGroup;
 			children = (
-				580865AD152B44C30006989A /* SerialTest01 */,
+				580865B9152B47FD0006989A /* libAMSerialPort.a */,
+				580865B0152B44C30006989A /* Supporting Files */,
+				580865B2152B44C30006989A /* SerialTest01.1 */,
+				580865AE152B44C30006989A /* main.m */,
 				580865AA152B44C30006989A /* Frameworks */,
 				580865A8152B44C30006989A /* Products */,
 			);
@@ -65,19 +77,11 @@
 		580865AA152B44C30006989A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				580865C1152B4E350006989A /* CoreServices.framework */,
+				580865BB152B48100006989A /* IOKit.framework */,
 				580865AB152B44C30006989A /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		580865AD152B44C30006989A /* SerialTest01 */ = {
-			isa = PBXGroup;
-			children = (
-				580865AE152B44C30006989A /* main.m */,
-				580865B2152B44C30006989A /* SerialTest01.1 */,
-				580865B0152B44C30006989A /* Supporting Files */,
-			);
-			path = SerialTest01;
 			sourceTree = "<group>";
 		};
 		580865B0152B44C30006989A /* Supporting Files */ = {
@@ -86,6 +90,7 @@
 				580865B1152B44C30006989A /* SerialTest01-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = SerialTest01;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +174,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Debug;
 		};
@@ -189,7 +196,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Release;
 		};
@@ -197,7 +206,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SerialTest01/SerialTest01-Prefix.pch";
+				GCC_PREFIX_HEADER = "SerialTest01-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-coighmnxcvnrdncrnwpwahlvttvw/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -206,7 +219,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SerialTest01/SerialTest01-Prefix.pch";
+				GCC_PREFIX_HEADER = "SerialTest01-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-coighmnxcvnrdncrnwpwahlvttvw/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

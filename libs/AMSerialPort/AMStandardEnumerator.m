@@ -19,7 +19,7 @@
 {
 	self = [super init];
 	if (self) {
-		collection = [theCollection retain];
+		collection = theCollection;
 		countSelector = theCountSelector;
 		count = (CountMethod)[collection methodForSelector:countSelector];
 		nextObjectSelector = theObjectSelector;
@@ -33,8 +33,7 @@
 
 - (void)dealloc
 {
-	[collection release]; collection = nil;
-	[super dealloc];
+	 collection = nil;
 }
 
 #endif
@@ -49,7 +48,7 @@
 
 - (NSArray *)allObjects
 {
-	NSMutableArray *result = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *result = [[NSMutableArray alloc] init];
 	id object;
 	while ((object = [self nextObject]) != nil)
 		[result addObject:object];

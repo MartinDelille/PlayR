@@ -63,7 +63,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		bsdPath = [path copy];
 		serviceName = [name copy];
 		serviceType = [type copy];
-		optionsDictionary = [[NSMutableDictionary dictionaryWithCapacity:8] retain];
+		optionsDictionary = [NSMutableDictionary dictionaryWithCapacity:8];
 #ifndef __OBJC_GC__
 		options = (struct termios* __strong)malloc(sizeof(*options));
 		originalOptions = (struct termios* __strong)malloc(sizeof(*originalOptions));
@@ -104,20 +104,19 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		NSLog(@"It is a programmer error to have not called -close on an AMSerialPort you have opened");
 #endif
 	
-	[readLock release]; readLock = nil;
-	[writeLock release]; writeLock = nil;
-	[closeLock release]; closeLock = nil;
-	[am_readTarget release]; am_readTarget = nil;
+	 readLock = nil;
+	 writeLock = nil;
+	 closeLock = nil;
+	 am_readTarget = nil;
 	
 	free(readfds); readfds = NULL;
 	free(buffer); buffer = NULL;
 	free(originalOptions); originalOptions = NULL;
 	free(options); options = NULL;
-	[optionsDictionary release]; optionsDictionary = nil;
-	[serviceName release]; serviceName = nil;
-	[serviceType release]; serviceType = nil;
-	[bsdPath release]; bsdPath = nil;
-	[super dealloc];
+	 optionsDictionary = nil;
+	 serviceName = nil;
+	 serviceType = nil;
+	 bsdPath = nil;
 }
 
 #else
@@ -166,8 +165,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 	
 	if (newDelegate != delegate) {
 		old = delegate;
-		delegate = [newDelegate retain];
-		[old release];
+		delegate = newDelegate;
 		delegateHandlesReadInBackground = [delegate respondsToSelector:@selector(serialPortReadData:)];
 		delegateHandlesWriteInBackground = [delegate respondsToSelector:@selector(serialPortWriteProgress:)];
 	}
@@ -197,7 +195,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 	io_service_t serialService;
 	
 	matchingDictionary = IOServiceMatching(kIOSerialBSDServiceValue);
-	CFDictionarySetValue(matchingDictionary, CFSTR(kIOTTYDeviceKey), (CFStringRef)[self name]);
+	CFDictionarySetValue(matchingDictionary, CFSTR(kIOTTYDeviceKey), (__bridge CFStringRef)[self name]);
 	if (matchingDictionary != NULL) {
 		CFRetain(matchingDictionary);
 		// This function decrements the refcount of the dictionary passed it
@@ -207,7 +205,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 			CFMutableDictionaryRef propertiesDict = NULL;
 			kernResult = IORegistryEntryCreateCFProperties(serialService, &propertiesDict, kCFAllocatorDefault, 0);
 			if (kernResult == KERN_SUCCESS) {
-				result = [[(NSDictionary*)propertiesDict copy] autorelease];
+				result = [(__bridge NSDictionary*)propertiesDict copy];
 			}
 			if (propertiesDict) {
 				CFRelease(propertiesDict);
@@ -346,7 +344,6 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		[fileHandle closeFile];
 
 		// Release the fileHandle
-		[fileHandle release];
 		fileHandle = nil;
 		
 #ifdef AMSerialDebug
