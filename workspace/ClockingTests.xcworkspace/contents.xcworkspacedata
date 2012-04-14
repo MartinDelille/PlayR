@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "absolute:/Users/martindelille/Dropbox/code/PlayR/tests/DWClockingTest01/../../libs/DWClocking/DWClocking.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../tests/DWClockingTest01/DWClockingTest01.xcodeproj">
+   </FileRef>
+</Workspace>
