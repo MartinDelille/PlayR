@@ -16,17 +16,20 @@ int main(int argc, const char * argv[])
 	@autoreleasepool {
 	    
 	    // insert code here...
-	    NSLog(@"Hello, World!");
-		NSString * deviceName = @"/dev/cu.usbserial-00001004A";
-		AMSerialPort * port = [AMSerialPort alloc];
-		[port init:deviceName withName:deviceName type:NULL];
+	    NSLog(@"SerialTest01");
+		NSString * deviceName = @"/dev/cu.usbserial-00002006A";
+		AMSerialPort * port = [[AMSerialPort alloc] init:deviceName withName:deviceName type:NULL];
 		
 		NSLog(@"Opening serial port");
 		if([port open]){
+			NSLog(@"CTS: %d", [port CTSOutputFlowControl]);
+			port.CTSOutputFlowControl = YES;
+			NSLog(@"CTS: %d", [port CTSOutputFlowControl]);
+			
 			NSLog(@"Writing data...");
 			
 			[port writeString:@"pouet" usingEncoding:NSUTF8StringEncoding error:NULL];
-		//	[port writeData:[deviceName dataUsingEncoding:NSUTF8StringEncoding] error:NULL];
+			NSLog(@"CTS: %d", [port CTS]);
 
 			NSLog(@"Closing serial port");
 			[port close];

@@ -332,6 +332,11 @@ extern NSString *const AMSerialErrorDomain;
 @property BOOL CTSOutputFlowControl;
 
 /** 
+ CTS state
+ */
+@property(readonly) BOOL CTS;
+
+/** 
  DSR output flow control
  */
 @property BOOL DSROutputFlowControl;

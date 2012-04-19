@@ -396,7 +396,6 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 	return result;
 }
 
-
 // read and write serial port settings through a dictionary
 
 - (void)buildOptionsDictionary
@@ -662,7 +661,6 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		options->c_cflag &= ~CDTR_IFLOW;
 }
 
-
 - (BOOL)CTSOutputFlowControl
 {
 	return (options->c_cflag & CCTS_OFLOW) != 0;
@@ -674,6 +672,12 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		options->c_cflag |= CCTS_OFLOW;
 	else
 		options->c_cflag &= ~CCTS_OFLOW;
+}
+
+-(BOOL)CTS {
+	int s;
+	ioctl(fileDescriptor, TIOCMGET, &s);
+	return (s & TIOCM_CTS) != 0;
 }
 
 
