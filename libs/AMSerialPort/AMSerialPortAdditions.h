@@ -62,7 +62,7 @@
 
 /**
  Read some data up to a char.
- @param stopChar: when encountered no more data is read.
+ @param stopChar when encountered no more data is read.
  @param error pointer to the error information.
  @return NSData contained the data read.
  */
@@ -71,7 +71,7 @@
 /**
  Read some data up to a char.
  @param bytes number of byte to read
- @param stopChar: when encountered no more data is read.
+ @param stopChar when encountered no more data is read.
  @param error pointer to the error information.
  @return NSData contained the data read.
  */
@@ -97,7 +97,7 @@
 
 /**
  Read some data and convert it into an NSString, using the given encoding
- @param stopChar: when encountered no more data is read. 'stopChar' has to be a byte value, using the given encoding; you can not wait for an arbitrary character from a multi-byte encoding
+ @param stopChar when encountered no more data is read. 'stopChar' has to be a byte value, using the given encoding; you can not wait for an arbitrary character from a multi-byte encoding
  @param encoding to use.
  @param error pointer to the error information.
  @return NSData contained the data read.
@@ -107,7 +107,7 @@
 /**
  Read some data and convert it into an NSString, using the given encoding
  @param bytes number of byte to read
- @param stopChar: when encountered no more data is read. 'stopChar' has to be a byte value, using the given encoding; you can not wait for an arbitrary character from a multi-byte encoding
+ @param stopChar when encountered no more data is read. 'stopChar' has to be a byte value, using the given encoding; you can not wait for an arbitrary character from a multi-byte encoding
  @param encoding to use.
  @param error pointer to the error information.
  @return NSData contained the data read.
