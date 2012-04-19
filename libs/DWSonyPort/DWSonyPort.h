@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+/** Handle video ref change
+ 
+ This protocol is used for video ref change in the sony protocol.
+ */
 @protocol Ticking
 
+/** 
+ Send a tick message to the delegate.
+ */
 -(void)tick;
 
 @end
@@ -68,6 +75,9 @@
  */
 -(BOOL)sendNak:(unsigned char)error;
 
+/** 
+ This delegate proceed the video reference tick.
+ */
 @property id<Ticking> videoRefDelegate;
 
 @end
