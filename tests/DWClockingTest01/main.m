@@ -15,8 +15,8 @@ int main(int argc, const char * argv[])
 	@autoreleasepool {
 	    NSLog(@"DWClockingTest01");
 		
-		DWTime* t = [[DWTime alloc] init];
-		NSLog(@"We have a %@", [t className]);
+		DWTime* t = [[DWTime alloc] initWithTime:5 andScale:600];
+		NSLog(@"We have a %@", [t description]);
 	    
 	}
     return 0;

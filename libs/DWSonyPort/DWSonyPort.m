@@ -7,15 +7,24 @@
 //
 
 #import "DWSonyPort.h"
+#import "AMSerialPort/AMSerialPort.h"
 #import "AMSerialPort/AMSerialPortAdditions.h"
 
-@implementation DWSonyPort
--(BOOL)initWithDevicePath:(NSString *)devicePath {
-	port = [AMSerialPort alloc];
-	[port init:devicePath withName:devicePath type:NULL];
+@implementation DWSonyPort{
+	AMSerialPort * port;
+}
+
+
+-(id)initWithDevicePath:(NSString *)devicePath {
+	self = [super init];
+	port = [[AMSerialPort alloc] init:devicePath withName:devicePath type:NULL];
+	if(port == nil) {
+		NSLog(@"Error during serial port initialisation");
+		return nil;
+	}
 	if (![port open]) {
 		NSLog(@"Unable to open %@", devicePath);
-		return NO;
+		return nil;
 	}
 		
 	NSDictionary * options = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -25,7 +34,7 @@
 							  @"Odd", AMSerialOptionParity,
 							  @"1", AMSerialOptionStopBits, nil];
 	[port setOptions:options];
-	return YES;
+	return self;
 }
 
 -(void)dealloc{
@@ -65,7 +74,6 @@
 		checksum += ptr[i];
 	}
 	if (checksum != ptr[datacount]) {
-		unsigned char errorCode = 0x02;
 		NSLog(@"Checksum error");
 		[self sendNak:0x02];
 		return NO;
@@ -97,7 +105,7 @@
 	return YES;
 }
 
--(BOOL)sendCommand2:(unsigned char)cmd1 cmd2:(unsigned char)cmd2, ... {
+-(BOOL)sendCommandWithArgument:(unsigned char)cmd1 cmd2:(unsigned char)cmd2, ... {
 	unsigned char datacount = [self getDataCount:cmd1];
 	unsigned char * data = (unsigned char*)malloc(datacount);
 	va_list argumentList;
@@ -111,11 +119,11 @@
 }
 
 -(BOOL)sendAck {
-	return [self sendCommand2:0x10 cmd2:0x01];
+	return [self sendCommandWithArgument:0x10 cmd2:0x01];
 }
 
 -(BOOL)sendNak:(unsigned char)error {
-	return [self sendCommand2:0x11 cmd2:0x12, error];
+	return [self sendCommandWithArgument:0x11 cmd2:0x12, error];
 }
 
 @end

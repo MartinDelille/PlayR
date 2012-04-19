@@ -1,3 +1,5 @@
 *.xcuserstate
 xcuserdata
 .DS_Store
+doc/html
+doxygen_log.txt

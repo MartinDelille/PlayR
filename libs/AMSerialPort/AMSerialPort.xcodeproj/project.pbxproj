@@ -14,10 +14,6 @@
 		58086578152B426A0006989A /* AMSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808656E152B426A0006989A /* AMSerialPort.m */; };
 		58086579152B426A0006989A /* AMSerialPortAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5808656F152B426A0006989A /* AMSerialPortAdditions.h */; };
 		5808657A152B426A0006989A /* AMSerialPortAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 58086570152B426A0006989A /* AMSerialPortAdditions.m */; };
-		5808657B152B426A0006989A /* AMSerialPortList.h in Headers */ = {isa = PBXBuildFile; fileRef = 58086571152B426A0006989A /* AMSerialPortList.h */; };
-		5808657C152B426A0006989A /* AMSerialPortList.m in Sources */ = {isa = PBXBuildFile; fileRef = 58086572152B426A0006989A /* AMSerialPortList.m */; };
-		5808657D152B426A0006989A /* AMStandardEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 58086573152B426A0006989A /* AMStandardEnumerator.h */; };
-		5808657E152B426B0006989A /* AMStandardEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 58086574152B426A0006989A /* AMStandardEnumerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +29,6 @@
 		5808656E152B426A0006989A /* AMSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPort.m; sourceTree = "<group>"; };
 		5808656F152B426A0006989A /* AMSerialPortAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSerialPortAdditions.h; sourceTree = "<group>"; };
 		58086570152B426A0006989A /* AMSerialPortAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPortAdditions.m; sourceTree = "<group>"; };
-		58086571152B426A0006989A /* AMSerialPortList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSerialPortList.h; sourceTree = "<group>"; };
-		58086572152B426A0006989A /* AMSerialPortList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPortList.m; sourceTree = "<group>"; };
-		58086573152B426A0006989A /* AMStandardEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStandardEnumerator.h; sourceTree = "<group>"; };
-		58086574152B426A0006989A /* AMStandardEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStandardEnumerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +52,6 @@
 				5808656E152B426A0006989A /* AMSerialPort.m */,
 				5808656F152B426A0006989A /* AMSerialPortAdditions.h */,
 				58086570152B426A0006989A /* AMSerialPortAdditions.m */,
-				58086571152B426A0006989A /* AMSerialPortList.h */,
-				58086572152B426A0006989A /* AMSerialPortList.m */,
-				58086573152B426A0006989A /* AMStandardEnumerator.h */,
-				58086574152B426A0006989A /* AMStandardEnumerator.m */,
 				58086545152B3BD00006989A /* Supporting Files */,
 				5808653D152B3BCF0006989A /* Frameworks */,
 				5808653C152B3BCF0006989A /* Products */,
@@ -117,8 +105,6 @@
 				58086576152B426A0006989A /* AMSerialErrors.h in Headers */,
 				58086577152B426A0006989A /* AMSerialPort.h in Headers */,
 				58086579152B426A0006989A /* AMSerialPortAdditions.h in Headers */,
-				5808657B152B426A0006989A /* AMSerialPortList.h in Headers */,
-				5808657D152B426A0006989A /* AMStandardEnumerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +161,6 @@
 			files = (
 				58086578152B426A0006989A /* AMSerialPort.m in Sources */,
 				5808657A152B426A0006989A /* AMSerialPortAdditions.m in Sources */,
-				5808657C152B426A0006989A /* AMSerialPortList.m in Sources */,
-				5808657E152B426B0006989A /* AMStandardEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +251,7 @@
 				5808654E152B3BD00006989A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
 									break;
 								case 0x11:
 									NSLog(@"Device Type Request => F1C0");
-									[sony sendCommand2:0x12 cmd2:0x11, 0xf1, 0xc0];
+									[sony sendCommandWithArgument:0x12 cmd2:0x11, 0xf1, 0xc0];
 									break;
 								case 0x1d:
 									NSLog(@"Local enable => ACK");
@@ -74,16 +74,16 @@ int main(int argc, const char * argv[])
 											cmd2 = 0x04;
 											break;
 									}
-									[sony sendCommand2:0x74 cmd2:cmd2, 0x04, 0x03, 0x02, 0x01];
+									[sony sendCommandWithArgument:0x74 cmd2:cmd2, 0x04, 0x03, 0x02, 0x01];
 									break;
 								case 0x20:
 								{
 									NSLog(@"Status Sense (%x) => Status Data", buffer[0]);
 									unsigned char count = buffer[0] & 0xf;
-									for (int i=0; i<4; i++) {
+									for (int i=0; i<count; i++) {
 										buffer[i] = 0;
 									}
-									[sony sendCommand:0x74 cmd2:0x20 data:buffer];
+									[sony sendCommand:(0x70+count) cmd2:0x20 data:buffer];
 									break;
 								}
 								case 0x30:

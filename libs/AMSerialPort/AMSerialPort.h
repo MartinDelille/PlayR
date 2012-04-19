@@ -102,11 +102,32 @@ typedef enum {
 
 extern NSString *const AMSerialErrorDomain;
 
+/** Category for reading/writing data in background.
+ */
 @interface NSObject (AMSerialDelegate)
+
+/**
+ Called when data are read in background.
+ @param dataDictionary contain these entries:
+ 1. "serialPort": the AMSerialPort object that sent the message
+ 2. "data": (NSData *)data - received data
+ */
 - (void)serialPortReadData:(NSDictionary *)dataDictionary;
+/**
+ Called when data are written in background.
+ @param dataDictionary object will contain these entries:
+ 1. "serialPort": the AMSerialPort object that sent the message
+ 2. "value": (NSNumber *)value - bytes sent
+ 3. "total": (NSNumber *)total - bytes total
+ */
 - (void)serialPortWriteProgress:(NSDictionary *)dataDictionary;
 @end
+ 
 
+/** Handle basic serial port communication
+ 
+ Provide method to connect to the serial port and to configure it.
+ */
 @interface AMSerialPort : NSObject
 {
 @private
@@ -114,16 +135,16 @@ extern NSString *const AMSerialErrorDomain;
 	NSString *serviceName;
 	NSString *serviceType;
 	int fileDescriptor;
-	struct termios * __strong options;
-	struct termios * __strong originalOptions;
+	struct termios * options;
+	struct termios * originalOptions;
 	NSMutableDictionary *optionsDictionary;
 	NSFileHandle *fileHandle;
 	BOOL gotError;
 	int	lastError;
 	id owner;
-	char * __strong buffer;
+	char * buffer;
 	NSTimeInterval readTimeout; // for public blocking read methods and doRead
-	fd_set * __strong readfds;
+	fd_set * readfds;
 	id delegate;
 	BOOL delegateHandlesReadInBackground;
 	BOOL delegateHandlesWriteInBackground;
@@ -140,130 +161,237 @@ extern NSString *const AMSerialErrorDomain;
 	int countReadInBackgroundThreads;
 }
 
+/** 
+ Initialize the serial port
+ @param path is a bsd path
+ @param path is a bsdPath
+ @param name is an IOKit service name
+ @param serialType is an IOKit service type
+ @return The initialized serial port
+ */
 - (id)init:(NSString *)path withName:(NSString *)name type:(NSString *)serialType;
-// initializes port
-// path is a bsdPath
-// name is an IOKit service name
-// type is an IOKit service type
 
-- (NSString *)bsdPath;
-// bsdPath (e.g. '/dev/cu.modem')
+/** 
+ BSD path (e.g. '/dev/cu.modem')
+ */
+@property(readonly) NSString * bsdPath;
 
-- (NSString *)name;
-// IOKit service name (e.g. 'modem')
+/**
+ IOKit service name (e.g. 'modem')
+ */
+@property(readonly) NSString * name;
 
-- (NSString *)type;
-// IOKit service type (e.g. kIOSerialBSDRS232Type)
+/**
+ IOKit service type (e.g. kIOSerialBSDRS232Type)
+ */
+@property(readonly) NSString * type;
 
-- (NSDictionary *)properties;
-// IORegistry entry properties - see IORegistryEntryCreateCFProperties()
+/**
+ IORegistry entry properties - see IORegistryEntryCreateCFProperties()
+ */
+@property(readonly) NSDictionary * properties;
 
+/** 
+ YES if port is open
+ */
+@property(readonly) BOOL isOpen;
 
-- (BOOL)isOpen;
-// YES if port is open
-
+/** 
+ get this port exclusively; 
+ @param sender of the message
+ @return NULL if it's not free
+ */
 - (AMSerialPort *)obtainBy:(id)sender;
-// get this port exclusively; NULL if it's not free
 
+/** 
+ Give it back (and close the port if still open)
+ */
 - (void)free;
-// give it back (and close the port if still open)
 
-- (BOOL)available;
-// check if port is free and can be obtained
+/** 
+ Check if port is free and can be obtained
+ */
+@property(readonly) BOOL available;
 
-- (id)owner;
-// who obtained the port?
+/** 
+ Who obtained the port?
+ */
+@property(readonly) id owner;
 
-
+/** 
+ opens port for read and write operations, allow shared access of port
+ to actually read or write data use the methods provided by NSFileHandle
+ (alternatively you may use those from AMSerialPortAdditions)
+ @return NSFileHandle for reading and writing
+ */
 - (NSFileHandle *)open;
-// opens port for read and write operations, allow shared access of port
-// to actually read or write data use the methods provided by NSFileHandle
-// (alternatively you may use those from AMSerialPortAdditions)
 
+/** 
+ opens port for read and write operations, insist on exclusive access to port
+ to actually read or write data use the methods provided by NSFileHandle
+ (alternatively you may use those from AMSerialPortAdditions)
+ @return NSFileHandle for reading and writing
+ */
 - (NSFileHandle *)openExclusively;
-// opens port for read and write operations, insist on exclusive access to port
-// to actually read or write data use the methods provided by NSFileHandle
-// (alternatively you may use those from AMSerialPortAdditions)
 
+/** 
+ Close port - no more read or write operations allowed
+ */
 - (void)close;
-// close port - no more read or write operations allowed
 
+/** 
+ Waits until all output written has been transmitted.
+ @return YES if the operation succeeds.
+ */
 - (BOOL)drainInput;
+
+/** 
+ discards any data written which has not
+ been transmitted, or any data received from the terminal but not yet read.
+ @param fIn set to YES mean that the input will be flushed.
+ @param fOut set to YES mean that the output will be flushed. 
+ @return YES if the operation succeeds.
+ */
 - (BOOL)flushInput:(BOOL)fIn output:(BOOL)fOut;	// (fIn or fOut) must be YES
+
+/** 
+ transmits a continuous stream of zero-valued bits for four-tenths of a sec-
+ ond to the terminal referenced by fildes. 
+ The duration parameter is ignored in this implementation.
+ @return YES if the operation succeeds.
+ */
 - (BOOL)sendBreak;
 
+/** 
+ Set DTR - not yet tested!
+ @return YES if the operation succeeds
+ */
 - (BOOL)setDTR;
-// set DTR - not yet tested!
 
+/** 
+ Clear DTR - not yet tested!
+ @return YES if the operation succeeds
+ */
 - (BOOL)clearDTR;
-// clear DTR - not yet tested!
 
-// read and write serial port settings through a dictionary
-
-- (NSDictionary *)options;
-// will open the port to get options if neccessary
-
-- (void)setOptions:(NSDictionary *)options;
-// AMSerialOptionServiceName HAS to match! You may NOT switch ports using this
-// method.
+/** 
+ Read and write serial port settings through a dictionary.
+ Will open the port to get options if neccessary
+ Reading and setting parameters is only useful if the serial port is already open
+ When writting, AMSerialOptionServiceName HAS to match! You may NOT switch ports using this
+ method.
+ */
+@property NSDictionary * options;
 
 // reading and setting parameters is only useful if the serial port is already open
-- (unsigned long)speed;
+
+/** 
+ Read serial port speed in bauds.
+ */
+@property(readonly) unsigned long speed;
+
+/** 
+ Write serial port speed.
+ @param speed in bauds.
+ @return NO if it failed.
+ */
 - (BOOL)setSpeed:(unsigned long)speed;
 
-- (unsigned long)dataBits;
-- (void)setDataBits:(unsigned long)bits;	// 5 to 8 (5 may not work)
+/** 
+ Serial port data bit count from 5 to 8 (5 may not work)
+ */
+@property unsigned long dataBits;
 
-- (AMSerialParity)parity;
-- (void)setParity:(AMSerialParity)newParity;
+/** 
+ Serial port parity.
+ */
+@property AMSerialParity parity;
 
-- (AMSerialStopBits)stopBits;
-- (void)setStopBits:(AMSerialStopBits)numBits;
+/** 
+ Serial port stop bits count.
+ */
+@property AMSerialStopBits stopBits;
 
-- (BOOL)echoEnabled;
-- (void)setEchoEnabled:(BOOL)echo;
+/** 
+ Echo enabled.
+ */
+@property BOOL echoEnabled;
+/** 
+ Check RTS input flow control
+ */
+@property BOOL RTSInputFlowControl;
 
-- (BOOL)RTSInputFlowControl;
-- (void)setRTSInputFlowControl:(BOOL)rts;
+/** 
+ DTR input flow control
+ */
+@property BOOL DTRInputFlowControl;
 
-- (BOOL)DTRInputFlowControl;
-- (void)setDTRInputFlowControl:(BOOL)dtr;
+/** 
+ CTS output flow control
+ */
+@property BOOL CTSOutputFlowControl;
 
-- (BOOL)CTSOutputFlowControl;
-- (void)setCTSOutputFlowControl:(BOOL)cts;
+/** 
+ DSR output flow control
+ */
+@property BOOL DSROutputFlowControl;
 
-- (BOOL)DSROutputFlowControl;
-- (void)setDSROutputFlowControl:(BOOL)dsr;
+/** 
+ CAR output flow control
+ */
+@property BOOL CAROutputFlowControl;
 
-- (BOOL)CAROutputFlowControl;
-- (void)setCAROutputFlowControl:(BOOL)car;
+/** 
+ Hand up on close
+ */
+@property BOOL hangupOnClose;
 
-- (BOOL)hangupOnClose;
-- (void)setHangupOnClose:(BOOL)hangup;
+/** 
+ Local mode
+ YES = ignore modem status lines
+ */
+@property BOOL localMode;
 
-- (BOOL)localMode;
-- (void)setLocalMode:(BOOL)local;	// YES = ignore modem status lines
+/** 
+ Canonical mode
+ */
+@property BOOL canonicalMode;
 
-- (BOOL)canonicalMode;
-- (void)setCanonicalMode:(BOOL)flag;
+/**
+ End of line character
+ */
+@property char endOfLineCharacter;
 
-- (char)endOfLineCharacter;
-- (void)setEndOfLineCharacter:(char)eol;
+/** 
+ Call this before changing any settings
+ */
+- (void)clearError;
 
-- (void)clearError;			// call this before changing any settings
-- (BOOL)commitChanges;	// call this after using any of the above set... functions
-- (int)errorCode;				// if -commitChanges returns NO, look here for further info
+/** 
+ Call this after using any of the above properties
+ @return NO if an error occured (see errorCode)
+ */
+- (BOOL)commitChanges;
 
-// setting the delegate (for background reading/writing)
+/** 
+ If -commitChanges returns NO, look here for further info
+ */
+@property(readonly) int errorCode;
 
-- (id)delegate;
-- (void)setDelegate:(id)newDelegate;
+/** 
+ Delegate (for background reading/writing)
+ */
+@property id delegate;
 
-// time out for blocking reads in seconds
-- (NSTimeInterval)readTimeout;
-- (void)setReadTimeout:(NSTimeInterval)aReadTimeout;
+/**
+ Time out for blocking reads in seconds
+ */
+@property NSTimeInterval readTimeout;
 
+/** 
+ Read time out as a Timeval structure
+ @param timeout pointer to timeval structure
+ */
 - (void)readTimeoutAsTimeval:(struct timeval*)timeout;
-
 
 @end

@@ -65,10 +65,10 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		serviceType = [type copy];
 		optionsDictionary = [NSMutableDictionary dictionaryWithCapacity:8];
 #ifndef __OBJC_GC__
-		options = (struct termios* __strong)malloc(sizeof(*options));
-		originalOptions = (struct termios* __strong)malloc(sizeof(*originalOptions));
-		buffer = (char* __strong)malloc(AMSER_MAXBUFSIZE);
-		readfds = (fd_set* __strong)malloc(sizeof(*readfds));
+		options = (struct termios*)malloc(sizeof(*options));
+		originalOptions = (struct termios*)malloc(sizeof(*originalOptions));
+		buffer = (char*)malloc(AMSER_MAXBUFSIZE);
+		readfds = (fd_set*)malloc(sizeof(*readfds));
 #else
 		options = (struct termios* __strong)NSAllocateCollectable(sizeof(*options), 0);
 		originalOptions = (struct termios* __strong)NSAllocateCollectable(sizeof(*originalOptions), 0);
@@ -263,7 +263,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 {
 	NSFileHandle *result = nil;
 	
-	__strong const char *path = [bsdPath fileSystemRepresentation];
+	const char *path = [bsdPath fileSystemRepresentation];
 	fileDescriptor = open(path, flags);
 
 #ifdef AMSerialDebug

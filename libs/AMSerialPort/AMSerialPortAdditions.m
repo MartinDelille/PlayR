@@ -60,6 +60,7 @@
 #pragma mark blocking IO
 // ============================================================
 
+/*
 - (void)doRead:(NSTimer *)timer
 {
 	(void)timer;
@@ -86,6 +87,7 @@
 		[self am_setReadTarget:nil];
 	}
 }
+ */
 
 // all blocking reads returns after [self readTimout] seconds elapse, at the latest
 - (NSData *)readAndReturnError:(NSError **)error
@@ -234,7 +236,7 @@
 	return result;
 }
 
-
+/*
 - (void)waitForInput:(id)target selector:(SEL)selector
 {
 #ifdef AMSerialDebug
@@ -243,7 +245,7 @@
 	[self am_setReadTarget:target];
 	am_readSelector = selector;
 	[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(doRead:) userInfo:self repeats:NO];
-}
+}*/
 
 // ============================================================
 #pragma mark -
