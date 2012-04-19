@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol Ticking
+
+-(void)tick;
+
+@end
+
+
 /** Handles Sony port comunication
  
  Provide method to access a Sony serial port and write and read command from it.
@@ -60,5 +67,7 @@
  @return NO if an error occured.
  */
 -(BOOL)sendNak:(unsigned char)error;
+
+@property id<Ticking> videoRefDelegate;
 
 @end

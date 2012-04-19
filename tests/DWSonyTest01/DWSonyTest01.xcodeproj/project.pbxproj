@@ -13,6 +13,7 @@
 		58086626152B66E20006989A /* libDWSonyPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086624152B66E20006989A /* libDWSonyPort.a */; };
 		58086628152B66F80006989A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086627152B66F80006989A /* CoreServices.framework */; };
 		5808662A152B67000006989A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086629152B66FF0006989A /* IOKit.framework */; };
+		58C064AB1540825800370618 /* SonyClockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C064AA1540825800370618 /* SonyClockTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		58086624152B66E20006989A /* libDWSonyPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSonyPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWSonyPort.a"; sourceTree = "<group>"; };
 		58086627152B66F80006989A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		58086629152B66FF0006989A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		58C064A91540825800370618 /* SonyClockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonyClockTest.h; sourceTree = "<group>"; };
+		58C064AA1540825800370618 /* SonyClockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonyClockTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		58086602152B58DE0006989A = {
 			isa = PBXGroup;
 			children = (
+				58C064A91540825800370618 /* SonyClockTest.h */,
+				58C064AA1540825800370618 /* SonyClockTest.m */,
 				58086629152B66FF0006989A /* IOKit.framework */,
 				58086627152B66F80006989A /* CoreServices.framework */,
 				58086623152B66E20006989A /* libAMSerialPort.a */,
@@ -138,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58086622152B59510006989A /* main.m in Sources */,
+				58C064AB1540825800370618 /* SonyClockTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +246,7 @@
 				5808661E152B58DF0006989A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

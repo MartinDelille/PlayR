@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "DWSonyPort/DWSonyPort.h"
-
+#import "SonyClockTest.h"
 
 int main(int argc, const char * argv[])
 {
-
 	@autoreleasepool {
 	    
 	    // insert code here...
 	    NSLog(@"Hello, World!");
-		NSString * devicePath = @"/dev/cu.usbserial-00001004B";
-		DWSonyPort *sony = [DWSonyPort alloc];
-		if([sony initWithDevicePath:devicePath]) {
+		NSString * devicePath = @"/dev/cu.usbserial-00002006B";
+		DWSonyPort *sony = [[DWSonyPort alloc] initWithDevicePath:devicePath];
+		if(sony != nil) {
+			SonyClockTest * clock = [[SonyClockTest alloc] init];
+			sony.videoRefDelegate = clock;
 			unsigned char cmd1, cmd2;
 			unsigned char buffer[256];
 			for (int i=0; i<10; i++) {				

@@ -10,13 +10,24 @@
 #import "AMSerialPort/AMSerialPort.h"
 #import "AMSerialPort/AMSerialPortAdditions.h"
 
+
 @implementation DWSonyPort{
 	AMSerialPort * port;
+	int videoRefState;
 }
 
+@synthesize videoRefDelegate;
+
+-(id)init {
+	self = [super init];
+	videoRefState = -1;
+	videoRefDelegate = nil;
+	
+	return self;
+}
 
 -(id)initWithDevicePath:(NSString *)devicePath {
-	self = [super init];
+	self = [self init];
 	port = [[AMSerialPort alloc] init:devicePath withName:devicePath type:NULL];
 	if(port == nil) {
 		NSLog(@"Error during serial port initialisation");
@@ -42,12 +53,25 @@
 	port = NULL;
 }
 
+-(void)checkVideoRef {
+	if((videoRefState < 1) && port.CTS)
+	{
+		videoRefState = 1;
+		[self.videoRefDelegate tick];
+	}
+	else {
+		videoRefState = 0;
+	}
+}
+
 -(unsigned char)getDataCount:(unsigned char)cmd {
 	return cmd & 0x0f;
 }
 
 -(BOOL)readCommand:(unsigned char *)cmd1 cmd2:(unsigned char *)cmd2 data:(unsigned char *)data {
 	NSError * error;
+	
+	[self checkVideoRef];
 	
 	// Reading the command
 	NSData * tmp = [port readBytes:2 error:&error];
