@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C064B51540866100370618 /* DWClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 58C064B31540866100370618 /* DWClock.h */; };
+		58C064B61540866100370618 /* DWClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C064B41540866100370618 /* DWClock.m */; };
 		58D6CAAF1539A64D00CAB720 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CAAE1539A64D00CAB720 /* Cocoa.framework */; };
 		58D6CAC71539A79300CAB720 /* DWTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 58D6CAC51539A79300CAB720 /* DWTime.h */; };
 		58D6CAC81539A79300CAB720 /* DWTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6CAC61539A79300CAB720 /* DWTime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58C064B31540866100370618 /* DWClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWClock.h; sourceTree = "<group>"; };
+		58C064B41540866100370618 /* DWClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWClock.m; sourceTree = "<group>"; };
 		58D6CAAB1539A64D00CAB720 /* libDWClocking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWClocking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D6CAAE1539A64D00CAB720 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58D6CAB11539A64D00CAB720 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -38,6 +42,8 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				58C064B31540866100370618 /* DWClock.h */,
+				58C064B41540866100370618 /* DWClock.m */,
 				58D6CAC51539A79300CAB720 /* DWTime.h */,
 				58D6CAC61539A79300CAB720 /* DWTime.m */,
 				58D6CAB51539A64D00CAB720 /* Supporting Files */,
@@ -90,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58D6CAC71539A79300CAB720 /* DWTime.h in Headers */,
+				58C064B51540866100370618 /* DWClock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58D6CAC81539A79300CAB720 /* DWTime.m in Sources */,
+				58C064B61540866100370618 /* DWClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +243,7 @@
 				58D6CABE1539A64D00CAB720 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

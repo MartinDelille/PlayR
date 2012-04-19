@@ -31,6 +31,6 @@
 }
 
 -(NSString *)description {
-	return [NSString stringWithFormat:@"DWTime %d/%d", Time, Scale];
+	return [NSString stringWithFormat:@"%d/%d", Time, Scale];
 }
 @end
