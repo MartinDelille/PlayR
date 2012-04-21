@@ -9,28 +9,40 @@
 #import "DWTime.h"
 
 @implementation DWTime
-@synthesize Time;
-@synthesize Scale;
+@synthesize time;
+@synthesize scale;
+
+-(unsigned int)hh {
+	return self.mm / 60;
+}
+
+-(unsigned int)mm {
+	return self.ss / 60;
+}
+
+-(unsigned int)ss {
+	return time / scale;
+}
 
 -(id)init {
 	self = [super init];
-	Scale = 1000;
+	scale = 24000;
 	return self;
 }
 
--(id)initWithScale:(long)scale {
+-(id)initWithScale:(long)s {
 	self = [super init];
-	Scale = scale;
+	scale = s;
 	return self;
 }
 
--(id)initWithTime:(long)time andScale:(long)scale {
+-(id)initWithTime:(long)t andScale:(long)s {
 	self = [self initWithScale:scale];
-	Time = time;
+	time = t;
 	return self;
 }
 
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%d/%d", Time, Scale];
+	return [NSString stringWithFormat:@"%d/%d", time, scale];
 }
 @end

@@ -24,6 +24,6 @@
 }
 
 -(void)tick {
-	time.Time += timePerTick.Time;
+	time.time += timePerTick.time;
 }
 @end
