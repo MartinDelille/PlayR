@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "DWTime.h"
 
+/** Mother class for clock component.
+ 
+ This class is the base class for clock system.
+ */
 @interface DWClock : NSObject
+
+/** 
+ Current clock time.
+ */
 @property DWTime * time;
+
 @property DWTime * timePerTick;
 
 -(void)tick;
