@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C064D815408C8C00370618 /* libDWTimeCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C064D715408C8C00370618 /* libDWTimeCode.a */; };
 		58D6CA931539A4CB00CAB720 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CA921539A4CB00CAB720 /* Foundation.framework */; };
 		58D6CA961539A4CB00CAB720 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6CA951539A4CB00CAB720 /* main.m */; };
 		58D6CA9A1539A4CB00CAB720 /* DWClockingTest01.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 58D6CA991539A4CB00CAB720 /* DWClockingTest01.1 */; };
@@ -27,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		58C064D715408C8C00370618 /* libDWTimeCode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTimeCode.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-dgzuluhrwwettgbdgbyuzztddptt/Build/Products/Debug/libDWTimeCode.a"; sourceTree = "<group>"; };
 		58D6CA8E1539A4CB00CAB720 /* DWClockingTest01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DWClockingTest01; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D6CA921539A4CB00CAB720 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58D6CA951539A4CB00CAB720 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C064D815408C8C00370618 /* libDWTimeCode.a in Frameworks */,
 				58D6CACA1539A8A800CAB720 /* libDWClocking.a in Frameworks */,
 				58D6CA931539A4CB00CAB720 /* Foundation.framework in Frameworks */,
 			);
@@ -51,6 +54,7 @@
 		58D6CA831539A4CB00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				58C064D715408C8C00370618 /* libDWTimeCode.a */,
 				58D6CAC91539A8A800CAB720 /* libDWClocking.a */,
 				58D6CA991539A4CB00CAB720 /* DWClockingTest01.1 */,
 				58D6CA951539A4CB00CAB720 /* main.m */,
@@ -245,6 +249,7 @@
 				58D6CA9F1539A4CB00CAB720 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

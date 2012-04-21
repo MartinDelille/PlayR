@@ -17,11 +17,18 @@
 /** 
  Amount of time since the time origin 0 according to its scale.
  */
-@property long Time;
-/** 
- Amount of time unit per second.
- */
-@property long Scale;
+@property unsigned int time;
+/** Amount of time unit per second. */
+@property unsigned int scale;
+
+/** Amout of hours since the time origne 0 (floor rounding) */
+@property(readonly) unsigned int hh;
+
+/** Amout of minutes since the time origne 0 (floor rounding) */
+@property(readonly) unsigned int mm;
+
+/** Amout of secondes since the time origne 0 (floor rounding) */
+@property(readonly) unsigned ss;
 
 /** 
  Initialize the object with a scale value
@@ -35,5 +42,5 @@
  @param scale to use.
  @return The object instance.
  */
--(id)initWithTime:(long)time andScale:(long)scale;
+-(id)initWithTime:(long)t andScale:(long)s;
 @end
