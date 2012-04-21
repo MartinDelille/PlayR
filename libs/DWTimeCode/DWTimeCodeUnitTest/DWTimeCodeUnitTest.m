@@ -104,6 +104,85 @@
 	STAssertEquals((unsigned int)15840, tc.frame, nil);
 }
 
+- (void)testTC2398BcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode2398];
+	
+	STAssertEquals((unsigned int)0x00000000, tc.bcd, nil);
+	tc.frame = 1;
+	STAssertEquals((unsigned int)0x00000001, tc.bcd, nil);
+	tc.frame = 23;
+	STAssertEquals((unsigned int)0x00000023, tc.bcd, nil);
+	tc.frame = 24;
+	STAssertEquals((unsigned int)0x00000100, tc.bcd, nil);
+	tc.frame = 47;
+	STAssertEquals((unsigned int)0x00000123, tc.bcd, nil);
+	tc.frame = 48;
+	STAssertEquals((unsigned int)0x00000200, tc.bcd, nil);
+	tc.frame = 1439;
+	STAssertEquals((unsigned int)0x00005923, tc.bcd, nil);
+	tc.frame = 1440;
+	STAssertEquals((unsigned int)0x00010000, tc.bcd, nil);
+	tc.frame = 2879;
+	STAssertEquals((unsigned int)0x00015923, tc.bcd, nil);
+	tc.frame = 2880;
+	STAssertEquals((unsigned int)0x00020000, tc.bcd, nil);
+	tc.frame = 4319;
+	STAssertEquals((unsigned int)0x00025923, tc.bcd, nil);
+	tc.frame = 4320;
+	STAssertEquals((unsigned int)0x00030000, tc.bcd, nil);
+	tc.frame = 14399;
+	STAssertEquals((unsigned int)0x00095923, tc.bcd, nil);
+	tc.frame = 14400;
+	STAssertEquals((unsigned int)0x00100000, tc.bcd, nil);
+	tc.frame = 14401;
+	STAssertEquals((unsigned int)0x00100001, tc.bcd, nil);
+	tc.frame = 15839;
+	STAssertEquals((unsigned int)0x00105923, tc.bcd, nil);
+	tc.frame = 15840;
+	STAssertEquals((unsigned int)0x00110000, tc.bcd, nil);
+}
+
+- (void)testTC2398SetBcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode2398];
+	
+	tc.bcd = 0x00000000;
+	STAssertEquals((unsigned int)0, tc.frame, nil);
+	tc.bcd = 0x00000001;
+	STAssertEquals((unsigned int)1, tc.frame, nil);
+	tc.bcd = 0x00000023;
+	STAssertEquals((unsigned int)23, tc.frame, nil);
+	tc.bcd = 0x00000100;
+	STAssertEquals((unsigned int)24, tc.frame, nil);
+	tc.bcd = 0x00000123;
+	STAssertEquals((unsigned int)47, tc.frame, nil);
+	tc.bcd = 0x00000200;
+	STAssertEquals((unsigned int)48, tc.frame, nil);
+	tc.bcd = 0x00005923;
+	STAssertEquals((unsigned int)1439, tc.frame, nil);
+	tc.bcd = 0x00010000;
+	STAssertEquals((unsigned int)1440, tc.frame, nil);
+	tc.bcd = 0x00015923;
+	STAssertEquals((unsigned int)2879, tc.frame, nil);
+	tc.bcd = 0x00020000;
+	STAssertEquals((unsigned int)2880, tc.frame, nil);
+	tc.bcd = 0x00025923;
+	STAssertEquals((unsigned int)4319, tc.frame, nil);
+	tc.bcd = 0x00030000;
+	STAssertEquals((unsigned int)4320, tc.frame, nil);
+	tc.bcd = 0x00095923;
+	STAssertEquals((unsigned int)14399, tc.frame, nil);
+	tc.bcd = 0x00100000;
+	STAssertEquals((unsigned int)14400, tc.frame, nil);
+	tc.bcd = 0x00100001;
+	STAssertEquals((unsigned int)14401, tc.frame, nil);
+	tc.bcd = 0x00105923;
+	STAssertEquals((unsigned int)15839, tc.frame, nil);
+	tc.bcd = 0x00110000;
+	STAssertEquals((unsigned int)15840, tc.frame, nil);
+}
+
 - (void)testTC24StringTest01
 {
 	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode24];
@@ -183,6 +262,85 @@
 	STAssertEquals((unsigned int)15840, tc.frame, nil);
 }
 
+- (void)testTC24BcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode24];
+	
+	STAssertEquals((unsigned int)0x00000000, tc.bcd, nil);
+	tc.frame = 1;
+	STAssertEquals((unsigned int)0x00000001, tc.bcd, nil);
+	tc.frame = 23;
+	STAssertEquals((unsigned int)0x00000023, tc.bcd, nil);
+	tc.frame = 24;
+	STAssertEquals((unsigned int)0x00000100, tc.bcd, nil);
+	tc.frame = 47;
+	STAssertEquals((unsigned int)0x00000123, tc.bcd, nil);
+	tc.frame = 48;
+	STAssertEquals((unsigned int)0x00000200, tc.bcd, nil);
+	tc.frame = 1439;
+	STAssertEquals((unsigned int)0x00005923, tc.bcd, nil);
+	tc.frame = 1440;
+	STAssertEquals((unsigned int)0x00010000, tc.bcd, nil);
+	tc.frame = 2879;
+	STAssertEquals((unsigned int)0x00015923, tc.bcd, nil);
+	tc.frame = 2880;
+	STAssertEquals((unsigned int)0x00020000, tc.bcd, nil);
+	tc.frame = 4319;
+	STAssertEquals((unsigned int)0x00025923, tc.bcd, nil);
+	tc.frame = 4320;
+	STAssertEquals((unsigned int)0x00030000, tc.bcd, nil);
+	tc.frame = 14399;
+	STAssertEquals((unsigned int)0x00095923, tc.bcd, nil);
+	tc.frame = 14400;
+	STAssertEquals((unsigned int)0x00100000, tc.bcd, nil);
+	tc.frame = 14401;
+	STAssertEquals((unsigned int)0x00100001, tc.bcd, nil);
+	tc.frame = 15839;
+	STAssertEquals((unsigned int)0x00105923, tc.bcd, nil);
+	tc.frame = 15840;
+	STAssertEquals((unsigned int)0x00110000, tc.bcd, nil);
+}
+
+- (void)testTC24SetBcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode24];
+	
+	tc.bcd = 0x00000000;
+	STAssertEquals((unsigned int)0, tc.frame, nil);
+	tc.bcd = 0x00000001;
+	STAssertEquals((unsigned int)1, tc.frame, nil);
+	tc.bcd = 0x00000023;
+	STAssertEquals((unsigned int)23, tc.frame, nil);
+	tc.bcd = 0x00000100;
+	STAssertEquals((unsigned int)24, tc.frame, nil);
+	tc.bcd = 0x00000123;
+	STAssertEquals((unsigned int)47, tc.frame, nil);
+	tc.bcd = 0x00000200;
+	STAssertEquals((unsigned int)48, tc.frame, nil);
+	tc.bcd = 0x00005923;
+	STAssertEquals((unsigned int)1439, tc.frame, nil);
+	tc.bcd = 0x00010000;
+	STAssertEquals((unsigned int)1440, tc.frame, nil);
+	tc.bcd = 0x00015923;
+	STAssertEquals((unsigned int)2879, tc.frame, nil);
+	tc.bcd = 0x00020000;
+	STAssertEquals((unsigned int)2880, tc.frame, nil);
+	tc.bcd = 0x00025923;
+	STAssertEquals((unsigned int)4319, tc.frame, nil);
+	tc.bcd = 0x00030000;
+	STAssertEquals((unsigned int)4320, tc.frame, nil);
+	tc.bcd = 0x00095923;
+	STAssertEquals((unsigned int)14399, tc.frame, nil);
+	tc.bcd = 0x00100000;
+	STAssertEquals((unsigned int)14400, tc.frame, nil);
+	tc.bcd = 0x00100001;
+	STAssertEquals((unsigned int)14401, tc.frame, nil);
+	tc.bcd = 0x00105923;
+	STAssertEquals((unsigned int)15839, tc.frame, nil);
+	tc.bcd = 0x00110000;
+	STAssertEquals((unsigned int)15840, tc.frame, nil);
+}
+
 - (void)testTC25StringTest01
 {
 	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode25];
@@ -259,6 +417,85 @@
 	tc.string = @"00:10:59:24";
 	STAssertEquals((unsigned int)16499, tc.frame, nil);
 	tc.string = @"00:11:00:00";
+	STAssertEquals((unsigned int)16500, tc.frame, nil);
+}
+
+- (void)testTC25BcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode25];
+	
+	STAssertEquals((unsigned int)0x00000000, tc.bcd, nil);
+	tc.frame = 1;
+	STAssertEquals((unsigned int)0x00000001, tc.bcd, nil);
+	tc.frame = 24;
+	STAssertEquals((unsigned int)0x00000024, tc.bcd, nil);
+	tc.frame = 25;
+	STAssertEquals((unsigned int)0x00000100, tc.bcd, nil);
+	tc.frame = 49;
+	STAssertEquals((unsigned int)0x00000124, tc.bcd, nil);
+	tc.frame = 50;
+	STAssertEquals((unsigned int)0x00000200, tc.bcd, nil);
+	tc.frame = 1499;
+	STAssertEquals((unsigned int)0x00005924, tc.bcd, nil);
+	tc.frame = 1500;
+	STAssertEquals((unsigned int)0x00010000, tc.bcd, nil);
+	tc.frame = 2999;
+	STAssertEquals((unsigned int)0x00015924, tc.bcd, nil);
+	tc.frame = 3000;
+	STAssertEquals((unsigned int)0x00020000, tc.bcd, nil);
+	tc.frame = 4499;
+	STAssertEquals((unsigned int)0x00025924, tc.bcd, nil);
+	tc.frame = 4500;
+	STAssertEquals((unsigned int)0x00030000, tc.bcd, nil);
+	tc.frame = 14999;
+	STAssertEquals((unsigned int)0x00095924, tc.bcd, nil);
+	tc.frame = 15000;
+	STAssertEquals((unsigned int)0x00100000, tc.bcd, nil);
+	tc.frame = 15001;
+	STAssertEquals((unsigned int)0x00100001, tc.bcd, nil);
+	tc.frame = 16499;
+	STAssertEquals((unsigned int)0x00105924, tc.bcd, nil);
+	tc.frame = 16500;
+	STAssertEquals((unsigned int)0x00110000, tc.bcd, nil);
+}
+
+- (void)testTC25SetBcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode25];
+	
+	tc.bcd = 0x00000000;
+	STAssertEquals((unsigned int)0, tc.frame, nil);
+	tc.bcd = 0x00000001;
+	STAssertEquals((unsigned int)1, tc.frame, nil);
+	tc.bcd = 0x00000024;
+	STAssertEquals((unsigned int)24, tc.frame, nil);
+	tc.bcd = 0x00000100;
+	STAssertEquals((unsigned int)25, tc.frame, nil);
+	tc.bcd = 0x00000124;
+	STAssertEquals((unsigned int)49, tc.frame, nil);
+	tc.bcd = 0x00000200;
+	STAssertEquals((unsigned int)50, tc.frame, nil);
+	tc.bcd = 0x00005924;
+	STAssertEquals((unsigned int)1499, tc.frame, nil);
+	tc.bcd = 0x00010000;
+	STAssertEquals((unsigned int)1500, tc.frame, nil);
+	tc.bcd = 0x00015924;
+	STAssertEquals((unsigned int)2999, tc.frame, nil);
+	tc.bcd = 0x00020000;
+	STAssertEquals((unsigned int)3000, tc.frame, nil);
+	tc.bcd = 0x00025924;
+	STAssertEquals((unsigned int)4499, tc.frame, nil);
+	tc.bcd = 0x00030000;
+	STAssertEquals((unsigned int)4500, tc.frame, nil);
+	tc.bcd = 0x00095924;
+	STAssertEquals((unsigned int)14999, tc.frame, nil);
+	tc.bcd = 0x00100000;
+	STAssertEquals((unsigned int)15000, tc.frame, nil);
+	tc.bcd = 0x00100001;
+	STAssertEquals((unsigned int)15001, tc.frame, nil);
+	tc.bcd = 0x00105924;
+	STAssertEquals((unsigned int)16499, tc.frame, nil);
+	tc.bcd = 0x00110000;
 	STAssertEquals((unsigned int)16500, tc.frame, nil);
 }
 
@@ -348,6 +585,96 @@
 	tc.string = @"00:10:59:29";
 	STAssertEquals((unsigned int)19781, tc.frame, nil);
 	tc.string = @"00:11:00:02";
+	STAssertEquals((unsigned int)19782, tc.frame, nil);
+}
+
+
+- (void)testTC2997BcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode2997];
+	
+	STAssertEquals((unsigned int)0x000000, tc.bcd, nil);
+	tc.frame = 1;
+	STAssertEquals((unsigned int)0x00000001, tc.bcd, nil);
+	tc.frame = 2;
+	STAssertEquals((unsigned int)0x00000002, tc.bcd, nil);
+	tc.frame = 29;
+	STAssertEquals((unsigned int)0x00000029, tc.bcd, nil);
+	tc.frame = 30;
+	STAssertEquals((unsigned int)0x00000100, tc.bcd, nil);
+	tc.frame = 59;
+	STAssertEquals((unsigned int)0x00000129, tc.bcd, nil);
+	tc.frame = 60;
+	STAssertEquals((unsigned int)0x00000200, tc.bcd, nil);
+	tc.frame = 1799;
+	STAssertEquals((unsigned int)0x00005929, tc.bcd, nil);
+	tc.frame = 1800;
+	STAssertEquals((unsigned int)0x00010002, tc.bcd, nil);
+	tc.frame = 3597;
+	STAssertEquals((unsigned int)0x00015929, tc.bcd, nil);
+	tc.frame = 3598;
+	STAssertEquals((unsigned int)0x00020002, tc.bcd, nil);
+	tc.frame = 5395;
+	STAssertEquals((unsigned int)0x00025929, tc.bcd, nil);
+	tc.frame = 5396;
+	STAssertEquals((unsigned int)0x00030002, tc.bcd, nil);
+	tc.frame = 7193;
+	STAssertEquals((unsigned int)0x00035929, tc.bcd, nil);
+	tc.frame = 7194;
+	STAssertEquals((unsigned int)0x00040002, tc.bcd, nil);
+	tc.frame = 17981;
+	STAssertEquals((unsigned int)0x00095929, tc.bcd, nil);
+	tc.frame = 17982;
+	STAssertEquals((unsigned int)0x00100000, tc.bcd, nil);
+	tc.frame = 17983;
+	STAssertEquals((unsigned int)0x00100001, tc.bcd, nil);
+	tc.frame = 19781;
+	STAssertEquals((unsigned int)0x00105929, tc.bcd, nil);
+	tc.frame = 19782;
+	STAssertEquals((unsigned int)0x00110002, tc.bcd, nil);
+}
+
+- (void)testTC2997SetBcdTest01
+{
+	DWTimeCode * tc =[[DWTimeCode alloc] initWithType:kDWTimeCode2997];
+	
+	tc.bcd = 0x00000000;
+	STAssertEquals((unsigned int)0, tc.frame, nil);
+	tc.bcd = 0x00000001;
+	STAssertEquals((unsigned int)1, tc.frame, nil);
+	tc.bcd = 0x00000029;
+	STAssertEquals((unsigned int)29, tc.frame, nil);
+	tc.bcd = 0x00000100;
+	STAssertEquals((unsigned int)30, tc.frame, nil);
+	tc.bcd = 0x00000129;
+	STAssertEquals((unsigned int)59, tc.frame, nil);
+	tc.bcd = 0x00000200;
+	STAssertEquals((unsigned int)60, tc.frame, nil);
+	tc.bcd = 0x00005929;
+	STAssertEquals((unsigned int)1799, tc.frame, nil);
+	tc.bcd = 0x00010002;
+	STAssertEquals((unsigned int)1800, tc.frame, nil);
+	tc.bcd = 0x00015929;
+	STAssertEquals((unsigned int)3597, tc.frame, nil);
+	tc.bcd = 0x00020002;
+	STAssertEquals((unsigned int)3598, tc.frame, nil);
+	tc.bcd = 0x00025929;
+	STAssertEquals((unsigned int)5395, tc.frame, nil);
+	tc.bcd = 0x00030002;
+	STAssertEquals((unsigned int)5396, tc.frame, nil);
+	tc.bcd = 0x00035929;
+	STAssertEquals((unsigned int)7193, tc.frame, nil);
+	tc.bcd = 0x00040002;
+	STAssertEquals((unsigned int)7194, tc.frame, nil);
+	tc.bcd = 0x00095929;
+	STAssertEquals((unsigned int)17981, tc.frame, nil);
+	tc.bcd = 0x00100000;
+	STAssertEquals((unsigned int)17982, tc.frame, nil);
+	tc.bcd = 0x00100001;
+	STAssertEquals((unsigned int)17983, tc.frame, nil);
+	tc.bcd = 0x00105929;
+	STAssertEquals((unsigned int)19781, tc.frame, nil);
+	tc.bcd = 0x00110002;
 	STAssertEquals((unsigned int)19782, tc.frame, nil);
 }
 

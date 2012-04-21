@@ -108,6 +108,37 @@
 	}
 }
 
+-(unsigned int)bcd {
+	unsigned int hh, mm, ss, ff, result;
+	[self getHh:&hh Mm:&mm Ss:&ss Ff:&ff];
+	
+	result = ff % 10; 
+	result += (ff/10) << 4;
+	result += (ss % 10) << 8;
+	result += (ss/10) << 12;
+	result += (mm % 10) << 16; 
+	result += (mm/10) << 20;
+	result += (hh % 10) << 24;
+	result += (hh/10) << 28;
+	
+	return result;
+}
+
+-(void)setBcd:(unsigned int)bcd {
+	unsigned int hh, mm, ss, ff;
+	
+	hh = (bcd >> 28) * 10;
+	hh += (bcd >> 24) & 0x0f;
+	mm = ((bcd >> 20) & 0x0f) * 10;
+	mm += (bcd >> 16) & 0x0f;
+	ss = ((bcd >> 12) & 0x0f) * 10; 
+	ss += (bcd >> 8) & 0x0f;
+	ff = ((bcd >> 4) & 0x0f) * 10;
+	ff += bcd & 0x0f;
+	
+	[self setHh:hh Mm:mm Ss:ss Ff:ff];
+}
+
 -(void)setHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff {
 	if ((hh<24) && (mm<60) && (ss<60) && (ff<self.fps)) {
 		unsigned int dropframe = 0;
