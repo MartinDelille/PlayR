@@ -94,7 +94,18 @@
 }
 
 -(void)setString:(NSString *)string {
-		// TODO
+	NSArray * list = [string componentsSeparatedByString:@":"];
+	if (list.count != 4) {
+		[NSException raise:@"Bad TC string" format:@"Bad TC string: %@", string];
+	}
+	else {
+		unsigned int hh, mm, ss, ff;
+		hh = [[list objectAtIndex:0] intValue];
+		mm = [[list objectAtIndex:1] intValue];
+		ss = [[list objectAtIndex:2] intValue];
+		ff = [[list objectAtIndex:3] intValue];
+		[self setHh:hh Mm:mm Ss:ss Ff:ff];
+	}
 }
 
 -(void)setHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff {
