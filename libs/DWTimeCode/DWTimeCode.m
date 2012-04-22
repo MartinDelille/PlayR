@@ -9,6 +9,7 @@
 #import "DWTimeCode.h"
 
 @implementation DWTimeCode {
+	DWTime time;
 	DWTimeCodeType type;
 }
 
@@ -26,9 +27,15 @@
 	return self;
 }
 
--(id)initWithFrame:(unsigned int)frame andType:(DWTimeCodeType)aType {
+-(id)initWithFrame:(DWFrame)frame andType:(DWTimeCodeType)aType {
 	self = [self initWithType:aType];
 	self.frame = frame;
+	return self;
+}
+
+-(id)initWithString:(NSString *)string andType:(DWTimeCodeType)aType {
+	self = [self initWithType:aType];
+	self.string = string;
 	return self;
 }
 
@@ -36,16 +43,16 @@
 	return type == kDWTimeCode2997;
 }
 
-+(unsigned int)getTimePerFrame:(DWTimeCodeType)type {
++(DWTime)getTimePerFrame:(DWTimeCodeType)type {
 	switch (type) {
 		case kDWTimeCode2398:
-			return 1001;
+			return 8008;
 		case kDWTimeCode24:
-			return 1000;
+			return 8000;
 		case kDWTimeCode25:
-			return 960;
+			return 7680;
 		case kDWTimeCode2997:
-			return 801;
+			return 6408;
 		default:
 			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", type];
 			return 0;
@@ -67,7 +74,7 @@
 	}
 }
 
--(unsigned int)fps {
+-(long)fps {
 	return [DWTimeCode getFps:self.type];
 }
 
@@ -75,12 +82,12 @@
 	return [DWTimeCode isDrop:self.type];
 }
 
--(unsigned int)frame {
-	return self.time / [DWTimeCode getTimePerFrame:self.type];
+-(DWFrame)frame {
+	return time / [DWTimeCode getTimePerFrame:self.type];
 }
 
--(void)setFrame:(unsigned int)frame {
-	self.time = frame * [DWTimeCode getTimePerFrame:self.type];
+-(void)setFrame:(DWFrame)frame {
+	time = frame * [DWTimeCode getTimePerFrame:self.type];
 }
 
 - (DWTimeCodeType)type {

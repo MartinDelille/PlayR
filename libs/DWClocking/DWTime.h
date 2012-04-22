@@ -8,39 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-/** Time model
- 
- Provide a representation of a time value
+/** 
+ Amount of time unit per second.
  */
-@interface DWTime : NSObject
+#define DWTIMESCALE 192000
 
 /** 
- Amount of time since the time origin 0 according to its scale.
+ Amount of time unit (according to the DWTIMESCALE) since the origin.
  */
-@property unsigned int time;
-/** Amount of time unit per second. */
-@property unsigned int scale;
+typedef long DWTime;
 
-/** Amout of hours since the time origne 0 (floor rounding) */
-@property(readonly) unsigned int hh;
-
-/** Amout of minutes since the time origne 0 (floor rounding) */
-@property(readonly) unsigned int mm;
-
-/** Amout of secondes since the time origne 0 (floor rounding) */
-@property(readonly) unsigned ss;
-
-/** 
- Initialize the object with a scale value
- @param scale to use.
- @return The object instance.
- */
--(id)initWithScale:(long)scale;
-/** 
- Initialize the object with a time and a scale value
- @param time to use.
- @param scale to use.
- @return The object instance.
- */
--(id)initWithTime:(long)t andScale:(long)s;
-@end

@@ -11,7 +11,6 @@
 		58C064B61540866100370618 /* DWClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C064B41540866100370618 /* DWClock.m */; };
 		58D6CAAF1539A64D00CAB720 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CAAE1539A64D00CAB720 /* Cocoa.framework */; };
 		58D6CAC71539A79300CAB720 /* DWTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 58D6CAC51539A79300CAB720 /* DWTime.h */; };
-		58D6CAC81539A79300CAB720 /* DWTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6CAC61539A79300CAB720 /* DWTime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		58D6CAB31539A64D00CAB720 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58D6CAB61539A64D00CAB720 /* DWClocking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWClocking-Prefix.pch"; path = "../DWClocking-Prefix.pch"; sourceTree = "<group>"; };
 		58D6CAC51539A79300CAB720 /* DWTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTime.h; sourceTree = "<group>"; };
-		58D6CAC61539A79300CAB720 /* DWTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTime.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +43,6 @@
 				58C064B31540866100370618 /* DWClock.h */,
 				58C064B41540866100370618 /* DWClock.m */,
 				58D6CAC51539A79300CAB720 /* DWTime.h */,
-				58D6CAC61539A79300CAB720 /* DWTime.m */,
 				58D6CAB51539A64D00CAB720 /* Supporting Files */,
 				58D6CAAD1539A64D00CAB720 /* Frameworks */,
 				58D6CAAC1539A64D00CAB720 /* Products */,
@@ -151,7 +148,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D6CAC81539A79300CAB720 /* DWTime.m in Sources */,
 				58C064B61540866100370618 /* DWClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

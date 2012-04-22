@@ -10,20 +10,20 @@
 
 @implementation DWClock
 @synthesize time;
-@synthesize timePerTick;
+@synthesize rate;
 
 -(id)init {
 	self = [super init];
-	time = [[DWTime alloc] init];
-	timePerTick = [[DWTime alloc] init];
+	time = 0;
+	rate = 0.0;
 	return self;
 }
 
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%@@%@", time, timePerTick];
+	return [NSString stringWithFormat:@"%@@%@", time, rate];
 }
 
--(void)tick {
-	time.time += timePerTick.time;
+-(void)tick:(DWTime)interval {
+	time += (DWTime)(rate * interval);
 }
 @end

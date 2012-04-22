@@ -18,10 +18,17 @@
 /** 
  Current clock time.
  */
-@property DWTime * time;
+@property DWTime time;
 
-@property DWTime * timePerTick;
+/**
+ Current clock time.
+ */
+@property double rate;
 
--(void)tick;
+/** 
+ Tell to the clock that an interval of elapsed time.
+ @param interval Amount of elapsed time.
+ */
+-(void)tick:(DWTime)interval;
 
 @end
