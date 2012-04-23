@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DWSonyPort/DWSonyPort.h"
+#import "DWSony/DWSonyPort.h"
 #import "DWClocking/DWClock.h"
 #import "DWTimeCode/DWTimeCode.h"
 

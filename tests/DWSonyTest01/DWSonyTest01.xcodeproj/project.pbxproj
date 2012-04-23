@@ -10,11 +10,11 @@
 		58086612152B58DE0006989A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086611152B58DE0006989A /* Foundation.framework */; };
 		58086622152B59510006989A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58086621152B59510006989A /* main.m */; };
 		58086625152B66E20006989A /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086623152B66E20006989A /* libAMSerialPort.a */; };
-		58086626152B66E20006989A /* libDWSonyPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086624152B66E20006989A /* libDWSonyPort.a */; };
 		58086628152B66F80006989A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086627152B66F80006989A /* CoreServices.framework */; };
 		5808662A152B67000006989A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086629152B66FF0006989A /* IOKit.framework */; };
 		5815C9891545A22D00A6329E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9871545A22D00A6329E /* libDWClocking.a */; };
 		5815C98A1545A22D00A6329E /* libDWTimeCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9881545A22D00A6329E /* libDWTimeCode.a */; };
+		5815C9CE1545B73E00A6329E /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9CD1545B73E00A6329E /* libDWSony.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +41,7 @@
 		58086629152B66FF0006989A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5815C9871545A22D00A6329E /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWClocking.a; path = ../../libs/DWClocking/build/Release/libDWClocking.a; sourceTree = "<group>"; };
 		5815C9881545A22D00A6329E /* libDWTimeCode.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWTimeCode.a; path = ../../libs/DWTimeCode/build/Release/libDWTimeCode.a; sourceTree = "<group>"; };
+		5815C9CD1545B73E00A6329E /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWSony.a; path = ../../libs/DWSony/build/Release/libDWSony.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,12 +49,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5815C9CE1545B73E00A6329E /* libDWSony.a in Frameworks */,
 				5815C9891545A22D00A6329E /* libDWClocking.a in Frameworks */,
 				5815C98A1545A22D00A6329E /* libDWTimeCode.a in Frameworks */,
 				5808662A152B67000006989A /* IOKit.framework in Frameworks */,
 				58086628152B66F80006989A /* CoreServices.framework in Frameworks */,
 				58086625152B66E20006989A /* libAMSerialPort.a in Frameworks */,
-				58086626152B66E20006989A /* libDWSonyPort.a in Frameworks */,
 				58086612152B58DE0006989A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +65,7 @@
 		58086602152B58DE0006989A = {
 			isa = PBXGroup;
 			children = (
+				5815C9CD1545B73E00A6329E /* libDWSony.a */,
 				5815C9871545A22D00A6329E /* libDWClocking.a */,
 				5815C9881545A22D00A6329E /* libDWTimeCode.a */,
 				58086629152B66FF0006989A /* IOKit.framework */,

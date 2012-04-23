@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5815C9A11545B60500A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9A01545B60500A6329E /* Cocoa.framework */; };
+		5815C9B31545B60500A6329E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9B21545B60500A6329E /* SenTestingKit.framework */; };
+		5815C9B41545B60500A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9A01545B60500A6329E /* Cocoa.framework */; };
+		5815C9B71545B60500A6329E /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C99D1545B60500A6329E /* libDWSony.a */; };
+		5815C9BD1545B60500A6329E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5815C9BB1545B60500A6329E /* InfoPlist.strings */; };
+		5815C9C01545B60500A6329E /* DWSonyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9BF1545B60500A6329E /* DWSonyTests.m */; };
+		5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */ = {isa = PBXBuildFile; fileRef = 5815C9C91545B6F100A6329E /* DWSonyPort.h */; };
+		5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9CA1545B6F100A6329E /* DWSonyPort.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5815C9B51545B60500A6329E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5815C9941545B60500A6329E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5815C99C1545B60500A6329E;
+			remoteInfo = DWSony;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5815C99D1545B60500A6329E /* libDWSony.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWSony.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5815C9A01545B60500A6329E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5815C9A31545B60500A6329E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5815C9A41545B60500A6329E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5815C9A51545B60500A6329E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5815C9A81545B60500A6329E /* DWSony-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWSony-Prefix.pch"; path = "../DWSony-Prefix.pch"; sourceTree = "<group>"; };
+		5815C9B11545B60500A6329E /* DWSonyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWSonyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5815C9B21545B60500A6329E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5815C9BA1545B60500A6329E /* DWSonyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWSonyTests-Info.plist"; sourceTree = "<group>"; };
+		5815C9BC1545B60500A6329E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5815C9BE1545B60500A6329E /* DWSonyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWSonyTests.h; sourceTree = "<group>"; };
+		5815C9BF1545B60500A6329E /* DWSonyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWSonyTests.m; sourceTree = "<group>"; };
+		5815C9C91545B6F100A6329E /* DWSonyPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonyPort.h; sourceTree = "<group>"; };
+		5815C9CA1545B6F100A6329E /* DWSonyPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyPort.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5815C99A1545B60500A6329E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9A11545B60500A6329E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815C9AD1545B60500A6329E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9B31545B60500A6329E /* SenTestingKit.framework in Frameworks */,
+				5815C9B41545B60500A6329E /* Cocoa.framework in Frameworks */,
+				5815C9B71545B60500A6329E /* libDWSony.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5815C9921545B60500A6329E = {
+			isa = PBXGroup;
+			children = (
+				5815C9C91545B6F100A6329E /* DWSonyPort.h */,
+				5815C9CA1545B6F100A6329E /* DWSonyPort.m */,
+				5815C9A71545B60500A6329E /* Supporting Files */,
+				5815C9B81545B60500A6329E /* DWSonyTests */,
+				5815C99F1545B60500A6329E /* Frameworks */,
+				5815C99E1545B60500A6329E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5815C99E1545B60500A6329E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5815C99D1545B60500A6329E /* libDWSony.a */,
+				5815C9B11545B60500A6329E /* DWSonyTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5815C99F1545B60500A6329E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9A01545B60500A6329E /* Cocoa.framework */,
+				5815C9B21545B60500A6329E /* SenTestingKit.framework */,
+				5815C9A21545B60500A6329E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5815C9A21545B60500A6329E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9A31545B60500A6329E /* AppKit.framework */,
+				5815C9A41545B60500A6329E /* CoreData.framework */,
+				5815C9A51545B60500A6329E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		5815C9A71545B60500A6329E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9A81545B60500A6329E /* DWSony-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = DWSony;
+			sourceTree = "<group>";
+		};
+		5815C9B81545B60500A6329E /* DWSonyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9BE1545B60500A6329E /* DWSonyTests.h */,
+				5815C9BF1545B60500A6329E /* DWSonyTests.m */,
+				5815C9B91545B60500A6329E /* Supporting Files */,
+			);
+			path = DWSonyTests;
+			sourceTree = "<group>";
+		};
+		5815C9B91545B60500A6329E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9BA1545B60500A6329E /* DWSonyTests-Info.plist */,
+				5815C9BB1545B60500A6329E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5815C99B1545B60500A6329E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5815C99C1545B60500A6329E /* DWSony */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5815C9C31545B60500A6329E /* Build configuration list for PBXNativeTarget "DWSony" */;
+			buildPhases = (
+				5815C9991545B60500A6329E /* Sources */,
+				5815C99A1545B60500A6329E /* Frameworks */,
+				5815C99B1545B60500A6329E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWSony;
+			productName = DWSony;
+			productReference = 5815C99D1545B60500A6329E /* libDWSony.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5815C9B01545B60500A6329E /* DWSonyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5815C9C61545B60500A6329E /* Build configuration list for PBXNativeTarget "DWSonyTests" */;
+			buildPhases = (
+				5815C9AC1545B60500A6329E /* Sources */,
+				5815C9AD1545B60500A6329E /* Frameworks */,
+				5815C9AE1545B60500A6329E /* Resources */,
+				5815C9AF1545B60500A6329E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5815C9B61545B60500A6329E /* PBXTargetDependency */,
+			);
+			name = DWSonyTests;
+			productName = DWSonyTests;
+			productReference = 5815C9B11545B60500A6329E /* DWSonyTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5815C9941545B60500A6329E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 5815C9971545B60500A6329E /* Build configuration list for PBXProject "DWSony" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5815C9921545B60500A6329E;
+			productRefGroup = 5815C99E1545B60500A6329E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5815C99C1545B60500A6329E /* DWSony */,
+				5815C9B01545B60500A6329E /* DWSonyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5815C9AE1545B60500A6329E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9BD1545B60500A6329E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5815C9AF1545B60500A6329E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5815C9991545B60500A6329E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815C9AC1545B60500A6329E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9C01545B60500A6329E /* DWSonyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5815C9B61545B60500A6329E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5815C99C1545B60500A6329E /* DWSony */;
+			targetProxy = 5815C9B51545B60500A6329E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5815C9BB1545B60500A6329E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5815C9BC1545B60500A6329E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5815C9C11545B60500A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ..;
+			};
+			name = Debug;
+		};
+		5815C9C21545B60500A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ..;
+			};
+			name = Release;
+		};
+		5815C9C41545B60500A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSony-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5815C9C51545B60500A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSony-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5815C9C71545B60500A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSony/DWSony-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyTests/DWSonyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5815C9C81545B60500A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSony/DWSony-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyTests/DWSonyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5815C9971545B60500A6329E /* Build configuration list for PBXProject "DWSony" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815C9C11545B60500A6329E /* Debug */,
+				5815C9C21545B60500A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5815C9C31545B60500A6329E /* Build configuration list for PBXNativeTarget "DWSony" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815C9C41545B60500A6329E /* Debug */,
+				5815C9C51545B60500A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5815C9C61545B60500A6329E /* Build configuration list for PBXNativeTarget "DWSonyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815C9C71545B60500A6329E /* Debug */,
+				5815C9C81545B60500A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5815C9941545B60500A6329E /* Project object */;
+}
