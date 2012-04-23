@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "DWTime.h"
+#import "DWTickable.h"
 
 /** Mother class for clock component.
  
  This class is the base class for clock system.
  */
-@interface DWClock : NSObject
+@interface DWClock : NSObject<DWTickable>
 
 /** 
  Current clock time.

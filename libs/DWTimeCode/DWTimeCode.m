@@ -27,9 +27,15 @@
 	return self;
 }
 
--(id)initWithFrame:(DWFrame)frame andType:(DWTimeCodeType)aType {
+-(id)initWithTime:(DWTime)aTime andType:(DWTimeCodeType)aType {
 	self = [self initWithType:aType];
-	self.frame = frame;
+	time = aTime;
+	return self;
+}
+
+-(id)initWithFrame:(DWFrame)aFrame andType:(DWTimeCodeType)aType {
+	self = [self initWithType:aType];
+	self.frame = aFrame;
 	return self;
 }
 
@@ -59,7 +65,7 @@
 	}
 }
 
-+(unsigned int)getFps:(DWTimeCodeType)type {
++(DWFrame)getFps:(DWTimeCodeType)type {
 	switch (type) {
 		case kDWTimeCode2398:
 		case kDWTimeCode24:
@@ -95,7 +101,7 @@
 }
 
 -(NSString *)string {
-	unsigned int hh, mm, ss, ff;
+	unsigned char hh, mm, ss, ff;
 	[self getHh:&hh Mm:&mm Ss:&ss Ff:&ff];
 	return [NSString stringWithFormat:@"%02d:%02d:%02d:%02d", hh, mm, ss, ff];
 }
@@ -106,7 +112,7 @@
 		[NSException raise:@"Bad TC string" format:@"Bad TC string: %@", string];
 	}
 	else {
-		unsigned int hh, mm, ss, ff;
+		unsigned char hh, mm, ss, ff;
 		hh = [[list objectAtIndex:0] intValue];
 		mm = [[list objectAtIndex:1] intValue];
 		ss = [[list objectAtIndex:2] intValue];
@@ -116,7 +122,8 @@
 }
 
 -(unsigned int)bcd {
-	unsigned int hh, mm, ss, ff, result;
+	unsigned char hh, mm, ss, ff;
+	unsigned int result;
 	[self getHh:&hh Mm:&mm Ss:&ss Ff:&ff];
 	
 	result = ff % 10; 
@@ -132,7 +139,7 @@
 }
 
 -(void)setBcd:(unsigned int)bcd {
-	unsigned int hh, mm, ss, ff;
+	unsigned char hh, mm, ss, ff;
 	
 	hh = (bcd >> 28) * 10;
 	hh += (bcd >> 24) & 0x0f;
@@ -146,9 +153,9 @@
 	[self setHh:hh Mm:mm Ss:ss Ff:ff];
 }
 
--(void)setHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff {
+-(void)setHh:(unsigned char)hh Mm:(unsigned char)mm Ss:(unsigned char)ss Ff:(unsigned char)ff {
 	if ((hh<24) && (mm<60) && (ss<60) && (ff<self.fps)) {
-		unsigned int dropframe = 0;
+		DWFrame dropframe = 0;
 		if (self.drop) {
 			// counting drop per hour
 			dropframe += hh * 108;
@@ -164,25 +171,25 @@
 	}
 }
 
--(void)getHh:(unsigned int *)hh Mm:(unsigned int *)mm Ss:(unsigned int *)ss Ff:(unsigned int *)ff {
-	unsigned int n = self.frame;
+-(void)getHh:(unsigned char *)hh Mm:(unsigned char *)mm Ss:(unsigned char *)ss Ff:(unsigned char *)ff {
+	DWFrame n = self.frame;
 	
 	// computing hour
-	unsigned int framePerHour = 3600 * self.fps;
+	DWFrame framePerHour = 3600 * self.fps;
 	if(self.drop)
 		framePerHour -= 108;
 	*hh = n / framePerHour;
 	n = n % framePerHour;
 	
 	// computing tenth of minutes
-	unsigned int framePerTenMinutes = 600 * self.fps;
+	DWFrame framePerTenMinutes = 600 * self.fps;
 	if(self.drop)
 		framePerTenMinutes -= 18;
 	*mm = 10 * (n / framePerTenMinutes);
 	n = n % framePerTenMinutes;
 	
 	// computing minutes
-	unsigned int framePerMinute = 60 * self.fps;
+	DWFrame framePerMinute = 60 * self.fps;
 	if (n >= framePerMinute) {
 		*mm += 1;
 		n -= framePerMinute;
@@ -195,7 +202,7 @@
 	}
 	
 	// computing seconds
-	unsigned int framePerSecond = self.fps;
+	DWFrame framePerSecond = self.fps;
 	
 	if (self.drop && (*mm % 10 > 0)) {
 		if (n < framePerSecond - 2) {

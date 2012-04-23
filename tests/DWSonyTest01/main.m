@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DWSonyPort/DWSonyPort.h"
-#import "SonyClockTest.h"
+#import "DWClocking/DWClock.h"
+#import "DWTimeCode/DWTimeCode.h"
 
 int main(int argc, const char * argv[])
 {
@@ -16,14 +17,16 @@ int main(int argc, const char * argv[])
 	    
 	    // insert code here...
 	    NSLog(@"Hello, World!");
-		NSString * devicePath = @"/dev/cu.usbserial-00002006B";
+		NSString * devicePath = @"/dev/cu.usbserial-00001004B";
 		DWSonyPort *sony = [[DWSonyPort alloc] initWithDevicePath:devicePath];
 		if(sony != nil) {
-			SonyClockTest * clock = [[SonyClockTest alloc] init];
+			DWClock * clock = [[DWClock alloc] init];
+			clock.rate = 0;
 			sony.videoRefDelegate = clock;
 			unsigned char cmd1, cmd2;
 			unsigned char buffer[256];
-			for (int i=0; i<10; i++) {				
+			BOOL looping = YES;
+			while (looping) {			
 				if([sony readCommand:&cmd1 cmd2:&cmd2 data:buffer]) {
 					switch (cmd1 >> 4) {
 						case 0:
@@ -44,13 +47,36 @@ int main(int argc, const char * argv[])
 								default:
 									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 									[sony sendNak:0x00];
+									looping = NO;
+									break;
+							}
+							break;
+						case 2:
+							switch (cmd2) {
+								case 0x00:
+									NSLog(@"Play => ACK");
+									clock.rate = 0;
+									[sony sendAck];
+									break;
+								case 0x01:
+									NSLog(@"Play => ACK");
+									clock.rate = 1;
+									[sony sendAck];
+									break;
+								default:
+									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+									[sony sendNak:0x00];
+									looping = NO;
 									break;
 							}
 							break;
 						case 6:
 							switch (cmd2) {
 								case 0x0c:
-									NSLog(@"Current Time Sense => 23:34:56:03");
+								{
+									// TODO : handle properly
+									DWTimeCode *tc = [[DWTimeCode alloc] initWithTime:clock.time andType:kDWTimeCode25];
+									NSLog(@"Current Time Sense => %@", tc.string);
 									buffer[0] = 0x74;
 									switch (buffer[0]) {
 										case 0x01:
@@ -75,10 +101,14 @@ int main(int argc, const char * argv[])
 											cmd2 = 0x04;
 											break;
 									}
-									[sony sendCommandWithArgument:0x74 cmd2:cmd2, 0x04, 0x03, 0x02, 0x01];
+									unsigned char hh, mm, ss, ff;
+									[tc getHh:&hh Mm:&mm Ss:&ss Ff:&ff];
+									[sony sendCommandWithArgument:0x74 cmd2:cmd2, ff, ss, mm, hh];
 									break;
+								}
 								case 0x20:
 								{
+									// TODO : handle properly
 									NSLog(@"Status Sense (%x) => Status Data", buffer[0]);
 									unsigned char count = buffer[0] & 0xf;
 									for (int i=0; i<count; i++) {
@@ -89,6 +119,7 @@ int main(int argc, const char * argv[])
 								}
 								case 0x30:
 								{
+									// TODO : handle properly
 									NSLog(@"Edit Preset Sense => Edit Preset Status");
 									unsigned char count = buffer[0];
 									for (int i=0; i<count; i++) {
@@ -100,12 +131,14 @@ int main(int argc, const char * argv[])
 								default:
 									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 									[sony sendNak:0x00];
+									looping = NO;
 									break;
 							}
 							break;
 						default:
 							NSLog(@"Unknown command : %x => NAK", cmd1);
 							[sony sendNak:0x00];
+							looping = NO;
 							break;
 					}
 

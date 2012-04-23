@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../libs/DWTimeCode/DWTimeCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../libs/DWClocking/DWClocking.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../tests/DWSonyTest01/DWSonyTest01.xcodeproj">
    </FileRef>
    <FileRef

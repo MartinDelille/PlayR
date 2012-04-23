@@ -64,12 +64,20 @@ typedef enum {
 -(id)initWithType:(DWTimeCodeType)aType;
 
 /** 
+ Initialize a timecode with a time value and a type
+ @param aFrame A time number.
+ @param aType A DWTimeCodeType value.
+ @return An initialized DWTimeCode object.
+ */
+-(id)initWithTime:(DWTime)aTime andType:(DWTimeCodeType)aType;
+
+/** 
  Initialize a timecode with a frame number and a type
  @param frame A frame number.
  @param aType A DWTimeCodeType value.
  @return An initialized DWTimeCode object.
  */
--(id)initWithFrame:(DWFrame)frame andType:(DWTimeCodeType)aType;
+-(id)initWithFrame:(DWFrame)aFrame andType:(DWTimeCodeType)aType;
 
 /** 
  Initialize a timecode with a string number and a type
@@ -78,5 +86,8 @@ typedef enum {
  @return An initialized DWTimeCode object.
  */
 -(id)initWithString:(NSString*)string andType:(DWTimeCodeType)aType;
+
+-(void)setHh:(unsigned char)hh Mm:(unsigned char)mm Ss:(unsigned char)ss Ff:(unsigned char)ff;
+-(void)getHh:(unsigned char *)hh Mm:(unsigned char *)mm Ss:(unsigned char *)ss Ff:(unsigned char *)ff;
 
 @end

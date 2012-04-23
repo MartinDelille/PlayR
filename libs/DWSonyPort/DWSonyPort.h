@@ -8,19 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/** Handle video ref change
- 
- This protocol is used for video ref change in the sony protocol.
- */
-@protocol Ticking
-
-/** 
- Send a tick message to the delegate.
- */
--(void)tick;
-
-@end
-
+#import "DWClocking/DWTickable.h"
 
 /** Handles Sony port comunication
  
@@ -78,6 +66,6 @@
 /** 
  This delegate proceed the video reference tick.
  */
-@property id<Ticking> videoRefDelegate;
+@property id<DWTickable> videoRefDelegate;
 
 @end

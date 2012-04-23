@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5815C9841545A03700A6329E /* DWTickable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTickable.h; sourceTree = "<group>"; };
 		58C064B31540866100370618 /* DWClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWClock.h; sourceTree = "<group>"; };
 		58C064B41540866100370618 /* DWClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWClock.m; sourceTree = "<group>"; };
 		58D6CAAB1539A64D00CAB720 /* libDWClocking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWClocking.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +41,7 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				5815C9841545A03700A6329E /* DWTickable.h */,
 				58C064B31540866100370618 /* DWClock.h */,
 				58C064B41540866100370618 /* DWClock.m */,
 				58D6CAC51539A79300CAB720 /* DWTime.h */,
