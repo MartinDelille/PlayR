@@ -5,6 +5,9 @@
       location = "container:"
       name = "libs">
       <FileRef
+         location = "group:../libs/DWTools/DWTools.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "absolute:/Users/martindelille/Dropbox/code/PlayR/tests/DWClockingTest01/../../libs/DWClocking/DWClocking.xcodeproj">
       </FileRef>
    </Group>

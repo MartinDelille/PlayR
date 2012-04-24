@@ -17,12 +17,18 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	clock = [[DWClock alloc] initWithType:kDWTimeCode24];
+	
+	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	clock.tcString = @"01:00:00:00";
-	self.tcText.stringValue = clock.tcString;
 }
 
 - (IBAction)nextFrame:(id)sender {
 	clock.frame++;
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	self.tcText.stringValue = clock.tcString;
 }
+
+
 @end
