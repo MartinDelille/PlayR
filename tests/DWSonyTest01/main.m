@@ -10,7 +10,7 @@
 #import "DWTools/DWLogger.h"
 #import "DWSony/DWSonyPort.h"
 #import "DWClocking/DWClock.h"
-#import "DWTimeCode/DWTimeCode.h"
+#import "DWClocking/DWTimeCode.h"
 
 int main(int argc, const char * argv[])
 {
@@ -25,6 +25,7 @@ int main(int argc, const char * argv[])
 		if(sony != nil) {
 			DWClock * clock = [[DWClock alloc] init];
 			clock.rate = 0;
+			clock.tcString = @"01:00:00:00";
 			sony.videoRefDelegate = clock;
 			unsigned char cmd1, cmd2;
 			unsigned char buffer[256];
@@ -78,8 +79,7 @@ int main(int argc, const char * argv[])
 								case 0x0c:
 								{
 									// TODO : handle properly
-									DWTimeCode *tc = [[DWTimeCode alloc] initWithTime:clock.time andType:kDWTimeCode25];
-									DWLog(@"Current Time Sense => %@", tc.string);
+									DWLog(@"Current Time Sense => %@", clock.tcString);
 									buffer[0] = 0x74;
 									switch (buffer[0]) {
 										case 0x01:
@@ -105,7 +105,7 @@ int main(int argc, const char * argv[])
 											break;
 									}
 									unsigned char hh, mm, ss, ff;
-									[tc getHh:&hh Mm:&mm Ss:&ss Ff:&ff];
+									[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:clock.frame andType:clock.type];
 									[sony sendCommandWithArgument:0x74 cmd2:cmd2, ff, ss, mm, hh];
 									break;
 								}

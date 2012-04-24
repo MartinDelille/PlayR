@@ -29,8 +29,12 @@
 	return self;
 }
 
+-(DWTimeCodeType)type {
+	return _type;
+}
+
 -(DWTime)timePerFrame {
-	switch (_type) {
+	switch (self.type) {
 		case kDWTimeCode2398:
 			return DWTC2398FRAMEDURATION;
 		case kDWTimeCode24:
@@ -40,7 +44,7 @@
 		case kDWTimeCode2997:
 			return DWTC2997FRAMEDURATION;
 		default:
-			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", _type];
+			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", self.type];
 			return 0;
 	}
 }
@@ -66,11 +70,11 @@
 }
 
 -(void)setTcString:(NSString *)tcString {
-	self.frame = [DWTimeCode frameFromString:tcString andType:_type];
+	self.frame = [DWTimeCode frameFromString:tcString andType:self.type];
 }
 
 -(NSString *)tcString {
-	return [DWTimeCode stringFromFrame:self.frame andType:_type];
+	return [DWTimeCode stringFromFrame:self.frame andType:self.type];
 }
 
 -(NSString *)description {

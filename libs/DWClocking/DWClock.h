@@ -27,6 +27,8 @@
  */
 @property double rate;
 
+@property(readonly) DWTimeCodeType type;
+
 /**
  Current frame number according to the clock timecode type.
  */
