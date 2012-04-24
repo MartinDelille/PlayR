@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58ADABB11547163700C9C40E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABB01547163700C9C40E /* Cocoa.framework */; };
+		58ADABBB1547163700C9C40E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58ADABB91547163700C9C40E /* InfoPlist.strings */; };
+		58ADABBD1547163700C9C40E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABBC1547163700C9C40E /* main.m */; };
+		58ADABC11547163700C9C40E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58ADABBF1547163700C9C40E /* Credits.rtf */; };
+		58ADABC41547163700C9C40E /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABC31547163700C9C40E /* DWAppDelegate.m */; };
+		58ADABC71547163700C9C40E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58ADABC51547163700C9C40E /* MainMenu.xib */; };
+		58ADABD11547182000C9C40E /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABCD1547182000C9C40E /* libAMSerialPort.a */; };
+		58ADABD21547182000C9C40E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABCE1547182000C9C40E /* libDWClocking.a */; };
+		58ADABD31547182000C9C40E /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABCF1547182000C9C40E /* libDWSony.a */; };
+		58ADABD41547182000C9C40E /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABD01547182000C9C40E /* libDWTools.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58ADABAC1547163700C9C40E /* DWSonyTest02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyTest02.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58ADABB01547163700C9C40E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		58ADABB31547163700C9C40E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		58ADABB41547163700C9C40E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		58ADABB51547163700C9C40E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58ADABB81547163700C9C40E /* DWSonyTest02-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWSonyTest02-Info.plist"; sourceTree = "<group>"; };
+		58ADABBA1547163700C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58ADABBC1547163700C9C40E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58ADABBE1547163700C9C40E /* DWSonyTest02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWSonyTest02-Prefix.pch"; sourceTree = "<group>"; };
+		58ADABC01547163700C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		58ADABC21547163700C9C40E /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
+		58ADABC31547163700C9C40E /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
+		58ADABC61547163700C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58ADABCD1547182000C9C40E /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		58ADABCE1547182000C9C40E /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		58ADABCF1547182000C9C40E /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
+		58ADABD01547182000C9C40E /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58ADABA91547163700C9C40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADABD11547182000C9C40E /* libAMSerialPort.a in Frameworks */,
+				58ADABD21547182000C9C40E /* libDWClocking.a in Frameworks */,
+				58ADABD31547182000C9C40E /* libDWSony.a in Frameworks */,
+				58ADABD41547182000C9C40E /* libDWTools.a in Frameworks */,
+				58ADABB11547163700C9C40E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58ADABA11547163600C9C40E = {
+			isa = PBXGroup;
+			children = (
+				58ADABD51547182600C9C40E /* libs */,
+				58ADABB61547163700C9C40E /* DWSonyTest02 */,
+				58ADABAF1547163700C9C40E /* Frameworks */,
+				58ADABAD1547163700C9C40E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58ADABAD1547163700C9C40E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABAC1547163700C9C40E /* DWSonyTest02.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58ADABAF1547163700C9C40E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABB01547163700C9C40E /* Cocoa.framework */,
+				58ADABB21547163700C9C40E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58ADABB21547163700C9C40E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABB31547163700C9C40E /* AppKit.framework */,
+				58ADABB41547163700C9C40E /* CoreData.framework */,
+				58ADABB51547163700C9C40E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		58ADABB61547163700C9C40E /* DWSonyTest02 */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABC21547163700C9C40E /* DWAppDelegate.h */,
+				58ADABC31547163700C9C40E /* DWAppDelegate.m */,
+				58ADABC51547163700C9C40E /* MainMenu.xib */,
+				58ADABB71547163700C9C40E /* Supporting Files */,
+			);
+			path = DWSonyTest02;
+			sourceTree = "<group>";
+		};
+		58ADABB71547163700C9C40E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABB81547163700C9C40E /* DWSonyTest02-Info.plist */,
+				58ADABB91547163700C9C40E /* InfoPlist.strings */,
+				58ADABBC1547163700C9C40E /* main.m */,
+				58ADABBE1547163700C9C40E /* DWSonyTest02-Prefix.pch */,
+				58ADABBF1547163700C9C40E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58ADABD51547182600C9C40E /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				58ADABCD1547182000C9C40E /* libAMSerialPort.a */,
+				58ADABCE1547182000C9C40E /* libDWClocking.a */,
+				58ADABCF1547182000C9C40E /* libDWSony.a */,
+				58ADABD01547182000C9C40E /* libDWTools.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58ADABAB1547163700C9C40E /* DWSonyTest02 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58ADABCA1547163700C9C40E /* Build configuration list for PBXNativeTarget "DWSonyTest02" */;
+			buildPhases = (
+				58ADABA81547163700C9C40E /* Sources */,
+				58ADABA91547163700C9C40E /* Frameworks */,
+				58ADABAA1547163700C9C40E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWSonyTest02;
+			productName = DWSonyTest02;
+			productReference = 58ADABAC1547163700C9C40E /* DWSonyTest02.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58ADABA31547163600C9C40E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 58ADABA61547163600C9C40E /* Build configuration list for PBXProject "DWSonyTest02" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58ADABA11547163600C9C40E;
+			productRefGroup = 58ADABAD1547163700C9C40E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58ADABAB1547163700C9C40E /* DWSonyTest02 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58ADABAA1547163700C9C40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADABBB1547163700C9C40E /* InfoPlist.strings in Resources */,
+				58ADABC11547163700C9C40E /* Credits.rtf in Resources */,
+				58ADABC71547163700C9C40E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58ADABA81547163700C9C40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADABBD1547163700C9C40E /* main.m in Sources */,
+				58ADABC41547163700C9C40E /* DWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		58ADABB91547163700C9C40E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADABBA1547163700C9C40E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58ADABBF1547163700C9C40E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADABC01547163700C9C40E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		58ADABC51547163700C9C40E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADABC61547163700C9C40E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58ADABC81547163700C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		58ADABC91547163700C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		58ADABCB1547163700C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSonyTest02/DWSonyTest02-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyTest02/DWSonyTest02-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		58ADABCC1547163700C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSonyTest02/DWSonyTest02-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyTest02/DWSonyTest02-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58ADABA61547163600C9C40E /* Build configuration list for PBXProject "DWSonyTest02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADABC81547163700C9C40E /* Debug */,
+				58ADABC91547163700C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58ADABCA1547163700C9C40E /* Build configuration list for PBXNativeTarget "DWSonyTest02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADABCB1547163700C9C40E /* Debug */,
+				58ADABCC1547163700C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58ADABA31547163600C9C40E /* Project object */;
+}
