@@ -68,17 +68,10 @@
 		58086602152B58DE0006989A = {
 			isa = PBXGroup;
 			children = (
-				5815CA4E1545D21700A6329E /* libDWClocking.a */,
-				5815CA4F1545D21700A6329E /* libDWSony.a */,
-				5815CA501545D21700A6329E /* libDWTimeCode.a */,
-				5815CA511545D21700A6329E /* libDWTools.a */,
-				58086629152B66FF0006989A /* IOKit.framework */,
-				58086627152B66F80006989A /* CoreServices.framework */,
-				58086623152B66E20006989A /* libAMSerialPort.a */,
-				58086624152B66E20006989A /* libDWSonyPort.a */,
 				5808661F152B59510006989A /* DWSonyTest01-Prefix.pch */,
 				58086620152B59510006989A /* DWSonyTest01.1 */,
 				58086621152B59510006989A /* main.m */,
+				58ADAA491546B65D00C9C40E /* libs */,
 				58086610152B58DE0006989A /* Frameworks */,
 				5808660E152B58DE0006989A /* Products */,
 			);
@@ -95,9 +88,24 @@
 		58086610152B58DE0006989A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58086629152B66FF0006989A /* IOKit.framework */,
+				58086627152B66F80006989A /* CoreServices.framework */,
 				58086611152B58DE0006989A /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58ADAA491546B65D00C9C40E /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				58086624152B66E20006989A /* libDWSonyPort.a */,
+				58086623152B66E20006989A /* libAMSerialPort.a */,
+				5815CA511545D21700A6329E /* libDWTools.a */,
+				5815CA501545D21700A6329E /* libDWTimeCode.a */,
+				5815CA4F1545D21700A6329E /* libDWSony.a */,
+				5815CA4E1545D21700A6329E /* libDWClocking.a */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

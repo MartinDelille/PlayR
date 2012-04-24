@@ -17,9 +17,10 @@ int main(int argc, const char * argv[])
 	@autoreleasepool {
 	    
 		[DWLogger configureOutput:@"/Users/martindelille/test.log"];
-	    DWLog(@"Hello, World!");
-		
-		NSString * devicePath = @"/dev/cu.usbserial-00001004B";
+		//[DWLogger configure:1 fileName:nil showDate:YES showTime:NO showFile:NO showFunc:NO];
+	    DWLog(@"DWSonyTest01");
+				
+		NSString * devicePath = @"/dev/cu.usbserial-00002006B";
 		DWSonyPort *sony = [[DWSonyPort alloc] initWithDevicePath:devicePath];
 		if(sony != nil) {
 			DWClock * clock = [[DWClock alloc] init];
@@ -151,8 +152,8 @@ int main(int argc, const char * argv[])
 				}
 			}
 		}
-		
-	    
+		DWLog(@"Bye, bye");
+		[DWLogger configureOutput:nil];	    
 	}
     return 0;
 }

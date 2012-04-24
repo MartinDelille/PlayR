@@ -23,8 +23,8 @@ typedef enum {
 
 +(DWLogger*)singleton;
 +(void)configureLogLevel:(DWLogLevel)aLevel;
--(void)configureOutput:(NSString *)fileName;
 +(void)configureOutput:(NSString*)fileName;
++(void)configure:(DWLogLevel)aLevel fileName:(NSString*)fileName showDate:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc;
 -(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ...;
 
 //+(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ...;
