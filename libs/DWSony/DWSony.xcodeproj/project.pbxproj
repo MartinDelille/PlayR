@@ -33,7 +33,7 @@
 		5815C9A31545B60500A6329E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5815C9A41545B60500A6329E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5815C9A51545B60500A6329E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5815C9A81545B60500A6329E /* DWSony-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWSony-Prefix.pch"; path = "../DWSony-Prefix.pch"; sourceTree = "<group>"; };
+		5815C9A81545B60500A6329E /* DWSony-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWSony-Prefix.pch"; sourceTree = "<group>"; };
 		5815C9B11545B60500A6329E /* DWSonyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWSonyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5815C9B21545B60500A6329E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5815C9BA1545B60500A6329E /* DWSonyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWSonyTests-Info.plist"; sourceTree = "<group>"; };
@@ -388,6 +388,7 @@
 				5815C9C51545B60500A6329E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5815C9C61545B60500A6329E /* Build configuration list for PBXNativeTarget "DWSonyTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +397,7 @@
 				5815C9C81545B60500A6329E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

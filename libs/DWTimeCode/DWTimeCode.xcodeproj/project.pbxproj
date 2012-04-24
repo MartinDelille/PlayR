@@ -23,7 +23,7 @@
 		58C064C915408BC800370618 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		58C064CA15408BC800370618 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		58C064CB15408BC800370618 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		58C064CE15408BC800370618 /* DWTimeCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWTimeCode-Prefix.pch"; path = "../DWTimeCode-Prefix.pch"; sourceTree = "<group>"; };
+		58C064CE15408BC800370618 /* DWTimeCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWTimeCode-Prefix.pch"; sourceTree = "<group>"; };
 		58C064CF15408BC800370618 /* DWTimeCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58C064D015408BC800370618 /* DWTimeCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
 		58EECDA01542EC8800B0A029 /* DWTimeCodeUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWTimeCodeUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +392,7 @@
 				58EECDAF1542EC8800B0A029 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

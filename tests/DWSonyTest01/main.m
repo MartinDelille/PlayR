@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DWTools/DWLogger.h"
 #import "DWSony/DWSonyPort.h"
 #import "DWClocking/DWClock.h"
 #import "DWTimeCode/DWTimeCode.h"
@@ -15,8 +16,9 @@ int main(int argc, const char * argv[])
 {
 	@autoreleasepool {
 	    
-	    // insert code here...
-	    NSLog(@"Hello, World!");
+		[DWLogger configureOutput:@"/Users/martindelille/test.log"];
+	    DWLog(@"Hello, World!");
+		
 		NSString * devicePath = @"/dev/cu.usbserial-00001004B";
 		DWSonyPort *sony = [[DWSonyPort alloc] initWithDevicePath:devicePath];
 		if(sony != nil) {
@@ -26,26 +28,26 @@ int main(int argc, const char * argv[])
 			unsigned char cmd1, cmd2;
 			unsigned char buffer[256];
 			BOOL looping = YES;
-			while (looping) {			
+			while (looping) {
 				if([sony readCommand:&cmd1 cmd2:&cmd2 data:buffer]) {
 					switch (cmd1 >> 4) {
 						case 0:
 							switch (cmd2) {
 								case 0x0c:
-									NSLog(@"Local disable => ACK");
+									DWLog(@"Local disable => ACK");
 									[sony sendAck];
 									break;
 								case 0x11:
-									NSLog(@"Device Type Request => F1C0");
+									DWLog(@"Device Type Request => F1C0");
 									[sony sendCommandWithArgument:0x12 cmd2:0x11, 0xf1, 0xc0];
 									break;
 								case 0x1d:
-									NSLog(@"Local enable => ACK");
+									DWLog(@"Local enable => ACK");
 									[sony sendAck];
 									break;
 									
 								default:
-									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+									DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 									[sony sendNak:0x00];
 									looping = NO;
 									break;
@@ -54,17 +56,17 @@ int main(int argc, const char * argv[])
 						case 2:
 							switch (cmd2) {
 								case 0x00:
-									NSLog(@"Play => ACK");
+									DWLog(@"Play => ACK");
 									clock.rate = 0;
 									[sony sendAck];
 									break;
 								case 0x01:
-									NSLog(@"Play => ACK");
+									DWLog(@"Play => ACK");
 									clock.rate = 1;
 									[sony sendAck];
 									break;
 								default:
-									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+									DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 									[sony sendNak:0x00];
 									looping = NO;
 									break;
@@ -76,7 +78,7 @@ int main(int argc, const char * argv[])
 								{
 									// TODO : handle properly
 									DWTimeCode *tc = [[DWTimeCode alloc] initWithTime:clock.time andType:kDWTimeCode25];
-									NSLog(@"Current Time Sense => %@", tc.string);
+									DWLog(@"Current Time Sense => %@", tc.string);
 									buffer[0] = 0x74;
 									switch (buffer[0]) {
 										case 0x01:
@@ -109,7 +111,7 @@ int main(int argc, const char * argv[])
 								case 0x20:
 								{
 									// TODO : handle properly
-									NSLog(@"Status Sense (%x) => Status Data", buffer[0]);
+									DWLog(@"Status Sense (%x) => Status Data", buffer[0]);
 									unsigned char count = buffer[0] & 0xf;
 									for (int i=0; i<count; i++) {
 										buffer[i] = 0;
@@ -120,7 +122,7 @@ int main(int argc, const char * argv[])
 								case 0x30:
 								{
 									// TODO : handle properly
-									NSLog(@"Edit Preset Sense => Edit Preset Status");
+									DWLog(@"Edit Preset Sense => Edit Preset Status");
 									unsigned char count = buffer[0];
 									for (int i=0; i<count; i++) {
 										buffer[i] = 0;
@@ -129,19 +131,23 @@ int main(int argc, const char * argv[])
 									break;
 								}									
 								default:
-									NSLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+									DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 									[sony sendNak:0x00];
 									looping = NO;
 									break;
 							}
 							break;
 						default:
-							NSLog(@"Unknown command : %x => NAK", cmd1);
+							DWLog(@"Unknown command : %x => NAK", cmd1);
 							[sony sendNak:0x00];
 							looping = NO;
 							break;
 					}
 
+				}
+				else {
+					DWLog(@"Error during reading");
+				//	looping = NO;
 				}
 			}
 		}

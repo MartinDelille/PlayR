@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DWTimeCode/DWTimeCode.h"
+#import "DWClocking/DWClock.h"
 
 int main(int argc, const char * argv[])
 {
@@ -17,7 +18,9 @@ int main(int argc, const char * argv[])
 
 		DWTimeCode * tc = [[DWTimeCode alloc] initWithType:kDWTimeCode25];
 		tc.string = @"00:00:00:00";
-		NSLog(@"frame = %d", tc.frame);
+		NSLog(@"frame = %ld", tc.frame);
+		
+		NSLog(@" clock : %@", [[[DWClock alloc] init] description]);
 
 
 	}

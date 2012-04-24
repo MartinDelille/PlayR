@@ -19,8 +19,12 @@
 	return self;
 }
 
+-(void)dealloc {
+	NSLog(@"dealloc dwclock");
+}
+
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%@@%@", time, rate];
+	return [NSString stringWithFormat:@"%d@%f", time, rate];
 }
 
 -(void)tick:(DWTime)interval {

@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5815C9DE1545B89000A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9DD1545B89000A6329E /* Cocoa.framework */; };
+		5815C9F01545B89000A6329E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9EF1545B89000A6329E /* SenTestingKit.framework */; };
+		5815C9F11545B89000A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9DD1545B89000A6329E /* Cocoa.framework */; };
+		5815C9F41545B89000A6329E /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9DA1545B89000A6329E /* libDWTools.a */; };
+		5815C9FA1545B89000A6329E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5815C9F81545B89000A6329E /* InfoPlist.strings */; };
+		5815C9FD1545B89000A6329E /* DWToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9FC1545B89000A6329E /* DWToolsTests.m */; };
+		5815CA081545B91400A6329E /* DWLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5815CA061545B91400A6329E /* DWLogger.h */; };
+		5815CA091545B91400A6329E /* DWLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815CA071545B91400A6329E /* DWLogger.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5815C9F21545B89000A6329E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5815C9D11545B89000A6329E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5815C9D91545B89000A6329E;
+			remoteInfo = DWTools;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5815C9DA1545B89000A6329E /* libDWTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5815C9DD1545B89000A6329E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5815C9E01545B89000A6329E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5815C9E11545B89000A6329E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5815C9E21545B89000A6329E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5815C9E51545B89000A6329E /* DWTools-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWTools-Prefix.pch"; sourceTree = "<group>"; };
+		5815C9EE1545B89000A6329E /* DWToolsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWToolsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5815C9EF1545B89000A6329E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5815C9F71545B89000A6329E /* DWToolsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWToolsTests-Info.plist"; sourceTree = "<group>"; };
+		5815C9F91545B89000A6329E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5815C9FB1545B89000A6329E /* DWToolsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWToolsTests.h; sourceTree = "<group>"; };
+		5815C9FC1545B89000A6329E /* DWToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWToolsTests.m; sourceTree = "<group>"; };
+		5815CA061545B91400A6329E /* DWLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLogger.h; sourceTree = "<group>"; };
+		5815CA071545B91400A6329E /* DWLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLogger.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5815C9D71545B89000A6329E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9DE1545B89000A6329E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815C9EA1545B89000A6329E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9F01545B89000A6329E /* SenTestingKit.framework in Frameworks */,
+				5815C9F11545B89000A6329E /* Cocoa.framework in Frameworks */,
+				5815C9F41545B89000A6329E /* libDWTools.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5815C9CF1545B89000A6329E = {
+			isa = PBXGroup;
+			children = (
+				5815CA061545B91400A6329E /* DWLogger.h */,
+				5815CA071545B91400A6329E /* DWLogger.m */,
+				5815C9E41545B89000A6329E /* Supporting Files */,
+				5815C9F51545B89000A6329E /* DWToolsTests */,
+				5815C9DC1545B89000A6329E /* Frameworks */,
+				5815C9DB1545B89000A6329E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5815C9DB1545B89000A6329E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9DA1545B89000A6329E /* libDWTools.a */,
+				5815C9EE1545B89000A6329E /* DWToolsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5815C9DC1545B89000A6329E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9DD1545B89000A6329E /* Cocoa.framework */,
+				5815C9EF1545B89000A6329E /* SenTestingKit.framework */,
+				5815C9DF1545B89000A6329E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5815C9DF1545B89000A6329E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9E01545B89000A6329E /* AppKit.framework */,
+				5815C9E11545B89000A6329E /* CoreData.framework */,
+				5815C9E21545B89000A6329E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		5815C9E41545B89000A6329E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9E51545B89000A6329E /* DWTools-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = DWTools;
+			sourceTree = "<group>";
+		};
+		5815C9F51545B89000A6329E /* DWToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9FB1545B89000A6329E /* DWToolsTests.h */,
+				5815C9FC1545B89000A6329E /* DWToolsTests.m */,
+				5815C9F61545B89000A6329E /* Supporting Files */,
+			);
+			path = DWToolsTests;
+			sourceTree = "<group>";
+		};
+		5815C9F61545B89000A6329E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5815C9F71545B89000A6329E /* DWToolsTests-Info.plist */,
+				5815C9F81545B89000A6329E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5815C9D81545B89000A6329E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815CA081545B91400A6329E /* DWLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5815C9D91545B89000A6329E /* DWTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5815CA001545B89000A6329E /* Build configuration list for PBXNativeTarget "DWTools" */;
+			buildPhases = (
+				5815C9D61545B89000A6329E /* Sources */,
+				5815C9D71545B89000A6329E /* Frameworks */,
+				5815C9D81545B89000A6329E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWTools;
+			productName = DWTools;
+			productReference = 5815C9DA1545B89000A6329E /* libDWTools.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5815C9ED1545B89000A6329E /* DWToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5815CA031545B89000A6329E /* Build configuration list for PBXNativeTarget "DWToolsTests" */;
+			buildPhases = (
+				5815C9E91545B89000A6329E /* Sources */,
+				5815C9EA1545B89000A6329E /* Frameworks */,
+				5815C9EB1545B89000A6329E /* Resources */,
+				5815C9EC1545B89000A6329E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5815C9F31545B89000A6329E /* PBXTargetDependency */,
+			);
+			name = DWToolsTests;
+			productName = DWToolsTests;
+			productReference = 5815C9EE1545B89000A6329E /* DWToolsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5815C9D11545B89000A6329E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 5815C9D41545B89000A6329E /* Build configuration list for PBXProject "DWTools" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5815C9CF1545B89000A6329E;
+			productRefGroup = 5815C9DB1545B89000A6329E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5815C9D91545B89000A6329E /* DWTools */,
+				5815C9ED1545B89000A6329E /* DWToolsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5815C9EB1545B89000A6329E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9FA1545B89000A6329E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5815C9EC1545B89000A6329E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5815C9D61545B89000A6329E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815CA091545B91400A6329E /* DWLogger.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815C9E91545B89000A6329E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815C9FD1545B89000A6329E /* DWToolsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5815C9F31545B89000A6329E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5815C9D91545B89000A6329E /* DWTools */;
+			targetProxy = 5815C9F21545B89000A6329E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5815C9F81545B89000A6329E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5815C9F91545B89000A6329E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5815C9FE1545B89000A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5815C9FF1545B89000A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5815CA011545B89000A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTools-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5815CA021545B89000A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTools-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5815CA041545B89000A6329E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTools/DWTools-Prefix.pch";
+				INFOPLIST_FILE = "DWToolsTests/DWToolsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5815CA051545B89000A6329E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTools/DWTools-Prefix.pch";
+				INFOPLIST_FILE = "DWToolsTests/DWToolsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5815C9D41545B89000A6329E /* Build configuration list for PBXProject "DWTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815C9FE1545B89000A6329E /* Debug */,
+				5815C9FF1545B89000A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5815CA001545B89000A6329E /* Build configuration list for PBXNativeTarget "DWTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815CA011545B89000A6329E /* Debug */,
+				5815CA021545B89000A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5815CA031545B89000A6329E /* Build configuration list for PBXNativeTarget "DWToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815CA041545B89000A6329E /* Debug */,
+				5815CA051545B89000A6329E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5815C9D11545B89000A6329E /* Project object */;
+}

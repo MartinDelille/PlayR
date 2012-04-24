@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../libs/DWTools/DWTools.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../libs/DWSony/DWSony.xcodeproj">
    </FileRef>
    <FileRef

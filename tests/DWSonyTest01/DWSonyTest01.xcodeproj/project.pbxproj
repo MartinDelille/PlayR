@@ -12,9 +12,10 @@
 		58086625152B66E20006989A /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086623152B66E20006989A /* libAMSerialPort.a */; };
 		58086628152B66F80006989A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086627152B66F80006989A /* CoreServices.framework */; };
 		5808662A152B67000006989A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58086629152B66FF0006989A /* IOKit.framework */; };
-		5815C9891545A22D00A6329E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9871545A22D00A6329E /* libDWClocking.a */; };
-		5815C98A1545A22D00A6329E /* libDWTimeCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9881545A22D00A6329E /* libDWTimeCode.a */; };
-		5815C9CE1545B73E00A6329E /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9CD1545B73E00A6329E /* libDWSony.a */; };
+		5815CA521545D21700A6329E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815CA4E1545D21700A6329E /* libDWClocking.a */; };
+		5815CA531545D21700A6329E /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815CA4F1545D21700A6329E /* libDWSony.a */; };
+		5815CA541545D21700A6329E /* libDWTimeCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815CA501545D21700A6329E /* libDWTimeCode.a */; };
+		5815CA551545D21700A6329E /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815CA511545D21700A6329E /* libDWTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,9 +40,10 @@
 		58086624152B66E20006989A /* libDWSonyPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSonyPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWSonyPort.a"; sourceTree = "<group>"; };
 		58086627152B66F80006989A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		58086629152B66FF0006989A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		5815C9871545A22D00A6329E /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWClocking.a; path = ../../libs/DWClocking/build/Release/libDWClocking.a; sourceTree = "<group>"; };
-		5815C9881545A22D00A6329E /* libDWTimeCode.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWTimeCode.a; path = ../../libs/DWTimeCode/build/Release/libDWTimeCode.a; sourceTree = "<group>"; };
-		5815C9CD1545B73E00A6329E /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWSony.a; path = ../../libs/DWSony/build/Release/libDWSony.a; sourceTree = "<group>"; };
+		5815CA4E1545D21700A6329E /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		5815CA4F1545D21700A6329E /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
+		5815CA501545D21700A6329E /* libDWTimeCode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTimeCode.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWTimeCode.a"; sourceTree = "<group>"; };
+		5815CA511545D21700A6329E /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-bdubudkgkkewkdcdbszkmhfinrck/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,9 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5815C9CE1545B73E00A6329E /* libDWSony.a in Frameworks */,
-				5815C9891545A22D00A6329E /* libDWClocking.a in Frameworks */,
-				5815C98A1545A22D00A6329E /* libDWTimeCode.a in Frameworks */,
+				5815CA521545D21700A6329E /* libDWClocking.a in Frameworks */,
+				5815CA531545D21700A6329E /* libDWSony.a in Frameworks */,
+				5815CA541545D21700A6329E /* libDWTimeCode.a in Frameworks */,
+				5815CA551545D21700A6329E /* libDWTools.a in Frameworks */,
 				5808662A152B67000006989A /* IOKit.framework in Frameworks */,
 				58086628152B66F80006989A /* CoreServices.framework in Frameworks */,
 				58086625152B66E20006989A /* libAMSerialPort.a in Frameworks */,
@@ -65,9 +68,10 @@
 		58086602152B58DE0006989A = {
 			isa = PBXGroup;
 			children = (
-				5815C9CD1545B73E00A6329E /* libDWSony.a */,
-				5815C9871545A22D00A6329E /* libDWClocking.a */,
-				5815C9881545A22D00A6329E /* libDWTimeCode.a */,
+				5815CA4E1545D21700A6329E /* libDWClocking.a */,
+				5815CA4F1545D21700A6329E /* libDWSony.a */,
+				5815CA501545D21700A6329E /* libDWTimeCode.a */,
+				5815CA511545D21700A6329E /* libDWTools.a */,
 				58086629152B66FF0006989A /* IOKit.framework */,
 				58086627152B66F80006989A /* CoreServices.framework */,
 				58086623152B66E20006989A /* libAMSerialPort.a */,
