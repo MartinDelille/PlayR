@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58ADAAF71546D96E00C9C40E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAAF61546D96E00C9C40E /* Cocoa.framework */; };
+		58ADAB011546D96E00C9C40E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58ADAAFF1546D96E00C9C40E /* InfoPlist.strings */; };
+		58ADAB031546D96E00C9C40E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB021546D96E00C9C40E /* main.m */; };
+		58ADAB071546D96E00C9C40E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58ADAB051546D96E00C9C40E /* Credits.rtf */; };
+		58ADAB0A1546D96E00C9C40E /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB091546D96E00C9C40E /* DWAppDelegate.m */; };
+		58ADAB0D1546D96F00C9C40E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58ADAB0B1546D96F00C9C40E /* MainMenu.xib */; };
+		58ADAB171546DD1F00C9C40E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB161546DD1F00C9C40E /* libDWClocking.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58ADAAF21546D96E00C9C40E /* DWTimeCodePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWTimeCodePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58ADAAF61546D96E00C9C40E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		58ADAAF91546D96E00C9C40E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		58ADAAFA1546D96E00C9C40E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		58ADAAFB1546D96E00C9C40E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58ADAAFE1546D96E00C9C40E /* DWTimeCodePlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWTimeCodePlayer-Info.plist"; sourceTree = "<group>"; };
+		58ADAB001546D96E00C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58ADAB021546D96E00C9C40E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58ADAB041546D96E00C9C40E /* DWTimeCodePlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWTimeCodePlayer-Prefix.pch"; sourceTree = "<group>"; };
+		58ADAB061546D96E00C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		58ADAB081546D96E00C9C40E /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
+		58ADAB091546D96E00C9C40E /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
+		58ADAB0C1546D96F00C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58ADAB161546DD1F00C9C40E /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58ADAAEF1546D96E00C9C40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB171546DD1F00C9C40E /* libDWClocking.a in Frameworks */,
+				58ADAAF71546D96E00C9C40E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58ADAAE71546D96E00C9C40E = {
+			isa = PBXGroup;
+			children = (
+				58ADAB161546DD1F00C9C40E /* libDWClocking.a */,
+				58ADAAFC1546D96E00C9C40E /* DWTimeCodePlayer */,
+				58ADAAF51546D96E00C9C40E /* Frameworks */,
+				58ADAAF31546D96E00C9C40E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58ADAAF31546D96E00C9C40E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAAF21546D96E00C9C40E /* DWTimeCodePlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58ADAAF51546D96E00C9C40E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAAF61546D96E00C9C40E /* Cocoa.framework */,
+				58ADAAF81546D96E00C9C40E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58ADAAF81546D96E00C9C40E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAAF91546D96E00C9C40E /* AppKit.framework */,
+				58ADAAFA1546D96E00C9C40E /* CoreData.framework */,
+				58ADAAFB1546D96E00C9C40E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		58ADAAFC1546D96E00C9C40E /* DWTimeCodePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAB081546D96E00C9C40E /* DWAppDelegate.h */,
+				58ADAB091546D96E00C9C40E /* DWAppDelegate.m */,
+				58ADAB0B1546D96F00C9C40E /* MainMenu.xib */,
+				58ADAAFD1546D96E00C9C40E /* Supporting Files */,
+			);
+			path = DWTimeCodePlayer;
+			sourceTree = "<group>";
+		};
+		58ADAAFD1546D96E00C9C40E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAAFE1546D96E00C9C40E /* DWTimeCodePlayer-Info.plist */,
+				58ADAAFF1546D96E00C9C40E /* InfoPlist.strings */,
+				58ADAB021546D96E00C9C40E /* main.m */,
+				58ADAB041546D96E00C9C40E /* DWTimeCodePlayer-Prefix.pch */,
+				58ADAB051546D96E00C9C40E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58ADAAF11546D96E00C9C40E /* DWTimeCodePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58ADAB101546D96F00C9C40E /* Build configuration list for PBXNativeTarget "DWTimeCodePlayer" */;
+			buildPhases = (
+				58ADAAEE1546D96E00C9C40E /* Sources */,
+				58ADAAEF1546D96E00C9C40E /* Frameworks */,
+				58ADAAF01546D96E00C9C40E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWTimeCodePlayer;
+			productName = DWTimeCodePlayer;
+			productReference = 58ADAAF21546D96E00C9C40E /* DWTimeCodePlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58ADAAE91546D96E00C9C40E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 58ADAAEC1546D96E00C9C40E /* Build configuration list for PBXProject "DWTimeCodePlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58ADAAE71546D96E00C9C40E;
+			productRefGroup = 58ADAAF31546D96E00C9C40E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58ADAAF11546D96E00C9C40E /* DWTimeCodePlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58ADAAF01546D96E00C9C40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB011546D96E00C9C40E /* InfoPlist.strings in Resources */,
+				58ADAB071546D96E00C9C40E /* Credits.rtf in Resources */,
+				58ADAB0D1546D96F00C9C40E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58ADAAEE1546D96E00C9C40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB031546D96E00C9C40E /* main.m in Sources */,
+				58ADAB0A1546D96E00C9C40E /* DWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		58ADAAFF1546D96E00C9C40E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADAB001546D96E00C9C40E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58ADAB051546D96E00C9C40E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADAB061546D96E00C9C40E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		58ADAB0B1546D96F00C9C40E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADAB0C1546D96F00C9C40E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58ADAB0E1546D96F00C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		58ADAB0F1546D96F00C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		58ADAB111546D96F00C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTimeCodePlayer/DWTimeCodePlayer-Prefix.pch";
+				INFOPLIST_FILE = "DWTimeCodePlayer/DWTimeCodePlayer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		58ADAB121546D96F00C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWTimeCodePlayer/DWTimeCodePlayer-Prefix.pch";
+				INFOPLIST_FILE = "DWTimeCodePlayer/DWTimeCodePlayer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58ADAAEC1546D96E00C9C40E /* Build configuration list for PBXProject "DWTimeCodePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADAB0E1546D96F00C9C40E /* Debug */,
+				58ADAB0F1546D96F00C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58ADAB101546D96F00C9C40E /* Build configuration list for PBXNativeTarget "DWTimeCodePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADAB111546D96F00C9C40E /* Debug */,
+				58ADAB121546D96F00C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58ADAAE91546D96E00C9C40E /* Project object */;
+}

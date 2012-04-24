@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DWTimeCode/DWTimeCode.h"
 #import "DWClocking/DWClock.h"
 
 int main(int argc, const char * argv[])
@@ -15,12 +14,10 @@ int main(int argc, const char * argv[])
 
 	@autoreleasepool {
 	    NSLog(@"DWClockingTest01");
-
-		DWTimeCode * tc = [[DWTimeCode alloc] initWithType:kDWTimeCode25];
-		tc.string = @"00:00:00:00";
-		NSLog(@"frame = %ld", tc.frame);
 		
-		NSLog(@" clock : %@", [[[DWClock alloc] init] description]);
+		DWClock * clock = [[DWClock alloc] init];	
+		clock.frame = 90000;
+		NSLog(@" clock : %@", clock);
 
 
 	}

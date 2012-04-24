@@ -12,6 +12,9 @@
       location = "container:"
       name = "tests">
       <FileRef
+         location = "group:../tests/DWTimeCodePlayer/DWTimeCodePlayer.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:../tests/DWClockingTest01/DWClockingTest01.xcodeproj">
       </FileRef>
    </Group>

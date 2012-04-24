@@ -74,7 +74,7 @@
 }
 
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%d@%f", time, rate];
+	return [NSString stringWithFormat:@"%@@%f", self.tcString, rate];
 }
 
 -(void)tick:(DWTime)interval {
