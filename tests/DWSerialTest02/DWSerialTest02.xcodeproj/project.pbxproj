@@ -1,0 +1,258 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58ADAA0F15469FD700C9C40E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAA0E15469FD700C9C40E /* Foundation.framework */; };
+		58ADAA1215469FD700C9C40E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAA1115469FD700C9C40E /* main.m */; };
+		58ADAA1615469FD700C9C40E /* DWSerialTest02.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 58ADAA1515469FD700C9C40E /* DWSerialTest02.1 */; };
+		58ADAA241546A3EF00C9C40E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAA231546A3EF00C9C40E /* IOKit.framework */; };
+		58ADAA2E1546A99F00C9C40E /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAA2D1546A99F00C9C40E /* libAMSerialPort.a */; };
+		58ADAA321546AC3F00C9C40E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAA311546AC3F00C9C40E /* CoreServices.framework */; };
+		58ADAA341546AF7100C9C40E /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAA331546AF7100C9C40E /* libDWTools.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58ADAA0815469FD700C9C40E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				58ADAA1615469FD700C9C40E /* DWSerialTest02.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		58ADAA0A15469FD700C9C40E /* DWSerialTest02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DWSerialTest02; sourceTree = BUILT_PRODUCTS_DIR; };
+		58ADAA0E15469FD700C9C40E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58ADAA1115469FD700C9C40E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58ADAA1415469FD700C9C40E /* DWSerialTest02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWSerialTest02-Prefix.pch"; path = "../DWSerialTest02-Prefix.pch"; sourceTree = "<group>"; };
+		58ADAA1515469FD700C9C40E /* DWSerialTest02.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DWSerialTest02.1; sourceTree = "<group>"; };
+		58ADAA231546A3EF00C9C40E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		58ADAA2D1546A99F00C9C40E /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		58ADAA311546AC3F00C9C40E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		58ADAA331546AF7100C9C40E /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58ADAA0715469FD700C9C40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAA341546AF7100C9C40E /* libDWTools.a in Frameworks */,
+				58ADAA321546AC3F00C9C40E /* CoreServices.framework in Frameworks */,
+				58ADAA2E1546A99F00C9C40E /* libAMSerialPort.a in Frameworks */,
+				58ADAA241546A3EF00C9C40E /* IOKit.framework in Frameworks */,
+				58ADAA0F15469FD700C9C40E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58ADA9FF15469FD700C9C40E = {
+			isa = PBXGroup;
+			children = (
+				58ADAA331546AF7100C9C40E /* libDWTools.a */,
+				58ADAA2D1546A99F00C9C40E /* libAMSerialPort.a */,
+				58ADAA1115469FD700C9C40E /* main.m */,
+				58ADAA1315469FD700C9C40E /* Supporting Files */,
+				58ADAA1515469FD700C9C40E /* DWSerialTest02.1 */,
+				58ADAA0D15469FD700C9C40E /* Frameworks */,
+				58ADAA0B15469FD700C9C40E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58ADAA0B15469FD700C9C40E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAA0A15469FD700C9C40E /* DWSerialTest02 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58ADAA0D15469FD700C9C40E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAA311546AC3F00C9C40E /* CoreServices.framework */,
+				58ADAA231546A3EF00C9C40E /* IOKit.framework */,
+				58ADAA0E15469FD700C9C40E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58ADAA1315469FD700C9C40E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAA1415469FD700C9C40E /* DWSerialTest02-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = DWSerialTest02;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58ADAA0915469FD700C9C40E /* DWSerialTest02 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58ADAA1915469FD700C9C40E /* Build configuration list for PBXNativeTarget "DWSerialTest02" */;
+			buildPhases = (
+				58ADAA0615469FD700C9C40E /* Sources */,
+				58ADAA0715469FD700C9C40E /* Frameworks */,
+				58ADAA0815469FD700C9C40E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWSerialTest02;
+			productName = DWSerialTest02;
+			productReference = 58ADAA0A15469FD700C9C40E /* DWSerialTest02 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58ADAA0115469FD700C9C40E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 58ADAA0415469FD700C9C40E /* Build configuration list for PBXProject "DWSerialTest02" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58ADA9FF15469FD700C9C40E;
+			productRefGroup = 58ADAA0B15469FD700C9C40E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58ADAA0915469FD700C9C40E /* DWSerialTest02 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58ADAA0615469FD700C9C40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAA1215469FD700C9C40E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58ADAA1715469FD700C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		58ADAA1815469FD700C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		58ADAA1A15469FD700C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSerialTest02-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58ADAA1B15469FD700C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSerialTest02-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58ADAA0415469FD700C9C40E /* Build configuration list for PBXProject "DWSerialTest02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADAA1715469FD700C9C40E /* Debug */,
+				58ADAA1815469FD700C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58ADAA1915469FD700C9C40E /* Build configuration list for PBXNativeTarget "DWSerialTest02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADAA1A15469FD700C9C40E /* Debug */,
+				58ADAA1B15469FD700C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58ADAA0115469FD700C9C40E /* Project object */;
+}

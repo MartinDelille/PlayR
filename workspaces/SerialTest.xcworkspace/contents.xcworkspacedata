@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../libs/DWTools/DWTools.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../tests/DWSerialTest02/DWSerialTest02.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../tests/SerialTest01/SerialTest01.xcodeproj">
    </FileRef>
    <FileRef

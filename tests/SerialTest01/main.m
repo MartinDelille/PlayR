@@ -14,10 +14,8 @@ int main(int argc, const char * argv[])
 {
 
 	@autoreleasepool {
-	    
-	    // insert code here...
-	    NSLog(@"SerialTest01");
-		NSString * deviceName = @"/dev/cu.usbserial-00002006A";
+		NSLog(@"SerialTest01");
+		NSString * deviceName = @"/dev/cu.usbserial-00001004A";
 		AMSerialPort * port = [[AMSerialPort alloc] init:deviceName withName:deviceName type:NULL];
 		
 		NSLog(@"Opening serial port");
