@@ -15,6 +15,8 @@
 		5815C9C01545B60500A6329E /* DWSonyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9BF1545B60500A6329E /* DWSonyTests.m */; };
 		5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */ = {isa = PBXBuildFile; fileRef = 5815C9C91545B6F100A6329E /* DWSonyPort.h */; };
 		5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9CA1545B6F100A6329E /* DWSonyPort.m */; };
+		58ADABDC15471C5C00C9C40E /* DWSonyController.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADABDA15471C5C00C9C40E /* DWSonyController.h */; };
+		58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABDB15471C5C00C9C40E /* DWSonyController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		5815C9BF1545B60500A6329E /* DWSonyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWSonyTests.m; sourceTree = "<group>"; };
 		5815C9C91545B6F100A6329E /* DWSonyPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonyPort.h; sourceTree = "<group>"; };
 		5815C9CA1545B6F100A6329E /* DWSonyPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyPort.m; sourceTree = "<group>"; };
+		58ADABDA15471C5C00C9C40E /* DWSonyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonyController.h; sourceTree = "<group>"; };
+		58ADABDB15471C5C00C9C40E /* DWSonyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		5815C9921545B60500A6329E = {
 			isa = PBXGroup;
 			children = (
+				58ADABDA15471C5C00C9C40E /* DWSonyController.h */,
+				58ADABDB15471C5C00C9C40E /* DWSonyController.m */,
 				5815C9C91545B6F100A6329E /* DWSonyPort.h */,
 				5815C9CA1545B6F100A6329E /* DWSonyPort.m */,
 				5815C9A71545B60500A6329E /* Supporting Files */,
@@ -143,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */,
+				58ADABDC15471C5C00C9C40E /* DWSonyController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */,
+				58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
