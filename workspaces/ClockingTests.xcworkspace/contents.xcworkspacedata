@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../libs/DWTimeCode/DWTimeCode.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "absolute:/Users/martindelille/Dropbox/code/PlayR/tests/DWClockingTest01/../../libs/DWClocking/DWClocking.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../tests/DWClockingTest01/DWClockingTest01.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "libs">
+      <FileRef
+         location = "absolute:/Users/martindelille/Dropbox/code/PlayR/tests/DWClockingTest01/../../libs/DWClocking/DWClocking.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "tests">
+      <FileRef
+         location = "group:../tests/DWClockingTest01/DWClockingTest01.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

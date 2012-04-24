@@ -8,19 +8,69 @@
 
 #import "DWClock.h"
 
-@implementation DWClock
-@synthesize time;
+@implementation DWClock {
+	DWTimeCodeType _type;
+	DWTime _time;
+}
+
 @synthesize rate;
 
 -(id)init {
 	self = [super init];
-	time = 0;
+	_time = 0;
+	_type = kDWTimeCode25;
 	rate = 0.0;
 	return self;
 }
 
--(void)dealloc {
-	NSLog(@"dealloc dwclock");
+-(id)initWithType:(DWTimeCodeType)aType {
+	self = [self init];
+	_type = aType;
+	return self;
+}
+
+-(DWTime)timePerFrame {
+	switch (_type) {
+		case kDWTimeCode2398:
+			return DWTC2398FRAMEDURATION;
+		case kDWTimeCode24:
+			return DWTC24FRAMEDURATION;
+		case kDWTimeCode25:
+			return DWTC25FRAMEDURATION;
+		case kDWTimeCode2997:
+			return DWTC2997FRAMEDURATION;
+		default:
+			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", _type];
+			return 0;
+	}
+}
+
+-(void)setTime:(DWTime)time {
+	if(_time != time)
+	{
+		_time = time;
+		// TODO: notify observer
+	}
+}
+
+-(DWTime)time {
+	return _time;
+}
+
+-(void)setFrame:(DWFrame)frame {
+	self.time = frame * [self timePerFrame];
+}
+
+-(DWFrame)frame {
+	return self.time / [self timePerFrame];
+}
+
+-(void)setTcString:(NSString *)tcString {
+	self.frame = [DWTimeCode frameFromString:tcString andType:_type];
+}
+
+-(NSString *)tcString {
+	return [DWTimeCode stringFromFrame:self.frame andType:_type];
 }
 
 -(NSString *)description {
@@ -28,6 +78,6 @@
 }
 
 -(void)tick:(DWTime)interval {
-	time += (DWTime)(rate * interval);
+	self.time += (DWTime)(rate * interval);
 }
 @end

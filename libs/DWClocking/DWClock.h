@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DWTime.h"
+#import "DWTimeCode.h"
 #import "DWTickable.h"
 
 /** Mother class for clock component.
@@ -26,10 +27,27 @@
  */
 @property double rate;
 
+/**
+ Current frame number according to the clock timecode type.
+ */
+@property DWFrame frame;
+
+/**
+ Timecode representation of the current time
+ */
+@property NSString * tcString;
+
 /** 
  Tell to the clock that an interval of elapsed time.
  @param interval Amount of elapsed time.
  */
 -(void)tick:(DWTime)interval;
+
+/** 
+ Initialize the clock with a specific timecode type value (used for timecode representation.
+ @param aType A timecode type
+ @return A DWClock initialized object
+ */
+-(id)initWithType:(DWTimeCodeType)aType;
 
 @end

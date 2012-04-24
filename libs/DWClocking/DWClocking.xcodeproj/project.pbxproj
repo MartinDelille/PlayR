@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */; };
+		58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */; };
+		58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB261546EA0900C9C40E /* SenTestingKit.framework */; };
+		58ADAB281546EA0900C9C40E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CAAE1539A64D00CAB720 /* Cocoa.framework */; };
+		58ADAB2E1546EA0900C9C40E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58ADAB2C1546EA0900C9C40E /* InfoPlist.strings */; };
+		58ADAB311546EA0900C9C40E /* DWClockingUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB301546EA0900C9C40E /* DWClockingUnitTests.m */; };
+		58ADAB361546EA2800C9C40E /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CAAB1539A64D00CAB720 /* libDWClocking.a */; };
 		58C064B51540866100370618 /* DWClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 58C064B31540866100370618 /* DWClock.h */; };
 		58C064B61540866100370618 /* DWClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C064B41540866100370618 /* DWClock.m */; };
 		58D6CAAF1539A64D00CAB720 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D6CAAE1539A64D00CAB720 /* Cocoa.framework */; };
@@ -15,6 +22,15 @@
 
 /* Begin PBXFileReference section */
 		5815C9841545A03700A6329E /* DWTickable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTickable.h; sourceTree = "<group>"; };
+		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
+		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
+		58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWClockingUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58ADAB261546EA0900C9C40E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		58ADAB2B1546EA0900C9C40E /* DWClockingUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWClockingUnitTests-Info.plist"; sourceTree = "<group>"; };
+		58ADAB2D1546EA0900C9C40E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58ADAB2F1546EA0900C9C40E /* DWClockingUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWClockingUnitTests.h; sourceTree = "<group>"; };
+		58ADAB301546EA0900C9C40E /* DWClockingUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWClockingUnitTests.m; sourceTree = "<group>"; };
+		58ADAB321546EA0900C9C40E /* DWClockingUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWClockingUnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		58C064B31540866100370618 /* DWClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWClock.h; sourceTree = "<group>"; };
 		58C064B41540866100370618 /* DWClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWClock.m; sourceTree = "<group>"; };
 		58D6CAAB1539A64D00CAB720 /* libDWClocking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWClocking.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +43,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		58ADAB211546EA0900C9C40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB361546EA2800C9C40E /* libDWClocking.a in Frameworks */,
+				58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */,
+				58ADAB281546EA0900C9C40E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58D6CAA81539A64D00CAB720 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,14 +64,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58ADAB1F1546E9A100C9C40E /* Unit tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Unit tests";
+			sourceTree = "<group>";
+		};
+		58ADAB291546EA0900C9C40E /* DWClockingUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAB2F1546EA0900C9C40E /* DWClockingUnitTests.h */,
+				58ADAB301546EA0900C9C40E /* DWClockingUnitTests.m */,
+				58ADAB2A1546EA0900C9C40E /* Supporting Files */,
+			);
+			path = DWClockingUnitTests;
+			sourceTree = "<group>";
+		};
+		58ADAB2A1546EA0900C9C40E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58ADAB2B1546EA0900C9C40E /* DWClockingUnitTests-Info.plist */,
+				58ADAB2C1546EA0900C9C40E /* InfoPlist.strings */,
+				58ADAB321546EA0900C9C40E /* DWClockingUnitTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				58ADAB1F1546E9A100C9C40E /* Unit tests */,
+				58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */,
+				58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */,
 				5815C9841545A03700A6329E /* DWTickable.h */,
 				58C064B31540866100370618 /* DWClock.h */,
 				58C064B41540866100370618 /* DWClock.m */,
 				58D6CAC51539A79300CAB720 /* DWTime.h */,
 				58D6CAB51539A64D00CAB720 /* Supporting Files */,
+				58ADAB291546EA0900C9C40E /* DWClockingUnitTests */,
 				58D6CAAD1539A64D00CAB720 /* Frameworks */,
 				58D6CAAC1539A64D00CAB720 /* Products */,
 			);
@@ -55,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				58D6CAAB1539A64D00CAB720 /* libDWClocking.a */,
+				58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				58D6CAAE1539A64D00CAB720 /* Cocoa.framework */,
+				58ADAB261546EA0900C9C40E /* SenTestingKit.framework */,
 				58D6CAB01539A64D00CAB720 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -96,12 +155,31 @@
 			files = (
 				58D6CAC71539A79300CAB720 /* DWTime.h in Headers */,
 				58C064B51540866100370618 /* DWClock.h in Headers */,
+				58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		58ADAB241546EA0900C9C40E /* DWClockingUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58ADAB331546EA0900C9C40E /* Build configuration list for PBXNativeTarget "DWClockingUnitTests" */;
+			buildPhases = (
+				58ADAB201546EA0900C9C40E /* Sources */,
+				58ADAB211546EA0900C9C40E /* Frameworks */,
+				58ADAB221546EA0900C9C40E /* Resources */,
+				58ADAB231546EA0900C9C40E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWClockingUnitTests;
+			productName = DWClockingUnitTests;
+			productReference = 58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		58D6CAAA1539A64D00CAB720 /* DWClocking */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58D6CABC1539A64D00CAB720 /* Build configuration list for PBXNativeTarget "DWClocking" */;
@@ -141,22 +219,94 @@
 			projectRoot = "";
 			targets = (
 				58D6CAAA1539A64D00CAB720 /* DWClocking */,
+				58ADAB241546EA0900C9C40E /* DWClockingUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		58ADAB221546EA0900C9C40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB2E1546EA0900C9C40E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58ADAB231546EA0900C9C40E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		58ADAB201546EA0900C9C40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58ADAB311546EA0900C9C40E /* DWClockingUnitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58D6CAA71539A64D00CAB720 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				58C064B61540866100370618 /* DWClock.m in Sources */,
+				58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		58ADAB2C1546EA0900C9C40E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58ADAB2D1546EA0900C9C40E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		58ADAB341546EA0900C9C40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
+				INFOPLIST_FILE = "DWClockingUnitTests/DWClockingUnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		58ADAB351546EA0900C9C40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
+				INFOPLIST_FILE = "DWClockingUnitTests/DWClockingUnitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		58D6CABA1539A64D00CAB720 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -225,6 +375,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		58ADAB331546EA0900C9C40E /* Build configuration list for PBXNativeTarget "DWClockingUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58ADAB341546EA0900C9C40E /* Debug */,
+				58ADAB351546EA0900C9C40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		58D6CAA51539A64D00CAB720 /* Build configuration list for PBXProject "DWClocking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
