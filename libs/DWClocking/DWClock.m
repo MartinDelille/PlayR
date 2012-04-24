@@ -80,4 +80,8 @@
 -(void)tick:(DWTime)interval {
 	self.time += (DWTime)(rate * interval);
 }
+
+-(void)tickFrame {
+	[self tick:[self timePerFrame]];
+}
 @end

@@ -38,10 +38,18 @@
 @property NSString * tcString;
 
 /** 
- Tell to the clock that an interval of elapsed time.
+ Tell to the clock that an interval of time has elapsed.
  @param interval Amount of elapsed time.
  */
 -(void)tick:(DWTime)interval;
+
+/** 
+ Tell to the clock that a frame has elapsed.
+ @param interval Amount of elapsed time.
+ */
+-(void)tickFrame;
+
+
 
 /** 
  Initialize the clock with a specific timecode type value (used for timecode representation.

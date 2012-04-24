@@ -14,6 +14,11 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *tcText;
+- (IBAction)stop:(id)sender;
+- (IBAction)play:(id)sender;
 - (IBAction)nextFrame:(id)sender;
+- (IBAction)previousFrame:(id)sender;
+- (IBAction)rewind:(id)sender;
+- (IBAction)fastForward:(id)sender;
 
 @end
