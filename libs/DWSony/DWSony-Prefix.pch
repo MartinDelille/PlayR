@@ -5,4 +5,8 @@
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
 	#import "DWTools/DWLogger.h"
+
+
+#define DWSonyLog(args...) DWLogWithLevel(kDWLogLevelSonyBasic, args)
+
 #endif

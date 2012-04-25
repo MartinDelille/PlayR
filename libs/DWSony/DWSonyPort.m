@@ -30,11 +30,11 @@
 	self = [self init];
 	port = [[AMSerialPort alloc] init:devicePath withName:devicePath type:NULL];
 	if(port == nil) {
-		NSLog(@"Error during serial port initialisation");
+		DWSonyLog(@"Error during serial port initialisation");
 		return nil;
 	}
 	if (![port open]) {
-		NSLog(@"Unable to open %@", devicePath);
+		DWSonyLog(@"Unable to open %@", devicePath);
 		return nil;
 	}
 	
@@ -77,7 +77,7 @@
 	// Reading the command
 	NSData * tmp = [port readBytes:2 error:&error];
 	if([tmp length] < 2) {
-		NSLog(@"Unable to read command: %@", [error description]);
+		DWSonyLog(@"Unable to read command: %@", [error description]);
 		return NO;
 	}
 	unsigned char* ptr = (unsigned char*)[tmp bytes];
@@ -88,7 +88,7 @@
 	// Reading the data
 	tmp = [port readBytes:datacount+1 error:&error];
 	if ([tmp length] < datacount+1) {
-		NSLog(@"Unable to read data: %@", [error description]);
+		DWSonyLog(@"Unable to read data: %@", [error description]);
 		return NO;
 	}
 	
@@ -99,7 +99,7 @@
 		checksum += ptr[i];
 	}
 	if (checksum != ptr[datacount]) {
-		NSLog(@"Checksum error");
+		DWSonyLog(@"Checksum error");
 		[self sendNak:0x02];
 		return NO;
 	}
@@ -124,7 +124,7 @@
 	buffer[datacount+2] = checksum;
 	NSError * error;
 	if(![port writeBytes:buffer length:datacount+3 error:&error]) {
-		NSLog(@"Error during writing: %@", [error description]);
+		DWSonyLog(@"Error during writing: %@", [error description]);
 		return NO;
 	}
 	return YES;

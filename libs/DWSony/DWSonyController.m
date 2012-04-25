@@ -22,7 +22,7 @@
 	looping = NO;
 	port = [[DWSonyPort alloc] initWithDevicePath:bsdPath];
 	if (port == nil) {
-		DWLog(@"Bad device path: %@", bsdPath);
+		DWSonyLog(@"Bad device path: %@", bsdPath);
 		return nil;
 	}
 
@@ -33,13 +33,13 @@
 
 -(void)loopThread {
 	@autoreleasepool {
-		DWLog(@"Starting sony controller loop");
+		DWSonyLog(@"Starting sony controller loop");
 		
 		while (looping) {
 			[self processCommand];
 		}
 		
-		DWLog(@"Sony controller loop over");
+		DWSonyLog(@"Sony controller loop over");
 	}
 }
 
@@ -60,20 +60,20 @@
 			case 0:
 				switch (cmd2) {
 					case 0x0c:
-						DWLog(@"Local disable => ACK");
+						DWSonyLog(@"Local disable => ACK");
 						[port sendAck];
 						break;
 					case 0x11:
-						DWLog(@"Device Type Request => F1C0");
+						DWSonyLog(@"Device Type Request => F1C0");
 						[port sendCommandWithArgument:0x12 cmd2:0x11, 0xf1, 0xc0];
 						break;
 					case 0x1d:
-						DWLog(@"Local enable => ACK");
+						DWSonyLog(@"Local enable => ACK");
 						[port sendAck];
 						break;
 						
 					default:
-						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
 						break;
 				}
@@ -81,17 +81,17 @@
 			case 2:
 				switch (cmd2) {
 					case 0x00:
-						DWLog(@"Play => ACK");
+						DWSonyLog(@"Stop => ACK");
 						clock.rate = 0;
 						[port sendAck];
 						break;
 					case 0x01:
-						DWLog(@"Play => ACK");
+						DWSonyLog(@"Play => ACK");
 						clock.rate = 1;
 						[port sendAck];
 						break;
 					default:
-						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
 						break;
 				}
@@ -100,7 +100,7 @@
 				switch (cmd2) {
 					case 0x0c:
 					{
-						DWLog(@"Current Time Sense => %@", clock.tcString);
+						DWLogWithLevel(kDWLogLevelSonyDetails, @"Current Time Sense => %@", clock.tcString);
 						buffer[0] = 0x74;
 						switch (buffer[0]) {
 							case 0x01:
@@ -137,7 +137,7 @@
 					case 0x20:
 					{
 						// TODO : handle properly
-						DWLog(@"Status Sense (%x) => Status Data", buffer[0]);
+						DWLogWithLevel(kDWLogLevelSonyDetails, @"Status Sense (%x) => Status Data", buffer[0]);
 						unsigned char status[16];
 						memset(status, 0, 16);
 						
@@ -172,7 +172,7 @@
 					case 0x30:
 					{
 						// TODO : handle properly
-						DWLog(@"Edit Preset Sense => Edit Preset Status");
+						DWLogWithLevel(kDWLogLevelSonyDetails, @"Edit Preset Sense => Edit Preset Status");
 						unsigned char count = buffer[0];
 						for (int i=0; i<count; i++) {
 							buffer[i] = 0;
@@ -181,20 +181,20 @@
 						break;
 					}									
 					default:
-						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
 						break;
 				}
 				break;
 			default:
-				DWLog(@"Unknown command : %x => NAK", cmd1);
+				DWSonyLog(@"Unknown command : %x => NAK", cmd1);
 				[port sendNak:0x00];
 				break;
 		}
 		
 	}
 	else {
-		DWLog(@"Error during reading");
+		DWSonyLog(@"Error during reading");
 	}
 }
 @end

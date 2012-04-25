@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define DWLog2(args) [[DWLogger singleton] log:kDWLogLevelBasic fileName:__FILE__ line:__LINE__ funcName:__PRETTY_FUNCTION__ message:args];
 #define DWLog(args...) [[DWLogger singleton] log:kDWLogLevelBasic fileName:__FILE__ line:__LINE__ funcName:__PRETTY_FUNCTION__ message:args];
-
-#define DWLogWithLevel(level, args...) [DWLogger log:legel fileName:__FILE__ line:__LINE__ funcName:__PRETTY_FUNCTION__ message:args);
+#define DWLogWithLevel(level, args...) [[DWLogger singleton] log:level fileName:__FILE__ line:__LINE__ funcName:__PRETTY_FUNCTION__ message:args];
 
 typedef enum {
 	kDWLogLevelBasic = 1,
 	kDWLogLevelTest = 2,
 	kDWLogLevelSonyBasic = 1 << 8,
+	kDWLogLevelSonyDetails = 1 << 9,
 } DWLogLevel;
 
 @interface DWLogger : NSObject

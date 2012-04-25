@@ -72,6 +72,7 @@ static DWLogger * _singleton;
 
 
 -(void)configure:(DWLogLevel)aLevel fileName:(NSString *)fileName showDate:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
+	[self configureLogLevel:aLevel];
 	[self configureOutput:fileName];
 	
 	logShowDate = showDate || showTime;
@@ -93,26 +94,30 @@ static DWLogger * _singleton;
 	[[DWLogger singleton] configure:aLevel fileName:fileName showDate:showDate showTime:showTime showFile:showFile showFunc:showFunc];	
 }
 
--(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ... {
-	
-	va_list ap;
-	va_start (ap, msg);
-	msg = [[NSString alloc] initWithFormat:msg arguments:ap];
-	va_end (ap);
-	
-	if (logShowFunc) {
-		msg = [NSString stringWithFormat:@"%30s:%3d %@", funcName, line, msg];
+-(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ... 
+{
+	DWLogLevel test = aLevel & level;
+	if(test != 0)
+	{
+		va_list ap;
+		va_start (ap, msg);
+		msg = [[NSString alloc] initWithFormat:msg arguments:ap];
+		va_end (ap);
+		
+		if (logShowFunc) {
+			msg = [NSString stringWithFormat:@"%30s:%3d %@", funcName, line, msg];
+		}
+		
+		if (logShowFile) {
+			msg = [NSString stringWithFormat:@"%15s %@", [[NSString stringWithUTF8String:fileName] lastPathComponent], msg];
+		}
+		
+		if (logShowDate) {
+			msg = [NSString stringWithFormat:@"%@ %@", [dateFormatter stringFromDate:[NSDate date]], msg];
+		}
+		
+		fprintf(output, "%s\n", [msg UTF8String]);
 	}
-
-	if (logShowFile) {
-		msg = [NSString stringWithFormat:@"%15s %@", [[NSString stringWithUTF8String:fileName] lastPathComponent], msg];
-	}
-	
-	if (logShowDate) {
-		msg = [NSString stringWithFormat:@"%@ %@", [dateFormatter stringFromDate:[NSDate date]], msg];
-	}
-	
-	fprintf(output, "%s\n", [msg UTF8String]);
 }
 
 @end
