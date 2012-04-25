@@ -8,6 +8,7 @@
 
 #import "DWSonyController.h"
 #import "DWSonyPort.h"
+#import "DWTools/DWBCDTool.h"
 
 @implementation DWSonyController {
 	DWSonyPort * port;
@@ -74,7 +75,6 @@
 					default:
 						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
-						looping = NO;
 						break;
 				}
 				break;
@@ -93,7 +93,6 @@
 					default:
 						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
-						looping = NO;
 						break;
 				}
 				break;
@@ -101,7 +100,6 @@
 				switch (cmd2) {
 					case 0x0c:
 					{
-						// TODO : handle properly
 						DWLog(@"Current Time Sense => %@", clock.tcString);
 						buffer[0] = 0x74;
 						switch (buffer[0]) {
@@ -129,6 +127,10 @@
 						}
 						unsigned char hh, mm, ss, ff;
 						[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:clock.frame andType:clock.type];
+						hh = [DWBCDTool bcdFromUInt:hh];
+						mm = [DWBCDTool bcdFromUInt:mm];
+						ss = [DWBCDTool bcdFromUInt:ss];
+						ff = [DWBCDTool bcdFromUInt:ff];
 						[port sendCommandWithArgument:0x74 cmd2:cmd2, ff, ss, mm, hh];
 						break;
 					}
@@ -136,9 +138,33 @@
 					{
 						// TODO : handle properly
 						DWLog(@"Status Sense (%x) => Status Data", buffer[0]);
+						unsigned char status[16];
+						memset(status, 0, 16);
+						
+						if (clock.rate == 0) {
+							status[1] = 0x80;
+							status[2] = 0x03;
+						}
+						else if (clock.rate == 1) {
+							status[1] = 0x81;
+							status[2] = 0xc0;
+						}
+						else if (clock.rate > 1) {
+							status[1] = 0x84;
+						}
+						else if (clock.rate < -1) {
+							status[1] = 0x88;
+							status[2] = 0x04;
+						}
+						
+						// TODO handle shuttle fwd and rev
+						// TODO handle varispeed fwd and rev
+						// TODO handle jog fwd and rev
+						// TODO handle auto mode
+						unsigned char start = buffer[0] >> 4;
 						unsigned char count = buffer[0] & 0xf;
 						for (int i=0; i<count; i++) {
-							buffer[i] = 0;
+							buffer[i] = status[i+start];
 						}
 						[port sendCommand:(0x70+count) cmd2:0x20 data:buffer];
 						break;
@@ -157,21 +183,18 @@
 					default:
 						DWLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];
-						looping = NO;
 						break;
 				}
 				break;
 			default:
 				DWLog(@"Unknown command : %x => NAK", cmd1);
 				[port sendNak:0x00];
-				looping = NO;
 				break;
 		}
 		
 	}
 	else {
 		DWLog(@"Error during reading");
-		//	looping = NO;
 	}
 }
 @end

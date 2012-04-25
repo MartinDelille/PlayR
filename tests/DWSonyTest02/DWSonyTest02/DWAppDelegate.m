@@ -26,7 +26,7 @@
 	
 	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	[clock addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
-	clock.tcString = @"01:00:00:02";
+	clock.tcString = @"21:03:10:02";
 	clock.rate = 0;
 	
 	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame) userInfo:nil repeats:YES];
@@ -37,7 +37,12 @@
 	sony = [[DWSonyController alloc] initWithBSDPath:@"/dev/cu.usbserial-00001004B" andClock:clock];
 	
 	[sony start];
+}
 
+-(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+	[sony stop];
+	
+	return NSTerminateNow;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

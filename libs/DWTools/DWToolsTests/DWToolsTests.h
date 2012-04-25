@@ -10,4 +10,14 @@
 
 @interface DWToolsTests : SenTestCase
 
+/** 
+ Test [DWBCDTool bcdFromUInteger] 
+ */
+-(void)testBcdFromUInteger01;
+
+/** 
+ Test [DWBCDTool uintFromBCD] 
+ */
+-(void)testUIntegerFromBcd01;
+
 @end

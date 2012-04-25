@@ -15,6 +15,8 @@
 		5815C9FD1545B89000A6329E /* DWToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9FC1545B89000A6329E /* DWToolsTests.m */; };
 		5815CA081545B91400A6329E /* DWLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5815CA061545B91400A6329E /* DWLogger.h */; };
 		5815CA091545B91400A6329E /* DWLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815CA071545B91400A6329E /* DWLogger.m */; };
+		58FC648E15481586008FB6A1 /* DWBCDTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 58FC648C15481586008FB6A1 /* DWBCDTool.h */; };
+		58FC648F15481586008FB6A1 /* DWBCDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FC648D15481586008FB6A1 /* DWBCDTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		5815C9FC1545B89000A6329E /* DWToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWToolsTests.m; sourceTree = "<group>"; };
 		5815CA061545B91400A6329E /* DWLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLogger.h; sourceTree = "<group>"; };
 		5815CA071545B91400A6329E /* DWLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLogger.m; sourceTree = "<group>"; };
+		58FC648C15481586008FB6A1 /* DWBCDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBCDTool.h; sourceTree = "<group>"; };
+		58FC648D15481586008FB6A1 /* DWBCDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBCDTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		5815C9CF1545B89000A6329E = {
 			isa = PBXGroup;
 			children = (
+				58FC648C15481586008FB6A1 /* DWBCDTool.h */,
+				58FC648D15481586008FB6A1 /* DWBCDTool.m */,
 				5815CA061545B91400A6329E /* DWLogger.h */,
 				5815CA071545B91400A6329E /* DWLogger.m */,
 				5815C9E41545B89000A6329E /* Supporting Files */,
@@ -143,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5815CA081545B91400A6329E /* DWLogger.h in Headers */,
+				58FC648E15481586008FB6A1 /* DWBCDTool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5815CA091545B91400A6329E /* DWLogger.m in Sources */,
+				58FC648F15481586008FB6A1 /* DWBCDTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +356,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DWTools/DWTools-Prefix.pch";
+				GCC_PREFIX_HEADER = "DWTools-Prefix.pch";
 				INFOPLIST_FILE = "DWToolsTests/DWToolsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -360,7 +368,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DWTools/DWTools-Prefix.pch";
+				GCC_PREFIX_HEADER = "DWTools-Prefix.pch";
 				INFOPLIST_FILE = "DWToolsTests/DWToolsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
