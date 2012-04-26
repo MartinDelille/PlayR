@@ -35,23 +35,64 @@ extern NSString * const AMSerialPortListDidRemovePortsNotification;
 extern NSString * const AMSerialPortListAddedPorts;
 extern NSString * const AMSerialPortListRemovedPorts;
 
+/** List available serial port
+ 
+ Provide a list of all the supported serial port.
+ */
 @interface AMSerialPortList : NSObject
 {
 @private
 	NSMutableArray *portList;
 }
 
+/** 
+ Singleton instance of the port list
+ @return A singleton instance of the port list
+ */
 + (AMSerialPortList *)sharedPortList;
 
+/** 
+ The port enumerator
+ @return An enumerator
+ */
 + (NSEnumerator *)portEnumerator;
+
+/** 
+ The port enumerator for a specific type.
+ @param serialTypeKey A type of port
+ @return An enumerator
+ */
 + (NSEnumerator *)portEnumeratorForSerialPortsOfType:(NSString *)serialTypeKey;
 
-- (NSUInteger)count;
+/** 
+ Number of supported serial port.
+ */
+@property(readonly) NSUInteger count;
+
+/** 
+ Get the port at a specific index
+ @param idx An index in the list
+ @return The corresponding port
+ */
 - (AMSerialPort *)objectAtIndex:(NSUInteger)idx;
+
+/** 
+ Get the port with a specific name
+ @param name A name
+ @return The corresponding port
+ */
 - (AMSerialPort *)objectWithName:(NSString *)name;
 
-- (NSArray *)serialPorts;
-- (NSArray *)serialPortsOfType:(NSString *)serialTypeKey;
+/** 
+ Get the current list of port
+ */
+@property(readonly) NSArray * serialPorts;
 
+/** 
+ Get the list of port from a specific type
+ @param serialTypeKey A type of port
+ @return A list of ports
+ */
+- (NSArray *)serialPortsOfType:(NSString *)serialTypeKey;
 
 @end

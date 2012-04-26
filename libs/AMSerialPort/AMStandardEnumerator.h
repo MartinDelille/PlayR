@@ -14,6 +14,9 @@
 typedef NSUInteger (*CountMethod)(id, SEL);
 typedef id (*NextObjectMethod)(id, SEL, NSUInteger);
 
+/**
+ Implement a standard enumerator behaviour
+ */
 @interface AMStandardEnumerator : NSEnumerator
 {
 @private
