@@ -664,4 +664,44 @@
 
 }
 
+
+-(void)testStringFromFrameWithExtremeValue {
+	DWTimeCodeType type = kDWTimeCode25;
+
+	STAssertEqualObjects(@"23:59:59:24", [DWTimeCode stringFromFrame:2159999 andType:type], nil);
+	STAssertEqualObjects(@"24:00:00:00", [DWTimeCode stringFromFrame:2160000 andType:type], nil);
+	STAssertEqualObjects(@"24:00:00:01", [DWTimeCode stringFromFrame:2160001 andType:type], nil);
+	STAssertEqualObjects(@"24:10:59:24", [DWTimeCode stringFromFrame:2176499 andType:type], nil);
+	
+	STAssertEqualObjects(@"-00:00:00:01", [DWTimeCode stringFromFrame:-1 andType:type], nil);
+	STAssertEqualObjects(@"-23:59:59:24", [DWTimeCode stringFromFrame:-2159999 andType:type], nil);
+	STAssertEqualObjects(@"-24:00:00:00", [DWTimeCode stringFromFrame:-2160000 andType:type], nil);
+	STAssertEqualObjects(@"-24:00:00:01", [DWTimeCode stringFromFrame:-2160001 andType:type], nil);
+	STAssertEqualObjects(@"-24:10:59:24", [DWTimeCode stringFromFrame:-2176499 andType:type], nil);
+}
+
+
+-(void)testTCWithSpecialString {
+	DWTimeCodeType type = kDWTimeCode25;
+	
+	// bad value for hh, mm, ss and ff
+	STAssertEqualObjects(@"12:23:34:00", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:23:34:30" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:23:34:00", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:23:34:ff" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:23:00:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:23:60:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:23:00:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:23:ss:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:00:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:60:34:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:00:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:mm:34:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"00:23:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"hh:23:34:19" andType:type] andType:type], nil);
+	
+	// extreme value for hh
+	STAssertEqualObjects(@"24:23:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"24:23:34:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"-01:23:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"-1:23:34:19" andType:type] andType:type], nil);
+
+	// bad digit count
+	STAssertEqualObjects(@"00:00:00:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"00:00:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"34:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"00:23:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"23:34:19" andType:type] andType:type], nil);
+	STAssertEqualObjects(@"12:23:34:19", [DWTimeCode stringFromFrame:[DWTimeCode frameFromString:@"12:23:34:19:12" andType:type] andType:type], nil);
+}
+
 @end

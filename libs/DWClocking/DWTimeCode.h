@@ -67,7 +67,7 @@ typedef enum {
  @param frame Frame number
  @param type Timecode typ
  */
-+(void)ComputeHh:(unsigned char *)hh Mm:(unsigned char *)mm Ss:(unsigned char *)ss Ff:(unsigned char *)ff fromFrame:(DWFrame)frame andType:(DWTimeCodeType)type;
++(void)ComputeHh:(unsigned int *)hh Mm:(unsigned int *)mm Ss:(unsigned int *)ss Ff:(unsigned int *)ff fromFrame:(DWFrame)frame andType:(DWTimeCodeType)type;
 
 /** 
  Compute frame number from the HH, MM, SS and FF timecode component and a type.
@@ -78,6 +78,6 @@ typedef enum {
  @param type Timecode typ
  @return A frame number
  */
-+(DWFrame)frameFromHh:(unsigned char)hh Mm:(unsigned char)mm Ss:(unsigned char)ss Ff:(unsigned char)ff andType:(DWTimeCodeType)type;
++(DWFrame)frameFromHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff andType:(DWTimeCodeType)type;
 
 @end

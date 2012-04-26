@@ -11,30 +11,33 @@
 @implementation DWTimeCode
 
 +(NSString *)stringFromFrame:(DWFrame)frame andType:(DWTimeCodeType)type {
-	unsigned char hh, mm, ss, ff;
+	unsigned int hh, mm, ss, ff;
 	[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:frame andType:type];
-	return [NSString stringWithFormat:@"%02d:%02d:%02d:%02d", hh, mm, ss, ff];
+	return [NSString stringWithFormat:@"%@%02d:%02d:%02d:%02d", (frame<0)?@"-":@"", hh, mm, ss, ff];
 }
 
 +(DWFrame)frameFromString:(NSString *)string andType:(DWTimeCodeType)type {
+	long sign = 1;
+	if ((string.length > 0) && [string characterAtIndex:0] == '-') {
+		sign = -1;
+		string = [string substringFromIndex:1];
+	}
 	NSArray * list = [string componentsSeparatedByString:@":"];
-	if (list.count != 4) {
-		[NSException raise:@"Bad TC string" format:@"Bad TC string: %@", string];
-		return 0;
+	unsigned int hhmmssff[4];
+	memset(hhmmssff, 0, 4 * sizeof(unsigned int));
+	
+	for (int i=0; i<MIN(4, list.count); i++) {
+		DWLog(@"%d : %@", i, [list objectAtIndex:i]);
+		int k = i;
+		if(list.count < 4)
+			k += 4 - list.count;
+		hhmmssff[k] = [[list objectAtIndex:i] intValue];
 	}
-	else {
-		unsigned char hh, mm, ss, ff;
-		hh = [[list objectAtIndex:0] intValue];
-		mm = [[list objectAtIndex:1] intValue];
-		ss = [[list objectAtIndex:2] intValue];
-		ff = [[list objectAtIndex:3] intValue];
-		return [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:type];
-	}
-
+	return sign * [DWTimeCode frameFromHh:hhmmssff[0] Mm:hhmmssff[1] Ss:hhmmssff[2] Ff:hhmmssff[3] andType:type];
 }
 
 +(unsigned int)bcdFromFrame:(DWFrame)frame andType:(DWTimeCodeType)type {
-	unsigned char hh, mm, ss, ff;
+	unsigned int hh, mm, ss, ff;
 	unsigned int result;
 	[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:frame andType:type];
 	
@@ -51,7 +54,7 @@
 }
 
 +(DWFrame)frameFromBcd:(unsigned int)bcd andType:(DWTimeCodeType)type {
-	unsigned char hh, mm, ss, ff;
+	unsigned int hh, mm, ss, ff;
 	
 	hh = (bcd >> 28) * 10;
 	hh += (bcd >> 24) & 0x0f;
@@ -78,16 +81,13 @@
 			return 25;
 		case kDWTimeCode2997:
 			return 30;
-		default:
-			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", type];
-			return 0;
 	}
 }
 
-+(void)ComputeHh:(unsigned char *)hh Mm:(unsigned char *)mm Ss:(unsigned char *)ss Ff:(unsigned char *)ff fromFrame:(DWFrame)frame andType:(DWTimeCodeType)type {
++(void)ComputeHh:(unsigned int *)hh Mm:(unsigned int *)mm Ss:(unsigned int *)ss Ff:(unsigned int *)ff fromFrame:(DWFrame)frame andType:(DWTimeCodeType)type {
 	DWFrame fps = [DWTimeCode getFps:type];
 	BOOL drop = [DWTimeCode isDrop:type];
-	DWFrame n = frame;
+	DWFrame n = ABS(frame);
 	
 	// computing hour
 	DWFrame framePerHour = 3600 * fps;
@@ -137,23 +137,30 @@
 	*ff = n;
 }
 
-+(DWFrame)frameFromHh:(unsigned char)hh Mm:(unsigned char)mm Ss:(unsigned char)ss Ff:(unsigned char)ff andType:(DWTimeCodeType)type {
++(DWFrame)frameFromHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff andType:(DWTimeCodeType)type {
 	DWFrame fps = [DWTimeCode getFps:type];
-	if ((hh<24) && (mm<60) && (ss<60) && (ff<fps)) {
-		DWFrame dropframe = 0;
-		if ([DWTimeCode isDrop:type]) {
-			// counting drop per hour
-			dropframe += hh * 108;
-			// counting drop per tenth of minute
-			dropframe += (mm/10) * 18;
-			// counting drop per minute
-			dropframe += (mm%10) * 2;
-		}
-		return (((hh * 60) + mm) * 60 + ss) * fps + ff - dropframe;								   
+	
+	if (mm>=60) {
+		DWLog(@"Bad minute value: %u", mm);
+		mm = 0;
 	}
-	else {
-		[NSException raise:@"Invalid timecode digit" format:@"Digit are not valid %02d:%02d:%02d:%02d", hh, mm, ss, ff];
-		return 0;
+	if (ss>=60) {
+		DWLog(@"Bad second value: %u", ss);
+		ss = 0;
 	}
+	if (ff>=fps) {
+		DWLog(@"Bad frame value: %u", ff);
+		ff = 0;
+	}
+	DWFrame dropframe = 0;
+	if ([DWTimeCode isDrop:type]) {
+		// counting drop per hour
+		dropframe += hh * 108;
+		// counting drop per tenth of minute
+		dropframe += (mm/10) * 18;
+		// counting drop per minute
+		dropframe += (mm%10) * 2;
+	}
+	return (((hh * 60) + mm) * 60 + ss) * fps + ff - dropframe;
 }
 @end

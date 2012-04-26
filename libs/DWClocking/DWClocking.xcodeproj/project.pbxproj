@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582677E81549453300993458 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 582677E71549453300993458 /* libDWTools.a */; };
 		58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */; };
 		58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */; };
 		58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB261546EA0900C9C40E /* SenTestingKit.framework */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		5815C9841545A03700A6329E /* DWTickable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTickable.h; sourceTree = "<group>"; };
+		582677E71549453300993458 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
 		58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWClockingUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +40,7 @@
 		58D6CAB11539A64D00CAB720 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		58D6CAB21539A64D00CAB720 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		58D6CAB31539A64D00CAB720 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		58D6CAB61539A64D00CAB720 /* DWClocking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWClocking-Prefix.pch"; path = "../DWClocking-Prefix.pch"; sourceTree = "<group>"; };
+		58D6CAB61539A64D00CAB720 /* DWClocking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWClocking-Prefix.pch"; sourceTree = "<group>"; };
 		58D6CAC51539A79300CAB720 /* DWTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTime.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582677E81549453300993458 /* libDWTools.a in Frameworks */,
 				58ADAB361546EA2800C9C40E /* libDWClocking.a in Frameworks */,
 				58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */,
 				58ADAB281546EA0900C9C40E /* Cocoa.framework in Frameworks */,
@@ -94,6 +97,7 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				582677E71549453300993458 /* libDWTools.a */,
 				58ADAB1F1546E9A100C9C40E /* Unit tests */,
 				58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */,
 				58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */,
@@ -290,6 +294,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
 				INFOPLIST_FILE = "DWClockingUnitTests/DWClockingUnitTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -302,6 +310,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
 				INFOPLIST_FILE = "DWClockingUnitTests/DWClockingUnitTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -331,6 +343,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ..;
 			};
 			name = Debug;
 		};
@@ -351,6 +364,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ..;
 			};
 			name = Release;
 		};
@@ -382,6 +396,7 @@
 				58ADAB351546EA0900C9C40E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58D6CAA51539A64D00CAB720 /* Build configuration list for PBXProject "DWClocking" */ = {
 			isa = XCConfigurationList;

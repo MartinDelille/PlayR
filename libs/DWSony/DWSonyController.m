@@ -64,9 +64,25 @@
 						[port sendAck];
 						break;
 					case 0x11:
-						DWSonyLog(@"Device Type Request => F1C0");
-						[port sendCommandWithArgument:0x12 cmd2:0x11, 0xf1, 0xc0];
+					{
+						DWLogWithLevel(kDWLogLevelSonyDetails, @"Device Type Request => F1C0");
+						// TODO : Device ID as a parameter
+						unsigned char deviceID1 = 0xf0;
+						unsigned char deviceID2 = 0xc0;
+						switch (clock.type) {
+							case kDWTimeCode2398:
+							case kDWTimeCode24:
+								deviceID1 += 2;
+								break;
+							case kDWTimeCode25:
+								deviceID1 += 1;
+								break;
+							case kDWTimeCode2997:
+								break;
+						}
+						[port sendCommandWithArgument:0x12 cmd2:0x11, deviceID1, deviceID2];
 						break;
+					}
 					case 0x1d:
 						DWSonyLog(@"Local enable => ACK");
 						[port sendAck];
@@ -90,6 +106,29 @@
 						clock.rate = 1;
 						[port sendAck];
 						break;
+					case 0x10:
+						DWSonyLog(@"Fast forward => ACK");
+						// TODO: parameter for fast forward speed
+						clock.rate = 50;
+						[port sendAck];
+						break;
+					case 0x20:
+						DWSonyLog(@"Rewing => ACK");
+						// TODO: parameter for rewind speed
+						clock.rate = -50;
+						[port sendAck];
+						break;
+					case 0x31:
+					{
+						unsigned char hh = [DWBCDTool bcdFromUInt:buffer[3]];
+						unsigned char mm = [DWBCDTool bcdFromUInt:buffer[2]];
+						unsigned char ss = [DWBCDTool bcdFromUInt:buffer[1]];
+						unsigned char ff = [DWBCDTool bcdFromUInt:buffer[0]];
+						clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:clock.type];
+						DWSonyLog(@"Cue at %@ => ACK", clock.tcString);
+						[port sendAck];
+						break;
+					}
 					default:
 						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
 						[port sendNak:0x00];

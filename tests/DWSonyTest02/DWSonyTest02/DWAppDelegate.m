@@ -22,7 +22,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// TODO : handle tc type
-	clock = [[DWClock alloc] initWithType:kDWTimeCode25];
+	clock = [[DWClock alloc] initWithType:kDWTimeCode24];
 	
 	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	[clock addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];

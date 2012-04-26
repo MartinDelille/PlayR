@@ -43,9 +43,6 @@
 			return DWTC25FRAMEDURATION;
 		case kDWTimeCode2997:
 			return DWTC2997FRAMEDURATION;
-		default:
-			[NSException raise:@"Invalid timecode type" format:@"type is not a valid DWTimeCodeType : %d", self.type];
-			return 0;
 	}
 }
 
