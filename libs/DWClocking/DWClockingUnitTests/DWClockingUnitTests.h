@@ -90,9 +90,4 @@
  */
 -(void)testFrameFromBcdForTC2997;
 
-// TODO: exception tests
-
-// TODO: negative frame tests
-
-// TODO: hour over 24 tests
 @end

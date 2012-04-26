@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DWTime.h"
 
 @protocol DWTickable <NSObject>
--(void)tick:(DWTime)interval;
+-(void)tickFrame;
 @end

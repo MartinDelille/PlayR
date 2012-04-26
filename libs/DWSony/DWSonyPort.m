@@ -57,8 +57,8 @@
 	if((videoRefState < 1) && port.CTS)
 	{
 		videoRefState = 1;
-		// TODO:fix this:
-		[self.videoRefDelegate tick:7680];
+		// TODO: check this:
+		[self.videoRefDelegate tickFrame];
 	}
 	else {
 		videoRefState = 0;

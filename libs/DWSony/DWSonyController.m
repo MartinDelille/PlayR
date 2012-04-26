@@ -108,7 +108,7 @@
 						break;
 					case 0x10:
 						DWSonyLog(@"Fast forward => ACK");
-						// TODO: parameter for fast forward speed
+						// TODO: speed as a parameter for fast forward speed
 						clock.rate = 50;
 						[port sendAck];
 						break;
@@ -175,7 +175,7 @@
 					}
 					case 0x20:
 					{
-						// TODO : handle properly
+						// TODO : handle status sens properly
 						DWLogWithLevel(kDWLogLevelSonyDetails, @"Status Sense (%x) => Status Data", buffer[0]);
 						unsigned char status[16];
 						memset(status, 0, 16);

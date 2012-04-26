@@ -10,14 +10,14 @@
 
 @implementation DWClock {
 	DWTimeCodeType _type;
-	DWTime _time;
 }
 
+@synthesize time;
 @synthesize rate;
 
 -(id)init {
 	self = [super init];
-	_time = 0;
+	time = 0;
 	_type = kDWTimeCode25;
 	rate = 0.0;
 	return self;
@@ -44,18 +44,6 @@
 		case kDWTimeCode2997:
 			return DWTC2997FRAMEDURATION;
 	}
-}
-
--(void)setTime:(DWTime)time {
-	if(_time != time)
-	{
-		_time = time;
-		// TODO: notify observer
-	}
-}
-
--(DWTime)time {
-	return _time;
 }
 
 -(void)setFrame:(DWFrame)frame {
