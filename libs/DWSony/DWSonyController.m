@@ -17,16 +17,19 @@
 	unsigned char buffer[256];
 }
 
--(id)initWithBSDPath:(NSString *)bsdPath andClock:(DWClock *)aClock {
+-(id)initWithClock:(DWClock *)aClock {
 	self = [self init];
 	looping = NO;
-	port = [[DWSonyPort alloc] initWithDevicePath:bsdPath];
+	port = [[DWSonyPort alloc] init];
 	if (port == nil) {
-		DWSonyLog(@"Bad device path: %@", bsdPath);
+		DWSonyLog(@"Sony port unavailable");
 		return nil;
 	}
 
 	clock = aClock;
+	
+	// TODO allow switch between internal and video reference
+	port.videoRefDelegate = clock;
 	
 	return self;
 }
@@ -164,7 +167,7 @@
 								cmd2 = 0x04;
 								break;
 						}
-						unsigned char hh, mm, ss, ff;
+						unsigned int hh, mm, ss, ff;
 						[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:clock.frame andType:clock.type];
 						hh = [DWBCDTool bcdFromUInt:hh];
 						mm = [DWBCDTool bcdFromUInt:mm];
@@ -231,9 +234,6 @@
 				break;
 		}
 		
-	}
-	else {
-		DWSonyLog(@"Error during reading");
 	}
 }
 @end

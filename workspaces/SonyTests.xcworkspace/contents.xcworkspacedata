@@ -21,10 +21,10 @@
       location = "container:"
       name = "tests">
       <FileRef
-         location = "group:../tests/DWSonyTest02/DWSonyTest02.xcodeproj">
+         location = "group:../tests/DWSonyTest01/DWSonyTest01.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:../tests/DWSonyTest01/DWSonyTest01.xcodeproj">
+         location = "group:../tests/DWSonyTest02/DWSonyTest02.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>

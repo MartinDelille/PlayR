@@ -9,7 +9,7 @@
 #import "DWSonyPort.h"
 #import "AMSerialPort/AMSerialPort.h"
 #import "AMSerialPort/AMSerialPortAdditions.h"
-
+#import "AMSerialPort/AMSerialPortList.h"
 
 @implementation DWSonyPort{
 	AMSerialPort * port;
@@ -23,23 +23,26 @@
 	videoRefState = -1;
 	videoRefDelegate = nil;
 	
-	return self;
-}
-
--(id)initWithDevicePath:(NSString *)devicePath {
-	self = [self init];
-	port = [[AMSerialPort alloc] init:devicePath withName:devicePath type:NULL];
-	if(port == nil) {
-		DWSonyLog(@"Error during serial port initialisation");
-		return nil;
-	}
-	if (![port open]) {
-		DWSonyLog(@"Unable to open %@", devicePath);
-		return nil;
+	NSArray * portList = [[AMSerialPortList sharedPortList] serialPorts];
+	for (int i=0; i<portList.count; i++) {
+		NSString* name = [[portList objectAtIndex:i] name];
+		if ([name hasPrefix:@"usbserial"] && [name hasSuffix:@"B"]) {
+			port = [portList objectAtIndex:i];
+			break;
+		}
 	}
 	
+	if (port == nil) {
+		DWLog(@"No usbserial port B available");
+	}
+
+	if (![port open]) {
+		DWSonyLog(@"Unable to open %@", port.name);
+		return nil;
+	}
+	port.readTimeout = 0.005;
 	NSDictionary * options = [[NSDictionary alloc] initWithObjectsAndKeys:
-							  devicePath, AMSerialOptionServiceName,
+							  port.name, AMSerialOptionServiceName,
 							  @"38400", AMSerialOptionSpeed,
 							  @"8", AMSerialOptionDataBits,
 							  @"Odd", AMSerialOptionParity,
@@ -76,8 +79,13 @@
 	
 	// Reading the command
 	NSData * tmp = [port readBytes:2 error:&error];
-	if([tmp length] < 2) {
-		DWSonyLog(@"Unable to read command: %@", [error description]);
+	if (tmp == nil) {
+		return NO;
+	}
+	
+	// \TODO : handle 1 byte data reception
+	if(tmp.length < 2) {
+		DWSonyLog(@"Bad data length: %d", tmp.length);
 		return NO;
 	}
 	unsigned char* ptr = (unsigned char*)[tmp bytes];

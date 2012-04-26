@@ -17,13 +17,6 @@
  */
 @interface DWSonyPort : NSObject
 
-/** 
- Initialize the sony port with a BSD path.
- @param devicePath is a BSD path (eg: /dev/cu.usbserial-00001004B)
- @return The initialized instance
- */
--(id)initWithDevicePath:(NSString*)devicePath;
-
 /**
  Read a command and its associated data.
  @param cmd1 indicate the command category id and the data count

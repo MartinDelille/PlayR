@@ -22,7 +22,7 @@
  @param aClock DWClock synchronized by the sony controller
  @return A valid DWSonyController object.
  */
--(id)initWithBSDPath:(NSString*)bsdPath andClock:(DWClock*)aClock;
+-(id)initWithClock:(DWClock*)aClock;
 
 /** 
  Start the thread handling the communication.

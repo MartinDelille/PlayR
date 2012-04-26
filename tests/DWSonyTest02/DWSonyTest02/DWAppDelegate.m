@@ -28,13 +28,13 @@
 	[clock addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
 	clock.tcString = @"21:03:10:02";
 	clock.rate = 0;
+
+	// TODO switch between internal clock and video reference
+//	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame) userInfo:nil repeats:YES];	
+//	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+//	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame) userInfo:nil repeats:YES];
-	
-	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
-	
-	sony = [[DWSonyController alloc] initWithBSDPath:@"/dev/cu.usbserial-00001004B" andClock:clock];
+	sony = [[DWSonyController alloc] initWithClock:clock];
 	
 	[sony start];
 }

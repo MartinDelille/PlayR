@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		582678101549695800993458 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5826780F1549695800993458 /* libDWTools.a */; };
 		58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */; };
 		58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */; };
 		58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB261546EA0900C9C40E /* SenTestingKit.framework */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		5815C9841545A03700A6329E /* DWTickable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTickable.h; sourceTree = "<group>"; };
-		5826780F1549695800993458 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
 		58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWClockingUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				582678101549695800993458 /* libDWTools.a in Frameworks */,
 				58D6CAAF1539A64D00CAB720 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +94,6 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
-				5826780F1549695800993458 /* libDWTools.a */,
 				58ADAB1F1546E9A100C9C40E /* Unit tests */,
 				58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */,
 				58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */,
