@@ -14,6 +14,10 @@
 		58086578152B426A0006989A /* AMSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 5808656E152B426A0006989A /* AMSerialPort.m */; };
 		58086579152B426A0006989A /* AMSerialPortAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5808656F152B426A0006989A /* AMSerialPortAdditions.h */; };
 		5808657A152B426A0006989A /* AMSerialPortAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 58086570152B426A0006989A /* AMSerialPortAdditions.m */; };
+		582678231549798B00993458 /* AMSerialPortList.h in Headers */ = {isa = PBXBuildFile; fileRef = 5826781F1549798B00993458 /* AMSerialPortList.h */; };
+		582678241549798B00993458 /* AMSerialPortList.m in Sources */ = {isa = PBXBuildFile; fileRef = 582678201549798B00993458 /* AMSerialPortList.m */; };
+		582678251549798B00993458 /* AMStandardEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 582678211549798B00993458 /* AMStandardEnumerator.h */; };
+		582678261549798B00993458 /* AMStandardEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 582678221549798B00993458 /* AMStandardEnumerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		5808656E152B426A0006989A /* AMSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPort.m; sourceTree = "<group>"; };
 		5808656F152B426A0006989A /* AMSerialPortAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSerialPortAdditions.h; sourceTree = "<group>"; };
 		58086570152B426A0006989A /* AMSerialPortAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPortAdditions.m; sourceTree = "<group>"; };
+		5826781F1549798B00993458 /* AMSerialPortList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSerialPortList.h; sourceTree = "<group>"; };
+		582678201549798B00993458 /* AMSerialPortList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSerialPortList.m; sourceTree = "<group>"; };
+		582678211549798B00993458 /* AMStandardEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStandardEnumerator.h; sourceTree = "<group>"; };
+		582678221549798B00993458 /* AMStandardEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStandardEnumerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,10 @@
 		58086530152B3BCF0006989A = {
 			isa = PBXGroup;
 			children = (
+				5826781F1549798B00993458 /* AMSerialPortList.h */,
+				582678201549798B00993458 /* AMSerialPortList.m */,
+				582678211549798B00993458 /* AMStandardEnumerator.h */,
+				582678221549798B00993458 /* AMStandardEnumerator.m */,
 				5808656B152B426A0006989A /* AMSDKCompatibility.h */,
 				5808656C152B426A0006989A /* AMSerialErrors.h */,
 				5808656D152B426A0006989A /* AMSerialPort.h */,
@@ -105,6 +117,8 @@
 				58086576152B426A0006989A /* AMSerialErrors.h in Headers */,
 				58086577152B426A0006989A /* AMSerialPort.h in Headers */,
 				58086579152B426A0006989A /* AMSerialPortAdditions.h in Headers */,
+				582678231549798B00993458 /* AMSerialPortList.h in Headers */,
+				582678251549798B00993458 /* AMStandardEnumerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +175,8 @@
 			files = (
 				58086578152B426A0006989A /* AMSerialPort.m in Sources */,
 				5808657A152B426A0006989A /* AMSerialPortAdditions.m in Sources */,
+				582678241549798B00993458 /* AMSerialPortList.m in Sources */,
+				582678261549798B00993458 /* AMStandardEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

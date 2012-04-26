@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../libs/DWTools/DWTools.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../tests/DWSerialTest02/DWSerialTest02.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../tests/SerialTest01/SerialTest01.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../libs/AMSerialPort/AMSerialPort.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "libs">
+      <FileRef
+         location = "group:../libs/AMSerialPort/AMSerialPort.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../libs/DWTools/DWTools.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "tests">
+      <FileRef
+         location = "group:../tests/SerialTest01/SerialTest01.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../tests/DWSerialTest02/DWSerialTest02.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>
