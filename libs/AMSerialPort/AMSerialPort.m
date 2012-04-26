@@ -55,6 +55,8 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 
 @implementation AMSerialPort
 
+@synthesize readTimeout;
+
 - (id)init:(NSString *)path withName:(NSString *)name type:(NSString *)type
 	// path is a bsdPath
 	// name is an IOKit service name
@@ -82,7 +84,7 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 		closeLock = [[NSLock alloc] init];
 		
 		// By default blocking read attempts will timeout after 1 second
-		[self setReadTimeout:1.0];
+		self.readTimeout = 1.0;
 		
 		// These are used by the AMSerialPortAdditions category only; pretend to use them here to silence warnings by the clang static analyzer.
 		(void)am_readTarget;
@@ -788,23 +790,12 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 	return lastError;
 }
 
-- (NSTimeInterval)readTimeout
-{
-    return readTimeout;
-}
-
-- (void)setReadTimeout:(NSTimeInterval)aReadTimeout
-{
-    readTimeout = aReadTimeout;
-}
-
 // private methods
 
 - (void)readTimeoutAsTimeval:(struct timeval*)timeout
 {
-	NSTimeInterval timeoutInterval = [self readTimeout];
-	double numSecs = trunc(timeoutInterval);
-	double numUSecs = (timeoutInterval-numSecs)*1000000.0;
+	double numSecs = trunc(self.readTimeout);
+	double numUSecs = (self.readTimeout - numSecs)*1000000.0;
 	timeout->tv_sec = (time_t)lrint(numSecs);
 	timeout->tv_usec = (suseconds_t)lrint(numUSecs);
 }

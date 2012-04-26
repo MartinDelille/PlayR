@@ -143,7 +143,6 @@ extern NSString *const AMSerialErrorDomain;
 	int	lastError;
 	id owner;
 	char * buffer;
-	NSTimeInterval readTimeout; // for public blocking read methods and doRead
 	fd_set * readfds;
 	id delegate;
 	BOOL delegateHandlesReadInBackground;

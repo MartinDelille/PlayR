@@ -507,7 +507,7 @@ static int64_t AMMicrosecondsSinceBoot (void)
 
 // Low-level blocking read method.
 // This method reads from the serial port and blocks as necessary, it returns when:
-//  - [self readTimeout] seconds has elapsed
+//  - self.readTimeout seconds has elapsed
 //  - if stopAfterBytes is YES, when 'bytesToRead' bytes have been read
 //  - if stopAtChar is YES, when 'stopChar' is found at the end of the read buffer
 //  - a fatal error occurs
@@ -525,7 +525,7 @@ static int64_t AMMicrosecondsSinceBoot (void)
 	NSError *underlyingError = nil;
 	
 	// How long, in total, in microseconds, do we block before timing out?
-	int64_t totalTimeout = (int64_t)([self readTimeout] * 1000000.0);
+	int64_t totalTimeout = (int64_t)(self.readTimeout * 1000000.0);
 	
 	// This value will be decreased each time through the loop
 	int64_t remainingTimeout = totalTimeout;

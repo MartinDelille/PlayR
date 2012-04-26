@@ -34,13 +34,25 @@ int main(int argc, const char * argv[])
 		else {
 			DWLog(@"Opening serial port");
 			if([port open]){
+				port.readTimeout = 0.005;
+				
 				DWLog(@"CTS: %d", [port CTSOutputFlowControl]);
 				port.CTSOutputFlowControl = YES;
 				DWLog(@"CTS: %d", [port CTSOutputFlowControl]);
 				
-				//DWLog(@"Reading data...");
-				//NSString * s = [port readStringUsingEncoding:NSUTF8StringEncoding error:nil];
-				//DWLog(@"read : %@", s);
+				NSString *s;
+				BOOL refState = NO;
+				for (int i=0; i<40; i++) {
+					s = [port readStringUsingEncoding:NSUTF8StringEncoding error:nil];
+					if (s!=nil) {
+						DWLog(@"reading %@", s);
+					}
+					BOOL cts = port.CTS;
+					if (cts != refState) {
+						refState = cts;
+						DWLog(@"cts : %d", cts);
+					}
+				}
 				
 				DWLog(@"Writing data...");
 				[port writeString:@"pouet" usingEncoding:NSUTF8StringEncoding error:NULL];
