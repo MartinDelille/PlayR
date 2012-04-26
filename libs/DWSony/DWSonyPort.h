@@ -10,7 +10,7 @@
 
 #import "DWClocking/DWTickable.h"
 
-/** Handles Sony port comunication
+/** Handles Sony port protocole
  
  Provide method to access a Sony serial port and write and read command from it.
  

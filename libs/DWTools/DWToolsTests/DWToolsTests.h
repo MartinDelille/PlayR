@@ -8,6 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/** Unit test for DWTools project class
+ 
+ Provides unit test for DWBCDTool.
+ */
 @interface DWToolsTests : SenTestCase
 
 /** 

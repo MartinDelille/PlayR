@@ -71,10 +71,7 @@ static DWLogger * _singleton;
 }
 
 
--(void)configure:(DWLogLevel)aLevel fileName:(NSString *)fileName showDate:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
-	[self configureLogLevel:aLevel];
-	[self configureOutput:fileName];
-	
+-(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
 	logShowDate = showDate || showTime;
 	
 	if (showDate && showTime) {
@@ -90,8 +87,8 @@ static DWLogger * _singleton;
 	logShowFunc = showFunc;
 }
 
-+(void)configure:(DWLogLevel)aLevel fileName:(NSString *)fileName showDate:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
-	[[DWLogger singleton] configure:aLevel fileName:fileName showDate:showDate showTime:showTime showFile:showFile showFunc:showFunc];	
++(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
+	[[DWLogger singleton] configureDisplay:showDate showTime:showTime showFile:showFile showFunc:showFunc];	
 }
 
 -(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ... 

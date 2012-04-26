@@ -8,6 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/** Unit tests for the DWClocking project class
+ 
+ Provide unit test for DWTimeCode class.
+ */
 @interface DWClockingUnitTests : SenTestCase
 
 /** 

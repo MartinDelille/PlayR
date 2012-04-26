@@ -24,12 +24,17 @@ typedef enum {
 	kDWTimeCode2997,
 } DWTimeCodeType;
 
+/** Timecode representation utility
+ 
+ Provide tools for converting between frame, string representation and 
+ BCD representation of a timecode value.
+ */
 @interface DWTimeCode : NSObject
 
 /** 
  Create a timecode string representation from a frame number and a type
  @param frame A frame number.
- @param aType A DWTimeCodeType value.
+ @param type A DWTimeCodeType value.
  @return An NSString* timecode representation.
  */
 +(NSString*)stringFromFrame:(DWFrame)frame andType:(DWTimeCodeType)type;
@@ -37,7 +42,7 @@ typedef enum {
 /** 
  Compute the frame number from a timecode string representation and a type
  @param string A string.
- @param aType A DWTimeCodeType value.
+ @param type A DWTimeCodeType value.
  @return The corresponding frame number.
  */
 +(DWFrame)frameFromString:(NSString*)string andType:(DWTimeCodeType)type;
@@ -45,7 +50,7 @@ typedef enum {
 /** 
  Compute the frame number from a timecode binary coded decimal (BCD) representation and a type
  @param bcd A BCD value.
- @param aType A DWTimeCodeType value.
+ @param type A DWTimeCodeType value.
  @return The corresponding frame number.
  */
 +(DWFrame)frameFromBcd:(unsigned int)bcd andType:(DWTimeCodeType)type;
@@ -53,7 +58,7 @@ typedef enum {
 /** 
  Create a timecode BCD representation from a frame number and a type
  @param frame A frame number.
- @param aType A DWTimeCodeType value.
+ @param type A DWTimeCodeType value.
  @return A timecode BCD representation.
  */
 +(unsigned int)bcdFromFrame:(DWFrame)frame andType:(DWTimeCodeType)type;

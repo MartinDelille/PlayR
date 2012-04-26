@@ -8,6 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/** Unit test for Sony communication
+ 
+ TODO
+ */
 @interface DWSonyTests : SenTestCase
 
 @end

@@ -36,10 +36,12 @@
 }
 
 - (IBAction)nextFrame:(id)sender {
+	clock.rate = 0;
 	clock.frame++;
 }
 
 - (IBAction)previousFrame:(id)sender {
+	clock.rate = 0;
 	clock.frame--;
 }
 

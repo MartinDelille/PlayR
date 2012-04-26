@@ -27,6 +27,9 @@
  */
 @property double rate;
 
+/** 
+ Timecode type
+ */
 @property(readonly) DWTimeCodeType type;
 
 /**
@@ -47,11 +50,8 @@
 
 /** 
  Tell to the clock that a frame has elapsed.
- @param interval Amount of elapsed time.
  */
 -(void)tickFrame;
-
-
 
 /** 
  Initialize the clock with a specific timecode type value (used for timecode representation.

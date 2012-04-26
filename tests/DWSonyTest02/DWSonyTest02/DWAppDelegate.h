@@ -8,10 +8,24 @@
 
 #import <Cocoa/Cocoa.h>
 
+/** Main DWSonyTest02 controller
+ 
+ Link the clock to a sony controller and the display.
+ Start and stop the sony controller.
+ */
 @interface DWAppDelegate : NSObject <NSApplicationDelegate>
 
+/** 
+ The main window
+ */
 @property (assign) IBOutlet NSWindow *window;
+/** 
+ The current rate text field
+ */
 @property (weak) IBOutlet NSTextField *currentRateText;
+/** 
+ The current timecode text field
+ */
 @property (weak) IBOutlet NSTextField *currentTCText;
 
 @end
