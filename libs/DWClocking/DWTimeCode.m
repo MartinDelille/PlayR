@@ -27,7 +27,6 @@
 	memset(hhmmssff, 0, 4 * sizeof(unsigned int));
 	
 	for (int i=0; i<MIN(4, list.count); i++) {
-		DWLog(@"%d : %@", i, [list objectAtIndex:i]);
 		int k = i;
 		if(list.count < 4)
 			k += 4 - list.count;

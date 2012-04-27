@@ -10,10 +10,12 @@
 #import "AMSerialPort/AMSerialPort.h"
 #import "AMSerialPort/AMSerialPortAdditions.h"
 #import "AMSerialPort/AMSerialPortList.h"
+#import "DWTools/DWLogger.h"
 
 @implementation DWSonyPort{
 	AMSerialPort * port;
 	int videoRefState;
+	unsigned char * buffer;
 }
 
 @synthesize videoRefDelegate;
@@ -22,6 +24,7 @@
 	self = [super init];
 	videoRefState = -1;
 	videoRefDelegate = nil;
+	buffer = malloc(256);
 	
 	NSArray * portList = [[AMSerialPortList sharedPortList] serialPorts];
 	for (int i=0; i<portList.count; i++) {
@@ -33,7 +36,7 @@
 	}
 	
 	if (port == nil) {
-		DWLog(@"No usbserial port B available");
+		DWSonyLog(@"No usbserial port B available");
 	}
 
 	if (![port open]) {
@@ -52,6 +55,7 @@
 }
 
 -(void)dealloc{
+	free(buffer);
 	[port close];
 	port = NULL;
 }
@@ -75,38 +79,66 @@
 -(BOOL)readCommand:(unsigned char *)cmd1 cmd2:(unsigned char *)cmd2 data:(unsigned char *)data {
 	NSError * error;
 	
-	[self checkVideoRef];
+	int dataRead = 0;
+	int nbTry = 0;
+	NSData * tmp = nil;
 	
-	// Reading the command
-	NSData * tmp = [port readBytes:2 error:&error];
-	if (tmp == nil) {
-		return NO;
+	// reading the cmd1 and cmd2
+	while (dataRead < 2) {
+		[self checkVideoRef];
+		tmp = [port readBytes:2-dataRead error:&error];
+		if (tmp != nil) {
+			unsigned char * ptr = (unsigned char*)[tmp bytes];
+			for (int i = 0; i< tmp.length; i++) {
+				buffer[i + dataRead] = ptr[i];
+			}
+			dataRead += tmp.length;
+		}
+		nbTry++;
+		if(nbTry > 200)
+		{
+			DWSonyLog(@"Read time out");
+			return NO;
+		}
 	}
 	
-	// \TODO : handle 1 byte data reception
-	if(tmp.length < 2) {
-		DWSonyLog(@"Bad data length: %d", tmp.length);
-		return NO;
-	}
-	unsigned char* ptr = (unsigned char*)[tmp bytes];
-	*cmd1 = ptr[0];
-	*cmd2 = ptr[1];
+	*cmd1 = buffer[0];
+	*cmd2 = buffer[1];
 	unsigned char datacount = [self getDataCount:*cmd1];
+	nbTry = 0;
 	
 	// Reading the data
-	tmp = [port readBytes:datacount+1 error:&error];
-	if ([tmp length] < datacount+1) {
-		DWSonyLog(@"Unable to read data: %@", [error description]);
-		return NO;
+	while (dataRead < datacount + 3) {
+		[self checkVideoRef];
+		tmp = [port readBytes:datacount + 3 - dataRead error:&error];
+		if (tmp != nil) {
+			unsigned char * ptr = (unsigned char*)[tmp bytes];
+			for (int i = 0; i< tmp.length; i++) {
+				buffer[i + dataRead] = ptr[i];
+			}
+			dataRead += tmp.length;
+		}
+		nbTry++;
+		if(nbTry > 200)
+		{
+			DWSonyLog(@"Read time out");
+			return NO;
+		}
 	}
 	
-	ptr = (unsigned char*)[tmp bytes];
-	// Computing the checksum
-	unsigned char checksum = *cmd1 + *cmd2;
-	for (int i=0; i<datacount; i++) {
-		checksum += ptr[i];
+	NSString * msg = [NSString stringWithFormat:@"Reading %d bytes:", dataRead];
+	for (int i=0; i<dataRead; i++) {
+		msg = [NSString stringWithFormat:@"%@ %.2x", msg, buffer[i]];
 	}
-	if (checksum != ptr[datacount]) {
+	DWLogWithLevel(kDWLogLevelSonyDetails2, msg);
+	
+	// Computing the checksum
+	unsigned char checksum = 0;
+	for (int i=0; i<datacount + 2; i++) {
+		checksum += buffer[i];
+	}
+	
+	if (checksum != buffer[datacount+2]) {
 		DWSonyLog(@"Checksum error");
 		[self sendNak:0x02];
 		return NO;
@@ -114,14 +146,13 @@
 	
 	// Copying the data
 	for (int i=0; i<datacount; i++) {
-		data[i] = ptr[i];
+		data[i] = buffer[i+2];
 	}
 	return YES;
 }
 
 -(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data {
 	unsigned char datacount = [self getDataCount:cmd1];
-	unsigned char * buffer = (unsigned char*)malloc(datacount+3);
 	buffer[0] = cmd1;
 	buffer[1] = cmd2;
 	unsigned char checksum = cmd1 + cmd2;

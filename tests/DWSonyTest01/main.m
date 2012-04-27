@@ -19,7 +19,7 @@ int main(int argc, const char * argv[])
 	    
 		//[DWLogger configureOutput:@"/Users/martindelille/test.log"];
 		//[DWLogger configure:1 fileName:nil showDate:YES showTime:NO showFile:NO showFunc:NO];
-		[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
+		[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic | kDWLogLevelSonyDetails];
 	    DWLog(@"DWSonyTest01");
 		DWLogWithLevel(kDWLogLevelSonyBasic, @"test log level");
 		DWLogWithLevel(kDWLogLevelTest, @"test log level 2");

@@ -15,7 +15,8 @@ typedef enum {
 	kDWLogLevelBasic = 1,
 	kDWLogLevelTest = 2,
 	kDWLogLevelSonyBasic = 1 << 8,
-	kDWLogLevelSonyDetails = 1 << 9,
+	kDWLogLevelSonyDetails1 = 1 << 9,
+	kDWLogLevelSonyDetails2 = 1 << 10,
 } DWLogLevel;
 
 /** Custom logger class
