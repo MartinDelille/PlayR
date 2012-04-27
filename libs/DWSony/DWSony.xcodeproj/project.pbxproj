@@ -17,6 +17,8 @@
 		5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 5815C9CA1545B6F100A6329E /* DWSonyPort.m */; };
 		58ADABDC15471C5C00C9C40E /* DWSonyController.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADABDA15471C5C00C9C40E /* DWSonyController.h */; };
 		58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABDB15471C5C00C9C40E /* DWSonyController.m */; };
+		58BB6301154B00D90084AAFB /* DWSonySlaveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */; };
+		58BB6302154B00D90084AAFB /* DWSonySlaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6300154B00D90084AAFB /* DWSonySlaveController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		5815C9CA1545B6F100A6329E /* DWSonyPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyPort.m; sourceTree = "<group>"; };
 		58ADABDA15471C5C00C9C40E /* DWSonyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonyController.h; sourceTree = "<group>"; };
 		58ADABDB15471C5C00C9C40E /* DWSonyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyController.m; sourceTree = "<group>"; };
+		58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonySlaveController.h; sourceTree = "<group>"; };
+		58BB6300154B00D90084AAFB /* DWSonySlaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonySlaveController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		5815C9921545B60500A6329E = {
 			isa = PBXGroup;
 			children = (
+				58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */,
+				58BB6300154B00D90084AAFB /* DWSonySlaveController.m */,
 				58ADABDA15471C5C00C9C40E /* DWSonyController.h */,
 				58ADABDB15471C5C00C9C40E /* DWSonyController.m */,
 				5815C9C91545B6F100A6329E /* DWSonyPort.h */,
@@ -150,6 +156,7 @@
 			files = (
 				5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */,
 				58ADABDC15471C5C00C9C40E /* DWSonyController.h in Headers */,
+				58BB6301154B00D90084AAFB /* DWSonySlaveController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +260,7 @@
 			files = (
 				5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */,
 				58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */,
+				58BB6302154B00D90084AAFB /* DWSonySlaveController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

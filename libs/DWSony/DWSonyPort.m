@@ -20,7 +20,7 @@
 
 @synthesize videoRefDelegate;
 
--(id)init {
+-(id)initWithRef:(NSString*)ref {
 	self = [super init];
 	videoRefState = -1;
 	videoRefDelegate = nil;
@@ -29,7 +29,7 @@
 	NSArray * portList = [[AMSerialPortList sharedPortList] serialPorts];
 	for (int i=0; i<portList.count; i++) {
 		NSString* name = [[portList objectAtIndex:i] name];
-		if ([name hasPrefix:@"usbserial"] && [name hasSuffix:@"B"]) {
+		if ([name hasPrefix:@"usbserial"] && [name hasSuffix:ref]) {
 			port = [portList objectAtIndex:i];
 			break;
 		}

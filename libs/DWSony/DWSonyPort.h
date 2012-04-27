@@ -17,6 +17,8 @@
  */
 @interface DWSonyPort : NSObject
 
+-(id)initWithRef:(NSString*)ref;
+
 /**
  Read a command and its associated data.
  @param cmd1 indicate the command category id and the data count
