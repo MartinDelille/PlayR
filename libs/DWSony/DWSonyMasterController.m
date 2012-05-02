@@ -72,7 +72,7 @@
 }
 
 -(void)shuttle:(double)rate {
-	DWSonyLog(@"Jog %.2f", rate);
+	DWSonyLog(@"Shuttle %.2f", rate);
 	if (rate < 0) {
 		buffer[0] = [super computeData1WithRate:-rate];
 		[port sendCommand:0x21 cmd2:0x23 data:buffer];
