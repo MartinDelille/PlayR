@@ -18,6 +18,7 @@
 @synthesize window = _window;
 @synthesize currentRateText = _currentRateText;
 @synthesize currentTCText = _currentTCText;
+@synthesize currentStatusText = _currentStatusText;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -54,6 +55,8 @@
 	else if ([keyPath isEqualToString:@"rate"]) {
 		self.currentRateText.stringValue = [NSString stringWithFormat:@"%.2f", clock.rate];
 	}
+
+	self.currentStatusText.stringValue = [NSString stringWithFormat:@"%.2x %.2x %.2x %.2x", [sony statusAtIndex:0], [sony statusAtIndex:1], [sony statusAtIndex:2], [sony statusAtIndex:3]];
 }
 
 @end

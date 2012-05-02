@@ -27,4 +27,7 @@
  The current timecode text field
  */
 @property (weak) IBOutlet NSTextField *currentTCText;
+
+@property (weak) IBOutlet NSTextField *currentStatusText;
+
 @end

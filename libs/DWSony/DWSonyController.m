@@ -9,13 +9,10 @@
 #import "DWSonyController.h"
 #import "DWTools/DWBCDTool.h"
 
-@implementation DWSonyController {
-	BOOL looping;
-}
+@implementation DWSonyController
 
 -(id)initWithClock:(DWClock *)aClock andRef:(NSString*)ref {
 	self = [self init];
-	looping = NO;
 	port = [[DWSonyPort alloc] initWithRef:ref];
 	if (port == nil) {
 		DWSonyLog(@"Sony port unavailable");
@@ -30,27 +27,6 @@
 	return self;
 }
 
--(void)loopThread {
-	@autoreleasepool {
-		DWSonyLog(@"Starting sony controller loop");
-		
-		while (looping) {
-			[self processCommand];
-		}
-		
-		DWSonyLog(@"Sony controller loop over");
-	}
-}
-
--(void)start {
-	looping = YES;
-	
-	[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
-}
-
--(void)stop {
-	looping = NO;
-}
 
 -(double)computeSpeedWithData1:(unsigned char)data1 {
 	double n1 = data1;
@@ -62,10 +38,6 @@
 	double n2 = data2;
 	double rate = [self computeSpeedWithData1:data1];
 	return rate + n2/256 * pow(10, (n1+1)/32 - 2 - rate);
-}
-
--(void)processCommand {
-	[self doesNotRecognizeSelector:_cmd];
 }
 
 -(unsigned char)statusAtIndex:(int)index {

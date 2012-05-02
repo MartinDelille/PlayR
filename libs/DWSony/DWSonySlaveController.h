@@ -12,4 +12,20 @@
 
 -(id)initWithClock:(DWClock *)aClock;
 
+/** 
+ Start the thread handling the communication.
+ */
+-(void)start;
+
+/** 
+ Stop the thread handling the communication.
+ */
+-(void)stop;
+
+/** 
+ Process a single command and respond to it, updating the clock if needed.
+ 
+ */
+-(void)processCommand;
+
 @end

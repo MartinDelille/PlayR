@@ -22,6 +22,7 @@ typedef enum {
 @implementation DWSonySlaveController {
 	BOOL autoMode;
 	DWSonyState state;
+	BOOL looping;
 }
 
 -(id)initWithClock:(DWClock *)aClock {
@@ -29,11 +30,35 @@ typedef enum {
 	if (self == nil) {
 		return nil;
 	}
+	looping = NO;
 	autoMode = NO;
 	state = kDWSonyStatePause;
 	
 	return self;
 }
+
+-(void)loopThread {
+	@autoreleasepool {
+		DWSonyLog(@"Starting sony controller loop");
+		
+		while (looping) {
+			[self processCommand];
+		}
+		
+		DWSonyLog(@"Sony controller loop over");
+	}
+}
+
+-(void)start {
+	looping = YES;
+	
+	[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
+}
+
+-(void)stop {
+	looping = NO;
+}
+
 
 -(void)processCommand {
 	unsigned char cmd1, cmd2;
@@ -228,7 +253,7 @@ typedef enum {
 					{
 						// TODO : handle status sens properly
 						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Status Sense (%x) => Status Data", buffer[0]);
-						memset(status, 0, 16);
+						memset(status, 0, 8);
 						
 						switch (state) {
 							case kDWSonyStatePause:

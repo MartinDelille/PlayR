@@ -17,8 +17,10 @@
 	
 }
 
+@synthesize currentStatusText = _currentStatusText;
 @synthesize window = _window;
 @synthesize currentTCText = _currentTCText;
+@synthesize currentStatusText = _currentStatusText;
 @synthesize txtStatus0 = _txtStatus0;
 
 -(void)check {
