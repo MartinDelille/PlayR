@@ -58,6 +58,32 @@
 	[self processAnswer];
 }
 
+-(void)varispeed:(double)rate {
+	DWSonyLog(@"Varispeed %.2f", rate);
+	if (rate < 0) {
+		buffer[0] = [super computeData1WithRate:-rate];
+		[port sendCommand:0x21 cmd2:0x22 data:buffer];
+	}
+	else {
+		buffer[0] = [super computeData1WithRate:rate];
+		[port sendCommand:0x21 cmd2:0x12 data:buffer];
+	}
+	[self processAnswer];
+}
+
+-(void)shuttle:(double)rate {
+	DWSonyLog(@"Jog %.2f", rate);
+	if (rate < 0) {
+		buffer[0] = [super computeData1WithRate:-rate];
+		[port sendCommand:0x21 cmd2:0x23 data:buffer];
+	}
+	else {
+		buffer[0] = [super computeData1WithRate:rate];
+		[port sendCommand:0x21 cmd2:0x13 data:buffer];
+	}
+	[self processAnswer];
+}
+
 -(void)checkTime {
 	DWLogWithLevel(kDWLogLevelSonyDetails1, @"checkTime");
 	buffer[0] = 1;

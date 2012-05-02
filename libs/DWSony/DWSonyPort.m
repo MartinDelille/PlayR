@@ -43,6 +43,7 @@
 		DWSonyLog(@"Unable to open %@", port.name);
 		return nil;
 	}
+	
 	port.readTimeout = 0.005;
 	NSDictionary * options = [[NSDictionary alloc] initWithObjectsAndKeys:
 							  port.name, AMSerialOptionServiceName,
@@ -51,6 +52,7 @@
 							  @"Odd", AMSerialOptionParity,
 							  @"1", AMSerialOptionStopBits, nil];
 	[port setOptions:options];
+	[port flushInput:YES output:YES];
 	return self;
 }
 
@@ -140,6 +142,7 @@
 	
 	if (checksum != buffer[datacount+2]) {
 		DWSonyLog(@"Checksum error");
+		[port flushInput:YES output:YES];
 		[self sendNak:0x02];
 		return NO;
 	}

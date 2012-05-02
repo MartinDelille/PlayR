@@ -280,6 +280,7 @@ typedef enum {
 								else {
 									status[2] = 0x10;
 								}
+								break;
 							case kDWSonyStateVar:
 								status[1] = 0x80;
 								if (clock.rate < 0) {
@@ -288,6 +289,7 @@ typedef enum {
 								else {
 									status[2] = 0xc8;
 								}
+								break;
 							case kDWSonyStateShuttle:
 								status[1] = 0x80;
 								if (clock.rate < 0) {
@@ -296,6 +298,7 @@ typedef enum {
 								else {
 									status[2] = 0xa4;
 								}
+								break;
 						}
 						
 						if (autoMode) {

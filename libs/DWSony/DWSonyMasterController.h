@@ -16,6 +16,8 @@
 -(void)fastForward;
 -(void)rewind;
 -(void)jog:(double)rate;
+-(void)varispeed:(double)rate;
+-(void)shuttle:(double)rate;
 -(void)checkTime;
 -(void)checkStatus;
 
