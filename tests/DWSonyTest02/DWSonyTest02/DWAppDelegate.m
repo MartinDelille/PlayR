@@ -8,11 +8,11 @@
 
 #import "DWAppDelegate.h"
 #import "DWClocking/DWClock.h"
-#import "DWSony/DWSonyController.h"
+#import "DWSony/DWSonySlaveController.h"
 
 @implementation DWAppDelegate {
 	DWClock * clock;
-	DWSonyController * sony;
+	DWSonySlaveController * sony;
 }
 
 @synthesize window = _window;
@@ -34,7 +34,7 @@
 //	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 //	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
-	sony = [[DWSonyController alloc] initWithClock:clock];
+	sony = [[DWSonySlaveController alloc] initWithClock:clock];
 	
 	[sony start];
 }

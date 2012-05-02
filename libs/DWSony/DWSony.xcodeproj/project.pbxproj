@@ -19,6 +19,8 @@
 		58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABDB15471C5C00C9C40E /* DWSonyController.m */; };
 		58BB6301154B00D90084AAFB /* DWSonySlaveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */; };
 		58BB6302154B00D90084AAFB /* DWSonySlaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6300154B00D90084AAFB /* DWSonySlaveController.m */; };
+		58BB6306154B08680084AAFB /* DWSonyMasterController.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BB6304154B08680084AAFB /* DWSonyMasterController.h */; };
+		58BB6307154B08680084AAFB /* DWSonyMasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6305154B08680084AAFB /* DWSonyMasterController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		58ADABDB15471C5C00C9C40E /* DWSonyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyController.m; sourceTree = "<group>"; };
 		58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonySlaveController.h; sourceTree = "<group>"; };
 		58BB6300154B00D90084AAFB /* DWSonySlaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonySlaveController.m; sourceTree = "<group>"; };
+		58BB6304154B08680084AAFB /* DWSonyMasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSonyMasterController.h; sourceTree = "<group>"; };
+		58BB6305154B08680084AAFB /* DWSonyMasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSonyMasterController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		5815C9921545B60500A6329E = {
 			isa = PBXGroup;
 			children = (
+				58BB6304154B08680084AAFB /* DWSonyMasterController.h */,
+				58BB6305154B08680084AAFB /* DWSonyMasterController.m */,
 				58BB62FF154B00D90084AAFB /* DWSonySlaveController.h */,
 				58BB6300154B00D90084AAFB /* DWSonySlaveController.m */,
 				58ADABDA15471C5C00C9C40E /* DWSonyController.h */,
@@ -157,6 +163,7 @@
 				5815C9CB1545B6F100A6329E /* DWSonyPort.h in Headers */,
 				58ADABDC15471C5C00C9C40E /* DWSonyController.h in Headers */,
 				58BB6301154B00D90084AAFB /* DWSonySlaveController.h in Headers */,
+				58BB6306154B08680084AAFB /* DWSonyMasterController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				5815C9CC1545B6F100A6329E /* DWSonyPort.m in Sources */,
 				58ADABDD15471C5C00C9C40E /* DWSonyController.m in Sources */,
 				58BB6302154B00D90084AAFB /* DWSonySlaveController.m in Sources */,
+				58BB6307154B08680084AAFB /* DWSonyMasterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
