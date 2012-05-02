@@ -34,25 +34,38 @@ int main(int argc, const char * argv[])
 		else {
 			DWLog(@"Opening serial port");
 			if([port open]){
-				port.readTimeout = 0.005;
+				[port flushInput:YES output:YES];
+				port.readTimeout = 10;
 				
 				DWLog(@"CTS: %d", [port CTSOutputFlowControl]);
 				port.CTSOutputFlowControl = YES;
 				DWLog(@"CTS: %d", [port CTSOutputFlowControl]);
 				
-				NSString *s;
-				BOOL refState = NO;
-				for (int i=0; i<40; i++) {
-					s = [port readStringUsingEncoding:NSUTF8StringEncoding error:nil];
+				//BOOL refState = NO;
+		//		for (int i=0; i<40; i++) {
+/*					NSData * data = [port readBytes:8 error:nil];
+					if (data!=nil) {
+						unsigned char *ptr = (unsigned char*)[data bytes];
+						NSString * dataStr = @"";
+						for (int j=0; j<data.length; j++) {
+							dataStr = [NSString stringWithFormat:@"%@ %.2X", dataStr, ptr[j]];
+						}
+						DWLog(@"reading %d bytes : %@", data.length, dataStr);
+					}*/
+//					NSString *s = [port readStringUsingEncoding:NSUTF8StringEncoding error:nil];
+					NSString *s = [port readUpToChar:'s' usingEncoding:NSUTF8StringEncoding error:nil];
 					if (s!=nil) {
 						DWLog(@"reading %@", s);
 					}
-					BOOL cts = port.CTS;
+					else {
+						DWLog(@"timeout");
+					}
+		/*			BOOL cts = port.CTS;
 					if (cts != refState) {
 						refState = cts;
 						DWLog(@"cts : %d", cts);
-					}
-				}
+					}*/
+		//		}
 				
 				DWLog(@"Writing data...");
 				[port writeString:@"pouet" usingEncoding:NSUTF8StringEncoding error:NULL];
