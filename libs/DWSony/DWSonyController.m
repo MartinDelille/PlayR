@@ -67,4 +67,8 @@
 -(void)processCommand {
 	[self doesNotRecognizeSelector:_cmd];
 }
+
+-(unsigned char)statusAtIndex:(int)index {
+	return status[index];
+}
 @end

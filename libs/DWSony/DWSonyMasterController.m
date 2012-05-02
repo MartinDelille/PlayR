@@ -61,7 +61,7 @@
 		unsigned int mm = [DWBCDTool uintFromBcd:buffer[2]];
 		unsigned int hh = [DWBCDTool uintFromBcd:buffer[3]];
 		clock.tcString = [DWTimeCode stringFromFrame:[DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:clock.type] andType:clock.type];
-		DWSonyLog(@" => ACK");
+		DWSonyLog(@" => clock updated : %@", clock.tcString);
 	}
 	else {
 		DWSonyLog(@" => Unknown answer : %.2X %.2X", cmd1, cmd2);		
@@ -69,7 +69,22 @@
 }
 
 -(void)checkStatus {
-	// TODO
+	DWSonyLog(@"checkStatus");
+	buffer[0] = 4;
+	[port sendCommand:0x61 cmd2:0x20 data:buffer];
+	unsigned char cmd1, cmd2;
+	[port readCommand:&cmd1 cmd2:&cmd2 data:buffer];
+	if ((cmd1 == 0x74) && (cmd2 == 0x20)) {
+		NSString * statusStr = @"";
+		for (int i=0; i<4; i++) {
+			status[i] = buffer[i];
+			statusStr = [NSString stringWithFormat:@"%@ %.2X", statusStr, buffer[i]];
+		}
+		DWSonyLog(@" => Status updated : %@", statusStr);
+	}
+	else {
+		DWSonyLog(@" => Unknown answer : %.2X %.2X", cmd1, cmd2);		
+	}
 }
 
 @end

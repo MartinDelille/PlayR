@@ -228,7 +228,6 @@ typedef enum {
 					{
 						// TODO : handle status sens properly
 						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Status Sense (%x) => Status Data", buffer[0]);
-						unsigned char status[16];
 						memset(status, 0, 16);
 						
 						switch (state) {

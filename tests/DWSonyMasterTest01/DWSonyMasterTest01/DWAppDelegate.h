@@ -12,6 +12,9 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *currentTCText;
+
+@property (weak) IBOutlet NSTextField *txtStatus0;
+
 - (IBAction)play:(id)sender;
 - (IBAction)stop:(id)sender;
 

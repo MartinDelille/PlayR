@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5891FCCE1550570400B8E5B0 /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891FCCD1550570400B8E5B0 /* libDWSony.a */; };
 		5891FCD01550583C00B8E5B0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891FCCF1550583C00B8E5B0 /* IOKit.framework */; };
-		5891FCD2155058F300B8E5B0 /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891FCD1155058F300B8E5B0 /* libAMSerialPort.a */; };
 		58BB62E3154B006A0084AAFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB62E2154B006A0084AAFB /* Cocoa.framework */; };
 		58BB62ED154B006A0084AAFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58BB62EB154B006A0084AAFB /* InfoPlist.strings */; };
 		58BB62EF154B006A0084AAFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB62EE154B006A0084AAFB /* main.m */; };
@@ -18,12 +17,12 @@
 		58BB62F9154B006A0084AAFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BB62F7154B006A0084AAFB /* MainMenu.xib */; };
 		58BB630D154B0BE30084AAFB /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB6309154B0BE30084AAFB /* libDWClocking.a */; };
 		58BB630F154B0BE30084AAFB /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB630B154B0BE30084AAFB /* libDWTools.a */; };
+		58F6490E15512E5600BEE2E2 /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6490D15512E5600BEE2E2 /* libAMSerialPort.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5891FCCD1550570400B8E5B0 /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
 		5891FCCF1550583C00B8E5B0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		5891FCD1155058F300B8E5B0 /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libAMSerialPort.a; path = ../../libs/AMSerialPort/build/Release/libAMSerialPort.a; sourceTree = "<group>"; };
 		58BB62DE154B00690084AAFB /* DWSonyMasterTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyMasterTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BB62E2154B006A0084AAFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58BB62E5154B006A0084AAFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -39,6 +38,7 @@
 		58BB62F8154B006A0084AAFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		58BB6309154B0BE30084AAFB /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
 		58BB630B154B0BE30084AAFB /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		58F6490D15512E5600BEE2E2 /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5891FCD2155058F300B8E5B0 /* libAMSerialPort.a in Frameworks */,
+				58F6490E15512E5600BEE2E2 /* libAMSerialPort.a in Frameworks */,
 				5891FCD01550583C00B8E5B0 /* IOKit.framework in Frameworks */,
 				5891FCCE1550570400B8E5B0 /* libDWSony.a in Frameworks */,
 				58BB630D154B0BE30084AAFB /* libDWClocking.a in Frameworks */,
@@ -61,11 +61,7 @@
 		58BB62D3154B00690084AAFB = {
 			isa = PBXGroup;
 			children = (
-				5891FCD1155058F300B8E5B0 /* libAMSerialPort.a */,
-				5891FCCF1550583C00B8E5B0 /* IOKit.framework */,
-				5891FCCD1550570400B8E5B0 /* libDWSony.a */,
-				58BB6309154B0BE30084AAFB /* libDWClocking.a */,
-				58BB630B154B0BE30084AAFB /* libDWTools.a */,
+				58F6490F15512E6400BEE2E2 /* libs */,
 				58BB62E8154B006A0084AAFB /* DWSonyMasterTest01 */,
 				58BB62E1154B00690084AAFB /* Frameworks */,
 				58BB62DF154B00690084AAFB /* Products */,
@@ -83,6 +79,7 @@
 		58BB62E1154B00690084AAFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5891FCCF1550583C00B8E5B0 /* IOKit.framework */,
 				58BB62E2154B006A0084AAFB /* Cocoa.framework */,
 				58BB62E4154B006A0084AAFB /* Other Frameworks */,
 			);
@@ -120,6 +117,17 @@
 				58BB62F1154B006A0084AAFB /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58F6490F15512E6400BEE2E2 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				58F6490D15512E5600BEE2E2 /* libAMSerialPort.a */,
+				5891FCCD1550570400B8E5B0 /* libDWSony.a */,
+				58BB6309154B0BE30084AAFB /* libDWClocking.a */,
+				58BB630B154B0BE30084AAFB /* libDWTools.a */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

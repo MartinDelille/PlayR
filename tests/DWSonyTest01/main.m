@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DWTools/DWLogger.h"
 #import "DWSony/DWSonyPort.h"
-#import "DWSony/DWSonyController.h"
+#import "DWSony/DWSonyMasterController.h"
 #import "DWClocking/DWClock.h"
 #import "DWClocking/DWTimeCode.h"
 
@@ -19,25 +19,22 @@ int main(int argc, const char * argv[])
 	    
 		//[DWLogger configureOutput:@"/Users/martindelille/test.log"];
 		//[DWLogger configure:1 fileName:nil showDate:YES showTime:NO showFile:NO showFunc:NO];
-		[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic | kDWLogLevelSonyDetails];
+		[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic | kDWLogLevelSonyDetails1];
 	    DWLog(@"DWSonyTest01");
-		DWLogWithLevel(kDWLogLevelSonyBasic, @"test log level");
-		DWLogWithLevel(kDWLogLevelTest, @"test log level 2");
 		
 				
-/*		NSString * devicePath = @"/dev/cu.usbserial-00002006B";
 		DWClock * clock = [[DWClock alloc] init];
-		DWSonyController *sony = [[DWSonyController alloc] initWithBSDPath:devicePath andClock:clock];
+		DWSonyMasterController *sony = [[DWSonyMasterController alloc] initWithClock:clock];
 		
 		if(sony != nil) {
-			clock.rate = 0;
-			clock.tcString = @"01:00:00:00";
-//			sony.videoRefDelegate = clock;
-			BOOL looping = NO;
-			while (looping) {
-				[sony processCommand];
-			}
-		}*/
+			[sony stop];
+			[NSThread sleepForTimeInterval:0.1];
+			[sony checkTime];
+			DWLog(@"tc = %@", clock.tcString);
+		}
+		else {
+			DWLog(@"error opening port");
+		}
 		[DWLogger configureOutput:nil];
 		DWLog(@"Bye, bye");
 	}

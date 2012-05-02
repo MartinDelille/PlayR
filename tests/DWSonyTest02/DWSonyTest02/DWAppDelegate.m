@@ -21,6 +21,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
+
 	// TODO : handle tc type
 	clock = [[DWClock alloc] initWithType:kDWTimeCode24];
 	

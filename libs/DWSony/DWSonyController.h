@@ -20,6 +20,7 @@
 	DWClock * clock;
 	DWSonyPort * port;
 	unsigned char buffer[256];
+	unsigned char status[8];
 }
 
 /** 
@@ -49,5 +50,7 @@
 -(double)computeSpeedWithData1:(unsigned char)data1;
 
 -(double)computeSpeedWithData1:(unsigned char)data1 andData2:(unsigned char)data2;
+
+-(unsigned char)statusAtIndex:(int)index;
 
 @end
