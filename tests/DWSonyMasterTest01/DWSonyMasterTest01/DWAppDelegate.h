@@ -17,5 +17,8 @@
 
 - (IBAction)play:(id)sender;
 - (IBAction)stop:(id)sender;
+- (IBAction)fastForward:(id)sender;
+- (IBAction)jogRev1x:(id)sender;
+- (IBAction)rewind:(id)sender;
 
 @end

@@ -17,10 +17,8 @@
 	
 }
 
-@synthesize currentStatusText = _currentStatusText;
 @synthesize window = _window;
 @synthesize currentTCText = _currentTCText;
-@synthesize currentStatusText = _currentStatusText;
 @synthesize txtStatus0 = _txtStatus0;
 
 -(void)check {
@@ -52,6 +50,18 @@
 
 - (IBAction)stop:(id)sender {
 	[sony stop];
+}
+
+- (IBAction)fastForward:(id)sender {
+	[sony fastForward];
+}
+
+- (IBAction)jogRev1x:(id)sender {
+	[sony jog:-1];
+}
+
+- (IBAction)rewind:(id)sender {
+	[sony rewind];
 }
 
 //-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

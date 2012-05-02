@@ -139,10 +139,11 @@ typedef enum {
 						double rate = 0;
 						switch (cmd1 & 0xf) {
 							case 1:
-								rate = [self computeSpeedWithData1:buffer[0]];
+								rate = [self computeRateWithData1:buffer[0]];
 								break;
 							case 2:
-								rate = [self computeSpeedWithData1:buffer[0] andData2:buffer[1]];
+								rate = [self computeRateWithData1:buffer[0] andData2:buffer[1]];
+								break;
 						}
 						switch (cmd1) {
 							case 0x11:

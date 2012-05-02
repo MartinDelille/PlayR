@@ -23,7 +23,7 @@
  The current rate text field
  */
 @property (weak) IBOutlet NSTextField *currentRateText;
-/** 
+/** /Users/martindelille/Dropbox/code/PlayR/tests/DWSonyMasterTest01/DWSonyMasterTest01/DWAppDelegate.h
  The current timecode text field
  */
 @property (weak) IBOutlet NSTextField *currentTCText;

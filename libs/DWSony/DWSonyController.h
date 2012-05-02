@@ -31,9 +31,11 @@
  */
 -(id)initWithClock:(DWClock*)aClock andRef:(NSString*)ref;
 
--(double)computeSpeedWithData1:(unsigned char)data1;
+-(double)computeRateWithData1:(unsigned char)data1;
 
--(double)computeSpeedWithData1:(unsigned char)data1 andData2:(unsigned char)data2;
+-(double)computeRateWithData1:(unsigned char)data1 andData2:(unsigned char)data2;
+
+-(unsigned char)computeData1WithRate:(double)rate;
 
 -(unsigned char)statusAtIndex:(int)index;
 

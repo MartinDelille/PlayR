@@ -13,8 +13,12 @@
 -(id)initWithClock:(DWClock *)aClock;
 -(void)play;
 -(void)stop;
--(BOOL)checkAck;
+-(void)fastForward;
+-(void)rewind;
+-(void)jog:(double)rate;
 -(void)checkTime;
 -(void)checkStatus;
+
+-(void)processAnswer;
 
 @end
