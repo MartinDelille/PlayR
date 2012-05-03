@@ -28,7 +28,13 @@ typedef id (*NextObjectMethod)(id, SEL, NSUInteger);
 	NSUInteger position;
 }
 
-// Designated initializer
+/** 
+ Designated initializer
+ @param theCollection An existing collection
+ @param theCountSelector A selector returning the collection element count.
+ @param theObjectSelector A selector returning an object at a specified index.
+ @return An initialized AMStandardEnumerator object.
+ */
 - (id)initWithCollection:(id)theCollection countSelector:(SEL)theCountSelector objectAtIndexSelector:(SEL)theObjectSelector;
 
 

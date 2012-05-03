@@ -17,43 +17,48 @@
  */
 @interface DWSonyPort : NSObject
 
+/** 
+ Initialize and open a sony USB serial port.
+ @param ref The USB serial reference ("A" or "B").
+ @return An initialized sony serial port.
+ */
 -(id)initWithRef:(NSString*)ref;
 
 /**
  Read a command and its associated data.
- @param cmd1 indicate the command category id and the data count
- @param cmd2: indicate the subcommand id.
- @param data buffer associated to the command
+ @param cmd1 Indicate the command category id and the data count.
+ @param cmd2 Indicate the subcommand id.
+ @param data The buffer containing the command data.
  @return NO if an error occured.
  */
 -(BOOL)readCommand:(unsigned char *)cmd1 cmd2:(unsigned char *)cmd2 data:(unsigned char *)data;
 
 /**
  Send a command and its associated data.
- @param cmd1 indicate the command category id and the data count
- @param cmd2: indicate the subcommand id.
- @param data buffer associated to the command
+ @param cmd1 Indicate the command category id and the data count.
+ @param cmd2 Indicate the subcommand id.
+ @param data The buffer containing the command data.
  @return NO if an error occured.
  */
 -(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data;
 
 /**
  Send a command and its associated data as a list of unsigned char value.
- @param cmd1 indicate the command category id and the data count
- @param cmd2: indicate the subcommand id.
+ @param cmd1 Indicate the command category id and the data count.
+ @param cmd2 Indicate the subcommand id.
  @return NO if an error occured.
  */
 -(BOOL)sendCommandWithArgument:(unsigned char)cmd1 cmd2:(unsigned char)cmd2, ...;
 
 /**
- Send a acknlodgement command
+ Send a acknlodgement command.
  @return NO if an error occured.
  */
 -(BOOL)sendAck;
 
 /**
- Send a NAK command
- @param error code about the NAK.
+ Send a NAK command.
+ @param error Code about the NAK.
  @return NO if an error occured.
  */
 -(BOOL)sendNak:(unsigned char)error;
@@ -63,6 +68,12 @@
  */
 @property id<DWTickable> videoRefDelegate;
 
+/** 
+ Toggle the use of the sync from the CTS signal
+ to the videoRefDelegate.
+ 
+ TODO: Change this implementation to send cts change to the Sony slave controller.
+ */
 @property BOOL useSonySync;
 
 @end

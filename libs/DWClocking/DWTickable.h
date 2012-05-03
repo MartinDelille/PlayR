@@ -19,6 +19,9 @@
  */
 -(void)tickFrame;
 
+/** 
+ Get the date the last tick occured.
+ */
 @property(readonly) NSDate* lastTickDate;
 
 @end

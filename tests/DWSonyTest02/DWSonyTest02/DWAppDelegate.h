@@ -12,6 +12,7 @@
  
  Link the clock to a sony controller and the display.
  Start and stop the sony controller.
+ Inform about the 
  */
 @interface DWAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -28,9 +29,19 @@
  */
 @property (weak) IBOutlet NSTextField *currentTCText;
 
+/** 
+ Display the status data.
+ */
 @property (weak) IBOutlet NSTextField *currentStatusText;
 
+/** 
+ Toggle the sync source between internal and sony.
+ */
 @property BOOL useInternaleSync;
+
+/** 
+ Display the sync quality.
+ */
 @property (weak) IBOutlet NSTextField *txtSyncState;
 
 @end

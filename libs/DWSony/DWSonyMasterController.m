@@ -84,15 +84,15 @@
 	[self processAnswer];
 }
 
--(void)checkTime {
-	DWLogWithLevel(kDWLogLevelSonyDetails1, @"checkTime");
+-(void)timeSense {
+	DWLogWithLevel(kDWLogLevelSonyDetails1, @"Time sense");
 	buffer[0] = 1;
 	[port sendCommand:0x61 cmd2:0x0c data:buffer];
 	[self processAnswer];
 }
 
--(void)checkStatus {
-	DWLogWithLevel(kDWLogLevelSonyDetails1, @"checkStatus");
+-(void)statusSense {
+	DWLogWithLevel(kDWLogLevelSonyDetails1, @"Status sense");
 	buffer[0] = 4;
 	[port sendCommand:0x61 cmd2:0x20 data:buffer];
 	[self processAnswer];
