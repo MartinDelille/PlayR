@@ -19,6 +19,7 @@
 }
 
 @synthesize videoRefDelegate;
+@synthesize useSonySync;
 
 -(id)initWithRef:(NSString*)ref {
 	self = [super init];
@@ -63,14 +64,12 @@
 }
 
 -(void)checkVideoRef {
-	if((videoRefState < 1) && port.CTS)
-	{
-		videoRefState = 1;
-		// TODO: check this:
-		[self.videoRefDelegate tickFrame];
-	}
-	else {
-		videoRefState = 0;
+	if (self.useSonySync) {
+		BOOL cts = port.CTS;
+		if((!videoRefState) && cts) {
+			[self.videoRefDelegate tickFrame];
+		}
+		videoRefState = cts;
 	}
 }
 

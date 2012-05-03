@@ -10,6 +10,9 @@
 
 @interface DWSonySlaveController : DWSonyController
 
+
+@property BOOL useSonySync;
+
 -(id)initWithClock:(DWClock *)aClock;
 
 /** 

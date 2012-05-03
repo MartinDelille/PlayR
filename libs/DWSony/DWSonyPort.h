@@ -63,4 +63,6 @@
  */
 @property id<DWTickable> videoRefDelegate;
 
+@property BOOL useSonySync;
+
 @end

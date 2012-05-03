@@ -14,12 +14,14 @@
 
 @synthesize time;
 @synthesize rate;
+@synthesize lastTickDate = _lastTickDate;
 
 -(id)init {
 	self = [super init];
 	time = 0;
 	_type = kDWTimeCode25;
 	rate = 0.0;
+	_lastTickDate = [NSDate dateWithTimeIntervalSince1970:0];
 	return self;
 }
 
@@ -68,9 +70,11 @@
 
 -(void)tick:(DWTime)interval {
 	self.time += (DWTime)(rate * interval);
+	_lastTickDate = [NSDate date];
 }
 
 -(void)tickFrame {
 	[self tick:[self timePerFrame]];
 }
+
 @end

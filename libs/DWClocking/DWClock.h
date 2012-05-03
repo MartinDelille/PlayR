@@ -53,6 +53,9 @@
  */
 -(void)tickFrame;
 
+
+@property(readonly) NSDate* lastTickDate;
+
 /** 
  Initialize the clock with a specific timecode type value (used for timecode representation.
  @param aType A timecode type

@@ -18,4 +18,7 @@
  Tell the tickable object that one frame has elapsed.
  */
 -(void)tickFrame;
+
+@property(readonly) NSDate* lastTickDate;
+
 @end

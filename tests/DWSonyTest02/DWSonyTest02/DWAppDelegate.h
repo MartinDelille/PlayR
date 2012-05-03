@@ -30,4 +30,7 @@
 
 @property (weak) IBOutlet NSTextField *currentStatusText;
 
+@property BOOL useInternaleSync;
+@property (weak) IBOutlet NSTextField *txtSyncState;
+
 @end

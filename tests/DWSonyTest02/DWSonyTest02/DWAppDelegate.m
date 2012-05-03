@@ -19,6 +19,40 @@
 @synthesize currentRateText = _currentRateText;
 @synthesize currentTCText = _currentTCText;
 @synthesize currentStatusText = _currentStatusText;
+@synthesize txtSyncState = _txtSyncState;
+
+
+-(BOOL)useInternaleSync {
+	return !sony.useSonySync;
+}
+
+-(void)setUseInternaleSync:(BOOL)useInternaleSync {
+	sony.useSonySync = !useInternaleSync;
+}
+
+-(void)onTick {
+	if (self.useInternaleSync) {
+		[clock tickFrame];
+		self.txtSyncState.stringValue = @"N/A";
+		self.txtSyncState.backgroundColor = nil;
+	}
+	else {
+		NSTimeInterval interval = [clock.lastTickDate timeIntervalSinceNow];
+		// TODO: make a parameter from the max duration
+		if (interval < -1) {
+			self.txtSyncState.stringValue = @"Bad";
+			self.txtSyncState.backgroundColor = [NSColor redColor];
+		}
+		else if (interval < -0.06) {
+			self.txtSyncState.stringValue = @"Medium";
+			self.txtSyncState.backgroundColor = [NSColor orangeColor];
+		}
+		else {
+			self.txtSyncState.stringValue = @"Good";
+			self.txtSyncState.backgroundColor = [NSColor greenColor];
+		}
+	}
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -32,12 +66,12 @@
 	clock.tcString = @"21:03:10:02";
 	clock.rate = 0;
 
-	// TODO switch between internal clock and video reference
-//	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame) userInfo:nil repeats:YES];	
-//	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-//	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(onTick) userInfo:nil repeats:YES];	
+	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
 	sony = [[DWSonySlaveController alloc] initWithClock:clock];
+	self.useInternaleSync = NO;
 	
 	[sony start];
 }
