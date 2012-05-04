@@ -47,9 +47,10 @@ typedef enum {
  @param showDate Show the current date
  @param showTime Show the current time
  @param showFile Show the file from which the log is performed
- @param showFunc Show the function and line from which the log is performed
+ @param showFunc Show the function from which the log is performed
+ @param showLine Show the line number from which the log is performed
  */
-+(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc;
++(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine;
 
 /** 
  Log a message to the log output

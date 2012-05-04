@@ -37,6 +37,8 @@
  */
 @property DWFrame frame;
 
+@property(readonly) DWTime timePerFrame;
+
 /**
  Timecode representation of the current time
  */

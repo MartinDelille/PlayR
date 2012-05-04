@@ -14,7 +14,7 @@ static DWLogger * _singleton;
 	DWLogLevel level;
 	NSString * currentLogFileName;
 	FILE * output;
-	BOOL logShowFile, logShowFunc, logShowDate;
+	BOOL _showFile, _showFunc, _showLine, _showDate;
 	NSDateFormatter *dateFormatter;
 }
 
@@ -23,9 +23,10 @@ static DWLogger * _singleton;
 	level = kDWLogLevelBasic;
 	output = stdout;
 	currentLogFileName = nil;
-	logShowFile = NO;
-	logShowFunc = YES;
-	logShowDate = YES;
+	_showFile = NO;
+	_showFunc = YES;
+	_showLine = YES;
+	_showDate = YES;
 	dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
 	
@@ -71,8 +72,8 @@ static DWLogger * _singleton;
 }
 
 
--(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
-	logShowDate = showDate || showTime;
+-(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
+	_showDate = showDate || showTime;
 	
 	if (showDate && showTime) {
 		[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
@@ -83,12 +84,13 @@ static DWLogger * _singleton;
 	else if (showTime) {
 		[dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
 	}
-	logShowFile = showFile;
-	logShowFunc = showFunc;
+	_showFile = showFile;
+	_showFunc = showFunc;
+	_showLine = showLine;
 }
 
-+(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc {
-	[[DWLogger singleton] configureDisplay:showDate showTime:showTime showFile:showFile showFunc:showFunc];	
++(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
+	[[DWLogger singleton] configureDisplay:showDate showTime:showTime showFile:showFile showFunc:showFunc showLine:showLine];	
 }
 
 -(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ... 
@@ -101,15 +103,19 @@ static DWLogger * _singleton;
 		msg = [[NSString alloc] initWithFormat:msg arguments:ap];
 		va_end (ap);
 		
-		if (logShowFunc) {
-			msg = [NSString stringWithFormat:@"%30s:%3d %@", funcName, line, msg];
+		if (_showLine) {
+			msg = [NSString stringWithFormat:@"(%3d) %@", line, msg];
 		}
 		
-		if (logShowFile) {
+		if (_showFunc) {
+			msg = [NSString stringWithFormat:@"%30s %@", funcName, msg];
+		}
+		
+		if (_showFile) {
 			msg = [NSString stringWithFormat:@"%15s %@", [[NSString stringWithUTF8String:fileName] lastPathComponent], msg];
 		}
 		
-		if (logShowDate) {
+		if (_showDate) {
 			msg = [NSString stringWithFormat:@"%@ %@", [dateFormatter stringFromDate:[NSDate date]], msg];
 		}
 		

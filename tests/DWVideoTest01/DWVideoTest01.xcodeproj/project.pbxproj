@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FB91552A74D00359A52 /* Cocoa.framework */; };
+		58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC21552A74D00359A52 /* InfoPlist.strings */; };
+		58B25FC61552A74D00359A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FC51552A74D00359A52 /* main.m */; };
+		58B25FCA1552A74D00359A52 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC81552A74D00359A52 /* Credits.rtf */; };
+		58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FCC1552A74D00359A52 /* DWDocument.m */; };
+		58B25FD01552A74D00359A52 /* DWDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FCE1552A74D00359A52 /* DWDocument.xib */; };
+		58B25FD31552A74E00359A52 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FD11552A74E00359A52 /* MainMenu.xib */; };
+		58B25FE91552A7D700359A52 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FE81552A7D700359A52 /* QTKit.framework */; };
+		58B260181552B6E900359A52 /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260151552B6E900359A52 /* libDWClocking.a */; };
+		58B260191552B6E900359A52 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260161552B6E900359A52 /* libDWTools.a */; };
+		58B2601A1552B6E900359A52 /* libDWVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260171552B6E900359A52 /* libDWVideo.a */; };
+		58B2602A1552F71C00359A52 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260291552F71C00359A52 /* QuickTime.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58B25FB51552A74D00359A52 /* DWVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B25FB91552A74D00359A52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		58B25FBC1552A74D00359A52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		58B25FBD1552A74D00359A52 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		58B25FBE1552A74D00359A52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58B25FC11552A74D00359A52 /* DWVideoTest01-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWVideoTest01-Info.plist"; sourceTree = "<group>"; };
+		58B25FC31552A74D00359A52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58B25FC51552A74D00359A52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58B25FC71552A74D00359A52 /* DWVideoTest01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWVideoTest01-Prefix.pch"; sourceTree = "<group>"; };
+		58B25FC91552A74D00359A52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		58B25FCB1552A74D00359A52 /* DWDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDocument.h; sourceTree = "<group>"; };
+		58B25FCC1552A74D00359A52 /* DWDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWDocument.m; sourceTree = "<group>"; };
+		58B25FCF1552A74D00359A52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DWDocument.xib; sourceTree = "<group>"; };
+		58B25FD21552A74E00359A52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58B25FE81552A7D700359A52 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		58B260151552B6E900359A52 /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		58B260161552B6E900359A52 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		58B260171552B6E900359A52 /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWVideo.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWVideo.a"; sourceTree = "<group>"; };
+		58B260291552F71C00359A52 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B25FB21552A74D00359A52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B2602A1552F71C00359A52 /* QuickTime.framework in Frameworks */,
+				58B260181552B6E900359A52 /* libDWClocking.a in Frameworks */,
+				58B260191552B6E900359A52 /* libDWTools.a in Frameworks */,
+				58B2601A1552B6E900359A52 /* libDWVideo.a in Frameworks */,
+				58B25FE91552A7D700359A52 /* QTKit.framework in Frameworks */,
+				58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58B25FAA1552A74D00359A52 = {
+			isa = PBXGroup;
+			children = (
+				58B260291552F71C00359A52 /* QuickTime.framework */,
+				58B2600D1552B33C00359A52 /* libs */,
+				58B25FBF1552A74D00359A52 /* DWVideoTest01 */,
+				58B25FB81552A74D00359A52 /* Frameworks */,
+				58B25FB61552A74D00359A52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58B25FB61552A74D00359A52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58B25FB51552A74D00359A52 /* DWVideoTest01.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B25FB81552A74D00359A52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58B25FE81552A7D700359A52 /* QTKit.framework */,
+				58B25FB91552A74D00359A52 /* Cocoa.framework */,
+				58B25FBB1552A74D00359A52 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58B25FBB1552A74D00359A52 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58B25FBC1552A74D00359A52 /* AppKit.framework */,
+				58B25FBD1552A74D00359A52 /* CoreData.framework */,
+				58B25FBE1552A74D00359A52 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		58B25FBF1552A74D00359A52 /* DWVideoTest01 */ = {
+			isa = PBXGroup;
+			children = (
+				58B25FCB1552A74D00359A52 /* DWDocument.h */,
+				58B25FCC1552A74D00359A52 /* DWDocument.m */,
+				58B25FCE1552A74D00359A52 /* DWDocument.xib */,
+				58B25FD11552A74E00359A52 /* MainMenu.xib */,
+				58B25FC01552A74D00359A52 /* Supporting Files */,
+			);
+			path = DWVideoTest01;
+			sourceTree = "<group>";
+		};
+		58B25FC01552A74D00359A52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58B25FC11552A74D00359A52 /* DWVideoTest01-Info.plist */,
+				58B25FC21552A74D00359A52 /* InfoPlist.strings */,
+				58B25FC51552A74D00359A52 /* main.m */,
+				58B25FC71552A74D00359A52 /* DWVideoTest01-Prefix.pch */,
+				58B25FC81552A74D00359A52 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58B2600D1552B33C00359A52 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				58B260151552B6E900359A52 /* libDWClocking.a */,
+				58B260161552B6E900359A52 /* libDWTools.a */,
+				58B260171552B6E900359A52 /* libDWVideo.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B25FB41552A74D00359A52 /* DWVideoTest01 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B25FD61552A74E00359A52 /* Build configuration list for PBXNativeTarget "DWVideoTest01" */;
+			buildPhases = (
+				58B25FB11552A74D00359A52 /* Sources */,
+				58B25FB21552A74D00359A52 /* Frameworks */,
+				58B25FB31552A74D00359A52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWVideoTest01;
+			productName = DWVideoTest01;
+			productReference = 58B25FB51552A74D00359A52 /* DWVideoTest01.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B25FAC1552A74D00359A52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 58B25FAF1552A74D00359A52 /* Build configuration list for PBXProject "DWVideoTest01" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58B25FAA1552A74D00359A52;
+			productRefGroup = 58B25FB61552A74D00359A52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B25FB41552A74D00359A52 /* DWVideoTest01 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58B25FB31552A74D00359A52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */,
+				58B25FCA1552A74D00359A52 /* Credits.rtf in Resources */,
+				58B25FD01552A74D00359A52 /* DWDocument.xib in Resources */,
+				58B25FD31552A74E00359A52 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B25FB11552A74D00359A52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B25FC61552A74D00359A52 /* main.m in Sources */,
+				58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		58B25FC21552A74D00359A52 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B25FC31552A74D00359A52 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58B25FC81552A74D00359A52 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B25FC91552A74D00359A52 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		58B25FCE1552A74D00359A52 /* DWDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B25FCF1552A74D00359A52 /* en */,
+			);
+			name = DWDocument.xib;
+			sourceTree = "<group>";
+		};
+		58B25FD11552A74E00359A52 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B25FD21552A74E00359A52 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58B25FD41552A74E00359A52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		58B25FD51552A74E00359A52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		58B25FD71552A74E00359A52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWVideoTest01/DWVideoTest01-Prefix.pch";
+				INFOPLIST_FILE = "DWVideoTest01/DWVideoTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		58B25FD81552A74E00359A52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWVideoTest01/DWVideoTest01-Prefix.pch";
+				INFOPLIST_FILE = "DWVideoTest01/DWVideoTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B25FAF1552A74D00359A52 /* Build configuration list for PBXProject "DWVideoTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B25FD41552A74E00359A52 /* Debug */,
+				58B25FD51552A74E00359A52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B25FD61552A74E00359A52 /* Build configuration list for PBXNativeTarget "DWVideoTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B25FD71552A74E00359A52 /* Debug */,
+				58B25FD81552A74E00359A52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B25FAC1552A74D00359A52 /* Project object */;
+}
