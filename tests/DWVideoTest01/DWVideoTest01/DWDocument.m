@@ -89,27 +89,29 @@
 	//	options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
 	AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:options];
 	
-	NSArray *keys = [NSArray arrayWithObject:@"tracks"];
-	
-	[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
-		dispatch_async(dispatch_get_main_queue(),
-					   ^{
-						   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:outError];
-						   switch (trackStatus) {
-							   case AVKeyValueStatusLoaded:
-								   [self onAssetSuccessfullyLoaded:asset];
-								   break;
-							   case AVKeyValueStatusFailed:
-								   [self reportError:*outError onAsset:asset];
-								   break;
-							   case AVKeyValueStatusCancelled:
-								   // TODO : handle cancelation
-								   break;
-						   }
-					   });
-	}];
-
-    return YES;
+	if (asset != nil) {
+		NSArray *keys = [NSArray arrayWithObject:@"tracks"];
+		
+		[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
+			dispatch_async(dispatch_get_main_queue(),
+						   ^{
+							   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:outError];
+							   DWLog(@"state : %d", trackStatus);
+							   switch (trackStatus) {
+								   case AVKeyValueStatusLoaded:
+									   [self onAssetSuccessfullyLoaded:asset];
+									   break;
+								   case AVKeyValueStatusFailed:
+									   [self reportError:*outError onAsset:asset];
+									   break;
+								   case AVKeyValueStatusCancelled:
+									   // TODO : handle cancelation
+									   break;
+							   }
+						   });
+		}];
+	}
+    return asset != nil;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

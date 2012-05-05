@@ -59,7 +59,7 @@
 	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
 
 	// TODO : handle tc type
-	clock = [[DWClock alloc] initWithType:kDWTimeCode24];
+	clock = [[DWClock alloc] init];
 	
 	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	[clock addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];

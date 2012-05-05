@@ -30,7 +30,7 @@
 /** 
  Timecode type
  */
-@property(readonly) DWTimeCodeType type;
+@property DWTimeCodeType type;
 
 /**
  Current frame number according to the clock timecode type.
@@ -59,12 +59,5 @@
  Get the date the last tick occured.
  */
 @property(readonly) NSDate* lastTickDate;
-
-/** 
- Initialize the clock with a specific timecode type value (used for timecode representation.
- @param aType A timecode type
- @return A DWClock initialized object
- */
--(id)initWithType:(DWTimeCodeType)aType;
 
 @end

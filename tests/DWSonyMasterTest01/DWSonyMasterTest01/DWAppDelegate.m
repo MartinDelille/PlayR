@@ -22,8 +22,8 @@
 @synthesize txtStatus0 = _txtStatus0;
 
 -(void)check {
-	[sony checkTime];
-	[sony checkStatus];
+	[sony timeSense];
+	[sony statusSense];
 	self.currentTCText.stringValue = clock.tcString;
 	self.txtStatus0.stringValue = [NSString stringWithFormat:@"%.2x %.2x %.2x %.2x", [sony statusAtIndex:0], [sony statusAtIndex:1], [sony statusAtIndex:2], [sony statusAtIndex:3]];
 }
@@ -32,7 +32,7 @@
 {
 	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
 
-	clock = [[DWClock alloc] initWithType:kDWTimeCode25];
+	clock = [[DWClock alloc] init];
 	
 	sony = [[DWSonyMasterController alloc] initWithClock:clock];
 	

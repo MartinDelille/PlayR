@@ -16,7 +16,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	clock = [[DWClock alloc] initWithType:kDWTimeCode25];
+	// TODO: handle tc type
+	clock = [[DWClock alloc] init];
 	
 	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	clock.tcString = @"01:00:00:00";

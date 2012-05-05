@@ -17,16 +17,59 @@
 @synthesize player;
 
 -(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset {
-	DWTimeCodeType type;
-	double frameRate = 0;
-	
+	self = [super init];
 
-	DWFrame timeStameFrame = 0;
+	double frameRate = [DWVideoClock extractVideoFrameRate:anAsset];
 	
+	DWLog(@"framerate = %.2f", frameRate);
+
+	if (frameRate == 0) {
+		DWLog(@"Bad framerate value");
+		return nil;
+	}
+	else if (frameRate < 24) {
+		self.type = kDWTimeCode2398;
+	}
+	else if (frameRate < 25) {
+		self.type = kDWTimeCode24;
+	}
+	else if (frameRate == 25) {
+		self.type = kDWTimeCode25;
+	}
+	else {
+		self.type = kDWTimeCode2997;
+	}
+
+	asset = anAsset;
+	player = aPlayer;
+	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:anAsset];
+
+	// TODO
+//	DWLog(@"timescale = %@", [player. attributeForKey:QTMovieTimeScaleAttribute]);
+//	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
+//	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
+	
+	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 25) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+		self.rate = player.rate;
+		self.time = self.videoStartTime + player.currentTime.value * DWTIMESCALE / player.currentTime.timescale;
+	}];
+
+
+	return self;
+}
+
++(double)extractVideoFrameRate:(AVAsset*)anAsset {
 	for (AVAssetTrack * track in [anAsset tracks]) {
 		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
-			frameRate = track.nominalFrameRate;
-		}		
+			return track.nominalFrameRate;
+		}
+	}
+	return 0;
+}
+
++(DWFrame)extractTimeStamp:(AVAsset*)anAsset {
+	DWFrame timeStampFrame = 0;
+	for (AVAssetTrack * track in [anAsset tracks]) {
 		if ([[track mediaType] isEqualToString:AVMediaTypeTimecode]) {
 			AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:anAsset error:nil];
 			AVAssetReaderTrackOutput *assetReaderOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:track outputSettings:nil]; 
@@ -54,7 +97,7 @@
 							CMBlockBufferCopyDataBytes(blockBuffer, 0, length, buffer);
 							
 							for (int i=0; i<length; i++) {
-								timeStameFrame = (timeStameFrame << 8) + buffer[i];
+								timeStampFrame = (timeStampFrame << 8) + buffer[i];
 							}
 							
 							free(buffer);
@@ -65,7 +108,6 @@
 					
 					if (count == 0) {
 						NSLog(@"I am doomed %@", [assetReader error]);
-						exit(1);
 					}
 					
 					NSLog(@"Processed %d sample", count);
@@ -78,42 +120,7 @@
 				[assetReader cancelReading];
 		}
 	}
-
-	
-	DWLog(@"framerate = %.2f", frameRate);
-
-	if (frameRate < 24) {
-		type = kDWTimeCode2398;
-	}
-	else if (frameRate < 25) {
-		type = kDWTimeCode24;
-	}
-	else if (frameRate == 25) {
-		type = kDWTimeCode25;
-	}
-	else {
-		type = kDWTimeCode2997;
-	}
-
-	self = [super initWithType:type];
-
-	_videoStartTime = timeStameFrame * self.timePerFrame;
-
-	asset = anAsset;
-	player = aPlayer;
-
-	// TODO
-//	DWLog(@"timescale = %@", [player. attributeForKey:QTMovieTimeScaleAttribute]);
-//	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
-//	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
-	
-	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 25) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-		self.rate = player.rate;
-		self.time = self.videoStartTime + player.currentTime.value * DWTIMESCALE / player.currentTime.timescale;
-	}];
-
-
-	return self;
+	return timeStampFrame;
 }
 
 /*

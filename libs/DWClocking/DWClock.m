@@ -8,31 +8,20 @@
 
 #import "DWClock.h"
 
-@implementation DWClock {
-	DWTimeCodeType _type;
-}
+@implementation DWClock
 
 @synthesize time;
 @synthesize rate;
+@synthesize type;
 @synthesize lastTickDate = _lastTickDate;
 
 -(id)init {
 	self = [super init];
 	time = 0;
-	_type = kDWTimeCode25;
+	self.type = kDWTimeCode25;
 	rate = 0.0;
 	_lastTickDate = [NSDate dateWithTimeIntervalSince1970:0];
 	return self;
-}
-
--(id)initWithType:(DWTimeCodeType)aType {
-	self = [self init];
-	_type = aType;
-	return self;
-}
-
--(DWTimeCodeType)type {
-	return _type;
 }
 
 -(DWTime)timePerFrame {
