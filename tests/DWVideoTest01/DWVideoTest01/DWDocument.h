@@ -7,19 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "DWVideo/DWVideoClock.h"
+#import "DWVideoView.h"
 
-@interface DWDocument : NSDocument{
-	DWVideoClock * _clock;
-	QTMovie * _movie;
-	NSTextField * _txtCurrentTC;
-}
-
+@interface DWDocument : NSDocument
+@property (unsafe_unretained) IBOutlet DWVideoView *videoView;
 
 @property(retain) IBOutlet NSTextField *txtCurrentTC;
 
-@property(retain) QTMovie * movie;
+@property AVPlayer * player;
+@property AVPlayerItem * playerItem;
 @property(retain) DWVideoClock * clock;
 
 - (IBAction)play:(id)sender;

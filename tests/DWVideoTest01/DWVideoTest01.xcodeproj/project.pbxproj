@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D215544914002DCD3A /* AVFoundation.framework */; };
+		586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D41554491C002DCD3A /* CoreMedia.framework */; };
+		588E768515552FB5008F5983 /* DWVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E768415552FB5008F5983 /* DWVideoView.m */; };
 		58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FB91552A74D00359A52 /* Cocoa.framework */; };
 		58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC21552A74D00359A52 /* InfoPlist.strings */; };
 		58B25FC61552A74D00359A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FC51552A74D00359A52 /* main.m */; };
@@ -14,14 +17,16 @@
 		58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FCC1552A74D00359A52 /* DWDocument.m */; };
 		58B25FD01552A74D00359A52 /* DWDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FCE1552A74D00359A52 /* DWDocument.xib */; };
 		58B25FD31552A74E00359A52 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FD11552A74E00359A52 /* MainMenu.xib */; };
-		58B25FE91552A7D700359A52 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FE81552A7D700359A52 /* QTKit.framework */; };
 		58B260181552B6E900359A52 /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260151552B6E900359A52 /* libDWClocking.a */; };
 		58B260191552B6E900359A52 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260161552B6E900359A52 /* libDWTools.a */; };
 		58B2601A1552B6E900359A52 /* libDWVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260171552B6E900359A52 /* libDWVideo.a */; };
-		58B2602A1552F71C00359A52 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B260291552F71C00359A52 /* QuickTime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		586AD1D215544914002DCD3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		586AD1D41554491C002DCD3A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		588E768315552FB5008F5983 /* DWVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoView.h; sourceTree = "<group>"; };
+		588E768415552FB5008F5983 /* DWVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoView.m; sourceTree = "<group>"; };
 		58B25FB51552A74D00359A52 /* DWVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B25FB91552A74D00359A52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58B25FBC1552A74D00359A52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -40,7 +45,6 @@
 		58B260151552B6E900359A52 /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
 		58B260161552B6E900359A52 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 		58B260171552B6E900359A52 /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWVideo.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWVideo.a"; sourceTree = "<group>"; };
-		58B260291552F71C00359A52 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,11 +52,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B2602A1552F71C00359A52 /* QuickTime.framework in Frameworks */,
+				586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */,
+				586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */,
 				58B260181552B6E900359A52 /* libDWClocking.a in Frameworks */,
 				58B260191552B6E900359A52 /* libDWTools.a in Frameworks */,
 				58B2601A1552B6E900359A52 /* libDWVideo.a in Frameworks */,
-				58B25FE91552A7D700359A52 /* QTKit.framework in Frameworks */,
 				58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +67,6 @@
 		58B25FAA1552A74D00359A52 = {
 			isa = PBXGroup;
 			children = (
-				58B260291552F71C00359A52 /* QuickTime.framework */,
 				58B2600D1552B33C00359A52 /* libs */,
 				58B25FBF1552A74D00359A52 /* DWVideoTest01 */,
 				58B25FB81552A74D00359A52 /* Frameworks */,
@@ -82,6 +85,8 @@
 		58B25FB81552A74D00359A52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				586AD1D41554491C002DCD3A /* CoreMedia.framework */,
+				586AD1D215544914002DCD3A /* AVFoundation.framework */,
 				58B25FE81552A7D700359A52 /* QTKit.framework */,
 				58B25FB91552A74D00359A52 /* Cocoa.framework */,
 				58B25FBB1552A74D00359A52 /* Other Frameworks */,
@@ -107,6 +112,8 @@
 				58B25FCE1552A74D00359A52 /* DWDocument.xib */,
 				58B25FD11552A74E00359A52 /* MainMenu.xib */,
 				58B25FC01552A74D00359A52 /* Supporting Files */,
+				588E768315552FB5008F5983 /* DWVideoView.h */,
+				588E768415552FB5008F5983 /* DWVideoView.m */,
 			);
 			path = DWVideoTest01;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			files = (
 				58B25FC61552A74D00359A52 /* main.m in Sources */,
 				58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */,
+				588E768515552FB5008F5983 /* DWVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

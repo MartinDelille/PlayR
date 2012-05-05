@@ -7,15 +7,14 @@
 //
 
 #import "DWClocking/DWClock.h"
-#import <QTKit/QTKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface DWVideoClock : DWClock {
-	QTMovie* movie;
-	DWTime _videoStartTime;
-}
+@interface DWVideoClock : DWClock
 
 @property(readonly) DWTime videoStartTime;
+@property AVURLAsset * asset;
+@property AVPlayer * player;
 
--(id)initWithMovie:(QTMovie*)aMovie;
+-(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset;
 
 @end

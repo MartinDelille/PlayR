@@ -9,28 +9,77 @@
 #import "DWVideoClock.h"
 #import "DWTools/DWLogger.h"
 #import "DWClocking/DWTimeCode.h"
-#include <QuickTime/Movies.h>
-#include <QuickTime/QuickTime.h>
 
 @implementation DWVideoClock 
 
 @synthesize videoStartTime = _videoStartTime;
+@synthesize asset;
+@synthesize player;
 
--(id)initWithMovie:(QTMovie *)aMovie {
+-(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset {
 	DWTimeCodeType type;
 	double frameRate = 0;
-	for (QTTrack * track in [aMovie tracks]) {
-		QTMedia * media = [track media];
-		if([media hasCharacteristic:QTMediaCharacteristicHasVideoFrameRate]) {
-			QTTime mediaDuration = [(NSValue*)[media attributeForKey:QTMediaDurationAttribute] QTTimeValue];
-            long long mediaDurationScaleValue = mediaDuration.timeScale;
-            long mediaDurationTimeValue = mediaDuration.timeValue;
-            long mediaSampleCount = [(NSNumber*)[media attributeForKey:QTMediaSampleCountAttribute] longValue];
-            frameRate = (double)mediaSampleCount * ((double)mediaDurationScaleValue / (double)mediaDurationTimeValue);
-            break;
+	
+
+	DWFrame timeStameFrame = 0;
+	
+	for (AVAssetTrack * track in [anAsset tracks]) {
+		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
+			frameRate = track.nominalFrameRate;
+		}		
+		if ([[track mediaType] isEqualToString:AVMediaTypeTimecode]) {
+			AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:anAsset error:nil];
+			AVAssetReaderTrackOutput *assetReaderOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:track outputSettings:nil]; 
+			if ([assetReader canAddOutput:assetReaderOutput]) {
+				[assetReader addOutput:assetReaderOutput];
+				if ([assetReader startReading] == YES) {
+					int count = 0;
+					
+					while ( [assetReader status]==AVAssetReaderStatusReading ) {
+						CMSampleBufferRef sampleBuffer = [assetReaderOutput copyNextSampleBuffer];
+						if (sampleBuffer == NULL) {
+							if ([assetReader status] == AVAssetReaderStatusFailed) 
+								break;
+							else    
+								continue;
+						}
+						count++;
+						
+						CMBlockBufferRef blockBuffer = CMSampleBufferGetDataBuffer(sampleBuffer);
+						size_t length = CMBlockBufferGetDataLength(blockBuffer);
+						
+						if (length>0) {
+							unsigned char *buffer = malloc(length);
+							memset(buffer, 0, length);
+							CMBlockBufferCopyDataBytes(blockBuffer, 0, length, buffer);
+							
+							for (int i=0; i<length; i++) {
+								timeStameFrame = (timeStameFrame << 8) + buffer[i];
+							}
+							
+							free(buffer);
+						}
+						
+						CFRelease(sampleBuffer);
+					}
+					
+					if (count == 0) {
+						NSLog(@"I am doomed %@", [assetReader error]);
+						exit(1);
+					}
+					
+					NSLog(@"Processed %d sample", count);
+					
+				}
+				
+			}
+			
+			if ([assetReader status] != AVAssetReaderStatusCompleted)
+				[assetReader cancelReading];
 		}
-		
 	}
+
+	
 	DWLog(@"framerate = %.2f", frameRate);
 
 	if (frameRate < 24) {
@@ -48,42 +97,33 @@
 
 	self = [super initWithType:type];
 
-	movie = aMovie;
-	
-	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
-	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
-	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
+	_videoStartTime = timeStameFrame * self.timePerFrame;
 
-	// Checking timestamp
-	_videoStartTime = 906036 * self.timePerFrame;
-/*	NSArray * trackArray = [movie tracksOfMediaType:QTMediaTypeTimeCode];
-	if (trackArray.count > 0) {
-		QTTrack * tcTrack = [trackArray objectAtIndex:0];
-		if (tcTrack != nil) {
-			QTMedia * media = [tcTrack media];
-			if (media != nil) {
-			//	MediaHandler handler = GetMediaHandler([media quickTimeMedia]);
-			}
-		}
-	}*/
-	
+	asset = anAsset;
+	player = aPlayer;
 
+	// TODO
+//	DWLog(@"timescale = %@", [player. attributeForKey:QTMovieTimeScaleAttribute]);
+//	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
+//	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
 	
+	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 25) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+		self.rate = player.rate;
+		self.time = self.videoStartTime + player.currentTime.value * DWTIMESCALE / player.currentTime.timescale;
+	}];
+
+
 	return self;
 }
 
--(DWTime)timeFromQTTime:(QTTime)qttime {
+/*
+-(DWTime)timeFromCMTime:(CMTime)cmtime {
 	
-	return qttime.timeValue + self.videoStartTime;
+	return cmtime.value + self.videoStartTime;
 }
 
--(QTTime)qttimeFromTime:(DWTime)time {
-	return QTMakeTime(time - self.videoStartTime, DWTIMESCALE);
+-(CMTime)qttimeFromTime:(DWTime)time {
+	return CMTimeMake(time - self.videoStartTime, DWTIMESCALE);
 }
-
--(void)tickFrame {
-	self.time = [self timeFromQTTime:[movie currentTime]];
-	self.rate = movie.rate;
-}
-
+*/
 @end

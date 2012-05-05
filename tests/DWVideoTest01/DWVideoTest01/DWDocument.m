@@ -11,9 +11,11 @@
 
 @implementation DWDocument 
 
-@synthesize txtCurrentTC = _txtCurrentTC;
-@synthesize movie = _movie;
-@synthesize clock = _clock;
+@synthesize videoView;
+@synthesize txtCurrentTC;
+@synthesize player;
+@synthesize playerItem;
+@synthesize clock;
 
 - (id)init
 {
@@ -51,30 +53,63 @@
 	return nil;
 }
 
-- (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
-{
-/*	NSNumber *num = [NSNumber numberWithBool:YES];
-	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-								absoluteURL, QTMovieURLAttribute, 
-								//num, QTMovieLoopsAttribute,
-								num, QTMovieOpenForPlaybackAttribute,
-								nil];
-	
-	QTMovie *newMovie = [[QTMovie alloc] initWithAttributes:attributes error:outError];
-*/	
-	QTMovie *newMovie = [QTMovie movieWithURL:absoluteURL error:outError];
-	if (newMovie) {
-        self.movie = newMovie;
-		self.clock = [[DWVideoClock alloc] initWithMovie:self.movie];
-		
-		NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self.clock selector:@selector(tickFrame) userInfo:nil repeats:YES];	
-		NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-		[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
-		
-		[self.clock addObserver:self forKeyPath:@"time" options:0 context:nil];
 
-	}
-    return (newMovie != nil);
+-(void)onAssetSuccessfullyLoaded:(AVURLAsset*)asset {
+	self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+	
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self.clock selector:@selector(tickFrame) userInfo:nil repeats:YES];	
+	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+	
+	[self.clock addObserver:self forKeyPath:@"time" options:0 context:nil];	
+
+	// TODO
+	
+//	[playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+
+	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
+	self.player = [AVPlayer playerWithPlayerItem:playerItem];
+
+
+	videoView.player = player;
+	self.clock = [[DWVideoClock alloc] initWithPlayer:player andURLAsset:asset];
+	
+	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
+}
+
+-(void)reportError:(NSError*)error onAsset:(AVURLAsset*)asset {
+	// TODO
+}
+
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError **)outError
+{
+	DWLog(@"Opening %@", url);
+	NSDictionary * options = nil;
+	// TODO: check if needed
+	//	options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+	AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:options];
+	
+	NSArray *keys = [NSArray arrayWithObject:@"tracks"];
+	
+	[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
+		dispatch_async(dispatch_get_main_queue(),
+					   ^{
+						   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:outError];
+						   switch (trackStatus) {
+							   case AVKeyValueStatusLoaded:
+								   [self onAssetSuccessfullyLoaded:asset];
+								   break;
+							   case AVKeyValueStatusFailed:
+								   [self reportError:*outError onAsset:asset];
+								   break;
+							   case AVKeyValueStatusCancelled:
+								   // TODO : handle cancelation
+								   break;
+						   }
+					   });
+	}];
+
+    return YES;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -82,23 +117,27 @@
 }
 
 - (IBAction)play:(id)sender {
-	self.movie.rate = 1;
+	[clock tickFrame];
+	DWLog(@"play at %@", clock.tcString);
+	self.player.rate = 1;
 	
 }
 
 - (IBAction)pause:(id)sender {
-	self.movie.rate = 0;
+	[clock tickFrame];
+	DWLog(@"pause at %@", clock.tcString);
+	self.player.rate = 0;
 }
 
 - (IBAction)fastForward:(id)sender {
-	self.movie.rate = 10;
+	self.player.rate = 10;
 }
 
 - (IBAction)reverse:(id)sender {
-	self.movie.rate = -1;
+	self.player.rate = -1;
 }
 
 - (IBAction)rewind:(id)sender {
-	self.movie.rate = -10;
+	self.player.rate = -10;
 }
 @end
