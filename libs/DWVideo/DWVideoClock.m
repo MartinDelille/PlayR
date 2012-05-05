@@ -10,11 +10,12 @@
 #import "DWTools/DWLogger.h"
 #import "DWClocking/DWTimeCode.h"
 
-@implementation DWVideoClock 
+@implementation DWVideoClock
 
 @synthesize videoStartTime = _videoStartTime;
 @synthesize asset;
 @synthesize player;
+@synthesize currentFrame;
 
 -(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset {
 	self = [super init];
@@ -42,6 +43,7 @@
 
 	asset = anAsset;
 	player = aPlayer;
+	self.currentFrame = self.frame;
 	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:anAsset];
 
 	// TODO
@@ -49,14 +51,54 @@
 //	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
 //	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
 	
-	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 25) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-		self.rate = player.rate;
-		self.time = self.videoStartTime + player.currentTime.value * DWTIMESCALE / player.currentTime.timescale;
+	__block typeof(self) bself;
+	__block DWFrame lastCurrentFrame = -1;
+	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+		if (bself.frame != lastCurrentFrame) {
+			bself.currentFrame = bself.frame;
+		}
 	}];
 
 
 	return self;
 }
+
+-(void)setTime:(DWTime)time {
+	if (player != nil) {
+		[player seekToTime:CMTimeMake(time - self.videoStartTime, DWTIMESCALE)];
+	}
+	else {
+		[super setTime:time];
+	}
+}
+
+-(DWTime)time {
+	if (player != nil) {
+		return player.currentTime.value * DWTIMESCALE / player.currentTime.timescale + self.videoStartTime;
+	}
+	else {
+		return [super time];
+	}
+}
+
+-(void)setRate:(double)rate {
+	player.rate = rate;
+}
+
+-(double)rate {
+	return player.rate;
+}
+
+/*
+ -(DWTime)timeFromCMTime:(CMTime)cmtime {
+ 
+ return cmtime.value + self.videoStartTime;
+ }
+ 
+ -(CMTime)qttimeFromTime:(DWTime)time {
+ return CMTimeMake(time - self.videoStartTime, DWTIMESCALE);
+ }
+ */
 
 +(double)extractVideoFrameRate:(AVAsset*)anAsset {
 	for (AVAssetTrack * track in [anAsset tracks]) {
@@ -123,14 +165,4 @@
 	return timeStampFrame;
 }
 
-/*
--(DWTime)timeFromCMTime:(CMTime)cmtime {
-	
-	return cmtime.value + self.videoStartTime;
-}
-
--(CMTime)qttimeFromTime:(DWTime)time {
-	return CMTimeMake(time - self.videoStartTime, DWTIMESCALE);
-}
-*/
 @end

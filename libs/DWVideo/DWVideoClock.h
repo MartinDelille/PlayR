@@ -14,6 +14,7 @@
 @property(readonly) DWTime videoStartTime;
 @property AVURLAsset * asset;
 @property AVPlayer * player;
+@property DWFrame currentFrame;
 
 -(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset;
 

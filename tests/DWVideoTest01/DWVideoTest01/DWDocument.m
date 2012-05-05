@@ -61,7 +61,7 @@
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
-	[self.clock addObserver:self forKeyPath:@"time" options:0 context:nil];	
+	[self.clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];	
 
 	// TODO
 	
@@ -73,6 +73,7 @@
 
 	videoView.player = player;
 	self.clock = [[DWVideoClock alloc] initWithPlayer:player andURLAsset:asset];
+	self.txtCurrentTC.stringValue = self.clock.tcString;
 	
 	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
 }
