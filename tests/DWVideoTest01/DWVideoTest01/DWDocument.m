@@ -8,10 +8,13 @@
 
 #import "DWDocument.h"
 #import "DWTools/DWLogger.h"
+#import "DWVideoView.h"
+#import "DWMainView.h"
 
 @implementation DWDocument
 
 @synthesize videoView;
+@synthesize mainView;
 @synthesize txtCurrentTC;
 @synthesize clock;
 
@@ -42,7 +45,8 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
 	[super windowControllerDidLoadNib:aController];
-	// Add any code here that needs to be executed once the windowController has loaded the document's window.
+
+	mainView.doc = self;
 }
 
 + (BOOL)autosavesInPlace
@@ -82,6 +86,20 @@
 		}
 	}
 }
+
+-(void)playPause {
+	if (clock.rate == 0) {
+		clock.rate = 1;
+	}
+	else {
+		clock.rate = 0;
+	}
+}
+
+-(void)shuttle:(double)delta {
+	clock.rate += delta / 100;
+}
+
 
 - (IBAction)play:(id)sender {
 	[clock tickFrame];

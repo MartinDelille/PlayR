@@ -100,7 +100,6 @@
 
 	__block DWFrame lastCurrentFrame = -1;
 	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-		DWLog(@"tick");
 		if (self.frame != lastCurrentFrame) {
 			lastCurrentFrame = self.currentFrame = self.frame;
 		}

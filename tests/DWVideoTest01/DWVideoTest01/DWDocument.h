@@ -9,10 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import <AVFoundation/AVFoundation.h>
 #import "DWVideo/DWVideoClock.h"
-#import "DWVideoView.h"
+
+@class DWVideoView;
+@class DWMainView;
 
 @interface DWDocument : NSDocument
 @property (unsafe_unretained) IBOutlet DWVideoView *videoView;
+@property (unsafe_unretained) IBOutlet DWMainView *mainView;
 
 @property(retain) IBOutlet NSTextField *txtCurrentTC;
 
@@ -23,5 +26,8 @@
 - (IBAction)fastForward:(id)sender;
 - (IBAction)reverse:(id)sender;
 - (IBAction)rewind:(id)sender;
+
+-(void)playPause;
+-(void)shuttle:(double)delta;
 
 @end
