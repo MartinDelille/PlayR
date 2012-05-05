@@ -24,6 +24,14 @@
     return self;
 }
 
+-(void)dealloc {
+	if (self.clock != nil) {
+		clock.rate = 0;
+		[self.clock removeObserver:self forKeyPath:@"currentFrame"];
+		[self.clock removeObserver:self forKeyPath:@"state"];
+	}
+}
+
 - (NSString *)windowNibName
 {
 	// Override returning the nib file name of the document

@@ -30,7 +30,7 @@
 	self = [self init];
 	
 	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
-	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
 	asset = [[AVURLAsset alloc] initWithURL:url options:options];
 	
 	if (asset != nil) {
@@ -98,16 +98,11 @@
 	self.currentFrame = self.frame;
 	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:asset];
 
-	// TODO
-//	DWLog(@"timescale = %@", [player. attributeForKey:QTMovieTimeScaleAttribute]);
-//	[movie setAttribute:[NSNumber numberWithLong:DWTIMESCALE] forKey:QTMovieTimeScaleAttribute];
-//	DWLog(@"timescale = %@", [movie attributeForKey:QTMovieTimeScaleAttribute]);
-	
-	__block typeof(self) bself;
 	__block DWFrame lastCurrentFrame = -1;
 	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-		if (bself.frame != lastCurrentFrame) {
-			bself.currentFrame = bself.frame;
+		DWLog(@"tick");
+		if (self.frame != lastCurrentFrame) {
+			lastCurrentFrame = self.currentFrame = self.frame;
 		}
 	}];
 
