@@ -39,4 +39,8 @@
     // Drawing code here.
 }
 
+-(void)viewDidEndLiveResize {
+	DWLog(@"");
+	playerLayer.frame = self.bounds;
+}
 @end

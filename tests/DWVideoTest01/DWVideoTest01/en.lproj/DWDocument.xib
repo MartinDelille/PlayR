@@ -154,7 +154,6 @@
 							<string key="NSFrame">{{374, 24}, {70, 19}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="929319522">
@@ -174,7 +173,7 @@
 						</object>
 						<object class="NSTextField" id="404953218">
 							<reference key="NSNextResponder" ref="568628114"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{114, 60}, {213, 39}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<reference key="NSWindow"/>
@@ -215,7 +214,7 @@
 						</object>
 						<object class="NSTextField" id="65610668">
 							<reference key="NSNextResponder" ref="568628114"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{43, 61}, {66, 37}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<reference key="NSWindow"/>
@@ -246,7 +245,7 @@
 								</object>
 							</object>
 						</object>
-						<object class="NSCustomView" id="849494873">
+						<object class="NSCustomView" id="997979862">
 							<reference key="NSNextResponder" ref="568628114"/>
 							<int key="NSvFlags">274</int>
 							<string key="NSFrame">{{16, 124}, {471, 290}}</string>
@@ -260,7 +259,7 @@
 					<string key="NSFrameSize">{507, 434}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="849494873"/>
+					<reference key="NSNextKeyView" ref="997979862"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMinSize">{94, 108}</string>
@@ -333,7 +332,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">videoView</string>
 						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="849494873"/>
+						<reference key="destination" ref="997979862"/>
 					</object>
 					<int key="connectionID">100069</int>
 				</object>
@@ -386,7 +385,7 @@
 							<reference ref="1056670220"/>
 							<reference ref="444478009"/>
 							<reference ref="606991456"/>
-							<reference ref="849494873"/>
+							<reference ref="997979862"/>
 						</array>
 						<reference key="parent" ref="275939982"/>
 					</object>
@@ -489,7 +488,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100067</int>
-						<reference key="object" ref="849494873"/>
+						<reference key="object" ref="997979862"/>
 						<reference key="parent" ref="568628114"/>
 					</object>
 				</array>
