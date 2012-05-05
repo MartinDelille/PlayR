@@ -9,13 +9,21 @@
 #import "DWClocking/DWClock.h"
 #import <AVFoundation/AVFoundation.h>
 
+typedef enum {
+	kDWVideoClockStateNotReady,
+	kDWVideoClockStateLoading,
+	kDWVideoClockStateReady,
+} DWVideoClockState;
+
 @interface DWVideoClock : DWClock
 
 @property(readonly) DWTime videoStartTime;
 @property AVURLAsset * asset;
 @property AVPlayer * player;
+@property AVPlayerItem * playerItem;
 @property DWFrame currentFrame;
+@property DWVideoClockState state;
 
--(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset;
+-(id)initWithUrl:(NSURL*)url;
 
 @end

@@ -16,8 +16,6 @@
 
 @property(retain) IBOutlet NSTextField *txtCurrentTC;
 
-@property AVPlayer * player;
-@property AVPlayerItem * playerItem;
 @property(retain) DWVideoClock * clock;
 
 - (IBAction)play:(id)sender;

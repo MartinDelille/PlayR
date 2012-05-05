@@ -15,18 +15,62 @@
 @synthesize videoStartTime = _videoStartTime;
 @synthesize asset;
 @synthesize player;
+@synthesize playerItem;
 @synthesize currentFrame;
+@synthesize state;
 
--(id)initWithPlayer:(AVPlayer*)aPlayer andURLAsset:(AVURLAsset*)anAsset {
+-(id)init {
 	self = [super init];
+	state = kDWVideoClockStateNotReady;
+	
+	return self;
+}
 
-	double frameRate = [DWVideoClock extractVideoFrameRate:anAsset];
+-(id)initWithUrl:(NSURL *)url {
+	self = [self init];
+	
+	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
+	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+	asset = [[AVURLAsset alloc] initWithURL:url options:options];
+	
+	if (asset != nil) {
+		NSArray *keys = [NSArray arrayWithObject:@"tracks"];
+		
+		state = kDWVideoClockStateLoading;
+		[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
+			dispatch_async(dispatch_get_main_queue(),
+						   ^{
+							   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:nil];
+							   DWLog(@"state : %d", trackStatus);
+							   switch (trackStatus) {
+								   case AVKeyValueStatusLoaded:
+									   [self assetDidLoad];
+									   break;
+								   case AVKeyValueStatusFailed:
+									   //[self reportError:*outError onAsset:asset];
+								   case AVKeyValueStatusCancelled:
+									   self.state = kDWVideoClockStateNotReady;
+									   // TODO : handle error and cancelation
+									   break;
+							   }
+						   });
+		}];
+		return self;
+	}
+	else {
+		return nil;
+	}	
+}
+
+
+-(void)assetDidLoad {	
+	double frameRate = [DWVideoClock extractVideoFrameRate:asset];
 	
 	DWLog(@"framerate = %.2f", frameRate);
 
 	if (frameRate == 0) {
 		DWLog(@"Bad framerate value");
-		return nil;
+		return;
 	}
 	else if (frameRate < 24) {
 		self.type = kDWTimeCode2398;
@@ -41,10 +85,18 @@
 		self.type = kDWTimeCode2997;
 	}
 
-	asset = anAsset;
-	player = aPlayer;
+	self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+
+	// TODO
+	
+	//	[playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+	
+	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
+	self.player = [AVPlayer playerWithPlayerItem:playerItem];
+
+	
 	self.currentFrame = self.frame;
-	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:anAsset];
+	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:asset];
 
 	// TODO
 //	DWLog(@"timescale = %@", [player. attributeForKey:QTMovieTimeScaleAttribute]);
@@ -59,34 +111,37 @@
 		}
 	}];
 
-
-	return self;
+	self.state = kDWVideoClockStateReady;
 }
 
 -(void)setTime:(DWTime)time {
-	if (player != nil) {
+	if (state == kDWVideoClockStateReady) {
 		[player seekToTime:CMTimeMake(time - self.videoStartTime, DWTIMESCALE)];
-	}
-	else {
-		[super setTime:time];
 	}
 }
 
 -(DWTime)time {
-	if (player != nil) {
+	if (state == kDWVideoClockStateReady) {
 		return player.currentTime.value * DWTIMESCALE / player.currentTime.timescale + self.videoStartTime;
 	}
 	else {
-		return [super time];
+		return 0;
 	}
 }
 
 -(void)setRate:(double)rate {
-	player.rate = rate;
+	if (state == kDWVideoClockStateReady) {
+		player.rate = rate;
+	}
 }
 
 -(double)rate {
-	return player.rate;
+	if (state == kDWVideoClockStateReady) {
+		return player.rate;
+	}
+	else {
+		return 0;
+	}
 }
 
 /*

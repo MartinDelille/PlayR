@@ -9,12 +9,10 @@
 #import "DWDocument.h"
 #import "DWTools/DWLogger.h"
 
-@implementation DWDocument 
+@implementation DWDocument
 
 @synthesize videoView;
 @synthesize txtCurrentTC;
-@synthesize player;
-@synthesize playerItem;
 @synthesize clock;
 
 - (id)init
@@ -53,94 +51,52 @@
 	return nil;
 }
 
-
--(void)onAssetSuccessfullyLoaded:(AVURLAsset*)asset {
-	self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
-	
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self.clock selector:@selector(tickFrame) userInfo:nil repeats:YES];	
-	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
-	
-	[self.clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];	
-
-	// TODO
-	
-//	[playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
-
-	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
-	self.player = [AVPlayer playerWithPlayerItem:playerItem];
-
-
-	videoView.player = player;
-	self.clock = [[DWVideoClock alloc] initWithPlayer:player andURLAsset:asset];
-	self.txtCurrentTC.stringValue = self.clock.tcString;
-	
-	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
-}
-
--(void)reportError:(NSError*)error onAsset:(AVURLAsset*)asset {
-	// TODO
-}
-
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError **)outError
 {
 	DWLog(@"Opening %@", url);
-	NSDictionary * options = nil;
-	// TODO: check if needed
-	//	options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-	AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:options];
-	
-	if (asset != nil) {
-		NSArray *keys = [NSArray arrayWithObject:@"tracks"];
-		
-		[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
-			dispatch_async(dispatch_get_main_queue(),
-						   ^{
-							   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:outError];
-							   DWLog(@"state : %d", trackStatus);
-							   switch (trackStatus) {
-								   case AVKeyValueStatusLoaded:
-									   [self onAssetSuccessfullyLoaded:asset];
-									   break;
-								   case AVKeyValueStatusFailed:
-									   [self reportError:*outError onAsset:asset];
-									   break;
-								   case AVKeyValueStatusCancelled:
-									   // TODO : handle cancelation
-									   break;
-							   }
-						   });
-		}];
+	DWVideoClock * newClock = [[DWVideoClock alloc] initWithUrl:url];
+	if (newClock != nil) {
+		self.clock = newClock;
+		[self.clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];	
+		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
 	}
-    return asset != nil;
+    return newClock != nil;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	self.txtCurrentTC.stringValue = self.clock.tcString;
+	if ([keyPath isEqualToString:@"currentFrame"]) {
+		self.txtCurrentTC.stringValue = self.clock.tcString;
+	}
+	else if ([keyPath isEqualToString:@"state"]) {
+		if (self.clock.state == kDWVideoClockStateReady) {
+			videoView.player = clock.player;
+			self.txtCurrentTC.stringValue = self.clock.tcString;
+		}
+	}
 }
 
 - (IBAction)play:(id)sender {
 	[clock tickFrame];
 	DWLog(@"play at %@", clock.tcString);
-	self.player.rate = 1;
+	self.clock.rate = 1;
 	
 }
 
 - (IBAction)pause:(id)sender {
 	[clock tickFrame];
 	DWLog(@"pause at %@", clock.tcString);
-	self.player.rate = 0;
+	self.clock.rate = 0;
 }
 
 - (IBAction)fastForward:(id)sender {
-	self.player.rate = 10;
+	self.clock.rate = 10;
 }
 
 - (IBAction)reverse:(id)sender {
-	self.player.rate = -1;
+	self.clock.rate = -1;
 }
 
 - (IBAction)rewind:(id)sender {
-	self.player.rate = -10;
+	self.clock.rate = -10;
 }
 @end
