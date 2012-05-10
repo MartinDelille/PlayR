@@ -98,14 +98,16 @@
 	self.currentFrame = self.frame;
 	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:asset];
 
+	self.state = kDWVideoClockStateReady;
+
 	__block DWFrame lastCurrentFrame = -1;
 	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
 		if (self.frame != lastCurrentFrame) {
 			lastCurrentFrame = self.currentFrame = self.frame;
 		}
 	}];
+	
 
-	self.state = kDWVideoClockStateReady;
 }
 
 -(void)setTime:(DWTime)time {
