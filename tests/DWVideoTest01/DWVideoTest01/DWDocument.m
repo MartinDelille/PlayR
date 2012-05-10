@@ -50,8 +50,7 @@
 	NSRect frameRect = self.mainWindow.frame;
 	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
 	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/8;
-	
-	//	[controlPanel setFrame:subFrameRect display:flag];
+
 	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
 	[self.controlPanel orderFront:self];
 
@@ -63,9 +62,9 @@
 	[super windowControllerDidLoadNib:aController];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:mainWindow];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeKeyNotification object:mainWindow];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidUpdateNotification object:mainWindow];
 
+	[mainWindow addChildWindow:controlPanel ordered:NSWindowAbove];
+	[mainWindow setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 	mainView.doc = self;
 }
 
