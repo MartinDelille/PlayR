@@ -9,11 +9,9 @@
 #import "DWDocument.h"
 #import "DWTools/DWLogger.h"
 #import "DWVideoView.h"
-#import "DWMainView.h"
 
 @implementation DWDocument
 
-@synthesize videoView;
 @synthesize mainView;
 @synthesize controlPanel;
 @synthesize mainWindow;
@@ -62,9 +60,11 @@
 	[super windowControllerDidLoadNib:aController];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:mainWindow];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:mainWindow];
 
 	[mainWindow addChildWindow:controlPanel ordered:NSWindowAbove];
 	[mainWindow setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+	
 	mainView.doc = self;
 }
 
@@ -100,7 +100,7 @@
 	}
 	else if ([keyPath isEqualToString:@"state"]) {
 		if (self.clock.state == kDWVideoClockStateReady) {
-			videoView.player = clock.player;
+			mainView.player = clock.player;
 			self.txtCurrentTC.stringValue = self.clock.tcString;
 		}
 	}

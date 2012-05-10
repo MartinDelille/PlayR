@@ -7,10 +7,13 @@
 //
 
 #import "DWVideoView.h"
+#import "DWDocument.h"
 
 @implementation DWVideoView {
 	AVPlayerLayer * playerLayer;
 }
+
+@synthesize doc;
 
 -(AVPlayer *)player {
 	return [playerLayer player];
@@ -20,27 +23,30 @@
 	self.wantsLayer = YES;
 	playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
 	playerLayer.frame = self.bounds;
+	playerLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+	playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 	[self.layer addSublayer:playerLayer];
 }
 
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+-(BOOL)acceptsFirstResponder {
+	return YES;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
+-(void)keyDown:(NSEvent *)theEvent {
+	DWLog(@"keyCode: %X", theEvent.keyCode);
+	switch (theEvent.keyCode) {
+		case 0x31:
+			[doc playPause];
+			break;
+		default:
+			[super keyDown:theEvent];
+			break;
+	}
 }
 
--(void)viewDidEndLiveResize {
-	DWLog(@"");
-	playerLayer.frame = self.bounds;
+-(void)scrollWheel:(NSEvent *)theEvent {
+	DWLog(@"f: %f", theEvent.scrollingDeltaX);
+	[doc shuttle:theEvent.scrollingDeltaX];
 }
+
 @end

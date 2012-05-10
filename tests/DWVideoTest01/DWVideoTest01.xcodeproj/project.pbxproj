@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D215544914002DCD3A /* AVFoundation.framework */; };
 		586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D41554491C002DCD3A /* CoreMedia.framework */; };
-		586D82591555931900A6D45E /* DWMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 586D82581555931900A6D45E /* DWMainView.m */; };
 		588E768515552FB5008F5983 /* DWVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E768415552FB5008F5983 /* DWVideoView.m */; };
 		58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FB91552A74D00359A52 /* Cocoa.framework */; };
 		58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC21552A74D00359A52 /* InfoPlist.strings */; };
@@ -26,8 +25,6 @@
 /* Begin PBXFileReference section */
 		586AD1D215544914002DCD3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		586AD1D41554491C002DCD3A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		586D82571555931900A6D45E /* DWMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWMainView.h; sourceTree = "<group>"; };
-		586D82581555931900A6D45E /* DWMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWMainView.m; sourceTree = "<group>"; };
 		588E768315552FB5008F5983 /* DWVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoView.h; sourceTree = "<group>"; };
 		588E768415552FB5008F5983 /* DWVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoView.m; sourceTree = "<group>"; };
 		58B25FB51552A74D00359A52 /* DWVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,8 +114,6 @@
 				58B25FC01552A74D00359A52 /* Supporting Files */,
 				588E768315552FB5008F5983 /* DWVideoView.h */,
 				588E768415552FB5008F5983 /* DWVideoView.m */,
-				586D82571555931900A6D45E /* DWMainView.h */,
-				586D82581555931900A6D45E /* DWMainView.m */,
 			);
 			path = DWVideoTest01;
 			sourceTree = "<group>";
@@ -214,7 +209,6 @@
 				58B25FC61552A74D00359A52 /* main.m in Sources */,
 				58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */,
 				588E768515552FB5008F5983 /* DWVideoView.m in Sources */,
-				586D82591555931900A6D45E /* DWMainView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

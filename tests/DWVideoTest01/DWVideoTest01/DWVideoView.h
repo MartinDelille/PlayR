@@ -9,8 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import <AVFoundation/AVFoundation.h>
 
+@class DWDocument;
+
 @interface DWVideoView : NSView
 
 @property AVPlayer* player;
+@property DWDocument* doc;
 
 @end

@@ -11,11 +11,9 @@
 #import "DWVideo/DWVideoClock.h"
 
 @class DWVideoView;
-@class DWMainView;
 
 @interface DWDocument : NSDocument
-@property (unsafe_unretained) IBOutlet DWVideoView *videoView;
-@property (unsafe_unretained) IBOutlet DWMainView *mainView;
+@property (unsafe_unretained) IBOutlet DWVideoView *mainView;
 @property (strong) IBOutlet NSPanel *controlPanel;
 @property (strong) IBOutlet NSWindow *mainWindow;
 
