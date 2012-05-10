@@ -16,6 +16,8 @@
 @interface DWDocument : NSDocument
 @property (unsafe_unretained) IBOutlet DWVideoView *videoView;
 @property (unsafe_unretained) IBOutlet DWMainView *mainView;
+@property (strong) IBOutlet NSPanel *controlPanel;
+@property (strong) IBOutlet NSWindow *mainWindow;
 
 @property(retain) IBOutlet NSTextField *txtCurrentTC;
 

@@ -15,6 +15,8 @@
 
 @synthesize videoView;
 @synthesize mainView;
+@synthesize controlPanel;
+@synthesize mainWindow;
 @synthesize txtCurrentTC;
 @synthesize clock;
 
@@ -22,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-		// Add your subclass-specific initialization here.
+		
     }
     return self;
 }
@@ -42,9 +44,27 @@
 	return @"DWDocument";
 }
 
+-(void)updateControlPanelPosition:(NSNotification*)note {
+	DWLog(@"%@", note.name);
+	NSRect subFrameRect = self.controlPanel.frame;
+	NSRect frameRect = self.mainWindow.frame;
+	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
+	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/8;
+	
+	//	[controlPanel setFrame:subFrameRect display:flag];
+	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
+	[self.controlPanel orderFront:self];
+
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
+	DWLog(@"%@", aController);
 	[super windowControllerDidLoadNib:aController];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:mainWindow];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeKeyNotification object:mainWindow];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidUpdateNotification object:mainWindow];
 
 	mainView.doc = self;
 }
@@ -102,14 +122,12 @@
 
 
 - (IBAction)play:(id)sender {
-	[clock tickFrame];
 	DWLog(@"play at %@", clock.tcString);
 	self.clock.rate = 1;
 	
 }
 
 - (IBAction)pause:(id)sender {
-	[clock tickFrame];
 	DWLog(@"pause at %@", clock.tcString);
 	self.clock.rate = 0;
 }
