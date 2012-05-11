@@ -2,8 +2,11 @@
 <Workspace
    version = "1.0">
    <Group
-      location = "container:"
+      location = "container:../libs"
       name = "libs">
+      <FileRef
+         location = "group:DWVideo/DWVideo.xcodeproj">
+      </FileRef>
       <FileRef
          location = "group:../libs/AMSerialPort/AMSerialPort.xcodeproj">
       </FileRef>
@@ -18,7 +21,7 @@
       </FileRef>
    </Group>
    <Group
-      location = "container:"
+      location = "container:../tests"
       name = "tests">
       <FileRef
          location = "group:../tests/DWSonyTest01/DWSonyTest01.xcodeproj">
@@ -28,6 +31,9 @@
       </FileRef>
       <FileRef
          location = "group:../tests/DWSonyMasterTest01/DWSonyMasterTest01.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DWSonyVideoTest01/DWSonyVideoTest01.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>

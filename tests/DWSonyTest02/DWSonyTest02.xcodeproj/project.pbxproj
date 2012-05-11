@@ -61,7 +61,6 @@
 		58ADABA11547163600C9C40E = {
 			isa = PBXGroup;
 			children = (
-				58ADABDF1547289E00C9C40E /* IOKit.framework */,
 				58ADABD51547182600C9C40E /* libs */,
 				58ADABB61547163700C9C40E /* DWSonyTest02 */,
 				58ADABAF1547163700C9C40E /* Frameworks */,
@@ -80,6 +79,7 @@
 		58ADABAF1547163700C9C40E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58ADABDF1547289E00C9C40E /* IOKit.framework */,
 				58ADABB01547163700C9C40E /* Cocoa.framework */,
 				58ADABB21547163700C9C40E /* Other Frameworks */,
 			);

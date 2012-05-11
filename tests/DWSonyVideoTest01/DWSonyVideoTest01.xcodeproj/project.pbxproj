@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58221173155D196600D680BA /* libDWVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58221172155D196600D680BA /* libDWVideo.a */; };
+		58221175155D197500D680BA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58221174155D197500D680BA /* CoreMedia.framework */; };
+		586ED290155D110E00F071BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED28F155D110E00F071BB /* Cocoa.framework */; };
+		586ED29A155D110E00F071BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 586ED298155D110E00F071BB /* InfoPlist.strings */; };
+		586ED29C155D110E00F071BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 586ED29B155D110E00F071BB /* main.m */; };
+		586ED2A0155D110E00F071BB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 586ED29E155D110E00F071BB /* Credits.rtf */; };
+		586ED2A3155D110E00F071BB /* DWDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 586ED2A2155D110E00F071BB /* DWDocument.m */; };
+		586ED2A6155D110E00F071BB /* DWDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586ED2A4155D110E00F071BB /* DWDocument.xib */; };
+		586ED2A9155D110E00F071BB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586ED2A7155D110E00F071BB /* MainMenu.xib */; };
+		586ED2B6155D120900F071BB /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B2155D120900F071BB /* libAMSerialPort.a */; };
+		586ED2B7155D120900F071BB /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B3155D120900F071BB /* libDWClocking.a */; };
+		586ED2B8155D120900F071BB /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B4155D120900F071BB /* libDWSony.a */; };
+		586ED2B9155D120900F071BB /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B5155D120900F071BB /* libDWTools.a */; };
+		586ED2BB155D121200F071BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2BA155D121100F071BB /* IOKit.framework */; };
+		586ED2BD155D122200F071BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2BC155D122200F071BB /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58221172155D196600D680BA /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWVideo.a; path = ../../libs/DWVideo/build/Release/libDWVideo.a; sourceTree = "<group>"; };
+		58221174155D197500D680BA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		586ED28B155D110E00F071BB /* DWSonyVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		586ED28F155D110E00F071BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		586ED292155D110E00F071BB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		586ED293155D110E00F071BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		586ED294155D110E00F071BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		586ED297155D110E00F071BB /* DWSonyVideoTest01-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWSonyVideoTest01-Info.plist"; sourceTree = "<group>"; };
+		586ED299155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		586ED29B155D110E00F071BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		586ED29D155D110E00F071BB /* DWSonyVideoTest01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWSonyVideoTest01-Prefix.pch"; sourceTree = "<group>"; };
+		586ED29F155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		586ED2A1155D110E00F071BB /* DWDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDocument.h; sourceTree = "<group>"; };
+		586ED2A2155D110E00F071BB /* DWDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWDocument.m; sourceTree = "<group>"; };
+		586ED2A5155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DWDocument.xib; sourceTree = "<group>"; };
+		586ED2A8155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		586ED2B2155D120900F071BB /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		586ED2B3155D120900F071BB /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		586ED2B4155D120900F071BB /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
+		586ED2B5155D120900F071BB /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		586ED2BA155D121100F071BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		586ED2BC155D122200F071BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		586ED288155D110E00F071BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58221175155D197500D680BA /* CoreMedia.framework in Frameworks */,
+				58221173155D196600D680BA /* libDWVideo.a in Frameworks */,
+				586ED2BD155D122200F071BB /* AVFoundation.framework in Frameworks */,
+				586ED2BB155D121200F071BB /* IOKit.framework in Frameworks */,
+				586ED2B6155D120900F071BB /* libAMSerialPort.a in Frameworks */,
+				586ED2B7155D120900F071BB /* libDWClocking.a in Frameworks */,
+				586ED2B8155D120900F071BB /* libDWSony.a in Frameworks */,
+				586ED2B9155D120900F071BB /* libDWTools.a in Frameworks */,
+				586ED290155D110E00F071BB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58221168155D12BB00D680BA /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				58221172155D196600D680BA /* libDWVideo.a */,
+				586ED2B2155D120900F071BB /* libAMSerialPort.a */,
+				586ED2B3155D120900F071BB /* libDWClocking.a */,
+				586ED2B4155D120900F071BB /* libDWSony.a */,
+				586ED2B5155D120900F071BB /* libDWTools.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		586ED280155D110E00F071BB = {
+			isa = PBXGroup;
+			children = (
+				58221168155D12BB00D680BA /* libs */,
+				586ED295155D110E00F071BB /* DWSonyVideoTest01 */,
+				586ED28E155D110E00F071BB /* Frameworks */,
+				586ED28C155D110E00F071BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		586ED28C155D110E00F071BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				586ED28B155D110E00F071BB /* DWSonyVideoTest01.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		586ED28E155D110E00F071BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58221174155D197500D680BA /* CoreMedia.framework */,
+				586ED2BC155D122200F071BB /* AVFoundation.framework */,
+				586ED2BA155D121100F071BB /* IOKit.framework */,
+				586ED28F155D110E00F071BB /* Cocoa.framework */,
+				586ED291155D110E00F071BB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		586ED291155D110E00F071BB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				586ED292155D110E00F071BB /* AppKit.framework */,
+				586ED293155D110E00F071BB /* CoreData.framework */,
+				586ED294155D110E00F071BB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		586ED295155D110E00F071BB /* DWSonyVideoTest01 */ = {
+			isa = PBXGroup;
+			children = (
+				586ED2A1155D110E00F071BB /* DWDocument.h */,
+				586ED2A2155D110E00F071BB /* DWDocument.m */,
+				586ED2A4155D110E00F071BB /* DWDocument.xib */,
+				586ED2A7155D110E00F071BB /* MainMenu.xib */,
+				586ED296155D110E00F071BB /* Supporting Files */,
+			);
+			path = DWSonyVideoTest01;
+			sourceTree = "<group>";
+		};
+		586ED296155D110E00F071BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				586ED297155D110E00F071BB /* DWSonyVideoTest01-Info.plist */,
+				586ED298155D110E00F071BB /* InfoPlist.strings */,
+				586ED29B155D110E00F071BB /* main.m */,
+				586ED29D155D110E00F071BB /* DWSonyVideoTest01-Prefix.pch */,
+				586ED29E155D110E00F071BB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		586ED28A155D110E00F071BB /* DWSonyVideoTest01 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 586ED2AC155D110E00F071BB /* Build configuration list for PBXNativeTarget "DWSonyVideoTest01" */;
+			buildPhases = (
+				586ED287155D110E00F071BB /* Sources */,
+				586ED288155D110E00F071BB /* Frameworks */,
+				586ED289155D110E00F071BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWSonyVideoTest01;
+			productName = DWSonyVideoTest01;
+			productReference = 586ED28B155D110E00F071BB /* DWSonyVideoTest01.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		586ED282155D110E00F071BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 586ED285155D110E00F071BB /* Build configuration list for PBXProject "DWSonyVideoTest01" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 586ED280155D110E00F071BB;
+			productRefGroup = 586ED28C155D110E00F071BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				586ED28A155D110E00F071BB /* DWSonyVideoTest01 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		586ED289155D110E00F071BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586ED29A155D110E00F071BB /* InfoPlist.strings in Resources */,
+				586ED2A0155D110E00F071BB /* Credits.rtf in Resources */,
+				586ED2A6155D110E00F071BB /* DWDocument.xib in Resources */,
+				586ED2A9155D110E00F071BB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		586ED287155D110E00F071BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586ED29C155D110E00F071BB /* main.m in Sources */,
+				586ED2A3155D110E00F071BB /* DWDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		586ED298155D110E00F071BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586ED299155D110E00F071BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		586ED29E155D110E00F071BB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586ED29F155D110E00F071BB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		586ED2A4155D110E00F071BB /* DWDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586ED2A5155D110E00F071BB /* en */,
+			);
+			name = DWDocument.xib;
+			sourceTree = "<group>";
+		};
+		586ED2A7155D110E00F071BB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586ED2A8155D110E00F071BB /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		586ED2AA155D110E00F071BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		586ED2AB155D110E00F071BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		586ED2AD155D110E00F071BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSonyVideoTest01/DWSonyVideoTest01-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyVideoTest01/DWSonyVideoTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		586ED2AE155D110E00F071BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSonyVideoTest01/DWSonyVideoTest01-Prefix.pch";
+				INFOPLIST_FILE = "DWSonyVideoTest01/DWSonyVideoTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		586ED285155D110E00F071BB /* Build configuration list for PBXProject "DWSonyVideoTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586ED2AA155D110E00F071BB /* Debug */,
+				586ED2AB155D110E00F071BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		586ED2AC155D110E00F071BB /* Build configuration list for PBXNativeTarget "DWSonyVideoTest01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586ED2AD155D110E00F071BB /* Debug */,
+				586ED2AE155D110E00F071BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 586ED282155D110E00F071BB /* Project object */;
+}
