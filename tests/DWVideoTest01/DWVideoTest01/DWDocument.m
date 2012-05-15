@@ -94,6 +94,10 @@
     return newClock != nil;
 }
 
+-(void)tickFrame {
+	[clock tickFrame:self];
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"currentFrame"]) {
 		self.txtCurrentTC.stringValue = self.clock.tcString;
@@ -102,6 +106,14 @@
 		if (self.clock.state == kDWVideoClockStateReady) {
 			mainView.player = clock.player;
 			self.txtCurrentTC.stringValue = self.clock.tcString;
+			
+			self.clock.currentReference = self;
+			
+			NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:self repeats:YES];
+			
+			NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+			[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+
 		}
 	}
 }

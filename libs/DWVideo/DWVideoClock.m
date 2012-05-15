@@ -131,17 +131,18 @@
 }
 
 -(void)setRate:(double)rate {
-	if (state == kDWVideoClockStateReady) {
+	[super setRate:rate];
+	if ((state == kDWVideoClockStateReady) && (self.currentReference == nil)) {
 		_player.rate = rate;
 	}
 }
 
 -(double)rate {
-	if (state == kDWVideoClockStateReady) {
+	if ((state == kDWVideoClockStateReady) && (self.currentReference == nil)) {
 		return _player.rate;
 	}
 	else {
-		return 0;
+		return [super rate];
 	}
 }
 
