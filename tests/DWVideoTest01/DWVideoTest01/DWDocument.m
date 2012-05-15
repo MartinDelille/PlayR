@@ -8,7 +8,7 @@
 
 #import "DWDocument.h"
 #import "DWTools/DWLogger.h"
-#import "DWVideoView.h"
+#import "DWVideoTestView.h"
 
 @implementation DWDocument
 

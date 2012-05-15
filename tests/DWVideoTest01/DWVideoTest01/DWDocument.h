@@ -10,10 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "DWVideo/DWVideoClock.h"
 
-@class DWVideoView;
+@class DWVideoTestView;
 
 @interface DWDocument : NSDocument
-@property (unsafe_unretained) IBOutlet DWVideoView *mainView;
+@property (unsafe_unretained) IBOutlet DWVideoTestView *mainView;
 @property (strong) IBOutlet NSPanel *controlPanel;
 @property (strong) IBOutlet NSWindow *mainWindow;
 

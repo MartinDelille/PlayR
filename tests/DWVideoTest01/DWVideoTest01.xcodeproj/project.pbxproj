@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		583262131561098000DC24EC /* DWVideoTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583262121561098000DC24EC /* DWVideoTestView.m */; };
 		586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D215544914002DCD3A /* AVFoundation.framework */; };
 		586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D41554491C002DCD3A /* CoreMedia.framework */; };
-		588E768515552FB5008F5983 /* DWVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E768415552FB5008F5983 /* DWVideoView.m */; };
 		58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FB91552A74D00359A52 /* Cocoa.framework */; };
 		58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC21552A74D00359A52 /* InfoPlist.strings */; };
 		58B25FC61552A74D00359A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FC51552A74D00359A52 /* main.m */; };
@@ -23,10 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		583262111561098000DC24EC /* DWVideoTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoTestView.h; sourceTree = "<group>"; };
+		583262121561098000DC24EC /* DWVideoTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoTestView.m; sourceTree = "<group>"; };
 		586AD1D215544914002DCD3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		586AD1D41554491C002DCD3A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		588E768315552FB5008F5983 /* DWVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoView.h; sourceTree = "<group>"; };
-		588E768415552FB5008F5983 /* DWVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoView.m; sourceTree = "<group>"; };
 		58B25FB51552A74D00359A52 /* DWVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B25FB91552A74D00359A52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58B25FBC1552A74D00359A52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -112,8 +112,8 @@
 				58B25FCE1552A74D00359A52 /* DWDocument.xib */,
 				58B25FD11552A74E00359A52 /* MainMenu.xib */,
 				58B25FC01552A74D00359A52 /* Supporting Files */,
-				588E768315552FB5008F5983 /* DWVideoView.h */,
-				588E768415552FB5008F5983 /* DWVideoView.m */,
+				583262111561098000DC24EC /* DWVideoTestView.h */,
+				583262121561098000DC24EC /* DWVideoTestView.m */,
 			);
 			path = DWVideoTest01;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 			files = (
 				58B25FC61552A74D00359A52 /* main.m in Sources */,
 				58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */,
-				588E768515552FB5008F5983 /* DWVideoView.m in Sources */,
+				583262131561098000DC24EC /* DWVideoTestView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
