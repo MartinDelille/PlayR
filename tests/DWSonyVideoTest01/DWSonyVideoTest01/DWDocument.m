@@ -72,6 +72,7 @@
 	if ([keyPath isEqualToString:@"state"]) {
 		if (self.clock.state == kDWVideoClockStateReady) {
 			self.videoView.player = self.clock.player;
+			self.clock.currentReference = sony;
 			[sony start];
 		}
 	}
