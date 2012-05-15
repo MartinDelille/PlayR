@@ -10,18 +10,23 @@
 #import "DWTools/DWLogger.h"
 #import "DWClocking/DWTimeCode.h"
 
-@implementation DWVideoClock
+@implementation DWVideoClock {
+	DWTime _videoStartTime;
+	AVURLAsset * _asset;
+	AVPlayer * _player;
+	AVPlayerItem * _playerItem;
+}
 
-@synthesize videoStartTime = _videoStartTime;
-@synthesize asset;
-@synthesize player;
-@synthesize playerItem;
 @synthesize currentFrame;
 @synthesize state;
 
+-(AVPlayer*)player {
+	return _player;
+}
+
 -(id)init {
 	self = [super init];
-	state = kDWVideoClockStateNotReady;
+	self.state = kDWVideoClockStateNotReady;
 	
 	return self;
 }
@@ -31,16 +36,16 @@
 	
 	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
 	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-	asset = [[AVURLAsset alloc] initWithURL:url options:options];
+	_asset = [[AVURLAsset alloc] initWithURL:url options:options];
 	
-	if (asset != nil) {
+	if (_asset != nil) {
 		NSArray *keys = [NSArray arrayWithObject:@"tracks"];
 		
-		state = kDWVideoClockStateLoading;
-		[asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
+		self.state = kDWVideoClockStateLoading;
+		[_asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
 			dispatch_async(dispatch_get_main_queue(),
 						   ^{
-							   AVKeyValueStatus trackStatus = [asset statusOfValueForKey:@"tracks" error:nil];
+							   AVKeyValueStatus trackStatus = [_asset statusOfValueForKey:@"tracks" error:nil];
 							   DWLog(@"state : %d", trackStatus);
 							   switch (trackStatus) {
 								   case AVKeyValueStatusLoaded:
@@ -64,7 +69,7 @@
 
 
 -(void)assetDidLoad {	
-	double frameRate = [DWVideoClock extractVideoFrameRate:asset];
+	double frameRate = [DWVideoClock extractVideoFrameRate:_asset];
 	
 	DWLog(@"framerate = %.2f", frameRate);
 
@@ -85,23 +90,23 @@
 		self.type = kDWTimeCode2997;
 	}
 
-	self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+	_playerItem = [AVPlayerItem playerItemWithAsset:_asset];
 
 	// TODO
 	
 	//	[playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
 	
 	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
-	self.player = [AVPlayer playerWithPlayerItem:playerItem];
+	_player = [AVPlayer playerWithPlayerItem:_playerItem];
 
 	
 	self.currentFrame = self.frame;
-	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:asset];
+	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:_asset];
 
 	self.state = kDWVideoClockStateReady;
 
 	__block DWFrame lastCurrentFrame = -1;
-	[player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
 		if (self.frame != lastCurrentFrame) {
 			lastCurrentFrame = self.currentFrame = self.frame;
 		}
@@ -112,13 +117,13 @@
 
 -(void)setTime:(DWTime)time {
 	if (state == kDWVideoClockStateReady) {
-		[player seekToTime:CMTimeMake(time - self.videoStartTime, DWTIMESCALE)];
+		[_player seekToTime:CMTimeMake(time - _videoStartTime, DWTIMESCALE)];
 	}
 }
 
 -(DWTime)time {
 	if (state == kDWVideoClockStateReady) {
-		return player.currentTime.value * DWTIMESCALE / player.currentTime.timescale + self.videoStartTime;
+		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime;
 	}
 	else {
 		return 0;
@@ -127,29 +132,18 @@
 
 -(void)setRate:(double)rate {
 	if (state == kDWVideoClockStateReady) {
-		player.rate = rate;
+		_player.rate = rate;
 	}
 }
 
 -(double)rate {
 	if (state == kDWVideoClockStateReady) {
-		return player.rate;
+		return _player.rate;
 	}
 	else {
 		return 0;
 	}
 }
-
-/*
- -(DWTime)timeFromCMTime:(CMTime)cmtime {
- 
- return cmtime.value + self.videoStartTime;
- }
- 
- -(CMTime)qttimeFromTime:(DWTime)time {
- return CMTimeMake(time - self.videoStartTime, DWTIMESCALE);
- }
- */
 
 +(double)extractVideoFrameRate:(AVAsset*)anAsset {
 	for (AVAssetTrack * track in [anAsset tracks]) {
@@ -200,10 +194,10 @@
 					}
 					
 					if (count == 0) {
-						NSLog(@"I am doomed %@", [assetReader error]);
+						DWLog(@"No sample in the timecode track: %@", [assetReader error]);
 					}
 					
-					NSLog(@"Processed %d sample", count);
+					DWLog(@"Processed %d sample", count);
 					
 				}
 				

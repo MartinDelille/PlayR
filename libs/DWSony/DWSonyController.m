@@ -47,11 +47,4 @@
 	return status[index];
 }
 
--(void)boolEvent:(BOOL)b {
-	// TODO allow configuration cts down or up
-	if (b) {
-		[clock tickFrame:self];
-	}
-}
-
 @end

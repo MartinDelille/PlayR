@@ -37,6 +37,13 @@ typedef enum {
 	return self;
 }
 
+-(void)boolEvent:(BOOL)b {
+	// TODO allow configuration cts down or up
+	if (b) {
+		[clock tickFrame:self];
+	}
+}
+
 -(void)loopThread {
 	@autoreleasepool {
 		DWSonyLog(@"Starting sony controller loop");

@@ -36,6 +36,9 @@
  */
 @property DWFrame frame;
 
+/**
+ Amount of time per frame according to the timecode type.
+ */
 @property(readonly) DWTime timePerFrame;
 
 /**
@@ -43,16 +46,23 @@
  */
 @property NSString * tcString;
 
+/** 
+ Current reference for the clock (see tick message)
+ */
 @property id currentReference;
 
 /** 
- Tell to the clock that an interval of time has elapsed.
+ If the message sender is the current reference of the clock, 
+ the clock current time is computed according to the elapsed time.
+ @param sender The message sender.
  @param interval Amount of elapsed time.
  */
 -(void)tick:(id)sender withInterval:(DWTime)interval;
 
 /** 
- Tell to the clock that a frame has elapsed.
+ If the message sender is the current reference of the clock, 
+ the clock current time is computed according to an elapsed frame.
+ @param sender The message sender.
  */
 -(void)tickFrame:(id)sender;
 

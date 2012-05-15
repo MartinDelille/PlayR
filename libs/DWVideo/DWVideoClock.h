@@ -9,21 +9,45 @@
 #import "DWClocking/DWClock.h"
 #import <AVFoundation/AVFoundation.h>
 
+/** Video clock state
+ 
+ Define the various video clock state.
+ */
 typedef enum {
+	/** Video clock not ready */
 	kDWVideoClockStateNotReady,
+	/** Video clock loading the data from the URL */
 	kDWVideoClockStateLoading,
+	/** Video clock ready for playback */
 	kDWVideoClockStateReady,
 } DWVideoClockState;
 
+
+/** The video clock
+ 
+ DWVideoClock allow to load a video file from an URL for video playback.
+ It allows control of the rate and current time.
+ */
 @interface DWVideoClock : DWClock
 
-@property(readonly) DWTime videoStartTime;
-@property AVURLAsset * asset;
-@property AVPlayer * player;
-@property AVPlayerItem * playerItem;
-@property DWFrame currentFrame;
-@property DWVideoClockState state;
-
+/** 
+ Initialize the video clock.
+ @param url An URL to a video file.
+ @return The initialized video clock.
+ */
 -(id)initWithUrl:(NSURL*)url;
+
+/** 
+ AVPlayer corresponding to the video clock.
+ */
+@property(readonly) AVPlayer * player;
+/** 
+ Current state of the video clock.
+ */
+@property DWVideoClockState state;
+/** 
+ Current frame of the video clock.
+ */
+@property DWFrame currentFrame;
 
 @end

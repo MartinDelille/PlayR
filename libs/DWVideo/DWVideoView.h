@@ -9,8 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import <AVFoundation/AVFoundation.h>
 
+/** The video view
+ 
+ Display the video corresponding to a AVPlayer object.
+ */
 @interface DWVideoView : NSView
 
+/** 
+ AVPlayer of the current video.
+ */
 @property AVPlayer * player;
 
 @end

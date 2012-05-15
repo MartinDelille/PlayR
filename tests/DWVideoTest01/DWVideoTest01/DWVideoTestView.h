@@ -10,8 +10,18 @@
 
 @class DWDocument;
 
+/** Main application video
+	
+ Display the video.
+ Handles user input:
+ * keyboard
+ * mouse event
+ */
 @interface DWVideoTestView : DWVideoView
 
+/** 
+ Main application controller.
+ */
 @property DWDocument* doc;
 
 @end

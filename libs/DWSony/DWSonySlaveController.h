@@ -14,7 +14,7 @@
  Handles the command from a connected sony master device 
  and update a clock component accordingly.
  */
-@interface DWSonySlaveController : DWSonyController
+@interface DWSonySlaveController : DWSonyController<DWBoolEventHandler>
 
 /** 
  Initialize a sony slave controller with a clock.
