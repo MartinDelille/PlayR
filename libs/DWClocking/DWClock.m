@@ -14,6 +14,7 @@
 @synthesize rate;
 @synthesize type;
 @synthesize lastTickDate = _lastTickDate;
+@synthesize currentReference;
 
 -(id)init {
 	self = [super init];
@@ -21,6 +22,7 @@
 	self.type = kDWTimeCode25;
 	rate = 0.0;
 	_lastTickDate = [NSDate dateWithTimeIntervalSince1970:0];
+	currentReference = nil;
 	return self;
 }
 
@@ -57,13 +59,16 @@
 	return [NSString stringWithFormat:@"%@@%f", self.tcString, rate];
 }
 
--(void)tick:(DWTime)interval {
-	self.time += (DWTime)(rate * interval);
-	_lastTickDate = [NSDate date];
+-(void)tick:(id)sender withInterval:(DWTime)interval {
+	if (sender == currentReference) {
+		self.time += (DWTime)(rate * interval);
+		_lastTickDate = [NSDate date];
+		DWLog(@"tick");
+	}
 }
 
--(void)tickFrame {
-	[self tick:[self timePerFrame]];
+-(void)tickFrame:(id)sender {
+	[self tick:sender withInterval:[self timePerFrame]];
 }
 
 @end

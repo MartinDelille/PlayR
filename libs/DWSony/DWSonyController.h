@@ -16,7 +16,7 @@
  and slave communication.
 
  */
-@interface DWSonyController : NSObject {
+@interface DWSonyController : NSObject<DWBoolEventHandler> {
 @protected
 /** Clock linked to the controller */
 	DWClock * clock;

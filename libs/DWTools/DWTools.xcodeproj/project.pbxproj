@@ -44,6 +44,7 @@
 		5815C9FC1545B89000A6329E /* DWToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWToolsTests.m; sourceTree = "<group>"; };
 		5815CA061545B91400A6329E /* DWLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLogger.h; sourceTree = "<group>"; };
 		5815CA071545B91400A6329E /* DWLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLogger.m; sourceTree = "<group>"; };
+		5818BC2C1562594A005E11AC /* DWBoolEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWBoolEventHandler.h; sourceTree = "<group>"; };
 		58FC648C15481586008FB6A1 /* DWBCDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBCDTool.h; sourceTree = "<group>"; };
 		58FC648D15481586008FB6A1 /* DWBCDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBCDTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +74,7 @@
 		5815C9CF1545B89000A6329E = {
 			isa = PBXGroup;
 			children = (
+				5818BC2C1562594A005E11AC /* DWBoolEventHandler.h */,
 				58FC648C15481586008FB6A1 /* DWBCDTool.h */,
 				58FC648D15481586008FB6A1 /* DWBCDTool.m */,
 				5815CA061545B91400A6329E /* DWLogger.h */,

@@ -21,36 +21,47 @@
 @synthesize currentStatusText = _currentStatusText;
 @synthesize txtSyncState = _txtSyncState;
 
-
 -(BOOL)useInternaleSync {
-	return !sony.useSonySync;
+	return clock.currentReference != sony;
 }
 
 -(void)setUseInternaleSync:(BOOL)useInternaleSync {
-	sony.useSonySync = !useInternaleSync;
+	if (useInternaleSync) {
+		clock.currentReference = self;
+	}
+	else {
+		clock.currentReference = sony;
+	}
 }
 
 -(void)onTick {
-	if (self.useInternaleSync) {
-		[clock tickFrame];
-		self.txtSyncState.stringValue = @"N/A";
-		self.txtSyncState.backgroundColor = nil;
-	}
-	else {
-		NSTimeInterval interval = [clock.lastTickDate timeIntervalSinceNow];
-		// TODO: make a parameter from the max duration
-		if (interval < -1) {
-			self.txtSyncState.stringValue = @"Bad";
-			self.txtSyncState.backgroundColor = [NSColor redColor];
-		}
-		else if (interval < -0.06) {
-			self.txtSyncState.stringValue = @"Medium";
-			self.txtSyncState.backgroundColor = [NSColor orangeColor];
+	[clock tickFrame:self];
+	
+	if (sony != nil) {
+		if (self.useInternaleSync) {
+			self.txtSyncState.stringValue = @"N/A";
+			self.txtSyncState.backgroundColor = nil;
 		}
 		else {
-			self.txtSyncState.stringValue = @"Good";
-			self.txtSyncState.backgroundColor = [NSColor greenColor];
+			NSTimeInterval interval = [clock.lastTickDate timeIntervalSinceNow];
+			// TODO: make a parameter from the max duration
+			if (interval < -1) {
+				self.txtSyncState.stringValue = @"Bad";
+				self.txtSyncState.backgroundColor = [NSColor redColor];
+			}
+			else if (interval < -0.06) {
+				self.txtSyncState.stringValue = @"Medium";
+				self.txtSyncState.backgroundColor = [NSColor orangeColor];
+			}
+			else {
+				self.txtSyncState.stringValue = @"Good";
+				self.txtSyncState.backgroundColor = [NSColor greenColor];
+			}
 		}
+	}
+	else {
+		self.txtSyncState.stringValue = @"No USB device";
+		self.txtSyncState.backgroundColor = [NSColor redColor];
 	}
 }
 
@@ -71,7 +82,7 @@
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
 	sony = [[DWSonySlaveController alloc] initWithClock:clock];
-	self.useInternaleSync = NO;
+	clock.currentReference = sony;
 	
 	[sony start];
 }

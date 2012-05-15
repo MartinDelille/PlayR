@@ -22,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5815C9841545A03700A6329E /* DWTickable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWTickable.h; sourceTree = "<group>"; };
 		5855463C155C1CA70093F04C /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 				58ADAB1F1546E9A100C9C40E /* Unit tests */,
 				58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */,
 				58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */,
-				5815C9841545A03700A6329E /* DWTickable.h */,
 				58C064B31540866100370618 /* DWClock.h */,
 				58C064B41540866100370618 /* DWClock.m */,
 				58D6CAC51539A79300CAB720 /* DWTime.h */,

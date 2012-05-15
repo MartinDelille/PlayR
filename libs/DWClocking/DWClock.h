@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "DWTime.h"
 #import "DWTimeCode.h"
-#import "DWTickable.h"
 
 /** Mother class for clock component.
  
  This class is the base class for clock system.
  */
-@interface DWClock : NSObject<DWTickable>
+@interface DWClock : NSObject
 
 /** 
  Current clock time.
@@ -44,16 +43,18 @@
  */
 @property NSString * tcString;
 
+@property id currentReference;
+
 /** 
  Tell to the clock that an interval of time has elapsed.
  @param interval Amount of elapsed time.
  */
--(void)tick:(DWTime)interval;
+-(void)tick:(id)sender withInterval:(DWTime)interval;
 
 /** 
  Tell to the clock that a frame has elapsed.
  */
--(void)tickFrame;
+-(void)tickFrame:(id)sender;
 
 /** 
  Get the date the last tick occured.

@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "DWClocking/DWTickable.h"
+#import "DWTools/DWBoolEventHandler.h"
 
 /** Handles Sony port protocole
  
@@ -63,17 +62,9 @@
  */
 -(BOOL)sendNak:(unsigned char)error;
 
-/** 
- This delegate proceed the video reference tick.
+/**
+ This delegate proceeds the CTS event
  */
-@property id<DWTickable> videoRefDelegate;
-
-/** 
- Toggle the use of the sync from the CTS signal
- to the videoRefDelegate.
- 
- TODO: Change this implementation to send cts change to the Sony slave controller.
- */
-@property BOOL useSonySync;
+@property id<DWBoolEventHandler> ctsHandler;
 
 @end

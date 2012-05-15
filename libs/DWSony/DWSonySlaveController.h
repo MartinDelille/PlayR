@@ -17,12 +17,6 @@
 @interface DWSonySlaveController : DWSonyController
 
 /** 
- Toggle the use of the sync from the CTS signal
- to the videoRefDelegate.
- */
-@property BOOL useSonySync;
-
-/** 
  Initialize a sony slave controller with a clock.
  The controller connect automatically with the first 
  usb serial connected port referenced as "A"

@@ -25,14 +25,6 @@ typedef enum {
 	BOOL looping;
 }
 
--(void)setUseSonySync:(BOOL)useSonySync {
-	port.useSonySync = useSonySync;
-}
-
--(BOOL)useSonySync {
-	return port.useSonySync;
-}
-
 -(id)initWithClock:(DWClock *)aClock {
 	self = [super initWithClock:aClock andRef:@"A"];
 	if (self == nil) {

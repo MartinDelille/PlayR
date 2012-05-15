@@ -14,17 +14,15 @@
 
 @implementation DWSonyPort{
 	AMSerialPort * port;
-	int videoRefState;
+	BOOL lastCts;
 	unsigned char * buffer;
 }
 
-@synthesize videoRefDelegate;
-@synthesize useSonySync;
+@synthesize ctsHandler;
 
 -(id)initWithRef:(NSString*)ref {
 	self = [super init];
-	videoRefState = -1;
-	videoRefDelegate = nil;
+	ctsHandler = nil;
 	buffer = malloc(256);
 	
 	NSArray * portList = [[AMSerialPortList sharedPortList] serialPorts];
@@ -45,6 +43,7 @@
 		return nil;
 	}
 	
+	lastCts = port.CTS;
 	port.readTimeout = 0.005;
 	NSDictionary * options = [[NSDictionary alloc] initWithObjectsAndKeys:
 							  port.name, AMSerialOptionServiceName,
@@ -63,14 +62,12 @@
 	port = NULL;
 }
 
--(void)checkVideoRef {
-	if (self.useSonySync) {
-		BOOL cts = port.CTS;
-		if((!videoRefState) && cts) {
-			[self.videoRefDelegate tickFrame];
-		}
-		videoRefState = cts;
+-(void)checkCts {
+	BOOL cts = port.CTS;
+	if(lastCts != cts) {
+		[self.ctsHandler boolEvent:cts];
 	}
+	lastCts = cts;
 }
 
 -(unsigned char)getDataCount:(unsigned char)cmd {
@@ -86,7 +83,7 @@
 	
 	// reading the cmd1 and cmd2
 	while (dataRead < 2) {
-		[self checkVideoRef];
+		[self checkCts];
 		tmp = [port readBytes:2-dataRead error:&error];
 		if (tmp != nil) {
 			unsigned char * ptr = (unsigned char*)[tmp bytes];
@@ -110,7 +107,7 @@
 	
 	// Reading the data
 	while (dataRead < datacount + 3) {
-		[self checkVideoRef];
+		[self checkCts];
 		tmp = [port readBytes:datacount + 3 - dataRead error:&error];
 		if (tmp != nil) {
 			unsigned char * ptr = (unsigned char*)[tmp bytes];

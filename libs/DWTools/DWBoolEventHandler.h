@@ -10,4 +10,6 @@
 
 @protocol DWBoolEventHandler <NSObject>
 
+-(void)boolEvent:(BOOL)b;
+
 @end

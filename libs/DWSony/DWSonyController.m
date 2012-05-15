@@ -21,8 +21,7 @@
 
 	clock = aClock;
 	
-	// TODO allow switch between internal and video reference
-	port.videoRefDelegate = clock;
+	port.ctsHandler = self;
 	
 	return self;
 }
@@ -47,4 +46,12 @@
 -(unsigned char)statusAtIndex:(int)index {
 	return status[index];
 }
+
+-(void)boolEvent:(BOOL)b {
+	// TODO allow configuration cts down or up
+	if (b) {
+		[clock tickFrame:self];
+	}
+}
+
 @end
