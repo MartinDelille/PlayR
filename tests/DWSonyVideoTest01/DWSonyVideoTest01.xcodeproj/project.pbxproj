@@ -14,7 +14,6 @@
 		586ED29C155D110E00F071BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 586ED29B155D110E00F071BB /* main.m */; };
 		586ED2A0155D110E00F071BB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 586ED29E155D110E00F071BB /* Credits.rtf */; };
 		586ED2A3155D110E00F071BB /* DWDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 586ED2A2155D110E00F071BB /* DWDocument.m */; };
-		586ED2A6155D110E00F071BB /* DWDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586ED2A4155D110E00F071BB /* DWDocument.xib */; };
 		586ED2A9155D110E00F071BB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586ED2A7155D110E00F071BB /* MainMenu.xib */; };
 		586ED2B6155D120900F071BB /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B2155D120900F071BB /* libAMSerialPort.a */; };
 		586ED2B7155D120900F071BB /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586ED2B3155D120900F071BB /* libDWClocking.a */; };
@@ -25,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		58221172155D196600D680BA /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWVideo.a; path = ../../libs/DWVideo/build/Release/libDWVideo.a; sourceTree = "<group>"; };
+		58221172155D196600D680BA /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWVideo.a; path = ../../libs/DWVideo/build/Release/libDWVideo.a; sourceTree = "<group>"; };
 		58221174155D197500D680BA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		586ED28B155D110E00F071BB /* DWSonyVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		586ED28F155D110E00F071BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -39,7 +38,6 @@
 		586ED29F155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		586ED2A1155D110E00F071BB /* DWDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWDocument.h; sourceTree = "<group>"; };
 		586ED2A2155D110E00F071BB /* DWDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWDocument.m; sourceTree = "<group>"; };
-		586ED2A5155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DWDocument.xib; sourceTree = "<group>"; };
 		586ED2A8155D110E00F071BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		586ED2B2155D120900F071BB /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
 		586ED2B3155D120900F071BB /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			children = (
 				586ED2A1155D110E00F071BB /* DWDocument.h */,
 				586ED2A2155D110E00F071BB /* DWDocument.m */,
-				586ED2A4155D110E00F071BB /* DWDocument.xib */,
 				586ED2A7155D110E00F071BB /* MainMenu.xib */,
 				586ED296155D110E00F071BB /* Supporting Files */,
 			);
@@ -199,7 +196,6 @@
 			files = (
 				586ED29A155D110E00F071BB /* InfoPlist.strings in Resources */,
 				586ED2A0155D110E00F071BB /* Credits.rtf in Resources */,
-				586ED2A6155D110E00F071BB /* DWDocument.xib in Resources */,
 				586ED2A9155D110E00F071BB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,14 +229,6 @@
 				586ED29F155D110E00F071BB /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		586ED2A4155D110E00F071BB /* DWDocument.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				586ED2A5155D110E00F071BB /* en */,
-			);
-			name = DWDocument.xib;
 			sourceTree = "<group>";
 		};
 		586ED2A7155D110E00F071BB /* MainMenu.xib */ = {

@@ -20,9 +20,7 @@
 	}
 
 	clock = aClock;
-	
-	port.ctsHandler = self;
-	
+		
 	return self;
 }
 
