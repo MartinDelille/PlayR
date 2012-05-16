@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		585971231563F0630002C24A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971221563F0630002C24A /* Cocoa.framework */; };
+		5859712D1563F0630002C24A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5859712B1563F0630002C24A /* InfoPlist.strings */; };
+		5859712F1563F0630002C24A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5859712E1563F0630002C24A /* main.m */; };
+		585971331563F0630002C24A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 585971311563F0630002C24A /* Credits.rtf */; };
+		585971361563F0630002C24A /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 585971351563F0630002C24A /* DWAppDelegate.m */; };
+		585971391563F0630002C24A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585971371563F0630002C24A /* MainMenu.xib */; };
+		585971441563F2220002C24A /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859713F1563F2220002C24A /* libAMSerialPort.a */; };
+		585971451563F2220002C24A /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971401563F2220002C24A /* libDWClocking.a */; };
+		585971461563F2220002C24A /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971411563F2220002C24A /* libDWSony.a */; };
+		585971471563F2220002C24A /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971421563F2220002C24A /* libDWTools.a */; };
+		585971481563F2220002C24A /* libDWVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971431563F2220002C24A /* libDWVideo.a */; };
+		5859714A1563F2290002C24A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971491563F2290002C24A /* IOKit.framework */; };
+		5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714B1563F2320002C24A /* AVFoundation.framework */; };
+		5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714D1563F24F0002C24A /* CoreMedia.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWPlayRVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		585971221563F0630002C24A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		585971251563F0630002C24A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		585971261563F0630002C24A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		585971271563F0630002C24A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5859712A1563F0630002C24A /* DWPlayRVideo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWPlayRVideo-Info.plist"; sourceTree = "<group>"; };
+		5859712C1563F0630002C24A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5859712E1563F0630002C24A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		585971301563F0630002C24A /* DWPlayRVideo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWPlayRVideo-Prefix.pch"; sourceTree = "<group>"; };
+		585971321563F0630002C24A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		585971341563F0630002C24A /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
+		585971351563F0630002C24A /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
+		585971381563F0630002C24A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5859713F1563F2220002C24A /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		585971401563F2220002C24A /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		585971411563F2220002C24A /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
+		585971421563F2220002C24A /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		585971431563F2220002C24A /* libDWVideo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWVideo.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug/libDWVideo.a"; sourceTree = "<group>"; };
+		585971491563F2290002C24A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		5859714B1563F2320002C24A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5859714D1563F24F0002C24A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5859711B1563F0630002C24A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */,
+				5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */,
+				5859714A1563F2290002C24A /* IOKit.framework in Frameworks */,
+				585971441563F2220002C24A /* libAMSerialPort.a in Frameworks */,
+				585971451563F2220002C24A /* libDWClocking.a in Frameworks */,
+				585971461563F2220002C24A /* libDWSony.a in Frameworks */,
+				585971471563F2220002C24A /* libDWTools.a in Frameworks */,
+				585971481563F2220002C24A /* libDWVideo.a in Frameworks */,
+				585971231563F0630002C24A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		585971131563F0630002C24A = {
+			isa = PBXGroup;
+			children = (
+				5859714F1563F25A0002C24A /* libs */,
+				585971281563F0630002C24A /* DWPlayRVideo */,
+				585971211563F0630002C24A /* Frameworks */,
+				5859711F1563F0630002C24A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5859711F1563F0630002C24A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5859711E1563F0630002C24A /* DWPlayRVideo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		585971211563F0630002C24A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5859714D1563F24F0002C24A /* CoreMedia.framework */,
+				5859714B1563F2320002C24A /* AVFoundation.framework */,
+				585971491563F2290002C24A /* IOKit.framework */,
+				585971221563F0630002C24A /* Cocoa.framework */,
+				585971241563F0630002C24A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		585971241563F0630002C24A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				585971251563F0630002C24A /* AppKit.framework */,
+				585971261563F0630002C24A /* CoreData.framework */,
+				585971271563F0630002C24A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		585971281563F0630002C24A /* DWPlayRVideo */ = {
+			isa = PBXGroup;
+			children = (
+				585971341563F0630002C24A /* DWAppDelegate.h */,
+				585971351563F0630002C24A /* DWAppDelegate.m */,
+				585971371563F0630002C24A /* MainMenu.xib */,
+				585971291563F0630002C24A /* Supporting Files */,
+			);
+			path = DWPlayRVideo;
+			sourceTree = "<group>";
+		};
+		585971291563F0630002C24A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5859712A1563F0630002C24A /* DWPlayRVideo-Info.plist */,
+				5859712B1563F0630002C24A /* InfoPlist.strings */,
+				5859712E1563F0630002C24A /* main.m */,
+				585971301563F0630002C24A /* DWPlayRVideo-Prefix.pch */,
+				585971311563F0630002C24A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5859714F1563F25A0002C24A /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				5859713F1563F2220002C24A /* libAMSerialPort.a */,
+				585971401563F2220002C24A /* libDWClocking.a */,
+				585971411563F2220002C24A /* libDWSony.a */,
+				585971421563F2220002C24A /* libDWTools.a */,
+				585971431563F2220002C24A /* libDWVideo.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5859711D1563F0630002C24A /* DWPlayRVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */;
+			buildPhases = (
+				5859711A1563F0630002C24A /* Sources */,
+				5859711B1563F0630002C24A /* Frameworks */,
+				5859711C1563F0630002C24A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWPlayRVideo;
+			productName = DWPlayRVideo;
+			productReference = 5859711E1563F0630002C24A /* DWPlayRVideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		585971151563F0630002C24A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 585971181563F0630002C24A /* Build configuration list for PBXProject "DWPlayRVideo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 585971131563F0630002C24A;
+			productRefGroup = 5859711F1563F0630002C24A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5859711D1563F0630002C24A /* DWPlayRVideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5859711C1563F0630002C24A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5859712D1563F0630002C24A /* InfoPlist.strings in Resources */,
+				585971331563F0630002C24A /* Credits.rtf in Resources */,
+				585971391563F0630002C24A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5859711A1563F0630002C24A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5859712F1563F0630002C24A /* main.m in Sources */,
+				585971361563F0630002C24A /* DWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5859712B1563F0630002C24A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5859712C1563F0630002C24A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		585971311563F0630002C24A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				585971321563F0630002C24A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		585971371563F0630002C24A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				585971381563F0630002C24A /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5859713A1563F0630002C24A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		5859713B1563F0630002C24A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		5859713D1563F0630002C24A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWPlayRVideo/DWPlayRVideo-Prefix.pch";
+				INFOPLIST_FILE = "DWPlayRVideo/DWPlayRVideo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5859713E1563F0630002C24A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWPlayRVideo/DWPlayRVideo-Prefix.pch";
+				INFOPLIST_FILE = "DWPlayRVideo/DWPlayRVideo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/PlayR-cfayatxspjmeiudocikprdsgimoj/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		585971181563F0630002C24A /* Build configuration list for PBXProject "DWPlayRVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5859713A1563F0630002C24A /* Debug */,
+				5859713B1563F0630002C24A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5859713D1563F0630002C24A /* Debug */,
+				5859713E1563F0630002C24A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 585971151563F0630002C24A /* Project object */;
+}

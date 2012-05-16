@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:../libs"
+      name = "libs">
+      <FileRef
+         location = "group:DWVideo/DWVideo.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DWTools/DWTools.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DWSony/DWSony.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DWClocking/DWClocking.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:AMSerialPort/AMSerialPort.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:../apps"
+      name = "apps">
+      <FileRef
+         location = "group:DWPlayRVideo/DWPlayRVideo.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
