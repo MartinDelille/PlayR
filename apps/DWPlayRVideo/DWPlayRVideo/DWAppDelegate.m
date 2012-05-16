@@ -21,6 +21,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	sony = [[DWSonySlaveController alloc] init];
+	[self.window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 	[sony start];
 }
 
