@@ -17,10 +17,17 @@
 
 @synthesize window = _window;
 @synthesize videoView = _videoView;
+@synthesize controlPanel;
+@synthesize currentTCText;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	sony = [[DWSonySlaveController alloc] init];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
+	
+	[self.window addChildWindow:controlPanel ordered:NSWindowAbove];
+
 	[self.window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 	[sony start];
 }
@@ -45,6 +52,7 @@
 			 if (newClock != nil) {
 				 clock = newClock;
 				 [clock addObserver:self forKeyPath:@"state" options:0 context:nil];
+				 [clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];
 			 }
 		 }
 	 }];	
@@ -59,6 +67,43 @@
 			sony.clock = clock;
 		}
 	}
+	else if ([keyPath isEqualToString:@"currentFrame"]) {
+		self.currentTCText.stringValue = clock.tcString;
+	}
+}
+
+- (IBAction)rewind:(id)sender {
+	// TODO : parameter this
+	clock.rate = -10;
+}
+
+- (IBAction)reversePlay:(id)sender {
+	clock.rate = -1;
+}
+
+- (IBAction)pause:(id)sender {
+	clock.rate = 0;
+}
+
+- (IBAction)play:(id)sender {
+	clock.rate = 1;
+}
+
+- (IBAction)fastForward:(id)sender {
+	// TODO : parameter this
+	clock.rate = 10;
+}
+
+-(void)updateControlPanelPosition:(NSNotification*)note {
+	DWLog(@"%@", note.name);
+	NSRect subFrameRect = self.controlPanel.frame;
+	NSRect frameRect = self.window.frame;
+	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
+	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/8;
+	
+	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
+	[self.controlPanel orderFront:self];
+	
 }
 
 @end
