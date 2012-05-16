@@ -30,9 +30,6 @@ typedef enum {
 	if (self == nil) {
 		return nil;
 	}
-	
-	port.ctsHandler = self;
-
 	looping = NO;
 	autoMode = NO;
 	state = kDWSonyStatePause;
