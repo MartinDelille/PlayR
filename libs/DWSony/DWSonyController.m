@@ -11,18 +11,18 @@
 
 @implementation DWSonyController
 
--(id)initWithClock:(DWClock *)aClock andRef:(NSString*)ref {
-	self = [self init];
+@synthesize clock;
+
+-(id)initWithRef:(NSString*)ref {
+	self = [super init];
 	port = [[DWSonyPort alloc] initWithRef:ref];
 	if (port == nil) {
 		DWSonyLog(@"Sony port unavailable");
 		return nil;
 	}
 
-	clock = aClock;
-	
-	port.ctsHandler = self;
-	
+	clock = nil;
+
 	return self;
 }
 

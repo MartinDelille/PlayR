@@ -63,7 +63,6 @@
 	if (sender == currentReference) {
 		self.time += (DWTime)(rate * interval);
 		_lastTickDate = [NSDate date];
-		DWLog(@"tick");
 	}
 }
 

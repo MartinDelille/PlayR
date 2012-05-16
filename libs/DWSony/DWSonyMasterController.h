@@ -16,13 +16,12 @@
 @interface DWSonyMasterController : DWSonyController
 
 /** 
- Initialize a sony master controller with a clock.
+ Initialize a sony master controller.
  The controller connect automatically with the first 
  usb serial connected port referenced as "B"
- @param aClock A clock
  @return An initialized sony master controller.
  */
--(id)initWithClock:(DWClock *)aClock;
+-(id)init;
 
 /** 
  Send a play command to the connected device.

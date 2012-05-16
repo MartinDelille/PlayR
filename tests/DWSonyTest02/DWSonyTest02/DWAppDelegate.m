@@ -81,7 +81,8 @@
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 	
-	sony = [[DWSonySlaveController alloc] initWithClock:clock];
+	sony = [[DWSonySlaveController alloc] init];
+	sony.clock = clock;
 	clock.currentReference = sony;
 	
 	[sony start];

@@ -20,7 +20,6 @@
 {
     self = [super init];
     if (self) {
-		// Add your subclass-specific initialization here.
     }
     return self;
 }
@@ -62,7 +61,9 @@
 	if (newClock != nil) {
 		self.clock = newClock;
 		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-		sony = [[DWSonySlaveController alloc] initWithClock:clock];
+		sony = [[DWSonySlaveController alloc] init];
+
+		sony.clock = clock;
 	}
 	
 	return newClock != nil;
@@ -72,7 +73,7 @@
 	if ([keyPath isEqualToString:@"state"]) {
 		if (self.clock.state == kDWVideoClockStateReady) {
 			self.videoView.player = self.clock.player;
-			self.clock.currentReference = sony;
+			self.clock.currentReference = nil;
 			[sony start];
 		}
 	}

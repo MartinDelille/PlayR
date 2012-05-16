@@ -17,13 +17,12 @@
 @interface DWSonySlaveController : DWSonyController<DWBoolEventHandler>
 
 /** 
- Initialize a sony slave controller with a clock.
+ Initialize a sony slave controller.
  The controller connect automatically with the first 
  usb serial connected port referenced as "A"
- @param aClock A clock
  @return An initialized sony slave controller.
  */
--(id)initWithClock:(DWClock *)aClock;
+-(id)init;
 
 /** 
  Start the thread handling the communication.

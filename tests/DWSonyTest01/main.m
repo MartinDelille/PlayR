@@ -24,12 +24,13 @@ int main(int argc, const char * argv[])
 		
 				
 		DWClock * clock = [[DWClock alloc] init];
-		DWSonyMasterController *sony = [[DWSonyMasterController alloc] initWithClock:clock];
+		DWSonyMasterController *sony = [[DWSonyMasterController alloc] init];
+		sony.clock = clock;
 		
 		if(sony != nil) {
 			[sony stop];
 			[NSThread sleepForTimeInterval:0.1];
-			[sony checkTime];
+			[sony statusSense];
 			DWLog(@"tc = %@", clock.tcString);
 		}
 		else {

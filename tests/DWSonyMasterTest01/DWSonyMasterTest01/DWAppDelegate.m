@@ -34,7 +34,8 @@
 
 	clock = [[DWClock alloc] init];
 	
-	sony = [[DWSonyMasterController alloc] initWithClock:clock];
+	sony = [[DWSonyMasterController alloc] init];
+	sony.clock = clock;
 	
 //	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueChangeSetting context:nil];
 	

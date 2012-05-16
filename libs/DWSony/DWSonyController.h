@@ -18,8 +18,6 @@
  */
 @interface DWSonyController : NSObject {
 @protected
-/** Clock linked to the controller */
-	DWClock * clock;
 /** Sony serial port connected to the controller */
 	DWSonyPort * port;
 /** Data buffer used for command argument */
@@ -28,13 +26,15 @@
 	unsigned char status[8];
 }
 
+/** Clock linked to the controller */
+@property DWClock * clock;
+
 /** 
  Initialize a sony controller
- @param aClock DWClock synchronized by the sony controller.
  @param ref USB serial port reference.
  @return A valid DWSonyController object.
  */
--(id)initWithClock:(DWClock*)aClock andRef:(NSString*)ref;
+-(id)initWithRef:(NSString*)ref;
 
 /** 
  Compute the rate from the jog, varispeed and shuttle sony protocole

@@ -12,8 +12,8 @@
 
 @implementation DWSonyMasterController
 
--(id)initWithClock:(DWClock *)aClock {
-	self = [super initWithClock:aClock andRef:@"B"];
+-(id)init {
+	self = [super initWithRef:@"B"];
 	if (self == nil) {
 		return nil;
 	}
@@ -123,8 +123,8 @@
 						unsigned int ss = [DWBCDTool uintFromBcd:buffer[1]];
 						unsigned int mm = [DWBCDTool uintFromBcd:buffer[2]];
 						unsigned int hh = [DWBCDTool uintFromBcd:buffer[3]];
-						clock.tcString = [DWTimeCode stringFromFrame:[DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:clock.type] andType:clock.type];
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @" => LTC Time Data : %@", clock.tcString);
+						self.clock.tcString = [DWTimeCode stringFromFrame:[DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:self.clock.type] andType:self.clock.type];
+						DWLogWithLevel(kDWLogLevelSonyDetails1, @" => LTC Time Data : %@", self.clock.tcString);
 						break;
 					}
 					case 0x20:

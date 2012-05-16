@@ -25,8 +25,8 @@ typedef enum {
 	BOOL looping;
 }
 
--(id)initWithClock:(DWClock *)aClock {
-	self = [super initWithClock:aClock andRef:@"A"];
+-(id)init {
+	self = [super initWithRef:@"A"];
 	if (self == nil) {
 		return nil;
 	}
@@ -40,7 +40,7 @@ typedef enum {
 -(void)boolEvent:(BOOL)b {
 	// TODO allow configuration cts down or up
 	if (b) {
-		[clock tickFrame:self];
+		[self.clock tickFrame:self];
 	}
 }
 
@@ -83,7 +83,7 @@ typedef enum {
 						// TODO : Device ID as a parameter
 						unsigned char deviceID1 = 0xf0;
 						unsigned char deviceID2 = 0xc0;
-						switch (clock.type) {
+						switch (self.clock.type) {
 							case kDWTimeCode2398:
 							case kDWTimeCode24:
 								deviceID1 += 2;
@@ -113,27 +113,27 @@ typedef enum {
 					case 0x00:
 						DWSonyLog(@"Stop => ACK");
 						state = kDWSonyStatePause;
-						clock.rate = 0;
+						self.clock.rate = 0;
 						[port sendAck];
 						break;
 					case 0x01:
 						DWSonyLog(@"Play => ACK");
 						state = kDWSonyStatePlay;
-						clock.rate = 1;
+						self.clock.rate = 1;
 						[port sendAck];
 						break;
 					case 0x10:
 						DWSonyLog(@"Fast forward => ACK");
 						// TODO: speed as a parameter for fast forward speed
 						state = kDWSonyStateFastForward;
-						clock.rate = 50;
+						self.clock.rate = 50;
 						[port sendAck];
 						break;
 					case 0x20:
 						DWSonyLog(@"Rewing => ACK");
 						state = kDWSonyStateRewind;
 						// TODO: parameter for rewind speed
-						clock.rate = -50;
+						self.clock.rate = -50;
 						[port sendAck];
 						break;
 					case 0x11:
@@ -181,7 +181,7 @@ typedef enum {
 								DWSonyLog(@"Shuttle rev : %.2f => ACK", rate);
 								break;
 						}
-						clock.rate = rate;
+						self.clock.rate = rate;
 						[port sendAck];
 						break;
 					}
@@ -191,8 +191,8 @@ typedef enum {
 						unsigned char mm = [DWBCDTool bcdFromUInt:buffer[2]];
 						unsigned char ss = [DWBCDTool bcdFromUInt:buffer[1]];
 						unsigned char ff = [DWBCDTool bcdFromUInt:buffer[0]];
-						clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:clock.type];
-						DWSonyLog(@"Cue at %@ => ACK", clock.tcString);
+						self.clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:self.clock.type];
+						DWSonyLog(@"Cue at %@ => ACK", self.clock.tcString);
 						[port sendAck];
 						break;
 					}
@@ -223,7 +223,7 @@ typedef enum {
 				switch (cmd2) {
 					case 0x0c:
 					{
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Current Time Sense => %@", clock.tcString);
+						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Current Time Sense => %@", self.clock.tcString);
 						buffer[0] = 0x74;
 						switch (buffer[0]) {
 							case 0x01:
@@ -249,7 +249,7 @@ typedef enum {
 								break;
 						}
 						unsigned int hh, mm, ss, ff;
-						[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:clock.frame andType:clock.type];
+						[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:self.clock.frame andType:self.clock.type];
 						hh = [DWBCDTool bcdFromUInt:hh];
 						mm = [DWBCDTool bcdFromUInt:mm];
 						ss = [DWBCDTool bcdFromUInt:ss];
@@ -281,7 +281,7 @@ typedef enum {
 								break;
 							case kDWSonyStateJog:
 								status[1] = 0x80;
-								if (clock.rate < 0) {
+								if (self.clock.rate < 0) {
 									status[2] = 0x14;
 								}
 								else {
@@ -290,7 +290,7 @@ typedef enum {
 								break;
 							case kDWSonyStateVar:
 								status[1] = 0x80;
-								if (clock.rate < 0) {
+								if (self.clock.rate < 0) {
 									status[2] = 0xcc;
 								}
 								else {
@@ -299,7 +299,7 @@ typedef enum {
 								break;
 							case kDWSonyStateShuttle:
 								status[1] = 0x80;
-								if (clock.rate < 0) {
+								if (self.clock.rate < 0) {
 									status[2] = 0x20;
 								}
 								else {
