@@ -78,10 +78,6 @@
 	}
 }
 
-- (void) mouseMoved:(NSEvent *)theEvent {
-	DWLog(@"");
-}
-
 - (IBAction)rewind:(id)sender {
 	// TODO : parameter this
 	clock.rate = -10;
@@ -139,5 +135,9 @@
 
 -(void)hideControlPanel {
 	[[self.controlPanel	animator] setAlphaValue:0];
+	if (self.window.styleMask & NSFullScreenWindowMask) {
+		[NSCursor setHiddenUntilMouseMoves:YES];
+	}
 }
+
 @end
