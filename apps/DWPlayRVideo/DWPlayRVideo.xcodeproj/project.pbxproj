@@ -21,6 +21,7 @@
 		5859714A1563F2290002C24A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971491563F2290002C24A /* IOKit.framework */; };
 		5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714B1563F2320002C24A /* AVFoundation.framework */; };
 		5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714D1563F24F0002C24A /* CoreMedia.framework */; };
+		589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 589CCA9A15650D160027263A /* DWPlayRVideoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		585971491563F2290002C24A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5859714B1563F2320002C24A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5859714D1563F24F0002C24A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		589CCA9915650D160027263A /* DWPlayRVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPlayRVideoView.h; sourceTree = "<group>"; };
+		589CCA9A15650D160027263A /* DWPlayRVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPlayRVideoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				585971351563F0630002C24A /* DWAppDelegate.m */,
 				585971371563F0630002C24A /* MainMenu.xib */,
 				585971291563F0630002C24A /* Supporting Files */,
+				589CCA9915650D160027263A /* DWPlayRVideoView.h */,
+				589CCA9A15650D160027263A /* DWPlayRVideoView.m */,
 			);
 			path = DWPlayRVideo;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			files = (
 				5859712F1563F0630002C24A /* main.m in Sources */,
 				585971361563F0630002C24A /* DWAppDelegate.m in Sources */,
+				589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

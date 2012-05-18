@@ -28,8 +28,12 @@
 	
 	[self.window addChildWindow:controlPanel ordered:NSWindowAbove];
 
-	[self.window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 	[sony start];
+	
+	self.videoView.mainController = self;
+	[self showControlPanel];
+	[self.window setAcceptsMouseMovedEvents:YES];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification {
@@ -38,6 +42,7 @@
 
 - (void)openDocument:(id)sender {
 	NSLog(@"openDocument");
+	[self showControlPanel];
 	NSOpenPanel * panel = [NSOpenPanel openPanel];
 	
 	[panel setCanChooseDirectories:NO];
@@ -55,6 +60,7 @@
 				 [clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];
 			 }
 		 }
+		[self showControlPanelAndHide];
 	 }];	
 }
 
@@ -70,6 +76,10 @@
 	else if ([keyPath isEqualToString:@"currentFrame"]) {
 		self.currentTCText.stringValue = clock.tcString;
 	}
+}
+
+- (void) mouseMoved:(NSEvent *)theEvent {
+	DWLog(@"");
 }
 
 - (IBAction)rewind:(id)sender {
@@ -89,6 +99,15 @@
 	clock.rate = 1;
 }
 
+- (IBAction)playPause {
+	if (clock.rate == 0) {
+		clock.rate = 1;
+	}
+	else {
+		clock.rate = 0;
+	}
+}
+
 - (IBAction)fastForward:(id)sender {
 	// TODO : parameter this
 	clock.rate = 10;
@@ -106,4 +125,19 @@
 	
 }
 
+-(void)showControlPanel {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControlPanel) object:nil];
+	if (self.controlPanel.alphaValue == 0) {
+		[[self.controlPanel animator] setAlphaValue:1];
+	}
+}
+
+-(void)showControlPanelAndHide {
+	[self showControlPanel];
+	[self performSelector:@selector(hideControlPanel) withObject:nil afterDelay:3];
+}
+
+-(void)hideControlPanel {
+	[[self.controlPanel	animator] setAlphaValue:0];
+}
 @end
