@@ -42,17 +42,15 @@
 	DWLog(@"");
 	[super windowControllerDidLoadNib:aController];
 	// Add any code here that needs to be executed once the windowController has loaded the document's window.
-	
-	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-	
+		
 	clock.currentReference = nil;
+	self.videoView.player = clock.player;
 
 	sony = [[DWSonySlaveController alloc] init];
 	if (sony != nil) {
 		sony.clock = clock;
 		[sony start];
 	}
-
 }
 
 + (BOOL)autosavesInPlace
@@ -72,14 +70,6 @@
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
 	DWLog(@"Opening %@", url);
 	return [clock loadWithUrl:url];
-}
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if ([keyPath isEqualToString:@"state"]) {
-		if (clock.state == kDWVideoClockStateReady) {
-			self.videoView.player = clock.player;
-		}
-	}
 }
 
 @end
