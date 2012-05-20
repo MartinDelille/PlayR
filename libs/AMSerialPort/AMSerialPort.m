@@ -163,16 +163,12 @@ NSString *const AMSerialErrorDomain = @"de.harmless.AMSerial.ErrorDomain";
 
 - (void)setDelegate:(id)newDelegate
 {
-	id old = nil;
-	
 	if (newDelegate != delegate) {
-		old = delegate;
 		delegate = newDelegate;
 		delegateHandlesReadInBackground = [delegate respondsToSelector:@selector(serialPortReadData:)];
 		delegateHandlesWriteInBackground = [delegate respondsToSelector:@selector(serialPortWriteProgress:)];
 	}
 }
-
 
 - (NSString *)bsdPath
 {
