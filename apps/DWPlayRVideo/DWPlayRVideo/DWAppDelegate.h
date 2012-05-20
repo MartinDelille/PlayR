@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DWPlayRVideoView.h"
+#import "DWVideo/DWVideoClock.h"
 
 @interface DWAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -15,6 +16,8 @@
 @property (weak) IBOutlet DWPlayRVideoView *videoView;
 @property (unsafe_unretained) IBOutlet NSPanel *controlPanel;
 @property (weak) IBOutlet NSTextField *currentTCText;
+@property (weak) IBOutlet DWVideoClock *clock;
+
 
 - (IBAction)rewind:(id)sender;
 - (IBAction)reversePlay:(id)sender;
@@ -27,5 +30,6 @@
 -(void)showControlPanel;
 -(void)showControlPanelAndHide;
 -(void)hideControlPanel;
+//- (IBAction)showFileProperties:(id)sender;
 
 @end

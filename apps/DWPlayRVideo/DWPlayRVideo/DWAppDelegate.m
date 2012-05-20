@@ -7,11 +7,9 @@
 //
 
 #import "DWAppDelegate.h"
-#import "DWVideo/DWVideoClock.h"
 #import "DWSony/DWSonySlaveController.h"
 
 @implementation DWAppDelegate {
-	DWVideoClock * clock;
 	DWSonySlaveController * sony;
 }
 
@@ -19,6 +17,7 @@
 @synthesize videoView = _videoView;
 @synthesize controlPanel;
 @synthesize currentTCText;
+@synthesize clock;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -29,9 +28,20 @@
 	[self.window addChildWindow:controlPanel ordered:NSWindowAbove];
 
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+	
+	// TODO: handle sony sync
+	clock.currentReference = nil;
+	sony.clock = clock;
+
 	[sony start];
 	
 	self.videoView.mainController = self;
+	self.videoView.player = clock.player;
+	
+	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
+	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
+
+
 	[self showControlPanel];
 	[self.window setAcceptsMouseMovedEvents:YES];
 }
@@ -52,12 +62,10 @@
 	 {
 		 if (result==NSFileHandlingPanelOKButton)
 		 {
-			 DWVideoClock * newClock = [[DWVideoClock alloc] initWithUrl:panel.URL];
-			 
-			 if (newClock != nil) {
-				 clock = newClock;
-				 [clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-				 [clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];
+			 DWLog(@"Loading %@", panel.URL);
+			 if (![clock loadWithUrl:panel.URL]) {
+				 // TODO : add error message
+				 DWLog(@"error");
 			 }
 		 }
 		[self showControlPanelAndHide];
@@ -67,13 +75,11 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"state"]) {
 		if (clock.state == kDWVideoClockStateReady) {
-			self.videoView.player = clock.player;
-			// TODO: handle sony sync
-			clock.currentReference = nil;
-			sony.clock = clock;
+			// TODO handle state notification
+			DWLog(@"clock state changes to %d", clock.state);
 		}
 	}
-	else if ([keyPath isEqualToString:@"currentFrame"]) {
+	else if ([keyPath isEqualToString:@"time"]) {
 		self.currentTCText.stringValue = clock.tcString;
 	}
 }
@@ -139,5 +145,8 @@
 		[NSCursor setHiddenUntilMouseMoves:YES];
 	}
 }
+
+//- (IBAction)showFileProperties:(id)sender {
+//}
 
 @end
