@@ -102,10 +102,13 @@
 	self.state = kDWVideoClockStateReady;
 	self.time = _videoStartTime;
 
-//	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-//		[self setTime:self.time];
-		
-//	}];
+	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+		if (self.time != super.time) {
+			[self willChangeValueForKey:@"time"];
+			super.time = self.time;
+			[self didChangeValueForKey:@"time"];
+		}
+	}];
 	
 
 }
@@ -122,7 +125,7 @@
 		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime;
 	}
 	else {
-		return 0;
+		return super.time;
 	}
 }
 

@@ -24,6 +24,7 @@
     if (self) {
 		self.clock = [[DWVideoClock alloc] init];
 		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
+		[self.clock addObserver:self forKeyPath:@"time" options:0 context:nil];
 //		self.clock.currentReference = self;
 
     }
@@ -34,6 +35,7 @@
 	if (self.clock != nil) {
 		clock.rate = 0;
 		[self.clock removeObserver:self forKeyPath:@"state"];
+		[self.clock removeObserver:self forKeyPath:@"time"];
 	}
 }
 
@@ -97,15 +99,19 @@
 
 -(void)tickFrame {
 	[clock tickFrame:self];
-	self.txtCurrentTC.stringValue = self.clock.tcString;
+//	self.txtCurrentTC.stringValue = self.clock.tcString;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	DWLog(@"%@", keyPath);
 	if ([keyPath isEqualToString:@"state"]) {
 		if (self.clock.state == kDWVideoClockStateReady) {
 			mainView.player = clock.player;
 //			self.txtCurrentTC.stringValue = self.clock.tcString;
 		}
+	}
+	else if ([keyPath isEqualToString:@"time"]) {
+		txtCurrentTC.stringValue = self.clock.tcString;
 	}
 }
 
