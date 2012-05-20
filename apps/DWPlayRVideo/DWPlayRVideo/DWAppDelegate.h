@@ -30,6 +30,5 @@
 -(void)showControlPanel;
 -(void)showControlPanelAndHide;
 -(void)hideControlPanel;
-//- (IBAction)showFileProperties:(id)sender;
 
 @end

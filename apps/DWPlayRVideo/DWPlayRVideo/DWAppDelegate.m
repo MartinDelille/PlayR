@@ -146,7 +146,4 @@
 	}
 }
 
-//- (IBAction)showFileProperties:(id)sender {
-//}
-
 @end
