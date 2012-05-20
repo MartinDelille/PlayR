@@ -27,6 +27,7 @@
 -(id)init {
 	self = [super init];
 	self.state = kDWVideoClockStateNotReady;
+	_player = [[AVPlayer alloc] init];
 	
 	return self;
 }
@@ -95,7 +96,8 @@
 	//	[playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
 	
 	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
-	_player = [AVPlayer playerWithPlayerItem:_playerItem];
+//	_player = [AVPlayer playerWithPlayerItem:_playerItem];
+	[_player replaceCurrentItemWithPlayerItem:_playerItem];
 
 	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:_asset];
 

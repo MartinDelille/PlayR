@@ -70,6 +70,7 @@
 	[mainWindow setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 	
 	mainView.doc = self;
+	mainView.player = self.clock.player;
 	
 	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:self repeats:YES];
 	
@@ -105,10 +106,8 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	DWLog(@"%@", keyPath);
 	if ([keyPath isEqualToString:@"state"]) {
-		if (self.clock.state == kDWVideoClockStateReady) {
-			mainView.player = clock.player;
-//			self.txtCurrentTC.stringValue = self.clock.tcString;
-		}
+		DWLog(@"clock state change to %d", clock.state);
+		// TODO
 	}
 	else if ([keyPath isEqualToString:@"time"]) {
 		txtCurrentTC.stringValue = self.clock.tcString;
