@@ -22,7 +22,10 @@
 {
     self = [super init];
     if (self) {
-		
+		self.clock = [[DWVideoClock alloc] init];
+		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
+//		self.clock.currentReference = self;
+
     }
     return self;
 }
@@ -30,7 +33,6 @@
 -(void)dealloc {
 	if (self.clock != nil) {
 		clock.rate = 0;
-		[self.clock removeObserver:self forKeyPath:@"currentFrame"];
 		[self.clock removeObserver:self forKeyPath:@"state"];
 	}
 }
@@ -66,6 +68,11 @@
 	[mainWindow setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 	
 	mainView.doc = self;
+	
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:self repeats:YES];
+	
+	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 }
 
 + (BOOL)autosavesInPlace
@@ -85,35 +92,19 @@
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError **)outError
 {
 	DWLog(@"Opening %@", url);
-	DWVideoClock * newClock = [[DWVideoClock alloc] initWithUrl:url];
-	if (newClock != nil) {
-		self.clock = newClock;
-		[self.clock addObserver:self forKeyPath:@"currentFrame" options:0 context:nil];	
-		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-	}
-    return newClock != nil;
+    return [clock loadWithUrl:url];
 }
 
 -(void)tickFrame {
 	[clock tickFrame:self];
+	self.txtCurrentTC.stringValue = self.clock.tcString;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if ([keyPath isEqualToString:@"currentFrame"]) {
-		self.txtCurrentTC.stringValue = self.clock.tcString;
-	}
-	else if ([keyPath isEqualToString:@"state"]) {
+	if ([keyPath isEqualToString:@"state"]) {
 		if (self.clock.state == kDWVideoClockStateReady) {
 			mainView.player = clock.player;
-			self.txtCurrentTC.stringValue = self.clock.tcString;
-			
-			self.clock.currentReference = self;
-			
-			NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:self repeats:YES];
-			
-			NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-			[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
-
+//			self.txtCurrentTC.stringValue = self.clock.tcString;
 		}
 	}
 }

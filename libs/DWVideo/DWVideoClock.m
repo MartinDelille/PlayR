@@ -17,8 +17,8 @@
 	AVPlayerItem * _playerItem;
 }
 
-@synthesize currentFrame;
 @synthesize state;
+@synthesize framePerSecond;
 
 -(AVPlayer*)player {
 	return _player;
@@ -31,9 +31,7 @@
 	return self;
 }
 
--(id)initWithUrl:(NSURL *)url {
-	self = [self init];
-	
+-(BOOL)loadWithUrl:(NSURL *)url {
 	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
 	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
 	_asset = [[AVURLAsset alloc] initWithURL:url options:options];
@@ -60,30 +58,30 @@
 							   }
 						   });
 		}];
-		return self;
+		return YES;
 	}
 	else {
-		return nil;
+		return NO;
 	}	
 }
 
 
 -(void)assetDidLoad {	
-	double frameRate = [DWVideoClock extractVideoFrameRate:_asset];
+	self.framePerSecond = [DWVideoClock extractVideoFrameRate:_asset];
 	
-	DWLog(@"framerate = %.2f", frameRate);
+	DWLog(@"framerate = %.2f", self.framePerSecond);
 
-	if (frameRate == 0) {
+	if (self.framePerSecond == 0) {
 		DWLog(@"Bad framerate value");
 		return;
 	}
-	else if (frameRate < 24) {
+	else if (self.framePerSecond < 24) {
 		self.type = kDWTimeCode2398;
 	}
-	else if (frameRate < 25) {
+	else if (self.framePerSecond < 25) {
 		self.type = kDWTimeCode24;
 	}
-	else if (frameRate == 25) {
+	else if (self.framePerSecond == 25) {
 		self.type = kDWTimeCode25;
 	}
 	else {
@@ -99,23 +97,21 @@
 	/*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];*/
 	_player = [AVPlayer playerWithPlayerItem:_playerItem];
 
-	
-	self.currentFrame = self.frame;
 	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:_asset];
 
 	self.state = kDWVideoClockStateReady;
+	self.time = _videoStartTime;
 
-	__block DWFrame lastCurrentFrame = -1;
-	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-		if (self.frame != lastCurrentFrame) {
-			lastCurrentFrame = self.currentFrame = self.frame;
-		}
-	}];
+//	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
+//		[self setTime:self.time];
+		
+//	}];
 	
 
 }
 
 -(void)setTime:(DWTime)time {
+	[super setTime:time];
 	if (state == kDWVideoClockStateReady) {
 		[_player seekToTime:CMTimeMake(time - _videoStartTime, DWTIMESCALE)];
 	}

@@ -31,11 +31,12 @@ typedef enum {
 @interface DWVideoClock : DWClock
 
 /** 
- Initialize the video clock.
+ Load a video file at an URL.
  @param url An URL to a video file.
- @return The initialized video clock.
+ @return YES if the loading is triggered (witch doesn't mean that the file is
+ effectively loaded: observe "state" property to know the result).
  */
--(id)initWithUrl:(NSURL*)url;
+-(BOOL)loadWithUrl:(NSURL*)url;
 
 /** 
  AVPlayer corresponding to the video clock.
@@ -45,9 +46,7 @@ typedef enum {
  Current state of the video clock.
  */
 @property DWVideoClockState state;
-/** 
- Current frame of the video clock.
- */
-@property DWFrame currentFrame;
+
+@property double framePerSecond;
 
 @end
