@@ -10,6 +10,9 @@
 
 int main(int argc, char *argv[])
 {
-	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
+//	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic];
+	[DWLogger configureLogLevel:kDWLogLevelBasic | kDWLogLevelSonyBasic | kDWLogLevelSonyDetails1];
+	DWLog(@"");
+
 	return NSApplicationMain(argc, (const char **)argv);
 }

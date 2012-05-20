@@ -57,9 +57,10 @@ typedef enum {
 }
 
 -(void)start {
-	looping = YES;
-	
-	[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
+	if (!looping) {
+		looping = YES;
+		[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
+	}
 }
 
 -(void)stop {

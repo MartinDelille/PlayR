@@ -20,8 +20,5 @@
  The main document view.
  */
 @property (weak) IBOutlet DWVideoView *videoView;
-/** 
- The video clock.
- */
-@property DWVideoClock * clock;
+
 @end

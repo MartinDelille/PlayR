@@ -10,16 +10,18 @@
 #import "DWSony/DWSonySlaveController.h"
 
 @implementation DWDocument {
+	DWVideoClock * clock;
 	DWSonySlaveController * sony;
 }
 
 @synthesize videoView;
-@synthesize clock;
 
 - (id)init
 {
+	DWLog(@"");
     self = [super init];
     if (self) {
+		clock = [[DWVideoClock alloc] init];
     }
     return self;
 }
@@ -37,8 +39,20 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
+	DWLog(@"");
 	[super windowControllerDidLoadNib:aController];
 	// Add any code here that needs to be executed once the windowController has loaded the document's window.
+	
+	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
+	
+	clock.currentReference = nil;
+
+	sony = [[DWSonySlaveController alloc] init];
+	if (sony != nil) {
+		sony.clock = clock;
+		[sony start];
+	}
+
 }
 
 + (BOOL)autosavesInPlace
@@ -57,24 +71,13 @@
 
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
 	DWLog(@"Opening %@", url);
-	DWVideoClock * newClock = [[DWVideoClock alloc] initWithUrl:url];
-	if (newClock != nil) {
-		self.clock = newClock;
-		[self.clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-		sony = [[DWSonySlaveController alloc] init];
-
-		sony.clock = clock;
-	}
-	
-	return newClock != nil;
+	return [clock loadWithUrl:url];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"state"]) {
-		if (self.clock.state == kDWVideoClockStateReady) {
-			self.videoView.player = self.clock.player;
-			self.clock.currentReference = nil;
-			[sony start];
+		if (clock.state == kDWVideoClockStateReady) {
+			self.videoView.player = clock.player;
 		}
 	}
 }
