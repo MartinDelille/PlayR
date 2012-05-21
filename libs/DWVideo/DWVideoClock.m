@@ -18,7 +18,8 @@
 }
 
 @synthesize state;
-@synthesize framePerSecond;
+@synthesize videoFrameRate;
+@synthesize videoResolution;
 
 -(AVPlayer*)player {
 	return _player;
@@ -66,23 +67,27 @@
 	}	
 }
 
-
 -(void)assetDidLoad {	
-	self.framePerSecond = [DWVideoClock extractVideoFrameRate:_asset];
-	
-	DWLog(@"framerate = %.2f", self.framePerSecond);
+	for (AVAssetTrack * track in [_asset tracks]) {
+		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
+			self.videoFrameRate = track.nominalFrameRate;
+			self.videoResolution = track.naturalSize;
+		}
+	}
 
-	if (self.framePerSecond == 0) {
+	DWLog(@"framerate = %.2f", self.videoFrameRate);
+
+	if (self.videoFrameRate == 0) {
 		DWLog(@"Bad framerate value");
 		return;
 	}
-	else if (self.framePerSecond < 24) {
+	else if (self.videoFrameRate < 24) {
 		self.type = kDWTimeCode2398;
 	}
-	else if (self.framePerSecond < 25) {
+	else if (self.videoFrameRate < 25) {
 		self.type = kDWTimeCode24;
 	}
-	else if (self.framePerSecond == 25) {
+	else if (self.videoFrameRate == 25) {
 		self.type = kDWTimeCode25;
 	}
 	else {
@@ -99,7 +104,7 @@
 //	_player = [AVPlayer playerWithPlayerItem:_playerItem];
 	[_player replaceCurrentItemWithPlayerItem:_playerItem];
 
-	_videoStartTime = self.timePerFrame * [DWVideoClock extractTimeStamp:_asset];
+	_videoStartTime = self.timePerFrame * [self originalTimeStamp];
 
 	self.state = kDWVideoClockStateReady;
 	self.time = _videoStartTime;
@@ -147,20 +152,11 @@
 	}
 }
 
-+(double)extractVideoFrameRate:(AVAsset*)anAsset {
-	for (AVAssetTrack * track in [anAsset tracks]) {
-		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
-			return track.nominalFrameRate;
-		}
-	}
-	return 0;
-}
-
-+(DWFrame)extractTimeStamp:(AVAsset*)anAsset {
+-(DWFrame)originalTimeStamp {
 	DWFrame timeStampFrame = 0;
-	for (AVAssetTrack * track in [anAsset tracks]) {
+	for (AVAssetTrack * track in [_asset tracks]) {
 		if ([[track mediaType] isEqualToString:AVMediaTypeTimecode]) {
-			AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:anAsset error:nil];
+			AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:_asset error:nil];
 			AVAssetReaderTrackOutput *assetReaderOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:track outputSettings:nil]; 
 			if ([assetReader canAddOutput:assetReaderOutput]) {
 				[assetReader addOutput:assetReaderOutput];

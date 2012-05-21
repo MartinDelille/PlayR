@@ -47,6 +47,8 @@ typedef enum {
  */
 @property DWVideoClockState state;
 
-@property double framePerSecond;
+@property double videoFrameRate;
+
+@property NSSize videoResolution;
 
 @end
