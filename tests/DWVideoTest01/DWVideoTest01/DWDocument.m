@@ -47,7 +47,7 @@
 }
 
 -(void)updateControlPanelPosition:(NSNotification*)note {
-	DWLog(@"%@", note.name);
+//	DWLog(@"%@", note.name);
 	NSRect subFrameRect = self.controlPanel.frame;
 	NSRect frameRect = self.mainWindow.frame;
 	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
@@ -104,7 +104,6 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	DWLog(@"%@", keyPath);
 	if ([keyPath isEqualToString:@"state"]) {
 		DWLog(@"clock state change to %d", clock.state);
 		// TODO

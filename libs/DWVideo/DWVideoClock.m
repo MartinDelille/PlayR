@@ -9,6 +9,7 @@
 #import "DWVideoClock.h"
 #import "DWTools/DWLogger.h"
 #import "DWClocking/DWTimeCode.h"
+#import "DWTools/DWFourCCToStringTransformer.h"
 
 @implementation DWVideoClock {
 	DWTime _videoStartTime;
@@ -20,6 +21,7 @@
 @synthesize state;
 @synthesize videoFrameRate;
 @synthesize videoResolution;
+@synthesize videoCodec;
 
 -(AVPlayer*)player {
 	return _player;
@@ -72,6 +74,9 @@
 		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
 			self.videoFrameRate = track.nominalFrameRate;
 			self.videoResolution = track.naturalSize;
+			CMVideoFormatDescriptionRef format = (__bridge CMFormatDescriptionRef)[track.formatDescriptions objectAtIndex:0];
+			self.videoCodec = CMVideoFormatDescriptionGetCodecType(format);
+			DWLog(@"codec: %@", [DWFourCCToStringTransformer stringWithFourCC:self.videoCodec]);
 		}
 	}
 
@@ -108,12 +113,13 @@
 
 	self.state = kDWVideoClockStateReady;
 	self.time = _videoStartTime;
+	__block DWVideoClock * blockSafeSelf = self;
 
 	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
 		if (self.time != super.time) {
-			[self willChangeValueForKey:@"time"];
-			super.time = self.time;
-			[self didChangeValueForKey:@"time"];
+			[blockSafeSelf willChangeValueForKey:@"time"];
+			super.time = blockSafeSelf.time;
+			[blockSafeSelf didChangeValueForKey:@"time"];
 		}
 	}];
 	

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5855463D155C1CA70093F04C /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5855463C155C1CA70093F04C /* libDWTools.a */; };
 		58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */; };
 		58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */; };
 		58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB261546EA0900C9C40E /* SenTestingKit.framework */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5855463C155C1CA70093F04C /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
 		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
 		58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWClockingUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5855463D155C1CA70093F04C /* libDWTools.a in Frameworks */,
 				58ADAB361546EA2800C9C40E /* libDWClocking.a in Frameworks */,
 				58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */,
 				58ADAB281546EA0900C9C40E /* Cocoa.framework in Frameworks */,
@@ -96,7 +93,6 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
-				5855463C155C1CA70093F04C /* libDWTools.a */,
 				58ADAB1F1546E9A100C9C40E /* Unit tests */,
 				58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */,
 				58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */,

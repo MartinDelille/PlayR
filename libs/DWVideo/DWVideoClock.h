@@ -51,4 +51,6 @@ typedef enum {
 
 @property NSSize videoResolution;
 
+@property FourCharCode videoCodec;
+
 @end
