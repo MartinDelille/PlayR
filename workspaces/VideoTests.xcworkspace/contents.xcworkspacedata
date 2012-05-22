@@ -13,6 +13,9 @@
       <FileRef
          location = "group:DWVideo/DWVideo.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:DWUserInterface/DWUserInterface.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:../tests"
