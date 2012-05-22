@@ -109,7 +109,11 @@
 //	_player = [AVPlayer playerWithPlayerItem:_playerItem];
 	[_player replaceCurrentItemWithPlayerItem:_playerItem];
 
+	[self willChangeValueForKey:@"timeStampString"];
+	[self willChangeValueForKey:@"originalTimeStampString"];
 	_videoStartTime = self.timePerFrame * [self originalTimeStamp];
+	[self didChangeValueForKey:@"timeStampString"];
+	[self didChangeValueForKey:@"originalTimeStampString"];
 
 	self.state = kDWVideoClockStateReady;
 	self.time = _videoStartTime;
@@ -214,14 +218,25 @@
 	return timeStampFrame;
 }
 
+-(NSString *)originalTimeStampString {
+	return [DWTimeCode stringFromFrame:[self originalTimeStamp] andType:self.type];
+}
+
+-timeStampString {
+	DWFrame videoStartFrame = _videoStartTime / self.timePerFrame;
+	return [DWTimeCode stringFromFrame:videoStartFrame andType:self.type];
+}
+
 -(void)updateTimestampWithCurrentTimecodeString:(NSString *)currentTCString {
 	DWFrame newCurrentFrame = [DWTimeCode frameFromString:currentTCString andType:self.type];
 	DWTime newCurrentTime = newCurrentFrame * self.timePerFrame;
 	DWTime oldCurrentTime = self.time;
 	
 	[self willChangeValueForKey:@"time"];
+	[self willChangeValueForKey:@"timeStampString"];
 	_videoStartTime += newCurrentTime - oldCurrentTime;
 	[self didChangeValueForKey:@"time"];
+	[self didChangeValueForKey:@"timeStampString"];
 
 }
 @end

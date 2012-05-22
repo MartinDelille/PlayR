@@ -53,6 +53,9 @@ typedef enum {
 
 @property FourCharCode videoCodec;
 
+@property(readonly) NSString * timeStampString;
+@property(readonly) NSString * originalTimeStampString;
+
 -(void)updateTimestampWithCurrentTimecodeString:(NSString*)currentTCString;
 
 @end
