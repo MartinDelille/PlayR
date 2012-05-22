@@ -139,7 +139,9 @@
 	tcWindow.tcString = self.clock.tcString;
 	int result = [NSApp runModalForWindow:tcWindow.window];
 	if (result == 1) {
-		DWLog(@"%@", tcWindow.tcString);
+		// TODO check valid timecode
+		DWLog(@"changing timestamp to %@", tcWindow.tcString);
+		[self.clock updateTimestampWithCurrentTimecodeString:tcWindow.tcString];
 	}
 	else {
 		DWLog(@"canceled: %d", result);

@@ -214,4 +214,14 @@
 	return timeStampFrame;
 }
 
+-(void)updateTimestampWithCurrentTimecodeString:(NSString *)currentTCString {
+	DWFrame newCurrentFrame = [DWTimeCode frameFromString:currentTCString andType:self.type];
+	DWTime newCurrentTime = newCurrentFrame * self.timePerFrame;
+	DWTime oldCurrentTime = self.time;
+	
+	[self willChangeValueForKey:@"time"];
+	_videoStartTime += newCurrentTime - oldCurrentTime;
+	[self didChangeValueForKey:@"time"];
+
+}
 @end
