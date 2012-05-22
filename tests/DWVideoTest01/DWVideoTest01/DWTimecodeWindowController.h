@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DWUserInterface/DWTimecodeField.h"
 
 @interface DWTimecodeWindowController : NSWindowController
+- (IBAction)onOk:(id)sender;
+- (IBAction)onCancel:(id)sender;
+@property (unsafe_unretained) IBOutlet NSButton *btnOk;
+
+@property NSString * tcString;
 
 @end

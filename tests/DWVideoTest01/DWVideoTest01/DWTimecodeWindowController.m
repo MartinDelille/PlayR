@@ -13,10 +13,12 @@
 @end
 
 @implementation DWTimecodeWindowController
+@synthesize btnOk;
+@synthesize tcString;
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
+    self = [super initWithWindowNibName:@"DWTimecodeWindowController"];
     if (self) {
         // Initialization code here.
     }
@@ -28,7 +30,16 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.window.defaultButtonCell = self.btnOk.cell;
 }
 
+- (IBAction)onOk:(id)sender {
+	[self.window close];
+	[NSApp stopModalWithCode:1];
+}
+
+- (IBAction)onCancel:(id)sender {
+	[self.window close];
+	[NSApp stopModalWithCode:0];
+}
 @end

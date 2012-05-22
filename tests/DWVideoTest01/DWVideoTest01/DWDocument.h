@@ -81,5 +81,6 @@
  @param delta A rate increment value
  */
 -(void)shuttle:(double)delta;
+- (IBAction)changeTimestamp:(id)sender;
 
 @end

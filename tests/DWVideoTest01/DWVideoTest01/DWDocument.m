@@ -9,8 +9,11 @@
 #import "DWDocument.h"
 #import "DWTools/DWLogger.h"
 #import "DWVideoTestView.h"
+#import "DWTimecodeWindowController.h"
 
-@implementation DWDocument
+@implementation DWDocument {
+	DWTimecodeWindowController * tcWindow;
+}
 
 @synthesize mainView;
 @synthesize controlPanel;
@@ -124,6 +127,23 @@
 
 -(void)shuttle:(double)delta {
 	clock.rate += delta / 100;
+}
+
+- (IBAction)changeTimestamp:(id)sender {
+	if (tcWindow == nil) {
+		tcWindow = [[DWTimecodeWindowController alloc] init];
+	}
+	
+//	[NSApp beginSheet:tcWindow.window modalForWindow:self.mainWindow modalDelegate:self didEndSelector:@selector(didChangeTimestamp:returnCode:contextInfo:) contextInfo:nil];
+	DWLog(@"%@", self.clock.tcString);
+	tcWindow.tcString = self.clock.tcString;
+	int result = [NSApp runModalForWindow:tcWindow.window];
+	if (result == 1) {
+		DWLog(@"%@", tcWindow.tcString);
+	}
+	else {
+		DWLog(@"canceled: %d", result);
+	}
 }
 
 

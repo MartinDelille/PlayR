@@ -10,6 +10,9 @@
 		583262131561098000DC24EC /* DWVideoTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583262121561098000DC24EC /* DWVideoTestView.m */; };
 		586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D215544914002DCD3A /* AVFoundation.framework */; };
 		586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AD1D41554491C002DCD3A /* CoreMedia.framework */; };
+		5889AA8C156BD2A5005225F5 /* libDWUserInterface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5889AA8B156BD2A5005225F5 /* libDWUserInterface.a */; };
+		5889AA99156BE2FA005225F5 /* DWTimecodeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5889AA97156BE2FA005225F5 /* DWTimecodeWindowController.m */; };
+		5889AA9A156BE2FA005225F5 /* DWTimecodeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5889AA98156BE2FA005225F5 /* DWTimecodeWindowController.xib */; };
 		58B25FBA1552A74D00359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FB91552A74D00359A52 /* Cocoa.framework */; };
 		58B25FC41552A74D00359A52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B25FC21552A74D00359A52 /* InfoPlist.strings */; };
 		58B25FC61552A74D00359A52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B25FC51552A74D00359A52 /* main.m */; };
@@ -27,6 +30,10 @@
 		583262121561098000DC24EC /* DWVideoTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoTestView.m; sourceTree = "<group>"; };
 		586AD1D215544914002DCD3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		586AD1D41554491C002DCD3A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5889AA8B156BD2A5005225F5 /* libDWUserInterface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWUserInterface.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VideoTests-gfvoypcdrkbyvbdshafphxbhqnze/Build/Products/Debug/libDWUserInterface.a"; sourceTree = "<group>"; };
+		5889AA96156BE2FA005225F5 /* DWTimecodeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimecodeWindowController.h; sourceTree = "<group>"; };
+		5889AA97156BE2FA005225F5 /* DWTimecodeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimecodeWindowController.m; sourceTree = "<group>"; };
+		5889AA98156BE2FA005225F5 /* DWTimecodeWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWTimecodeWindowController.xib; sourceTree = "<group>"; };
 		58B25FB51552A74D00359A52 /* DWVideoTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWVideoTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B25FB91552A74D00359A52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58B25FBC1552A74D00359A52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5889AA8C156BD2A5005225F5 /* libDWUserInterface.a in Frameworks */,
 				586AD1D51554491C002DCD3A /* CoreMedia.framework in Frameworks */,
 				586AD1D315544914002DCD3A /* AVFoundation.framework in Frameworks */,
 				58B260181552B6E900359A52 /* libDWClocking.a in Frameworks */,
@@ -114,6 +122,9 @@
 				58B25FC01552A74D00359A52 /* Supporting Files */,
 				583262111561098000DC24EC /* DWVideoTestView.h */,
 				583262121561098000DC24EC /* DWVideoTestView.m */,
+				5889AA96156BE2FA005225F5 /* DWTimecodeWindowController.h */,
+				5889AA97156BE2FA005225F5 /* DWTimecodeWindowController.m */,
+				5889AA98156BE2FA005225F5 /* DWTimecodeWindowController.xib */,
 			);
 			path = DWVideoTest01;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 		58B2600D1552B33C00359A52 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5889AA8B156BD2A5005225F5 /* libDWUserInterface.a */,
 				58B260151552B6E900359A52 /* libDWClocking.a */,
 				58B260161552B6E900359A52 /* libDWTools.a */,
 				58B260171552B6E900359A52 /* libDWVideo.a */,
@@ -196,6 +208,7 @@
 				58B25FCA1552A74D00359A52 /* Credits.rtf in Resources */,
 				58B25FD01552A74D00359A52 /* DWDocument.xib in Resources */,
 				58B25FD31552A74E00359A52 /* MainMenu.xib in Resources */,
+				5889AA9A156BE2FA005225F5 /* DWTimecodeWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +222,7 @@
 				58B25FC61552A74D00359A52 /* main.m in Sources */,
 				58B25FCD1552A74D00359A52 /* DWDocument.m in Sources */,
 				583262131561098000DC24EC /* DWVideoTestView.m in Sources */,
+				5889AA99156BE2FA005225F5 /* DWTimecodeWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
