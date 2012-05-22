@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5822116F155D172400D680BA /* DWVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5822116D155D172400D680BA /* DWVideoView.h */; };
 		58221170155D172400D680BA /* DWVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5822116E155D172400D680BA /* DWVideoView.m */; };
+		5889AB24156C1248005225F5 /* DWFourCCToStringTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5889AB22156C1248005225F5 /* DWFourCCToStringTransformer.h */; };
+		5889AB25156C1248005225F5 /* DWFourCCToStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5889AB23156C1248005225F5 /* DWFourCCToStringTransformer.m */; };
 		58B25FF91552B28100359A52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B25FF81552B28100359A52 /* Cocoa.framework */; };
 		58B260131552B39A00359A52 /* DWVideoClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B260111552B39A00359A52 /* DWVideoClock.h */; };
 		58B260141552B39A00359A52 /* DWVideoClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B260121552B39A00359A52 /* DWVideoClock.m */; };
@@ -17,6 +19,8 @@
 /* Begin PBXFileReference section */
 		5822116D155D172400D680BA /* DWVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVideoView.h; sourceTree = "<group>"; };
 		5822116E155D172400D680BA /* DWVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVideoView.m; sourceTree = "<group>"; };
+		5889AB22156C1248005225F5 /* DWFourCCToStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWFourCCToStringTransformer.h; sourceTree = "<group>"; };
+		5889AB23156C1248005225F5 /* DWFourCCToStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWFourCCToStringTransformer.m; sourceTree = "<group>"; };
 		58B25FF51552B28100359A52 /* libDWVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B25FF81552B28100359A52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58B25FFB1552B28100359A52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -42,6 +46,8 @@
 		58B25FEA1552B28100359A52 = {
 			isa = PBXGroup;
 			children = (
+				5889AB22156C1248005225F5 /* DWFourCCToStringTransformer.h */,
+				5889AB23156C1248005225F5 /* DWFourCCToStringTransformer.m */,
 				5822116D155D172400D680BA /* DWVideoView.h */,
 				5822116E155D172400D680BA /* DWVideoView.m */,
 				58B260111552B39A00359A52 /* DWVideoClock.h */,
@@ -97,6 +103,7 @@
 			files = (
 				58B260131552B39A00359A52 /* DWVideoClock.h in Headers */,
 				5822116F155D172400D680BA /* DWVideoView.h in Headers */,
+				5889AB24156C1248005225F5 /* DWFourCCToStringTransformer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +160,7 @@
 			files = (
 				58B260141552B39A00359A52 /* DWVideoClock.m in Sources */,
 				58221170155D172400D680BA /* DWVideoView.m in Sources */,
+				5889AB25156C1248005225F5 /* DWFourCCToStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "DWVideoClock.h"
 #import "DWTools/DWLogger.h"
 #import "DWClocking/DWTimeCode.h"
-#import "DWTools/DWFourCCToStringTransformer.h"
+#import "DWFourCCToStringTransformer.h"
 
 @implementation DWVideoClock {
 	DWTime _videoStartTime;
