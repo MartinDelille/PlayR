@@ -178,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5859711D1563F0630002C24A /* DWPlayRVideo */ = {
+		5859711D1563F0630002C24A /* Play'R */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */;
+			buildConfigurationList = 5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "Play'R" */;
 			buildPhases = (
 				5859711A1563F0630002C24A /* Sources */,
 				5859711B1563F0630002C24A /* Frameworks */,
@@ -190,7 +190,7 @@
 			);
 			dependencies = (
 			);
-			name = DWPlayRVideo;
+			name = "Play'R";
 			productName = DWPlayRVideo;
 			productReference = 5859711E1563F0630002C24A /* DWPlayRVideo.app */;
 			productType = "com.apple.product-type.application";
@@ -217,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5859711D1563F0630002C24A /* DWPlayRVideo */,
+				5859711D1563F0630002C24A /* Play'R */,
 			);
 		};
 /* End PBXProject section */
@@ -373,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */ = {
+		5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "Play'R" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5859713D1563F0630002C24A /* Debug */,
