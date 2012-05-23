@@ -32,8 +32,8 @@
 
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 	
-	// TODO: handle sony sync
-	clock.currentReference = nil;
+	// TODO: handle internal sync
+	clock.currentReference = sony;
 	sony.clock = clock;
 
 	[sony start];
