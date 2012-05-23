@@ -5,6 +5,9 @@
       location = "container:../libs"
       name = "libs">
       <FileRef
+         location = "group:DWUserInterface/DWUserInterface.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:DWVideo/DWVideo.xcodeproj">
       </FileRef>
       <FileRef

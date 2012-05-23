@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5843F8EF156CF5A90005B4E8 /* DWTimestampWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */; };
+		5843F8F0156CF5A90005B4E8 /* DWTimestampWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */; };
+		5843F8F8156D04690005B4E8 /* libDWUserInterface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5843F8F7156D04690005B4E8 /* libDWUserInterface.a */; };
 		585971231563F0630002C24A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971221563F0630002C24A /* Cocoa.framework */; };
 		5859712D1563F0630002C24A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5859712B1563F0630002C24A /* InfoPlist.strings */; };
 		5859712F1563F0630002C24A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5859712E1563F0630002C24A /* main.m */; };
@@ -25,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5843F8EC156CF5A90005B4E8 /* DWTimestampWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimestampWindowController.h; sourceTree = "<group>"; };
+		5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimestampWindowController.m; sourceTree = "<group>"; };
+		5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWTimestampWindowController.xib; sourceTree = "<group>"; };
+		5843F8F7156D04690005B4E8 /* libDWUserInterface.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libDWUserInterface.a; path = ../../libs/DWUserInterface/build/Release/libDWUserInterface.a; sourceTree = "<group>"; };
 		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWPlayRVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		585971221563F0630002C24A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		585971251563F0630002C24A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -55,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5843F8F8156D04690005B4E8 /* libDWUserInterface.a in Frameworks */,
 				5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */,
 				5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */,
 				5859714A1563F2290002C24A /* IOKit.framework in Frameworks */,
@@ -119,6 +127,9 @@
 				585971291563F0630002C24A /* Supporting Files */,
 				589CCA9915650D160027263A /* DWPlayRVideoView.h */,
 				589CCA9A15650D160027263A /* DWPlayRVideoView.m */,
+				5843F8EC156CF5A90005B4E8 /* DWTimestampWindowController.h */,
+				5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */,
+				5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */,
 			);
 			path = DWPlayRVideo;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 		5859714F1563F25A0002C24A /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5843F8F7156D04690005B4E8 /* libDWUserInterface.a */,
 				5859713F1563F2220002C24A /* libAMSerialPort.a */,
 				585971401563F2220002C24A /* libDWClocking.a */,
 				585971411563F2220002C24A /* libDWSony.a */,
@@ -202,6 +214,7 @@
 				5859712D1563F0630002C24A /* InfoPlist.strings in Resources */,
 				585971331563F0630002C24A /* Credits.rtf in Resources */,
 				585971391563F0630002C24A /* MainMenu.xib in Resources */,
+				5843F8F0156CF5A90005B4E8 /* DWTimestampWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +228,7 @@
 				5859712F1563F0630002C24A /* main.m in Sources */,
 				585971361563F0630002C24A /* DWAppDelegate.m in Sources */,
 				589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */,
+				5843F8EF156CF5A90005B4E8 /* DWTimestampWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

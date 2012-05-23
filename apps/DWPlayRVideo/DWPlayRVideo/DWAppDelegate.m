@@ -8,9 +8,12 @@
 
 #import "DWAppDelegate.h"
 #import "DWSony/DWSonySlaveController.h"
+#import "DWTimestampWindowController.h"
 
 @implementation DWAppDelegate {
 	DWSonySlaveController * sony;
+	DWTimestampWindowController * timestampController;
+	
 }
 
 @synthesize window = _window;
@@ -154,6 +157,27 @@
 	if (self.window.styleMask & NSFullScreenWindowMask) {
 		[NSCursor setHiddenUntilMouseMoves:YES];
 	}
+}
+
+- (IBAction)changeTimestamp:(id)sender {
+	if (timestampController == nil) {
+		timestampController = [[DWTimestampWindowController alloc] init];
+	}
+	
+	[self showControlPanel];
+	
+	timestampController.tcString = clock.tcString;
+	int code = [NSApp runModalForWindow:timestampController.window];
+	
+	if (code == 1) {
+		DWLog(@"Changing timestamp with tc: %@", timestampController.tcString);
+		[clock updateTimestampWithCurrentTimecodeString:timestampController.tcString];
+	}
+	else {
+		DWLog(@"cancel with code : %d", code);
+	}
+	
+	[self showControlPanelAndHide];
 }
 
 @end
