@@ -21,6 +21,7 @@
 @synthesize controlPanel;
 @synthesize currentTCText;
 @synthesize clock;
+@synthesize preferencesPanel;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -190,6 +191,11 @@
 
 - (IBAction)clearTimestampDatabase:(id)sender {
 	[DWTimecodeDatabase clear];
+}
+
+- (IBAction)showPreferences:(id)sender {
+	[self showControlPanelAndHide];
+	[preferencesPanel makeKeyAndOrderFront:self];
 }
 
 @end

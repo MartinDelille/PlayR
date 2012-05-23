@@ -23,6 +23,7 @@
 @synthesize videoFrameRate;
 @synthesize videoResolution;
 @synthesize videoCodec;
+@synthesize videoDelayCompensation;
 
 -(AVPlayer*)player {
 	return _player;
@@ -129,20 +130,19 @@
 			[blockSafeSelf didChangeValueForKey:@"time"];
 		}
 	}];
-	
-
 }
 
 -(void)setTime:(DWTime)time {
 	[super setTime:time];
 	if (state == kDWVideoClockStateReady) {
-		[_player seekToTime:CMTimeMake(time - _videoStartTime, DWTIMESCALE)];
+		// TODO: handle out of bound
+		[_player seekToTime:CMTimeMake(time - _videoStartTime + self.videoDelayCompensation * DWTIMESCALE * self.rate, DWTIMESCALE)];
 	}
 }
 
 -(DWTime)time {
 	if (state == kDWVideoClockStateReady) {
-		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime;
+		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime - self.videoDelayCompensation * DWTIMESCALE * self.rate;
 	}
 	else {
 		return super.time;
@@ -152,6 +152,7 @@
 -(void)setRate:(double)rate {
 	[super setRate:rate];
 	if ((state == kDWVideoClockStateReady) && (self.currentReference == nil)) {
+		// TODO : handle delay compensation
 		_player.rate = rate;
 	}
 }

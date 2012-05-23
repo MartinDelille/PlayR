@@ -17,6 +17,7 @@
 @property (unsafe_unretained) IBOutlet NSPanel *controlPanel;
 @property (weak) IBOutlet NSTextField *currentTCText;
 @property (weak) IBOutlet DWVideoClock *clock;
+@property (unsafe_unretained) IBOutlet NSPanel *preferencesPanel;
 
 
 - (IBAction)rewind:(id)sender;
@@ -32,5 +33,6 @@
 -(void)hideControlPanel;
 - (IBAction)changeTimestamp:(id)sender;
 - (IBAction)clearTimestampDatabase:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 
 @end
