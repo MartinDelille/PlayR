@@ -188,4 +188,8 @@
 	[self showControlPanelAndHide];
 }
 
+- (IBAction)clearTimestampDatabase:(id)sender {
+	[DWTimecodeDatabase clear];
+}
+
 @end

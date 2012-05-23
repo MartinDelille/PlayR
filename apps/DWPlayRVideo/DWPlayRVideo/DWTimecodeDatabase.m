@@ -28,7 +28,8 @@
 }
 
 +(void)clear {
-	[[NSUserDefaults standardUserDefaults] setNilValueForKey:@"DWTimecodeDatabase"];
+	NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+	[[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"DWTimecodeDatabase"];
 }
 
 @end

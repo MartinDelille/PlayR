@@ -31,5 +31,6 @@
 -(void)showControlPanelAndHide;
 -(void)hideControlPanel;
 - (IBAction)changeTimestamp:(id)sender;
+- (IBAction)clearTimestampDatabase:(id)sender;
 
 @end
