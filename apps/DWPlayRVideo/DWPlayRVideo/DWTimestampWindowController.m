@@ -12,20 +12,11 @@
 
 @end
 
-@implementation DWTimestampWindowController {
-	NSString * _tcString;
-}
+@implementation DWTimestampWindowController
 
 @synthesize okButton;
+@synthesize tcString;
 
--(NSString *)tcString {
-	return _tcString;
-}
-
--(void)setTcString:(NSString *)tcString {
-	DWLog(@"=> %@", tcString);
-	_tcString = tcString;
-}
 
 - (id)init
 {

@@ -126,27 +126,39 @@
 	[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 50) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
 		if (self.time != super.time) {
 			[blockSafeSelf willChangeValueForKey:@"time"];
+			[blockSafeSelf willChangeValueForKey:@"visibleTimecodeString"];
 			super.time = blockSafeSelf.time;
 			[blockSafeSelf didChangeValueForKey:@"time"];
+			[blockSafeSelf didChangeValueForKey:@"visibleTimecodeString"];
 		}
 	}];
 }
 
+-(DWTime)videoDelayCompensationTime {
+	return self.videoDelayCompensation * DWTIMESCALE * self.rate;
+}
+
 -(void)setTime:(DWTime)time {
+	[self willChangeValueForKey:@"visibleTimecodeString"];
 	[super setTime:time];
 	if (state == kDWVideoClockStateReady) {
 		// TODO: handle out of bound
-		[_player seekToTime:CMTimeMake(time - _videoStartTime + self.videoDelayCompensation * DWTIMESCALE * self.rate, DWTIMESCALE)];
+		[_player seekToTime:CMTimeMake(time - _videoStartTime + [self videoDelayCompensationTime], DWTIMESCALE)];
 	}
+	[self didChangeValueForKey:@"visibleTimecodeString"];
 }
 
 -(DWTime)time {
 	if (state == kDWVideoClockStateReady) {
-		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime - self.videoDelayCompensation * DWTIMESCALE * self.rate;
+		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime - [self videoDelayCompensationTime];
 	}
 	else {
 		return super.time;
 	}
+}
+
+-(NSString*)visibleTimecodeString {
+	return [DWTimeCode stringFromFrame:(self.frame + [self videoDelayCompensationTime] / self.timePerFrame) andType:self.type];
 }
 
 -(void)setRate:(double)rate {

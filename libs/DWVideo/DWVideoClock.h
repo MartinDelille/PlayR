@@ -62,6 +62,8 @@ typedef enum {
 
 @property NSTimeInterval videoDelayCompensation;
 
+@property (readonly) NSString * visibleTimecodeString;
+
 -(void)updateTimestampWithCurrentTimecodeString:(NSString*)currentTCString;
 
 @end

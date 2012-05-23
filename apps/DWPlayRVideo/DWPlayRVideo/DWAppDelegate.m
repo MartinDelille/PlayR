@@ -43,7 +43,7 @@
 	self.videoView.player = clock.player;
 	
 	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
-	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
+//	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
 
 
 	[self showControlPanel];
@@ -59,7 +59,6 @@
 -(void)applicationWillTerminate:(NSNotification *)notification {
 	[sony stop];
 }
-
 
 - (void)openDocument:(id)sender {
 	NSLog(@"openDocument");
@@ -100,9 +99,9 @@
 			
 		}
 	}
-	else if ([keyPath isEqualToString:@"time"]) {
-		self.currentTCText.stringValue = clock.tcString;
-	}
+//	else if ([keyPath isEqualToString:@"time"]) {
+//		self.currentTCText.stringValue = clock.tcString;
+//	}
 }
 
 - (IBAction)rewind:(id)sender {
