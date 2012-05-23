@@ -38,6 +38,8 @@ typedef enum {
  */
 -(BOOL)loadWithUrl:(NSURL*)url;
 
+@property NSURL* url;
+
 /** 
  AVPlayer corresponding to the video clock.
  */
@@ -54,6 +56,8 @@ typedef enum {
 @property FourCharCode videoCodec;
 
 @property(readonly) NSString * timeStampString;
+
+@property(readonly) DWFrame originalTimeStampFrame;
 @property(readonly) NSString * originalTimeStampString;
 
 -(void)updateTimestampWithCurrentTimecodeString:(NSString*)currentTCString;

@@ -9,11 +9,11 @@
 #import "DWAppDelegate.h"
 #import "DWSony/DWSonySlaveController.h"
 #import "DWTimestampWindowController.h"
+#import "DWTimecodeDatabase.h"
 
 @implementation DWAppDelegate {
 	DWSonySlaveController * sony;
 	DWTimestampWindowController * timestampController;
-	
 }
 
 @synthesize window = _window;
@@ -88,8 +88,15 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqualToString:@"state"]) {
 		if (clock.state == kDWVideoClockStateReady) {
-			// TODO handle state notification
-			DWLog(@"clock state changes to %d", clock.state);
+			if (clock.originalTimeStampFrame == 0) {
+				NSString * tc = [DWTimecodeDatabase timecodeForURL:clock.url];
+				if (tc == nil) {
+					tc = @"01:00:00:00";
+				}
+				[clock updateTimestampWithCurrentTimecodeString:tc];
+				[self performSelector:@selector(changeTimestamp:) withObject:self afterDelay:0.5];
+			}
+			
 		}
 	}
 	else if ([keyPath isEqualToString:@"time"]) {
@@ -172,6 +179,7 @@
 	if (code == 1) {
 		DWLog(@"Changing timestamp with tc: %@", timestampController.tcString);
 		[clock updateTimestampWithCurrentTimecodeString:timestampController.tcString];
+		[DWTimecodeDatabase storeTimecode:timestampController.tcString forURL:clock.url];
 	}
 	else {
 		DWLog(@"cancel with code : %d", code);

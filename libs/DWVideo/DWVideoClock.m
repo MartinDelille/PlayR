@@ -18,6 +18,7 @@
 	AVPlayerItem * _playerItem;
 }
 
+@synthesize url;
 @synthesize state;
 @synthesize videoFrameRate;
 @synthesize videoResolution;
@@ -35,10 +36,11 @@
 	return self;
 }
 
--(BOOL)loadWithUrl:(NSURL *)url {
+-(BOOL)loadWithUrl:(NSURL *)anUrl {
 	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
+	self.url = anUrl;
 	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-	_asset = [[AVURLAsset alloc] initWithURL:url options:options];
+	_asset = [[AVURLAsset alloc] initWithURL:anUrl options:options];
 	
 	if (_asset != nil) {
 		NSArray *keys = [NSArray arrayWithObject:@"tracks"];
@@ -57,6 +59,7 @@
 									   //[self reportError:*outError onAsset:asset];
 								   case AVKeyValueStatusCancelled:
 									   self.state = kDWVideoClockStateNotReady;
+									   self.url = nil;
 									   // TODO : handle error and cancelation
 									   break;
 							   }
@@ -111,7 +114,7 @@
 
 	[self willChangeValueForKey:@"timeStampString"];
 	[self willChangeValueForKey:@"originalTimeStampString"];
-	_videoStartTime = self.timePerFrame * [self originalTimeStamp];
+	_videoStartTime = self.timePerFrame * self.originalTimeStampFrame;
 	[self didChangeValueForKey:@"timeStampString"];
 	[self didChangeValueForKey:@"originalTimeStampString"];
 
@@ -162,7 +165,7 @@
 	}
 }
 
--(DWFrame)originalTimeStamp {
+-(DWFrame)originalTimeStampFrame {
 	DWFrame timeStampFrame = 0;
 	for (AVAssetTrack * track in [_asset tracks]) {
 		if ([[track mediaType] isEqualToString:AVMediaTypeTimecode]) {
@@ -219,7 +222,7 @@
 }
 
 -(NSString *)originalTimeStampString {
-	return [DWTimeCode stringFromFrame:[self originalTimeStamp] andType:self.type];
+	return [DWTimeCode stringFromFrame:self.originalTimeStampFrame andType:self.type];
 }
 
 -timeStampString {
