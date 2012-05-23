@@ -44,11 +44,18 @@
 
 	[self showControlPanel];
 	[self.window setAcceptsMouseMovedEvents:YES];
+	
+	NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"lastVideoFile"];
+	if (lastVideoFile != nil) {
+		DWLog(@"Trying to load %@", lastVideoFile);
+		[clock loadWithUrl:lastVideoFile];
+	}
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification {
 	[sony stop];
 }
+
 
 - (void)openDocument:(id)sender {
 	NSLog(@"openDocument");
@@ -63,7 +70,10 @@
 		 if (result==NSFileHandlingPanelOKButton)
 		 {
 			 DWLog(@"Loading %@", panel.URL);
-			 if (![clock loadWithUrl:panel.URL]) {
+			 if ([clock loadWithUrl:panel.URL]) {
+				 [[NSUserDefaults standardUserDefaults] setURL:panel.URL forKey:@"lastVideoFile"];
+			 }
+			 else {
 				 // TODO : add error message
 				 DWLog(@"error");
 			 }
