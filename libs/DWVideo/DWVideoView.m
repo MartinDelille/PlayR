@@ -17,6 +17,7 @@
 }
 
 -(void)setPlayer:(AVPlayer *)player {
+	[self setMainFrameURL:@"about:blank"];
 	self.wantsLayer = YES;
 	playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
 	playerLayer.frame = self.bounds;

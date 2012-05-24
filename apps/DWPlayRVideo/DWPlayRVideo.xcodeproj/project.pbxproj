@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58115AF7156E603E0006ABFC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58115AF6156E603E0006ABFC /* WebKit.framework */; };
+		58115B00156E60E20006ABFC /* bg.html in Resources */ = {isa = PBXBuildFile; fileRef = 58115AFD156E60E20006ABFC /* bg.html */; };
+		58115B01156E60E20006ABFC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 58115AFE156E60E20006ABFC /* logo.png */; };
+		58115B02156E60E20006ABFC /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 58115AFF156E60E20006ABFC /* style.css */; };
 		5843F8EF156CF5A90005B4E8 /* DWTimestampWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */; };
 		5843F8F0156CF5A90005B4E8 /* DWTimestampWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */; };
 		5843F8FA156D0CAD0005B4E8 /* libDWUserInterface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5843F8F9156D0CAD0005B4E8 /* libDWUserInterface.a */; };
@@ -30,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58115AF6156E603E0006ABFC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		58115AFD156E60E20006ABFC /* bg.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bg.html; sourceTree = "<group>"; };
+		58115AFE156E60E20006ABFC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		58115AFF156E60E20006ABFC /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		5843F8EC156CF5A90005B4E8 /* DWTimestampWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimestampWindowController.h; sourceTree = "<group>"; };
 		5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimestampWindowController.m; sourceTree = "<group>"; };
 		5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWTimestampWindowController.xib; sourceTree = "<group>"; };
@@ -37,7 +45,7 @@
 		5843F904156D31420005B4E8 /* playr.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = playr.icns; sourceTree = "<group>"; };
 		5843F906156D41920005B4E8 /* DWTimecodeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimecodeDatabase.h; sourceTree = "<group>"; };
 		5843F907156D41920005B4E8 /* DWTimecodeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimecodeDatabase.m; sourceTree = "<group>"; };
-		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWPlayRVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DWPlayRVideo.app; path = "Play'R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		585971221563F0630002C24A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		585971251563F0630002C24A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		585971261563F0630002C24A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -67,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58115AF7156E603E0006ABFC /* WebKit.framework in Frameworks */,
 				5843F8FA156D0CAD0005B4E8 /* libDWUserInterface.a in Frameworks */,
 				5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */,
 				5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */,
@@ -86,6 +95,9 @@
 		5843F903156D30F70005B4E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				58115AFD156E60E20006ABFC /* bg.html */,
+				58115AFE156E60E20006ABFC /* logo.png */,
+				58115AFF156E60E20006ABFC /* style.css */,
 				5843F904156D31420005B4E8 /* playr.icns */,
 			);
 			path = Resources;
@@ -94,6 +106,7 @@
 		585971131563F0630002C24A = {
 			isa = PBXGroup;
 			children = (
+				58115AF6156E603E0006ABFC /* WebKit.framework */,
 				5843F903156D30F70005B4E8 /* Resources */,
 				5859714F1563F25A0002C24A /* libs */,
 				585971281563F0630002C24A /* DWPlayRVideo */,
@@ -232,6 +245,9 @@
 				585971391563F0630002C24A /* MainMenu.xib in Resources */,
 				5843F8F0156CF5A90005B4E8 /* DWTimestampWindowController.xib in Resources */,
 				5843F905156D31420005B4E8 /* playr.icns in Resources */,
+				58115B00156E60E20006ABFC /* bg.html in Resources */,
+				58115B01156E60E20006ABFC /* logo.png in Resources */,
+				58115B02156E60E20006ABFC /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

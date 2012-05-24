@@ -49,10 +49,16 @@
 	[self showControlPanel];
 	[self.window setAcceptsMouseMovedEvents:YES];
 	
-	NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"lastVideoFile"];
-	if (lastVideoFile != nil) {
-		DWLog(@"Trying to load %@", lastVideoFile);
-		[clock loadWithUrl:lastVideoFile];
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ReloadLastFile"]) {
+		NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"lastVideoFile"];
+		if (lastVideoFile != nil) {
+			DWLog(@"Trying to load %@", lastVideoFile);
+			[clock loadWithUrl:lastVideoFile];
+		}		
+	}
+	else {
+		NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bg" ofType:@"html"]; 
+		[self.videoView setMainFrameURL:filePath];
 	}
 }
 
@@ -140,7 +146,7 @@
 	NSRect subFrameRect = self.controlPanel.frame;
 	NSRect frameRect = self.window.frame;
 	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
-	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/8;
+	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/32;
 	
 	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
 	[self.controlPanel orderFront:self];

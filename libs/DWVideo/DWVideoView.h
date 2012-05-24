@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <AVFoundation/AVFoundation.h>
+#import <WebKit/WebKit.h>
 
 /** The video view
  
  Display the video corresponding to a AVPlayer object.
  */
-@interface DWVideoView : NSView
+@interface DWVideoView : WebView
 
 /** 
  AVPlayer of the current video.
