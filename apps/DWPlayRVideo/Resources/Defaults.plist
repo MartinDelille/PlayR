@@ -8,5 +8,7 @@
 	<true/>
 	<key>VideoDelayCompensation</key>
 	<integer>0</integer>
+	<key>SonyRewindFastForwardSpeed</key>
+	<integer>10</integer>
 </dict>
 </plist>

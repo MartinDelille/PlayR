@@ -68,8 +68,7 @@
 	}
 	else {
 		self.syncStatusString = @"Connected";
-		// TODO: handle internal sync
-		clock.currentReference = sony;
+
 		sony.clock = clock;
 		
 		[sony start];
@@ -152,8 +151,7 @@
 }
 
 - (IBAction)rewind:(id)sender {
-	// TODO : parameter this
-	clock.rate = -10;
+	clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
 }
 
 - (IBAction)reversePlay:(id)sender {
@@ -178,8 +176,7 @@
 }
 
 - (IBAction)fastForward:(id)sender {
-	// TODO : parameter this
-	clock.rate = 10;
+	clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
 }
 
 -(void)updateControlPanelPosition:(NSNotification*)note {
