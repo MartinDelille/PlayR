@@ -41,8 +41,8 @@ typedef enum {
 }
 
 -(void)boolEvent:(BOOL)b {
-	// TODO allow configuration cts down or up
-	if (b) {
+	BOOL syncOnCTSUp = [[NSUserDefaults standardUserDefaults] boolForKey:@"SonySyncOnCTSUp"];
+	if (b== syncOnCTSUp) {
 		[self.clock tickFrame:self];
 	}
 }

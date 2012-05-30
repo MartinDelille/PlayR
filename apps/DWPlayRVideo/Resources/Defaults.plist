@@ -10,5 +10,7 @@
 	<integer>0</integer>
 	<key>SonyRewindFastForwardSpeed</key>
 	<integer>10</integer>
+	<key>SonySyncOnCTSUp</key>
+	<true/>
 </dict>
 </plist>
