@@ -6,5 +6,7 @@
 	<string>Video</string>
 	<key>ReloadLastFile</key>
 	<true/>
+	<key>VideoDelayCompensation</key>
+	<integer>0</integer>
 </dict>
 </plist>

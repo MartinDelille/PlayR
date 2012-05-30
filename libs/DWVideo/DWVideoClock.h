@@ -60,8 +60,6 @@ typedef enum {
 @property(readonly) DWFrame originalTimeStampFrame;
 @property(readonly) NSString * originalTimeStampString;
 
-@property NSTimeInterval videoDelayCompensation;
-
 @property (readonly) NSString * visibleTimecodeString;
 
 -(void)updateTimestampWithCurrentTimecodeString:(NSString*)currentTCString;

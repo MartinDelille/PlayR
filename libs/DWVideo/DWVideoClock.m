@@ -23,7 +23,6 @@
 @synthesize videoFrameRate;
 @synthesize videoResolution;
 @synthesize videoCodec;
-@synthesize videoDelayCompensation;
 
 -(AVPlayer*)player {
 	return _player;
@@ -135,7 +134,8 @@
 }
 
 -(DWTime)videoDelayCompensationTime {
-	return self.videoDelayCompensation * DWTIMESCALE * self.rate;
+	NSTimeInterval videoDelayCompensation = [[NSUserDefaults standardUserDefaults] doubleForKey:@"VideoDelayCompensation"];
+	return videoDelayCompensation * DWTIMESCALE * self.rate;
 }
 
 -(void)setTime:(DWTime)time {
