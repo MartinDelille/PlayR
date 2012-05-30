@@ -27,24 +27,33 @@
 
 -(void)tickFrame {
 	NSTimeInterval interval = -[clock.lastTickDate timeIntervalSinceNow];
-	if (interval < 0.05) {
-		self.refStatusString = @"Good";
-	}
-	else if (interval < 1) {
-		self.refStatusString = @"Bad";
+	
+	NSString * referenceOrigin = [[NSUserDefaults standardUserDefaults] stringForKey:@"ReferenceOrigin"];
+	
+	if ([referenceOrigin isEqualToString:@"Video"]) {
+		clock.currentReference = sony;
+		if (interval < 0.05) {
+			self.refStatusString = @"Good";
+		}
+		else if (interval < 1) {
+			self.refStatusString = @"Bad";
+		}
+		else {
+			self.refStatusString = @"No signal";
+		}
 	}
 	else {
-		self.refStatusString = @"No signal";
+		clock.currentReference = self;
+		[clock tickFrame:self];
+		self.refStatusString = @"Internal";
 	}
-	[clock tickFrame:self];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Setting default value :
-	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"ReloadLastFile"] == nil)
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ReloadLastFile"];
-
+	// Load default defaults
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
