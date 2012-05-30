@@ -19,7 +19,7 @@
 @property (weak) IBOutlet DWVideoClock *clock;
 @property (unsafe_unretained) IBOutlet NSPanel *preferencesPanel;
 @property NSString * syncStatusString;
-
+@property NSString * refStatusString;
 
 - (IBAction)rewind:(id)sender;
 - (IBAction)reversePlay:(id)sender;

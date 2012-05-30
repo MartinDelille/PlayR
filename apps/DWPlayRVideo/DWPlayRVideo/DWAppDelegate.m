@@ -23,6 +23,21 @@
 @synthesize clock;
 @synthesize preferencesPanel;
 @synthesize syncStatusString;
+@synthesize refStatusString;
+
+-(void)tickFrame {
+	NSTimeInterval interval = -[clock.lastTickDate timeIntervalSinceNow];
+	if (interval < 0.05) {
+		self.refStatusString = @"Good";
+	}
+	else if (interval < 1) {
+		self.refStatusString = @"Bad";
+	}
+	else {
+		self.refStatusString = @"No signal";
+	}
+	[clock tickFrame:self];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -45,8 +60,7 @@
 		sony.clock = clock;
 		
 		[sony start];
-	}
-	
+	}	
 	
 	self.videoView.mainController = self;
 	self.videoView.player = clock.player;
@@ -69,6 +83,11 @@
 		NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bg" ofType:@"html"]; 
 		[self.videoView setMainFrameURL:filePath];
 	}
+	
+	self.refStatusString = @"Bad";
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:nil repeats:YES];	
+	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification {
