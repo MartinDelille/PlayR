@@ -41,6 +41,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	// Setting default value :
+	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"ReloadLastFile"] == nil)
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ReloadLastFile"];
+
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
