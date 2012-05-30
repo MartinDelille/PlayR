@@ -22,22 +22,31 @@
 @synthesize currentTCText;
 @synthesize clock;
 @synthesize preferencesPanel;
+@synthesize syncStatusString;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	sony = [[DWSonySlaveController alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
 	[self.window addChildWindow:controlPanel ordered:NSWindowAbove];
-
-	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 	
-	// TODO: handle internal sync
-	clock.currentReference = sony;
-	sony.clock = clock;
+	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 
-	[sony start];
+	self.syncStatusString = @"Connecting...";
+	sony = [[DWSonySlaveController alloc] init];
+	if (sony == nil) {
+		self.syncStatusString = @"Not connected";
+	}
+	else {
+		self.syncStatusString = @"Connected";
+		// TODO: handle internal sync
+		clock.currentReference = sony;
+		sony.clock = clock;
+		
+		[sony start];
+	}
+	
 	
 	self.videoView.mainController = self;
 	self.videoView.player = clock.player;
@@ -150,7 +159,6 @@
 	
 	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
 	[self.controlPanel orderFront:self];
-	
 }
 
 -(void)showControlPanel {

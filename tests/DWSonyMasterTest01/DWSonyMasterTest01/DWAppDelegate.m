@@ -35,14 +35,19 @@
 	clock = [[DWClock alloc] init];
 	
 	sony = [[DWSonyMasterController alloc] init];
-	sony.clock = clock;
+	if (sony != nil) {
+		sony.clock = clock;
 	
-//	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueChangeSetting context:nil];
+//		[clock addObserver:self forKeyPath:@"time" options:NSKeyValueChangeSetting context:nil];
 	
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(check) userInfo:nil repeats:YES];
+		NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(check) userInfo:nil repeats:YES];
 	
-	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+		NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+		[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+	}
+	else {
+		self.txtStatus0.stringValue = @"Not connected";
+	}
 }
 
 - (IBAction)play:(id)sender {

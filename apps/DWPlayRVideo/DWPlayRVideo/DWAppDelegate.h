@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSTextField *currentTCText;
 @property (weak) IBOutlet DWVideoClock *clock;
 @property (unsafe_unretained) IBOutlet NSPanel *preferencesPanel;
+@property NSString * syncStatusString;
 
 
 - (IBAction)rewind:(id)sender;
