@@ -8,9 +8,11 @@
 
 #import "DWClock.h"
 
-@implementation DWClock
+@implementation DWClock {
+	DWTime _time;
+}
 
-@synthesize time;
+
 @synthesize rate;
 @synthesize type;
 @synthesize lastTickDate = _lastTickDate;
@@ -18,7 +20,7 @@
 
 -(id)init {
 	self = [super init];
-	time = 0;
+	_time = 0;
 	self.type = kDWTimeCode25;
 	rate = 0.0;
 	_lastTickDate = [NSDate dateWithTimeIntervalSince1970:0];
@@ -37,6 +39,18 @@
 		case kDWTimeCode2997:
 			return DWTC2997FRAMEDURATION;
 	}
+}
+
+-(void)setTime:(DWTime)time {
+	[self willChangeValueForKey:@"frame"];
+	[self willChangeValueForKey:@"tcString"];
+	_time = time;
+	[self didChangeValueForKey:@"tcString"];
+	[self didChangeValueForKey:@"frame"];
+}
+
+-(DWTime)time {
+	return _time;
 }
 
 -(void)setFrame:(DWFrame)frame {

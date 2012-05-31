@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DWClocking/DWClock.h"
 
 /** Main DWSonyTest02 controller
  
@@ -20,14 +21,6 @@
  The main window
  */
 @property (assign) IBOutlet NSWindow *window;
-/** 
- The current rate text field
- */
-@property (weak) IBOutlet NSTextField *currentRateText;
-/** /Users/martindelille/Dropbox/code/PlayR/tests/DWSonyMasterTest01/DWSonyMasterTest01/DWAppDelegate.h
- The current timecode text field
- */
-@property (weak) IBOutlet NSTextField *currentTCText;
 
 /** 
  Display the status data.
@@ -43,5 +36,6 @@
  Display the sync quality.
  */
 @property (weak) IBOutlet NSTextField *txtSyncState;
+@property (weak) IBOutlet DWClock *clock;
 
 @end
