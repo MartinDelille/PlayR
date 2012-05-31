@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		581C8B911577809800A8FBC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581C8B901577809700A8FBC7 /* Cocoa.framework */; };
+		581C8B9B1577809800A8FBC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 581C8B991577809800A8FBC7 /* InfoPlist.strings */; };
+		581C8B9D1577809800A8FBC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 581C8B9C1577809800A8FBC7 /* main.m */; };
+		581C8BA11577809800A8FBC7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 581C8B9F1577809800A8FBC7 /* Credits.rtf */; };
+		581C8BA41577809800A8FBC7 /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 581C8BA31577809800A8FBC7 /* DWAppDelegate.m */; };
+		581C8BA71577809800A8FBC7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581C8BA51577809800A8FBC7 /* MainMenu.xib */; };
+		581C8BB71577816C00A8FBC7 /* libAMSerialPort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 581C8BB51577816C00A8FBC7 /* libAMSerialPort.a */; };
+		581C8BB81577816C00A8FBC7 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 581C8BB61577816C00A8FBC7 /* libDWTools.a */; };
+		581C8BBA1577817400A8FBC7 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581C8BB91577817400A8FBC7 /* IOKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		581C8B8C1577809700A8FBC7 /* DWSerialText03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSerialText03.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		581C8B901577809700A8FBC7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		581C8B931577809800A8FBC7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		581C8B941577809800A8FBC7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		581C8B951577809800A8FBC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		581C8B981577809800A8FBC7 /* DWSerialText03-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWSerialText03-Info.plist"; sourceTree = "<group>"; };
+		581C8B9A1577809800A8FBC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		581C8B9C1577809800A8FBC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		581C8B9E1577809800A8FBC7 /* DWSerialText03-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWSerialText03-Prefix.pch"; sourceTree = "<group>"; };
+		581C8BA01577809800A8FBC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		581C8BA21577809800A8FBC7 /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
+		581C8BA31577809800A8FBC7 /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
+		581C8BA61577809800A8FBC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		581C8BB51577816C00A8FBC7 /* libAMSerialPort.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAMSerialPort.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug/libAMSerialPort.a"; sourceTree = "<group>"; };
+		581C8BB61577816C00A8FBC7 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		581C8BB91577817400A8FBC7 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		581C8B891577809700A8FBC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				581C8BBA1577817400A8FBC7 /* IOKit.framework in Frameworks */,
+				581C8BB71577816C00A8FBC7 /* libAMSerialPort.a in Frameworks */,
+				581C8BB81577816C00A8FBC7 /* libDWTools.a in Frameworks */,
+				581C8B911577809800A8FBC7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		581C8B811577809700A8FBC7 = {
+			isa = PBXGroup;
+			children = (
+				581C8BB91577817400A8FBC7 /* IOKit.framework */,
+				581C8BB51577816C00A8FBC7 /* libAMSerialPort.a */,
+				581C8BB61577816C00A8FBC7 /* libDWTools.a */,
+				581C8B961577809800A8FBC7 /* DWSerialText03 */,
+				581C8B8F1577809700A8FBC7 /* Frameworks */,
+				581C8B8D1577809700A8FBC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		581C8B8D1577809700A8FBC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				581C8B8C1577809700A8FBC7 /* DWSerialText03.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		581C8B8F1577809700A8FBC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				581C8B901577809700A8FBC7 /* Cocoa.framework */,
+				581C8B921577809800A8FBC7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		581C8B921577809800A8FBC7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				581C8B931577809800A8FBC7 /* AppKit.framework */,
+				581C8B941577809800A8FBC7 /* CoreData.framework */,
+				581C8B951577809800A8FBC7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		581C8B961577809800A8FBC7 /* DWSerialText03 */ = {
+			isa = PBXGroup;
+			children = (
+				581C8BA21577809800A8FBC7 /* DWAppDelegate.h */,
+				581C8BA31577809800A8FBC7 /* DWAppDelegate.m */,
+				581C8BA51577809800A8FBC7 /* MainMenu.xib */,
+				581C8B971577809800A8FBC7 /* Supporting Files */,
+			);
+			path = DWSerialText03;
+			sourceTree = "<group>";
+		};
+		581C8B971577809800A8FBC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				581C8B981577809800A8FBC7 /* DWSerialText03-Info.plist */,
+				581C8B991577809800A8FBC7 /* InfoPlist.strings */,
+				581C8B9C1577809800A8FBC7 /* main.m */,
+				581C8B9E1577809800A8FBC7 /* DWSerialText03-Prefix.pch */,
+				581C8B9F1577809800A8FBC7 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		581C8B8B1577809700A8FBC7 /* DWSerialText03 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 581C8BAA1577809800A8FBC7 /* Build configuration list for PBXNativeTarget "DWSerialText03" */;
+			buildPhases = (
+				581C8B881577809700A8FBC7 /* Sources */,
+				581C8B891577809700A8FBC7 /* Frameworks */,
+				581C8B8A1577809700A8FBC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWSerialText03;
+			productName = DWSerialText03;
+			productReference = 581C8B8C1577809700A8FBC7 /* DWSerialText03.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		581C8B831577809700A8FBC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Dubware;
+			};
+			buildConfigurationList = 581C8B861577809700A8FBC7 /* Build configuration list for PBXProject "DWSerialText03" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 581C8B811577809700A8FBC7;
+			productRefGroup = 581C8B8D1577809700A8FBC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				581C8B8B1577809700A8FBC7 /* DWSerialText03 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		581C8B8A1577809700A8FBC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				581C8B9B1577809800A8FBC7 /* InfoPlist.strings in Resources */,
+				581C8BA11577809800A8FBC7 /* Credits.rtf in Resources */,
+				581C8BA71577809800A8FBC7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		581C8B881577809700A8FBC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				581C8B9D1577809800A8FBC7 /* main.m in Sources */,
+				581C8BA41577809800A8FBC7 /* DWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		581C8B991577809800A8FBC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				581C8B9A1577809800A8FBC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		581C8B9F1577809800A8FBC7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				581C8BA01577809800A8FBC7 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		581C8BA51577809800A8FBC7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				581C8BA61577809800A8FBC7 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		581C8BA81577809800A8FBC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Debug;
+		};
+		581C8BA91577809800A8FBC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
+			};
+			name = Release;
+		};
+		581C8BAB1577809800A8FBC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSerialText03/DWSerialText03-Prefix.pch";
+				INFOPLIST_FILE = "DWSerialText03/DWSerialText03-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		581C8BAC1577809800A8FBC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DWSerialText03/DWSerialText03-Prefix.pch";
+				INFOPLIST_FILE = "DWSerialText03/DWSerialText03-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/SerialTest-glxodxhijqymcdfsnqbssgbleifm/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		581C8B861577809700A8FBC7 /* Build configuration list for PBXProject "DWSerialText03" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				581C8BA81577809800A8FBC7 /* Debug */,
+				581C8BA91577809800A8FBC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		581C8BAA1577809800A8FBC7 /* Build configuration list for PBXNativeTarget "DWSerialText03" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				581C8BAB1577809800A8FBC7 /* Debug */,
+				581C8BAC1577809800A8FBC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 581C8B831577809700A8FBC7 /* Project object */;
+}

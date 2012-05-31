@@ -16,7 +16,6 @@ int main(int argc, const char * argv[])
 {
 
 	@autoreleasepool {
-		[DWLogger configureDisplay:NO showTime:YES showFile:NO showFunc:NO];
 		DWLog(@"SerialTest02");
 		NSArray * portList = [[AMSerialPortList sharedPortList] serialPorts];
 		AMSerialPort * port = nil;

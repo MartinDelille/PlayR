@@ -12,13 +12,16 @@
       </FileRef>
    </Group>
    <Group
-      location = "container:"
+      location = "container:../tests"
       name = "tests">
       <FileRef
          location = "group:../tests/SerialTest01/SerialTest01.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:../tests/DWSerialTest02/DWSerialTest02.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../tests/DWSerialText03/DWSerialText03.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>
