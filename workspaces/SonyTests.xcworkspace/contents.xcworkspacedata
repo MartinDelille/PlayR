@@ -35,5 +35,8 @@
       <FileRef
          location = "group:DWSonyVideoTest01/DWSonyVideoTest01.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:DWSonyTest03/DWSonyTest03.xcodeproj">
+      </FileRef>
    </Group>
 </Workspace>
