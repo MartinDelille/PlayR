@@ -15,13 +15,17 @@
 
 @synthesize clock;
 
+-(void)tick:(NSNumber*)time {
+	[self.clock tick:self withInterval:time.longLongValue];
+}
+
 static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeStamp* now, const CVTimeStamp* outputTime,
 									  CVOptionFlags flagsIn, CVOptionFlags* flagsOut, void* displayLinkContext)
 {
 	@autoreleasepool {
 		DWVSyncReference * ref = (__bridge DWVSyncReference*)displayLinkContext;;
-		DWTime interval = outputTime->videoRefreshPeriod * DWTIMESCALE / outputTime->videoTimeScale;
-		[ref.clock tick:ref withInterval:interval];
+		NSNumber * interval = [NSNumber numberWithLongLong:outputTime->videoRefreshPeriod * DWTIMESCALE / outputTime->videoTimeScale];
+		[ref performSelectorOnMainThread:@selector(tick:) withObject:interval waitUntilDone:YES];
 	}
     return kCVReturnSuccess;
 }

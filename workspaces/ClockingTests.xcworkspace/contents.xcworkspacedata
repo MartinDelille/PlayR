@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <Group
-      location = "container:"
+      location = "container:../libs"
       name = "libs">
       <FileRef
          location = "group:../libs/DWTools/DWTools.xcodeproj">
@@ -12,13 +12,16 @@
       </FileRef>
    </Group>
    <Group
-      location = "container:"
+      location = "container:../tests"
       name = "tests">
       <FileRef
          location = "group:../tests/DWTimeCodePlayer/DWTimeCodePlayer.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:../tests/DWClockingTest01/DWClockingTest01.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DWClockingTest02/DWClockingTest02.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>

@@ -13,6 +13,9 @@
 		58A319F7157930F200FCD9E5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58A319F5157930F200FCD9E5 /* Credits.rtf */; };
 		58A319FA157930F200FCD9E5 /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A319F9157930F200FCD9E5 /* DWAppDelegate.m */; };
 		58A319FD157930F200FCD9E5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58A319FB157930F200FCD9E5 /* MainMenu.xib */; };
+		58A31A05157930FD00FCD9E5 /* libDWClocking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A31A03157930FD00FCD9E5 /* libDWClocking.a */; };
+		58A31A06157930FD00FCD9E5 /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A31A04157930FD00FCD9E5 /* libDWTools.a */; };
+		58A31A0C1579349500FCD9E5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A31A0B1579349500FCD9E5 /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,17 @@
 		58A319E9157930F200FCD9E5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		58A319EA157930F200FCD9E5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		58A319EB157930F200FCD9E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		58A319EE157930F200FCD9E5 /* DWClockingTest02-Info.plist */ = {isa = PBXFileReference; path = "DWClockingTest02-Info.plist"; sourceTree = "<group>"; };
+		58A319EE157930F200FCD9E5 /* DWClockingTest02-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWClockingTest02-Info.plist"; sourceTree = "<group>"; };
 		58A319F0157930F200FCD9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58A319F2157930F200FCD9E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		58A319F4157930F200FCD9E5 /* DWClockingTest02-Prefix.pch */ = {isa = PBXFileReference; path = "DWClockingTest02-Prefix.pch"; sourceTree = "<group>"; };
+		58A319F4157930F200FCD9E5 /* DWClockingTest02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWClockingTest02-Prefix.pch"; sourceTree = "<group>"; };
 		58A319F6157930F200FCD9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		58A319F8157930F200FCD9E5 /* DWAppDelegate.h */ = {isa = PBXFileReference; path = DWAppDelegate.h; sourceTree = "<group>"; };
+		58A319F8157930F200FCD9E5 /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
 		58A319F9157930F200FCD9E5 /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
 		58A319FC157930F200FCD9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58A31A03157930FD00FCD9E5 /* libDWClocking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWClocking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug/libDWClocking.a"; sourceTree = "<group>"; };
+		58A31A04157930FD00FCD9E5 /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		58A31A0B1579349500FCD9E5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A31A0C1579349500FCD9E5 /* CoreVideo.framework in Frameworks */,
+				58A31A05157930FD00FCD9E5 /* libDWClocking.a in Frameworks */,
+				58A31A06157930FD00FCD9E5 /* libDWTools.a in Frameworks */,
 				58A319E7157930F200FCD9E5 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +55,9 @@
 		58A319D7157930F200FCD9E5 = {
 			isa = PBXGroup;
 			children = (
+				58A31A0B1579349500FCD9E5 /* CoreVideo.framework */,
+				58A31A03157930FD00FCD9E5 /* libDWClocking.a */,
+				58A31A04157930FD00FCD9E5 /* libDWTools.a */,
 				58A319EC157930F200FCD9E5 /* DWClockingTest02 */,
 				58A319E5157930F200FCD9E5 /* Frameworks */,
 				58A319E3157930F200FCD9E5 /* Products */,
@@ -226,6 +238,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Debug;
 		};
@@ -246,6 +259,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Release;
 		};
@@ -255,6 +269,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingTest02/DWClockingTest02-Prefix.pch";
 				INFOPLIST_FILE = "DWClockingTest02/DWClockingTest02-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -266,6 +285,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingTest02/DWClockingTest02-Prefix.pch";
 				INFOPLIST_FILE = "DWClockingTest02/DWClockingTest02-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
