@@ -24,7 +24,7 @@
 	
 	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame:) userInfo:nil repeats:YES];
 	
-//	clock.currentReference = frameTimer;
+	clock.currentReference = frameTimer;
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 }
