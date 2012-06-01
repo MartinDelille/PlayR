@@ -7,8 +7,11 @@
 //
 
 #import "DWAppDelegate.h"
+#import "DWClocking/DWInternalReference.h"
 
-@implementation DWAppDelegate
+@implementation DWAppDelegate {
+	DWInternalReference * internalRef;
+}
 
 @synthesize clock = _clock;
 
@@ -20,11 +23,15 @@
 	
 	self.clock.tcString = @"01:00:00:00";
 
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self.clock selector:@selector(tickFrame:) userInfo:nil repeats:YES];
-	
-	self.clock.currentReference = frameTimer;
-	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
+	internalRef = [[DWInternalReference alloc] initWithClock:self.clock];
+	self.clock.currentReference = internalRef;
+	[internalRef start];
+	NSLog(@"%@", internalRef);
+	NSLog(@"%@", self.clock.currentReference);
+}
+
+-(void)applicationWillTerminate:(NSNotification *)notification {
+	[internalRef stop];
 }
 
 - (IBAction)stop:(id)sender {
