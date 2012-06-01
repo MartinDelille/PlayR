@@ -1,5 +1,5 @@
 //
-//  DWReference.h
+//  DWVSyncReference.h
 //  DWClocking
 //
 //  Created by Martin Delille on 01/06/12.
@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DWClock.h"
+#import "DWReference.h"
 
-@protocol DWReference <NSObject>
+@interface DWVSyncReference : NSObject<DWReference>
 
-@property DWClock * clock;
-
--(void)start;
--(void)stop;
+@property DWClock* clock;
 
 @end

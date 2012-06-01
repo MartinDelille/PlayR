@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		58A319B91579228200FCD9E5 /* DWInternalReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A319B71579228200FCD9E5 /* DWInternalReference.h */; };
 		58A319BA1579228200FCD9E5 /* DWInternalReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A319B81579228200FCD9E5 /* DWInternalReference.m */; };
+		58A319C21579284100FCD9E5 /* DWVSyncReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A319C01579284100FCD9E5 /* DWVSyncReference.h */; };
+		58A319C31579284100FCD9E5 /* DWVSyncReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A319C11579284100FCD9E5 /* DWVSyncReference.m */; };
 		58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */; };
 		58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */; };
 		58ADAB271546EA0900C9C40E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAB261546EA0900C9C40E /* SenTestingKit.framework */; };
@@ -26,6 +28,8 @@
 		58A319B71579228200FCD9E5 /* DWInternalReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWInternalReference.h; sourceTree = "<group>"; };
 		58A319B81579228200FCD9E5 /* DWInternalReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWInternalReference.m; sourceTree = "<group>"; };
 		58A319BB1579231F00FCD9E5 /* DWReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWReference.h; sourceTree = "<group>"; };
+		58A319C01579284100FCD9E5 /* DWVSyncReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWVSyncReference.h; sourceTree = "<group>"; };
+		58A319C11579284100FCD9E5 /* DWVSyncReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWVSyncReference.m; sourceTree = "<group>"; };
 		58ADAB1A1546E53B00C9C40E /* DWTimeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimeCode.h; sourceTree = "<group>"; };
 		58ADAB1B1546E53B00C9C40E /* DWTimeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimeCode.m; sourceTree = "<group>"; };
 		58ADAB251546EA0900C9C40E /* DWClockingUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWClockingUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,8 @@
 		58D6CAA01539A64D00CAB720 = {
 			isa = PBXGroup;
 			children = (
+				58A319C01579284100FCD9E5 /* DWVSyncReference.h */,
+				58A319C11579284100FCD9E5 /* DWVSyncReference.m */,
 				58A319BB1579231F00FCD9E5 /* DWReference.h */,
 				58A319B71579228200FCD9E5 /* DWInternalReference.h */,
 				58A319B81579228200FCD9E5 /* DWInternalReference.m */,
@@ -163,6 +169,7 @@
 				58C064B51540866100370618 /* DWClock.h in Headers */,
 				58ADAB1C1546E53B00C9C40E /* DWTimeCode.h in Headers */,
 				58A319B91579228200FCD9E5 /* DWInternalReference.h in Headers */,
+				58A319C21579284100FCD9E5 /* DWVSyncReference.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +281,7 @@
 				58C064B61540866100370618 /* DWClock.m in Sources */,
 				58ADAB1D1546E53B00C9C40E /* DWTimeCode.m in Sources */,
 				58A319BA1579228200FCD9E5 /* DWInternalReference.m in Sources */,
+				58A319C31579284100FCD9E5 /* DWVSyncReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

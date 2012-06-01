@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58252480154C987700A1CE5F /* libDWTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5825247F154C987700A1CE5F /* libDWTools.a */; };
+		58A319C5157929BD00FCD9E5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A319C4157929BD00FCD9E5 /* CoreVideo.framework */; };
 		58ADAAF71546D96E00C9C40E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADAAF61546D96E00C9C40E /* Cocoa.framework */; };
 		58ADAB011546D96E00C9C40E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58ADAAFF1546D96E00C9C40E /* InfoPlist.strings */; };
 		58ADAB031546D96E00C9C40E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADAB021546D96E00C9C40E /* main.m */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5825247F154C987700A1CE5F /* libDWTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWTools.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ClockingTests-apdzghgnfpreoifbdxnftlzodozm/Build/Products/Debug/libDWTools.a"; sourceTree = "<group>"; };
+		58A319C4157929BD00FCD9E5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		58ADAAF21546D96E00C9C40E /* DWTimeCodePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWTimeCodePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58ADAAF61546D96E00C9C40E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58ADAAF91546D96E00C9C40E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A319C5157929BD00FCD9E5 /* CoreVideo.framework in Frameworks */,
 				58252480154C987700A1CE5F /* libDWTools.a in Frameworks */,
 				58ADAB171546DD1F00C9C40E /* libDWClocking.a in Frameworks */,
 				58ADAAF71546D96E00C9C40E /* Cocoa.framework in Frameworks */,
@@ -52,6 +55,7 @@
 		58ADAAE71546D96E00C9C40E = {
 			isa = PBXGroup;
 			children = (
+				58A319C4157929BD00FCD9E5 /* CoreVideo.framework */,
 				5825247F154C987700A1CE5F /* libDWTools.a */,
 				58ADAB161546DD1F00C9C40E /* libDWClocking.a */,
 				58ADAAFC1546D96E00C9C40E /* DWTimeCodePlayer */,

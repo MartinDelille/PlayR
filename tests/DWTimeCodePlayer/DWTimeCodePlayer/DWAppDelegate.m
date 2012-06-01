@@ -7,10 +7,10 @@
 //
 
 #import "DWAppDelegate.h"
-#import "DWClocking/DWInternalReference.h"
+#import "DWClocking/DWVSyncReference.h"
 
 @implementation DWAppDelegate {
-	DWInternalReference * internalRef;
+	NSObject<DWReference> * internalRef;
 }
 
 @synthesize clock = _clock;
@@ -23,7 +23,9 @@
 	
 	self.clock.tcString = @"01:00:00:00";
 
-	internalRef = [[DWInternalReference alloc] initWithClock:self.clock];
+//	internalRef = [[DWInternalReference alloc] initWithClock:self.clock];
+	internalRef = [[DWVSyncReference alloc] init];
+	internalRef.clock = self.clock;
 	self.clock.currentReference = internalRef;
 	[internalRef start];
 	NSLog(@"%@", internalRef);

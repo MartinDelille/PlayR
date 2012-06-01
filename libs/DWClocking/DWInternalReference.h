@@ -16,7 +16,4 @@
 
 -(id)initWithClock:(DWClock*)aClock;
 
--(void)start;
--(void)stop;
-
 @end
