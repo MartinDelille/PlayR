@@ -22,8 +22,9 @@
 	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
 	clock.tcString = @"01:00:00:00";
 	
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame) userInfo:nil repeats:YES];
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame:) userInfo:nil repeats:YES];
 	
+//	clock.currentReference = frameTimer;
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 }
