@@ -19,16 +19,12 @@
 /** 
  The main clock component
  */
-@property DWClock * clock;
+@property (weak) IBOutlet DWClock *clock;
 
 /** 
  The main window.
  */
 @property (assign) IBOutlet NSWindow *window;
-/** 
- The current tc text field.
- */
-@property (weak) IBOutlet NSTextField *tcText;
 
 /** 
  Stop the clock

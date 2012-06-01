@@ -10,54 +10,47 @@
 
 @implementation DWAppDelegate
 
-@synthesize clock;
+@synthesize clock = _clock;
+
 @synthesize window = _window;
-@synthesize tcText = _tcText;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// TODO: handle tc type
-	clock = [[DWClock alloc] init];
 	
-	[clock addObserver:self forKeyPath:@"time" options:NSKeyValueObservingOptionNew context:nil];
-	clock.tcString = @"01:00:00:00";
+	self.clock.tcString = @"01:00:00:00";
+
+	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self.clock selector:@selector(tickFrame:) userInfo:nil repeats:YES];
 	
-	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:clock selector:@selector(tickFrame:) userInfo:nil repeats:YES];
-	
-	clock.currentReference = frameTimer;
+	self.clock.currentReference = frameTimer;
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (IBAction)stop:(id)sender {
-	clock.rate = 0;
+	self.clock.rate = 0;
 }
 
 - (IBAction)play:(id)sender {
-	clock.rate = 1;
+	self.clock.rate = 1;
 }
 
 - (IBAction)nextFrame:(id)sender {
-	clock.rate = 0;
-	clock.frame++;
+	self.clock.rate = 0;
+	self.clock.frame++;
 }
 
 - (IBAction)previousFrame:(id)sender {
-	clock.rate = 0;
-	clock.frame--;
+	self.clock.rate = 0;
+	self.clock.frame--;
 }
 
 - (IBAction)rewind:(id)sender {
-	clock.rate = -10;
+	self.clock.rate = -10;
 }
 
 - (IBAction)fastForward:(id)sender {
-	clock.rate = 10;
+	self.clock.rate = 10;
 }
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	self.tcText.stringValue = clock.tcString;
-}			
-
 
 @end
