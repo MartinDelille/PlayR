@@ -71,11 +71,4 @@
  */
 -(void)statusSense;
 
-/** 
- Process answer from the connected device. 
- In case of ACK do nothing.
- In case of time or status data, update the clock and status accordingly.
- */
--(void)processAnswer;
-
 @end

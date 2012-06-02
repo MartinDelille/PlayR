@@ -46,11 +46,12 @@ typedef enum {
  Configure the output option for the log.
  @param showDate Show the current date
  @param showTime Show the current time
+ @param showThread Show the thread from which the log is performed
  @param showFile Show the file from which the log is performed
  @param showFunc Show the function from which the log is performed
  @param showLine Show the line number from which the log is performed
  */
-+(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine;
++(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showThread:(BOOL)showThread showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine;
 
 /** 
  Log a message to the log output

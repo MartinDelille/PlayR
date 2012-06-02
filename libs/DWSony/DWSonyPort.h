@@ -39,7 +39,7 @@
  @param data The buffer containing the command data.
  @return NO if an error occured.
  */
--(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data;
+-(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(const unsigned char *)data;
 
 /**
  Send a command and its associated data as a list of unsigned char value.

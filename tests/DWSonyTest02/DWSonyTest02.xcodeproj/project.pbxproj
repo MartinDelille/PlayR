@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5804E30C157A3223006261FA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804E30B157A3223006261FA /* CoreVideo.framework */; };
 		58ADABB11547163700C9C40E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58ADABB01547163700C9C40E /* Cocoa.framework */; };
 		58ADABBB1547163700C9C40E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58ADABB91547163700C9C40E /* InfoPlist.strings */; };
 		58ADABBD1547163700C9C40E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ADABBC1547163700C9C40E /* main.m */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5804E30B157A3223006261FA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		58ADABAC1547163700C9C40E /* DWSonyTest02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyTest02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58ADABB01547163700C9C40E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58ADABB31547163700C9C40E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5804E30C157A3223006261FA /* CoreVideo.framework in Frameworks */,
 				58ADABE01547289E00C9C40E /* IOKit.framework in Frameworks */,
 				58ADABD11547182000C9C40E /* libAMSerialPort.a in Frameworks */,
 				58ADABD21547182000C9C40E /* libDWClocking.a in Frameworks */,
@@ -61,6 +64,7 @@
 		58ADABA11547163600C9C40E = {
 			isa = PBXGroup;
 			children = (
+				5804E30B157A3223006261FA /* CoreVideo.framework */,
 				58ADABD51547182600C9C40E /* libs */,
 				58ADABB61547163700C9C40E /* DWSonyTest02 */,
 				58ADABAF1547163700C9C40E /* Frameworks */,

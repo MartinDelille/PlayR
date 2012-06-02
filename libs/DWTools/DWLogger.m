@@ -14,7 +14,7 @@ static DWLogger * _singleton;
 	DWLogLevel level;
 	NSString * currentLogFileName;
 	FILE * output;
-	BOOL _showFile, _showFunc, _showLine, _showDate;
+	BOOL _showThread, _showFile, _showFunc, _showLine, _showDate;
 	NSDateFormatter *dateFormatter;
 }
 
@@ -23,6 +23,7 @@ static DWLogger * _singleton;
 	level = kDWLogLevelBasic;
 	output = stdout;
 	currentLogFileName = nil;
+	_showThread = NO;
 	_showFile = NO;
 	_showFunc = YES;
 	_showLine = YES;
@@ -72,7 +73,7 @@ static DWLogger * _singleton;
 }
 
 
--(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
+-(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showThread:(BOOL)showThread showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
 	_showDate = showDate || showTime;
 	
 	if (showDate && showTime) {
@@ -84,13 +85,14 @@ static DWLogger * _singleton;
 	else if (showTime) {
 		[dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
 	}
+	_showThread = showThread;
 	_showFile = showFile;
 	_showFunc = showFunc;
 	_showLine = showLine;
 }
 
-+(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
-	[[DWLogger singleton] configureDisplay:showDate showTime:showTime showFile:showFile showFunc:showFunc showLine:showLine];	
++(void)configureDisplay:(BOOL)showDate showTime:(BOOL)showTime showThread:(BOOL)showThread showFile:(BOOL)showFile showFunc:(BOOL)showFunc showLine:(BOOL)showLine {
+	[[DWLogger singleton] configureDisplay:showDate showTime:showTime showThread:showThread showFile:showFile showFunc:showFunc showLine:showLine];	
 }
 
 -(void)log:(DWLogLevel)aLevel fileName:(const char *)fileName line:(int)line funcName:(const char *)funcName message:(NSString *)msg, ... 
@@ -112,7 +114,16 @@ static DWLogger * _singleton;
 		}
 		
 		if (_showFile) {
-			msg = [NSString stringWithFormat:@"%15s %@", [[NSString stringWithUTF8String:fileName] lastPathComponent], msg];
+			msg = [NSString stringWithFormat:@"%15@ %@", [[NSString stringWithUTF8String:fileName] lastPathComponent], msg];
+		}
+		
+		if (_showThread) {
+			NSThread * thread = [NSThread currentThread];
+			NSString * name = [thread name];
+			if (name == nil) {
+				name = [thread description];
+			}
+			msg = [NSString stringWithFormat:@"%@ %@", name, msg];
 		}
 		
 		if (_showDate) {

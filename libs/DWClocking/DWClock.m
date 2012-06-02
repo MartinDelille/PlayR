@@ -42,11 +42,11 @@
 }
 
 -(void)setTime:(DWTime)time {
-	[self willChangeValueForKey:@"frame"];
-	[self willChangeValueForKey:@"tcString"];
+	[self performSelectorOnMainThread:@selector(willChangeValueForKey:) withObject:@"frame" waitUntilDone:YES];
+	[self performSelectorOnMainThread:@selector(willChangeValueForKey:) withObject:@"tcString" waitUntilDone:YES];
 	_time = time;
-	[self didChangeValueForKey:@"tcString"];
-	[self didChangeValueForKey:@"frame"];
+	[self performSelectorOnMainThread:@selector(didChangeValueForKey:) withObject:@"frame" waitUntilDone:YES];
+	[self performSelectorOnMainThread:@selector(didChangeValueForKey:) withObject:@"tcString" waitUntilDone:YES];
 }
 
 -(DWTime)time {

@@ -7,15 +7,14 @@
 //
 
 #import "DWAppDelegate.h"
-#import "DWClocking/DWInternalReference.h"
+//#import "DWClocking/DWInternalReference.h"
 #import "DWClocking/DWVSyncReference.h"
-
+#import "DWSony/DWSonySlaveController.h"
 
 @implementation DWAppDelegate {
-	DWInternalReference * ref1;
+	DWSonySlaveController * ref1;
 	DWVSyncReference * ref2;
 }
-
 
 @synthesize window = _window;
 @synthesize clock1;
@@ -23,7 +22,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	ref1 = [[DWInternalReference alloc] initWithClock:self.clock1];
+	ref1 = [[DWSonySlaveController alloc] init];
+	ref1.clock = clock1;
 	self.clock1.currentReference = ref1;
 	self.clock1.tcString = @"01:00:00:00";
 	self.clock1.rate = 1;

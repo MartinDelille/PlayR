@@ -22,7 +22,6 @@ typedef enum {
 @implementation DWSonySlaveController {
 	BOOL autoMode;
 	DWSonyState state;
-	BOOL looping;
 }
 
 -(id)init {
@@ -31,9 +30,7 @@ typedef enum {
 		return nil;
 	}
 	
-	port.ctsHandler = self;
 
-	looping = NO;
 	autoMode = NO;
 	state = kDWSonyStatePause;
 	
@@ -48,312 +45,278 @@ typedef enum {
 	return self;
 }
 
--(void)boolEvent:(BOOL)b {
-	BOOL syncOnCTSUp = [[NSUserDefaults standardUserDefaults] boolForKey:@"SonySyncOnCTSUp"];
-	if (b== syncOnCTSUp) {
-		[self.clock tickFrame:self];
-	}
-}
-
--(void)loopThread {
-	@autoreleasepool {
-		DWSonyLog(@"Starting sony controller loop");
-		
-		while (looping) {
-			[self processCommand];
-		}
-		
-		DWSonyLog(@"Sony controller loop over");
-	}
-}
-
--(void)start {
-	if (!looping) {
-		looping = YES;
-		[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
-	}
-}
-
--(void)stop {
-	looping = NO;
-}
-
-
--(void)processCommand {
-	unsigned char cmd1, cmd2;
-	if([port readCommand:&cmd1 cmd2:&cmd2 data:buffer]) {
-		switch (cmd1 >> 4) {
-			case 0:
-				switch (cmd2) {
-					case 0x0c:
-						DWSonyLog(@"Local disable => ACK");
-						[port sendAck];
-						break;
-					case 0x11:
-					{
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Device Type Request => F1C0");
-						// TODO : Device ID as a parameter
-						unsigned char deviceID1 = 0xf0;
-						unsigned char deviceID2 = 0xc0;
-						switch (self.clock.type) {
-							case kDWTimeCode2398:
-							case kDWTimeCode24:
-								deviceID1 += 2;
-								break;
-							case kDWTimeCode25:
-								deviceID1 += 1;
-								break;
-							case kDWTimeCode2997:
-								break;
-						}
-						[port sendCommandWithArgument:0x12 cmd2:0x11, deviceID1, deviceID2];
-						break;
+-(void)processCmd1:(unsigned char)cmd1 andCmd2:(unsigned char)cmd2 withData:(const unsigned char *)dataIn {
+	unsigned char dataOut[16];
+	switch (cmd1 >> 4) {
+		case 0:
+			switch (cmd2) {
+				case 0x0c:
+					DWSonyLog(@"Local disable => ACK");
+					[port sendAck];
+					break;
+				case 0x11:
+				{
+					DWLogWithLevel(kDWLogLevelSonyDetails1, @"Device Type Request => F1C0");
+					// TODO : Device ID as a parameter
+					unsigned char deviceID1 = 0xf0;
+					unsigned char deviceID2 = 0xc0;
+					switch (self.clock.type) {
+						case kDWTimeCode2398:
+						case kDWTimeCode24:
+							deviceID1 += 2;
+							break;
+						case kDWTimeCode25:
+							deviceID1 += 1;
+							break;
+						case kDWTimeCode2997:
+							break;
 					}
-					case 0x1d:
-						DWSonyLog(@"Local enable => ACK");
-						[port sendAck];
-						break;
-						
-					default:
-						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
-						[port sendNak:0x00];
-						break;
+					[port sendCommandWithArgument:0x12 cmd2:0x11, deviceID1, deviceID2];
+					break;
 				}
-				break;
-			case 2:
-				switch (cmd2) {
-					case 0x00:
-						DWSonyLog(@"Stop => ACK");
-						state = kDWSonyStatePause;
-						self.clock.rate = 0;
-						[port sendAck];
-						break;
-					case 0x01:
-						DWSonyLog(@"Play => ACK");
-						state = kDWSonyStatePlay;
-						self.clock.rate = 1;
-						[port sendAck];
-						break;
-					case 0x10:
-						DWSonyLog(@"Fast forward => ACK");
-						state = kDWSonyStateFastForward;
-						self.clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
-						[port sendAck];
-						break;
-					case 0x20:
-						DWSonyLog(@"Rewing => ACK");
-						state = kDWSonyStateRewind;
-						self.clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
-						[port sendAck];
-						break;
-					case 0x11:
-					case 0x12:
-					case 0x13:
-					case 0x21:
-					case 0x22:
-					case 0x23:
-					{
-						double rate = 0;
-						switch (cmd1 & 0xf) {
-							case 1:
-								rate = [self computeRateWithData1:buffer[0]];
-								break;
-							case 2:
-								rate = [self computeRateWithData1:buffer[0] andData2:buffer[1]];
-								break;
-						}
-						switch (cmd1) {
-							case 0x11:
-								state = kDWSonyStateJog;
-								DWSonyLog(@"Jog Forward : %.2f => ACK", rate);
-								break;
-							case 0x12:
-								state = kDWSonyStateVar;
-								DWSonyLog(@"Var Forward : %.2f => ACK", rate);
-								break;
-							case 0x13:
-								state = kDWSonyStateShuttle;
-								DWSonyLog(@"Shuttle Forward : %.2f => ACK", rate);
-								break;
-							case 0x21:
-								rate = -rate;
-								state = kDWSonyStateJog;
-								DWSonyLog(@"Jog rev : %.2f => ACK", rate);
-								break;
-							case 0x22:
-								rate = -rate;
-								state = kDWSonyStateVar;
-								DWSonyLog(@"Var rev : %.2f => ACK", rate);
-								break;
-							case 0x23:
-								rate = -rate;
-								state = kDWSonyStateShuttle;
-								DWSonyLog(@"Shuttle rev : %.2f => ACK", rate);
-								break;
-						}
-						self.clock.rate = rate;
-						[port sendAck];
-						break;
+				case 0x1d:
+					DWSonyLog(@"Local enable => ACK");
+					[port sendAck];
+					break;
+					
+				default:
+					DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+					[port sendNak:0x00];
+					break;
+			}
+			break;
+		case 2:
+			switch (cmd2) {
+				case 0x00:
+					DWSonyLog(@"Stop => ACK");
+					state = kDWSonyStatePause;
+					self.clock.rate = 0;
+					[port sendAck];
+					break;
+				case 0x01:
+					DWSonyLog(@"Play => ACK");
+					state = kDWSonyStatePlay;
+					self.clock.rate = 1;
+					[port sendAck];
+					break;
+				case 0x10:
+					DWSonyLog(@"Fast forward => ACK");
+					state = kDWSonyStateFastForward;
+					self.clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+					[port sendAck];
+					break;
+				case 0x20:
+					DWSonyLog(@"Rewing => ACK");
+					state = kDWSonyStateRewind;
+					self.clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+					[port sendAck];
+					break;
+				case 0x11:
+				case 0x12:
+				case 0x13:
+				case 0x21:
+				case 0x22:
+				case 0x23:
+				{
+					double rate = 0;
+					switch (cmd1 & 0xf) {
+						case 1:
+							rate = [self computeRateWithData1:dataIn[0]];
+							break;
+						case 2:
+							rate = [self computeRateWithData1:dataIn[0] andData2:dataIn[1]];
+							break;
 					}
-					case 0x31:
-					{
-						unsigned char hh = [DWBCDTool bcdFromUInt:buffer[3]];
-						unsigned char mm = [DWBCDTool bcdFromUInt:buffer[2]];
-						unsigned char ss = [DWBCDTool bcdFromUInt:buffer[1]];
-						unsigned char ff = [DWBCDTool bcdFromUInt:buffer[0]];
-						self.clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:self.clock.type];
-						DWSonyLog(@"Cue at %@ => ACK", self.clock.tcString);
-						[port sendAck];
-						break;
+					switch (cmd1) {
+						case 0x11:
+							state = kDWSonyStateJog;
+							DWSonyLog(@"Jog Forward : %.2f => ACK", rate);
+							break;
+						case 0x12:
+							state = kDWSonyStateVar;
+							DWSonyLog(@"Var Forward : %.2f => ACK", rate);
+							break;
+						case 0x13:
+							state = kDWSonyStateShuttle;
+							DWSonyLog(@"Shuttle Forward : %.2f => ACK", rate);
+							break;
+						case 0x21:
+							rate = -rate;
+							state = kDWSonyStateJog;
+							DWSonyLog(@"Jog rev : %.2f => ACK", rate);
+							break;
+						case 0x22:
+							rate = -rate;
+							state = kDWSonyStateVar;
+							DWSonyLog(@"Var rev : %.2f => ACK", rate);
+							break;
+						case 0x23:
+							rate = -rate;
+							state = kDWSonyStateShuttle;
+							DWSonyLog(@"Shuttle rev : %.2f => ACK", rate);
+							break;
 					}
-					default:
-						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
-						[port sendNak:0x00];
-						break;
+					self.clock.rate = rate;
+					[port sendAck];
+					break;
 				}
-				break;
-			case 4:
-				switch (cmd2) {
-					case 0x40:
-						autoMode = NO;
-						DWSonyLog(@"Auto Mode Off => ACK");
-						[port sendAck];
-						break;
-					case 0x41:
-						autoMode = YES;
-						DWSonyLog(@"Auto Mode On => ACK");
-						[port sendAck];
-						break;
-					default:
-						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
-						[port sendNak:0x00];
-						break;
+				case 0x31:
+				{
+					unsigned char hh = [DWBCDTool bcdFromUInt:dataIn[3]];
+					unsigned char mm = [DWBCDTool bcdFromUInt:dataIn[2]];
+					unsigned char ss = [DWBCDTool bcdFromUInt:dataIn[1]];
+					unsigned char ff = [DWBCDTool bcdFromUInt:dataIn[0]];
+					self.clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:self.clock.type];
+					DWSonyLog(@"Cue at %@ => ACK", self.clock.tcString);
+					[port sendAck];
+					break;
 				}
-			case 6:
-				switch (cmd2) {
-					case 0x0c:
-					{
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Current Time Sense => %@", self.clock.tcString);
-						buffer[0] = 0x74;
-						switch (buffer[0]) {
-							case 0x01:
-								cmd2 = 0x04;
-								break;
-							case 0x02:
-								cmd2 = 0x06;
-								break;
-							case 0x04:
-								cmd2 = 0x00;
-								break;
-							case 0x08:
-								cmd2 = 0x01;
-								break;
-							case 0x10:
-								cmd2 = 0x05;
-								break;
-							case 0x20:
-								cmd2 = 0x07;
-								break;
-							default:
-								cmd2 = 0x04;
-								break;
-						}
-						unsigned int hh, mm, ss, ff;
-						[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:self.clock.frame andType:self.clock.type];
-						hh = [DWBCDTool bcdFromUInt:hh];
-						mm = [DWBCDTool bcdFromUInt:mm];
-						ss = [DWBCDTool bcdFromUInt:ss];
-						ff = [DWBCDTool bcdFromUInt:ff];
-						[port sendCommandWithArgument:0x74 cmd2:cmd2, ff, ss, mm, hh];
-						break;
+				default:
+					DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+					[port sendNak:0x00];
+					break;
+			}
+			break;
+		case 4:
+			switch (cmd2) {
+				case 0x40:
+					autoMode = NO;
+					DWSonyLog(@"Auto Mode Off => ACK");
+					[port sendAck];
+					break;
+				case 0x41:
+					autoMode = YES;
+					DWSonyLog(@"Auto Mode On => ACK");
+					[port sendAck];
+					break;
+				default:
+					DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+					[port sendNak:0x00];
+					break;
+			}
+		case 6:
+			switch (cmd2) {
+				case 0x0c:
+				{
+					DWLogWithLevel(kDWLogLevelSonyDetails1, @"Current Time Sense => %@", self.clock.tcString);
+					dataOut[0] = 0x74;
+					switch (dataIn[0]) {
+						case 0x01:
+							cmd2 = 0x04;
+							break;
+						case 0x02:
+							cmd2 = 0x06;
+							break;
+						case 0x04:
+							cmd2 = 0x00;
+							break;
+						case 0x08:
+							cmd2 = 0x01;
+							break;
+						case 0x10:
+							cmd2 = 0x05;
+							break;
+						case 0x20:
+							cmd2 = 0x07;
+							break;
+						default:
+							cmd2 = 0x04;
+							break;
 					}
-					case 0x20:
-					{
-						// TODO : handle status sens properly
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Status Sense (%x) => Status Data", buffer[0]);
-						memset(status, 0, 8);
-						
-						switch (state) {
-							case kDWSonyStatePause:
-								status[1] = 0x80;
-								status[2] = 0x03;
-								break;
-							case kDWSonyStatePlay:
-								status[1] = 0x81;
-								status[2] = 0xc0;
-								break;
-							case kDWSonyStateFastForward:
-								status[1] = 0x84;
-								break;
-							case kDWSonyStateRewind:
-								status[1] = 0x88;
-								status[2] = 0x04;
-								break;
-							case kDWSonyStateJog:
-								status[1] = 0x80;
-								if (self.clock.rate < 0) {
-									status[2] = 0x14;
-								}
-								else {
-									status[2] = 0x10;
-								}
-								break;
-							case kDWSonyStateVar:
-								status[1] = 0x80;
-								if (self.clock.rate < 0) {
-									status[2] = 0xcc;
-								}
-								else {
-									status[2] = 0xc8;
-								}
-								break;
-							case kDWSonyStateShuttle:
-								status[1] = 0x80;
-								if (self.clock.rate < 0) {
-									status[2] = 0x20;
-								}
-								else {
-									status[2] = 0xa4;
-								}
-								break;
-						}
-						
-						if (autoMode) {
-							status[3] = 0x80;
-						}
-						
-						// TODO check status with usb422v test
-						unsigned char start = buffer[0] >> 4;
-						unsigned char count = buffer[0] & 0xf;
-						for (int i=0; i<count; i++) {
-							buffer[i] = status[i+start];
-						}
-						[port sendCommand:(0x70+count) cmd2:0x20 data:buffer];
-						break;
-					}
-					case 0x30:
-					{
-						// TODO : handle properly
-						DWLogWithLevel(kDWLogLevelSonyDetails1, @"Edit Preset Sense => Edit Preset Status");
-						unsigned char count = buffer[0];
-						for (int i=0; i<count; i++) {
-							buffer[i] = 0;
-						}
-						[port sendCommand:0x70 + count cmd2:0x30 data:buffer];
-						break;
-					}									
-					default:
-						DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
-						[port sendNak:0x00];
-						break;
+					unsigned int hh, mm, ss, ff;
+					[DWTimeCode ComputeHh:&hh Mm:&mm Ss:&ss Ff:&ff fromFrame:self.clock.frame andType:self.clock.type];
+					hh = [DWBCDTool bcdFromUInt:hh];
+					mm = [DWBCDTool bcdFromUInt:mm];
+					ss = [DWBCDTool bcdFromUInt:ss];
+					ff = [DWBCDTool bcdFromUInt:ff];
+					[port sendCommandWithArgument:0x74 cmd2:cmd2, ff, ss, mm, hh];
+					break;
 				}
-				break;
-			default:
-				DWSonyLog(@"Unknown command : %x => NAK", cmd1);
-				[port sendNak:0x00];
-				break;
-		}
-		
+				case 0x20:
+				{
+					// TODO : handle status sens properly
+					DWLogWithLevel(kDWLogLevelSonyDetails1, @"Status Sense (%x) => Status Data", dataIn[0]);
+					memset(status, 0, 8);
+					
+					switch (state) {
+						case kDWSonyStatePause:
+							status[1] = 0x80;
+							status[2] = 0x03;
+							break;
+						case kDWSonyStatePlay:
+							status[1] = 0x81;
+							status[2] = 0xc0;
+							break;
+						case kDWSonyStateFastForward:
+							status[1] = 0x84;
+							break;
+						case kDWSonyStateRewind:
+							status[1] = 0x88;
+							status[2] = 0x04;
+							break;
+						case kDWSonyStateJog:
+							status[1] = 0x80;
+							if (self.clock.rate < 0) {
+								status[2] = 0x14;
+							}
+							else {
+								status[2] = 0x10;
+							}
+							break;
+						case kDWSonyStateVar:
+							status[1] = 0x80;
+							if (self.clock.rate < 0) {
+								status[2] = 0xcc;
+							}
+							else {
+								status[2] = 0xc8;
+							}
+							break;
+						case kDWSonyStateShuttle:
+							status[1] = 0x80;
+							if (self.clock.rate < 0) {
+								status[2] = 0x20;
+							}
+							else {
+								status[2] = 0xa4;
+							}
+							break;
+					}
+					
+					if (autoMode) {
+						status[3] = 0x80;
+					}
+					
+					// TODO check status with usb422v test
+					unsigned char start = dataIn[0] >> 4;
+					unsigned char count = dataIn[0] & 0xf;
+					for (int i=0; i<count; i++) {
+						dataOut[i] = status[i+start];
+					}
+					[port sendCommand:(0x70+count) cmd2:0x20 data:dataOut];
+					break;
+				}
+				case 0x30:
+				{
+					// TODO : handle properly
+					DWLogWithLevel(kDWLogLevelSonyDetails1, @"Edit Preset Sense => Edit Preset Status");
+					unsigned char count = dataIn[0];
+					for (int i=0; i<count; i++) {
+						dataOut[i] = 0;
+					}
+					[port sendCommand:0x70 + count cmd2:0x30 data:dataOut];
+					break;
+				}									
+				default:
+					DWSonyLog(@"Unknown subcommand : %x %x => NAK", cmd1, cmd2);
+					[port sendNak:0x00];
+					break;
+			}
+			break;
+		default:
+			DWSonyLog(@"Unknown command : %x => NAK", cmd1);
+			[port sendNak:0x00];
+			break;
 	}
 }
 

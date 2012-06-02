@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5804E30F157A38CE006261FA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804E30E157A38CE006261FA /* CoreVideo.framework */; };
 		5891FCCE1550570400B8E5B0 /* libDWSony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891FCCD1550570400B8E5B0 /* libDWSony.a */; };
 		5891FCD01550583C00B8E5B0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891FCCF1550583C00B8E5B0 /* IOKit.framework */; };
 		58BB62E3154B006A0084AAFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB62E2154B006A0084AAFB /* Cocoa.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5804E30E157A38CE006261FA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		5891FCCD1550570400B8E5B0 /* libDWSony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWSony.a; path = "../../../../../Library/Developer/Xcode/DerivedData/SonyTests-dnnywozghasvtldagllskfozrjfs/Build/Products/Debug/libDWSony.a"; sourceTree = "<group>"; };
 		5891FCCF1550583C00B8E5B0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		58BB62DE154B00690084AAFB /* DWSonyMasterTest01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWSonyMasterTest01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5804E30F157A38CE006261FA /* CoreVideo.framework in Frameworks */,
 				58F6490E15512E5600BEE2E2 /* libAMSerialPort.a in Frameworks */,
 				5891FCD01550583C00B8E5B0 /* IOKit.framework in Frameworks */,
 				5891FCCE1550570400B8E5B0 /* libDWSony.a in Frameworks */,
@@ -61,6 +64,7 @@
 		58BB62D3154B00690084AAFB = {
 			isa = PBXGroup;
 			children = (
+				5804E30E157A38CE006261FA /* CoreVideo.framework */,
 				58F6490F15512E6400BEE2E2 /* libs */,
 				58BB62E8154B006A0084AAFB /* DWSonyMasterTest01 */,
 				58BB62E1154B00690084AAFB /* Frameworks */,

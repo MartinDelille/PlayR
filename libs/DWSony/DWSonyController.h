@@ -16,12 +16,10 @@
  and slave communication.
 
  */
-@interface DWSonyController : NSObject {
+@interface DWSonyController : NSObject<DWBoolEventHandler> {
 @protected
 /** Sony serial port connected to the controller */
 	DWSonyPort * port;
-/** Data buffer used for command argument */
-	unsigned char buffer[256];
 /** Sony controller status */
 	unsigned char status[8];
 }
@@ -71,5 +69,21 @@
  @return A 8 bit status information
  */
 -(unsigned char)statusAtIndex:(int)index;
+
+/** 
+ Start the thread handling the communication.
+ */
+-(void)start;
+
+/** 
+ Stop the thread handling the communication.
+ */
+-(void)stop;
+
+/** 
+ Process a single command and respond to it, updating the clock if needed.
+ 
+ */
+-(void)processCmd1:(unsigned char)cmd1 andCmd2:(unsigned char)cmd2 withData:(const unsigned char*)dataIn;
 
 @end

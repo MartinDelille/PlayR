@@ -74,6 +74,14 @@
 	return cmd & 0x0f;
 }
 
+-(NSString*)stringWithCmd1:(unsigned char) cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data {
+	NSString * result = [NSString stringWithFormat:@"%.2X %.2X", cmd1, cmd2];
+	for (int i = 0; i < [self getDataCount:cmd1] + 1; i++) {
+		result = [NSString stringWithFormat:@"%@ %.2X", result, data[i]];
+	}
+	return result;
+}
+
 -(BOOL)readCommand:(unsigned char *)cmd1 cmd2:(unsigned char *)cmd2 data:(unsigned char *)data {
 	NSError * error;
 	
@@ -124,11 +132,8 @@
 		}
 	}
 	
-	NSString * msg = [NSString stringWithFormat:@"Reading %d bytes:", dataRead];
-	for (int i=0; i<dataRead; i++) {
-		msg = [NSString stringWithFormat:@"%@ %.2x", msg, buffer[i]];
-	}
-	DWLogWithLevel(kDWLogLevelSonyDetails2, msg);
+	NSString * cmdString = [self stringWithCmd1:*cmd1 cmd2:*cmd2 data:buffer + 2];
+	DWLogWithLevel(kDWLogLevelSonyDetails2, @"reading : %@", cmdString);
 	
 	// Computing the checksum
 	unsigned char checksum = 0;
@@ -137,7 +142,7 @@
 	}
 	
 	if (checksum != buffer[datacount+2]) {
-		DWSonyLog(@"Checksum error");
+		DWSonyLog(@"Checksum error : %@", cmdString);
 		[port flushInput:YES output:YES];
 		[self sendNak:0x02];
 		return NO;
@@ -150,7 +155,7 @@
 	return YES;
 }
 
--(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data {
+-(BOOL)sendCommand:(unsigned char)cmd1 cmd2:(unsigned char)cmd2 data:(const unsigned char *)data {
 	unsigned char datacount = [self getDataCount:cmd1];
 	buffer[0] = cmd1;
 	buffer[1] = cmd2;
