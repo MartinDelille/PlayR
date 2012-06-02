@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5804E330157A651A006261FA /* DWString.h in Headers */ = {isa = PBXBuildFile; fileRef = 5804E32E157A651A006261FA /* DWString.h */; };
+		5804E331157A651A006261FA /* DWString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804E32F157A651A006261FA /* DWString.m */; };
 		5815C9DE1545B89000A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9DD1545B89000A6329E /* Cocoa.framework */; };
 		5815C9F01545B89000A6329E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9EF1545B89000A6329E /* SenTestingKit.framework */; };
 		5815C9F11545B89000A6329E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815C9DD1545B89000A6329E /* Cocoa.framework */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5804E32E157A651A006261FA /* DWString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWString.h; sourceTree = "<group>"; };
+		5804E32F157A651A006261FA /* DWString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWString.m; sourceTree = "<group>"; };
 		5815C9DA1545B89000A6329E /* libDWTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5815C9DD1545B89000A6329E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5815C9E01545B89000A6329E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -78,6 +82,8 @@
 		5815C9CF1545B89000A6329E = {
 			isa = PBXGroup;
 			children = (
+				5804E32E157A651A006261FA /* DWString.h */,
+				5804E32F157A651A006261FA /* DWString.m */,
 				581F736A156A4F0200B1DA68 /* DWSizeToStringTransformer.h */,
 				581F736B156A4F0200B1DA68 /* DWSizeToStringTransformer.m */,
 				5818BC2C1562594A005E11AC /* DWBoolEventHandler.h */,
@@ -159,6 +165,7 @@
 				5815CA081545B91400A6329E /* DWLogger.h in Headers */,
 				58FC648E15481586008FB6A1 /* DWBCDTool.h in Headers */,
 				581F736C156A4F0200B1DA68 /* DWSizeToStringTransformer.h in Headers */,
+				5804E330157A651A006261FA /* DWString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +270,7 @@
 				5815CA091545B91400A6329E /* DWLogger.m in Sources */,
 				58FC648F15481586008FB6A1 /* DWBCDTool.m in Sources */,
 				581F736D156A4F0200B1DA68 /* DWSizeToStringTransformer.m in Sources */,
+				5804E331157A651A006261FA /* DWString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

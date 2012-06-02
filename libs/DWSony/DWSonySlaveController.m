@@ -8,6 +8,7 @@
 
 #import "DWSonySlaveController.h"
 #import "DWTools/DWBCDTool.h"
+#import "DWTools/DWString.h"
 
 typedef enum {
 	kDWSonyStatePause,
@@ -179,6 +180,10 @@ typedef enum {
 			break;
 		case 4:
 			switch (cmd2) {
+				case 0x30:
+					DWSonyLog(@"Edit preset : %@", [DWString stringWithBuffer:dataIn andLength:[port getDataCount:cmd1]]);
+					[port sendAck];
+					break;
 				case 0x40:
 					autoMode = NO;
 					DWSonyLog(@"Auto Mode Off => ACK");

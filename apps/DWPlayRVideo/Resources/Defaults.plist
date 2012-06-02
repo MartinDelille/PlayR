@@ -12,5 +12,7 @@
 	<integer>10</integer>
 	<key>SonySyncOnCTSUp</key>
 	<true/>
+	<key>DWLogLevel</key>
+	<integer>257</integer>
 </dict>
 </plist>

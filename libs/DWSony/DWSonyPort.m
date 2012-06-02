@@ -11,6 +11,7 @@
 #import "AMSerialPort/AMSerialPortAdditions.h"
 #import "AMSerialPort/AMSerialPortList.h"
 #import "DWTools/DWLogger.h"
+#import "DWTools/DWString.h"
 
 @implementation DWSonyPort{
 	AMSerialPort * port;
@@ -75,11 +76,7 @@
 }
 
 -(NSString*)stringWithCmd1:(unsigned char) cmd1 cmd2:(unsigned char)cmd2 data:(unsigned char *)data {
-	NSString * result = [NSString stringWithFormat:@"%.2X %.2X", cmd1, cmd2];
-	for (int i = 0; i < [self getDataCount:cmd1] + 1; i++) {
-		result = [NSString stringWithFormat:@"%@ %.2X", result, data[i]];
-	}
-	return result;
+	return [NSString stringWithFormat:@"%.2X %.2X %@", cmd1, cmd2, [DWString stringWithBuffer:data andLength:[self getDataCount:cmd1]]];
 }
 
 -(BOOL)readCommand:(unsigned char *)cmd1 cmd2:(unsigned char *)cmd2 data:(unsigned char *)data {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5804E32C157A54C2006261FA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804E32B157A54C2006261FA /* CoreVideo.framework */; };
+		5804E334157A6890006261FA /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5804E333157A6890006261FA /* Defaults.plist */; };
 		58115AF7156E603E0006ABFC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58115AF6156E603E0006ABFC /* WebKit.framework */; };
 		58115B00156E60E20006ABFC /* bg.html in Resources */ = {isa = PBXBuildFile; fileRef = 58115AFD156E60E20006ABFC /* bg.html */; };
 		58115B01156E60E20006ABFC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 58115AFE156E60E20006ABFC /* logo.png */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5804E32B157A54C2006261FA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		5804E333157A6890006261FA /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		58115AF6156E603E0006ABFC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		58115AFD156E60E20006ABFC /* bg.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bg.html; sourceTree = "<group>"; };
 		58115AFE156E60E20006ABFC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		5843F903156D30F70005B4E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5804E333157A6890006261FA /* Defaults.plist */,
 				58115AFD156E60E20006ABFC /* bg.html */,
 				58115AFE156E60E20006ABFC /* logo.png */,
 				58115AFF156E60E20006ABFC /* style.css */,
@@ -109,8 +112,6 @@
 		585971131563F0630002C24A = {
 			isa = PBXGroup;
 			children = (
-				5804E32B157A54C2006261FA /* CoreVideo.framework */,
-				58115AF6156E603E0006ABFC /* WebKit.framework */,
 				5843F903156D30F70005B4E8 /* Resources */,
 				5859714F1563F25A0002C24A /* libs */,
 				585971281563F0630002C24A /* DWPlayRVideo */,
@@ -130,6 +131,8 @@
 		585971211563F0630002C24A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5804E32B157A54C2006261FA /* CoreVideo.framework */,
+				58115AF6156E603E0006ABFC /* WebKit.framework */,
 				5859714D1563F24F0002C24A /* CoreMedia.framework */,
 				5859714B1563F2320002C24A /* AVFoundation.framework */,
 				585971491563F2290002C24A /* IOKit.framework */,
@@ -252,6 +255,7 @@
 				58115B00156E60E20006ABFC /* bg.html in Resources */,
 				58115B01156E60E20006ABFC /* logo.png in Resources */,
 				58115B02156E60E20006ABFC /* style.css in Resources */,
+				5804E334157A6890006261FA /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

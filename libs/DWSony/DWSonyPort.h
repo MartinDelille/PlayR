@@ -67,4 +67,6 @@
  */
 @property id<DWBoolEventHandler> ctsHandler;
 
+-(unsigned char)getDataCount:(unsigned char)cmd;
+
 @end

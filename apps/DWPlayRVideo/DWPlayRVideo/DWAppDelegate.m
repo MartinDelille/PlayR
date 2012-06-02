@@ -54,6 +54,10 @@
 	// Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
 	
+	DWLogLevel logLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"DWLogLevel"];
+	[DWLogger configureLogLevel:logLevel];
+	DWLog(@"Configuring log level to %X", logLevel);
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
