@@ -2,15 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ReferenceOrigin</key>
+	<key>DWPlayRReferenceOrigin</key>
 	<string>Video</string>
-	<key>ReloadLastFile</key>
+	<key>DWPlayRReloadLastFile</key>
 	<true/>
-	<key>VideoDelayCompensation</key>
+	<key>DWVideoDelayCompensation</key>
 	<integer>0</integer>
-	<key>SonyRewindFastForwardSpeed</key>
+	<key>DWSonyRewindFastForwardSpeed</key>
 	<integer>10</integer>
-	<key>SonySyncOnCTSUp</key>
+	<key>DWSonySyncOnCTSUp</key>
 	<true/>
 	<key>DWLogLevel</key>
 	<integer>257</integer>

@@ -134,7 +134,7 @@
 }
 
 -(DWTime)videoDelayCompensationTime {
-	NSTimeInterval videoDelayCompensation = [[NSUserDefaults standardUserDefaults] doubleForKey:@"VideoDelayCompensation"];
+	NSTimeInterval videoDelayCompensation = [[NSUserDefaults standardUserDefaults] doubleForKey:@"DWVideoDelayCompensation"];
 	return videoDelayCompensation * DWTIMESCALE * self.rate;
 }
 

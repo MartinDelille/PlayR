@@ -32,7 +32,7 @@
 }
 
 -(void)boolEvent:(BOOL)b {
-	BOOL syncOnCTSUp = [[NSUserDefaults standardUserDefaults] boolForKey:@"SonySyncOnCTSUp"];
+	BOOL syncOnCTSUp = [[NSUserDefaults standardUserDefaults] boolForKey:@"DWSonySyncOnCTSUp"];
 	if (b== syncOnCTSUp) {
 		[self.clock tickFrame:self];
 	}

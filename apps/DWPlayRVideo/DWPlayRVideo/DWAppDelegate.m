@@ -28,7 +28,7 @@
 -(void)tickFrame {
 	NSTimeInterval interval = -[clock.lastTickDate timeIntervalSinceNow];
 	
-	NSString * referenceOrigin = [[NSUserDefaults standardUserDefaults] stringForKey:@"ReferenceOrigin"];
+	NSString * referenceOrigin = [[NSUserDefaults standardUserDefaults] stringForKey:@"DWPlayRReferenceOrigin"];
 	
 	if ([referenceOrigin isEqualToString:@"Video"]) {
 		clock.currentReference = sony;
@@ -88,7 +88,7 @@
 	[self showControlPanel];
 	[self.window setAcceptsMouseMovedEvents:YES];
 	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ReloadLastFile"]) {
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DWPlayRReloadLastFile"]) {
 		NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"lastVideoFile"];
 		if (lastVideoFile != nil) {
 			DWLog(@"Trying to load %@", lastVideoFile);
@@ -155,7 +155,7 @@
 }
 
 - (IBAction)rewind:(id)sender {
-	clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+	clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
 }
 
 - (IBAction)reversePlay:(id)sender {
@@ -180,7 +180,7 @@
 }
 
 - (IBAction)fastForward:(id)sender {
-	clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+	clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
 }
 
 -(void)updateControlPanelPosition:(NSNotification*)note {

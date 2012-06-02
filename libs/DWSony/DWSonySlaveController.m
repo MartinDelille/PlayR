@@ -35,12 +35,12 @@ typedef enum {
 	autoMode = NO;
 	state = kDWSonyStatePause;
 	
-	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"SonyRewindFastForwardSpeed"] == nil) {
-		[[NSUserDefaults standardUserDefaults] setDouble:10 forKey:@"SonyRewindFastForwardSpeed"];
+	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"DWSonyRewindFastForwardSpeed"] == nil) {
+		[[NSUserDefaults standardUserDefaults] setDouble:10 forKey:@"DWSonyRewindFastForwardSpeed"];
 	}
 	
-	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"SonySyncOnCTSUp"] == nil) {
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SonySyncOnCTSUp"];
+	if ([[NSUserDefaults standardUserDefaults] valueForKey:@"DWSonySyncOnCTSUp"] == nil) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DWSonySyncOnCTSUp"];
 	}
 	
 	return self;
