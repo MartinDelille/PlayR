@@ -163,10 +163,10 @@ typedef enum {
 				}
 				case 0x31:
 				{
-					unsigned char hh = [DWBCDTool bcdFromUInt:dataIn[3]];
-					unsigned char mm = [DWBCDTool bcdFromUInt:dataIn[2]];
-					unsigned char ss = [DWBCDTool bcdFromUInt:dataIn[1]];
-					unsigned char ff = [DWBCDTool bcdFromUInt:dataIn[0]];
+					unsigned char hh = [DWBCDTool uintFromBcd:dataIn[3]];
+					unsigned char mm = [DWBCDTool uintFromBcd:dataIn[2]];
+					unsigned char ss = [DWBCDTool uintFromBcd:dataIn[1]];
+					unsigned char ff = [DWBCDTool uintFromBcd:dataIn[0]];
 					self.clock.frame = [DWTimeCode frameFromHh:hh Mm:mm Ss:ss Ff:ff andType:self.clock.type];
 					DWSonyLog(@"Cue at %@ => ACK", self.clock.tcString);
 					[port sendAck];
