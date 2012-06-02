@@ -400,6 +400,7 @@
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{611, 429}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -701,6 +702,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{58, 147}, {106, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="707627748"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -720,6 +722,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{169, 122}, {164, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="277943054"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -739,6 +742,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{169, 97}, {164, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="97368648"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -758,6 +762,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{169, 72}, {164, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="404265859"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -777,6 +782,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{169, 20}, {164, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="459029527"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -796,6 +802,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{70, 122}, {91, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="573811201"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -815,6 +822,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{73, 97}, {91, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="88835439"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -834,6 +842,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{169, 147}, {164, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="590386829"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -853,6 +862,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{70, 72}, {91, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="659845573"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -872,6 +882,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 20}, {144, 17}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="990103458"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -891,6 +902,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{216, 36}, {100, 32}}</string>
 							<reference key="NSSuperview" ref="375368073"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -912,6 +924,7 @@
 					</array>
 					<string key="NSFrameSize">{330, 184}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="877763860"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -940,6 +953,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{64, 12}, {238, 32}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -963,6 +977,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 53}, {191, 17}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="339677921"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -982,6 +997,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{223, 48}, {96, 22}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="511371821"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1015,6 +1031,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{33, 107}, {265, 18}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="617905547"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1045,6 +1062,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{35, 84}, {176, 17}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="344715738"/>
 							<string key="NSReuseIdentifierKey">_NS:1505</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1064,6 +1082,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{223, 78}, {99, 26}}</string>
 							<reference key="NSSuperview" ref="797966712"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1042329991"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1087,7 +1106,7 @@
 								<object class="NSComboTableView" key="NSTableView" id="328087697">
 									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">274</int>
-									<string key="NSFrameSize">{13, 21}</string>
+									<string key="NSFrameSize">{13, 42}</string>
 									<reference key="NSSuperview"/>
 									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:24</string>
@@ -1157,6 +1176,7 @@
 					</array>
 					<string key="NSFrameSize">{339, 143}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="965837478"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -1513,19 +1533,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.VideoDelayCompensation</string>
+						<string key="label">value: values.DWVideoDelayCompensation</string>
 						<reference key="source" ref="339677921"/>
 						<reference key="destination" ref="282242839"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="339677921"/>
 							<reference key="NSDestination" ref="282242839"/>
-							<string key="NSLabel">value: values.VideoDelayCompensation</string>
+							<string key="NSLabel">value: values.DWVideoDelayCompensation</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.VideoDelayCompensation</string>
+							<string key="NSKeyPath">values.DWVideoDelayCompensation</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1516</int>
+					<int key="connectionID">1519</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1545,19 +1565,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.ReloadLastFile</string>
+						<string key="label">value: values.DWReloadLastFile</string>
 						<reference key="source" ref="965837478"/>
 						<reference key="destination" ref="282242839"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="965837478"/>
 							<reference key="NSDestination" ref="282242839"/>
-							<string key="NSLabel">value: values.ReloadLastFile</string>
+							<string key="NSLabel">value: values.DWReloadLastFile</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.ReloadLastFile</string>
+							<string key="NSKeyPath">values.DWReloadLastFile</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1185</int>
+					<int key="connectionID">1518</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1577,19 +1597,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.ReferenceOrigin</string>
+						<string key="label">value: values.DWReferenceOrigin</string>
 						<reference key="source" ref="344715738"/>
 						<reference key="destination" ref="282242839"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="344715738"/>
 							<reference key="NSDestination" ref="282242839"/>
-							<string key="NSLabel">value: values.ReferenceOrigin</string>
+							<string key="NSLabel">value: values.DWReferenceOrigin</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.ReferenceOrigin</string>
+							<string key="NSKeyPath">values.DWReferenceOrigin</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">1512</int>
+					<int key="connectionID">1517</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4374,9 +4394,138 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1516</int>
+			<int key="maxID">1519</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">DWAppDelegate</string>
+					<string key="superclassName">NSObject</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="changeTimestamp:">id</string>
+						<string key="clearTimestampDatabase:">id</string>
+						<string key="fastForward:">id</string>
+						<string key="pause:">id</string>
+						<string key="play:">id</string>
+						<string key="reversePlay:">id</string>
+						<string key="rewind:">id</string>
+						<string key="showPreferences:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="changeTimestamp:">
+							<string key="name">changeTimestamp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="clearTimestampDatabase:">
+							<string key="name">clearTimestampDatabase:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="fastForward:">
+							<string key="name">fastForward:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="pause:">
+							<string key="name">pause:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="play:">
+							<string key="name">play:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="reversePlay:">
+							<string key="name">reversePlay:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="rewind:">
+							<string key="name">rewind:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showPreferences:">
+							<string key="name">showPreferences:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="clock">DWVideoClock</string>
+						<string key="controlPanel">NSPanel</string>
+						<string key="currentTCText">NSTextField</string>
+						<string key="preferencesPanel">NSPanel</string>
+						<string key="videoView">DWPlayRVideoView</string>
+						<string key="window">NSWindow</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="clock">
+							<string key="name">clock</string>
+							<string key="candidateClassName">DWVideoClock</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="controlPanel">
+							<string key="name">controlPanel</string>
+							<string key="candidateClassName">NSPanel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currentTCText">
+							<string key="name">currentTCText</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="preferencesPanel">
+							<string key="name">preferencesPanel</string>
+							<string key="candidateClassName">NSPanel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="videoView">
+							<string key="name">videoView</string>
+							<string key="candidateClassName">DWPlayRVideoView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="window">
+							<string key="name">window</string>
+							<string key="candidateClassName">NSWindow</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DWAppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DWClock</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DWClock.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DWPlayRVideoView</string>
+					<string key="superclassName">DWVideoView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DWPlayRVideoView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DWVideoClock</string>
+					<string key="superclassName">DWClock</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DWVideoClock.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DWVideoView</string>
+					<string key="superclassName">WebView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DWVideoView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSLayoutConstraint</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">

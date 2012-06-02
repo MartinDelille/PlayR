@@ -58,6 +58,12 @@
 	[DWLogger configureLogLevel:logLevel];
 	DWLog(@"Configuring log level to %X", logLevel);
 	
+	NSDictionary * dict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+	for (NSString * key in [dict allKeys]) {
+		DWLog(@"%@ : %@", key, [dict objectForKey:key]);
+	}
+	
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
@@ -89,7 +95,7 @@
 	[self.window setAcceptsMouseMovedEvents:YES];
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DWPlayRReloadLastFile"]) {
-		NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"lastVideoFile"];
+		NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"DWPlayRLastVideoFile"];
 		if (lastVideoFile != nil) {
 			DWLog(@"Trying to load %@", lastVideoFile);
 			[clock loadWithUrl:lastVideoFile];
@@ -124,7 +130,7 @@
 		 {
 			 DWLog(@"Loading %@", panel.URL);
 			 if ([clock loadWithUrl:panel.URL]) {
-				 [[NSUserDefaults standardUserDefaults] setURL:panel.URL forKey:@"lastVideoFile"];
+				 [[NSUserDefaults standardUserDefaults] setURL:panel.URL forKey:@"DWPlayRLastVideoFile"];
 			 }
 			 else {
 				 // TODO : add error message

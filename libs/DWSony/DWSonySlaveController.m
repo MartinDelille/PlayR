@@ -103,13 +103,13 @@ typedef enum {
 				case 0x10:
 					DWSonyLog(@"Fast forward => ACK");
 					state = kDWSonyStateFastForward;
-					self.clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+					self.clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
 					[port sendAck];
 					break;
 				case 0x20:
 					DWSonyLog(@"Rewing => ACK");
 					state = kDWSonyStateRewind;
-					self.clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"SonyRewindFastForwardSpeed"];
+					self.clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
 					[port sendAck];
 					break;
 				case 0x11:
