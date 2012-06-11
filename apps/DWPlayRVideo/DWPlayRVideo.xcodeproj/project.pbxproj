@@ -32,6 +32,7 @@
 		5859714A1563F2290002C24A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585971491563F2290002C24A /* IOKit.framework */; };
 		5859714C1563F2320002C24A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714B1563F2320002C24A /* AVFoundation.framework */; };
 		5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714D1563F24F0002C24A /* CoreMedia.framework */; };
+		587DAC8D15863A84002B929A /* DWDisplayDelayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DAC8C15863A84002B929A /* DWDisplayDelayValueTransformer.m */; };
 		589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 589CCA9A15650D160027263A /* DWPlayRVideoView.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		585971491563F2290002C24A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5859714B1563F2320002C24A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5859714D1563F24F0002C24A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		587DAC8B15863A84002B929A /* DWDisplayDelayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDisplayDelayValueTransformer.h; sourceTree = "<group>"; };
+		587DAC8C15863A84002B929A /* DWDisplayDelayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDisplayDelayValueTransformer.m; sourceTree = "<group>"; };
 		589CCA9915650D160027263A /* DWPlayRVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPlayRVideoView.h; sourceTree = "<group>"; };
 		589CCA9A15650D160027263A /* DWPlayRVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPlayRVideoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +169,8 @@
 				5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */,
 				5843F906156D41920005B4E8 /* DWTimecodeDatabase.h */,
 				5843F907156D41920005B4E8 /* DWTimecodeDatabase.m */,
+				587DAC8B15863A84002B929A /* DWDisplayDelayValueTransformer.h */,
+				587DAC8C15863A84002B929A /* DWDisplayDelayValueTransformer.m */,
 			);
 			path = DWPlayRVideo;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */,
 				5843F8EF156CF5A90005B4E8 /* DWTimestampWindowController.m in Sources */,
 				5843F908156D41920005B4E8 /* DWTimecodeDatabase.m in Sources */,
+				587DAC8D15863A84002B929A /* DWDisplayDelayValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

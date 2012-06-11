@@ -35,5 +35,6 @@
 - (IBAction)changeTimestamp:(id)sender;
 - (IBAction)clearTimestampDatabase:(id)sender;
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)changeDelayUnit:(id)sender;
 
 @end

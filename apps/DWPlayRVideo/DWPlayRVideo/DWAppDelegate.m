@@ -58,12 +58,6 @@
 	[DWLogger configureLogLevel:logLevel];
 	DWLog(@"Configuring log level to %X", logLevel);
 	
-	NSDictionary * dict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
-	for (NSString * key in [dict allKeys]) {
-		DWLog(@"%@ : %@", key, [dict objectForKey:key]);
-	}
-	
-	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
@@ -248,6 +242,11 @@
 - (IBAction)showPreferences:(id)sender {
 	[self showControlPanelAndHide];
 	[preferencesPanel makeKeyAndOrderFront:self];
+}
+
+- (IBAction)changeDelayUnit:(id)sender {
+	double delay = [[NSUserDefaults standardUserDefaults] doubleForKey:@"DWVideoDelayCompensation"];
+	[[NSUserDefaults standardUserDefaults] setDouble:delay forKey:@"DWVideoDelayCompensation"];
 }
 
 @end

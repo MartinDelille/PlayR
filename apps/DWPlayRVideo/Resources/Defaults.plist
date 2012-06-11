@@ -14,5 +14,7 @@
 	<true/>
 	<key>DWLogLevel</key>
 	<integer>257</integer>
+	<key>DWPlayRDelayUnit</key>
+	<string>ms</string>
 </dict>
 </plist>
