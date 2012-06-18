@@ -10,20 +10,18 @@
 #import "DWSony/DWSonySlaveController.h"
 #import "DWTimestampWindowController.h"
 #import "DWTimecodeDatabase.h"
+#import "DWControlPanelWindowController.h"
 
 @implementation DWAppDelegate {
 	DWSonySlaveController * sony;
 	DWTimestampWindowController * timestampController;
+	DWControlPanelWindowController * controlPanelController;
 }
 
 @synthesize window = _window;
 @synthesize videoView = _videoView;
-@synthesize controlPanel;
-@synthesize currentTCText;
 @synthesize clock;
 @synthesize preferencesPanel;
-@synthesize syncStatusString;
-@synthesize refStatusString;
 
 -(void)tickFrame {
 	NSTimeInterval interval = -[clock.lastTickDate timeIntervalSinceNow];
@@ -33,19 +31,19 @@
 	if ([referenceOrigin isEqualToString:@"Video"]) {
 		clock.currentReference = sony;
 		if (interval < 0.05) {
-			self.refStatusString = @"Good";
+			controlPanelController.refStatusString = @"Good";
 		}
 		else if (interval < 1) {
-			self.refStatusString = @"Bad";
+			controlPanelController.refStatusString = @"Bad";
 		}
 		else {
-			self.refStatusString = @"No signal";
+			controlPanelController.refStatusString = @"No signal";
 		}
 	}
 	else {
 		clock.currentReference = self;
 		[clock tickFrame:self];
-		self.refStatusString = @"Internal";
+		controlPanelController.refStatusString = @"Internal";
 	}
 }
 
@@ -61,17 +59,21 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
 	
-	[self.window addChildWindow:controlPanel ordered:NSWindowAbove];
+	controlPanelController = [[DWControlPanelWindowController alloc] init];
+	[self.window addChildWindow:controlPanelController.window ordered:NSWindowAbove];
+	controlPanelController.clockController.content = self.clock;
 	
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+	
+	// TODO : add full screen state in the settings
 
-	self.syncStatusString = @"Connecting...";
+	controlPanelController.syncStatusString = @"Connecting...";
 	sony = [[DWSonySlaveController alloc] init];
 	if (sony == nil) {
-		self.syncStatusString = @"Not connected";
+		controlPanelController.syncStatusString = @"Not connected";
 	}
 	else {
-		self.syncStatusString = @"Connected";
+		controlPanelController.syncStatusString = @"Connected";
 
 		sony.clock = clock;
 		
@@ -100,7 +102,7 @@
 		[self.videoView setMainFrameURL:filePath];
 	}
 	
-	self.refStatusString = @"Bad";
+	controlPanelController.refStatusString = @"Bad";
 	NSTimer * frameTimer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(tickFrame) userInfo:nil repeats:YES];	
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:frameTimer forMode:NSDefaultRunLoopMode];
@@ -149,25 +151,6 @@
 			
 		}
 	}
-//	else if ([keyPath isEqualToString:@"time"]) {
-//		self.currentTCText.stringValue = clock.tcString;
-//	}
-}
-
-- (IBAction)rewind:(id)sender {
-	clock.rate = -[[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
-}
-
-- (IBAction)reversePlay:(id)sender {
-	clock.rate = -1;
-}
-
-- (IBAction)pause:(id)sender {
-	clock.rate = 0;
-}
-
-- (IBAction)play:(id)sender {
-	clock.rate = 1;
 }
 
 - (IBAction)playPause {
@@ -179,25 +162,21 @@
 	}
 }
 
-- (IBAction)fastForward:(id)sender {
-	clock.rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"DWSonyRewindFastForwardSpeed"];
-}
-
 -(void)updateControlPanelPosition:(NSNotification*)note {
 	DWLog(@"%@", note.name);
-	NSRect subFrameRect = self.controlPanel.frame;
+	NSRect subFrameRect = controlPanelController.window.frame;
 	NSRect frameRect = self.window.frame;
 	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
 	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/32;
 	
-	[self.controlPanel setFrame:subFrameRect display:YES animate:YES];
-	[self.controlPanel orderFront:self];
+	[controlPanelController.window setFrame:subFrameRect display:YES animate:YES];
+//	[self.controlPanel orderFront:self];
 }
 
 -(void)showControlPanel {
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControlPanel) object:nil];
-	if (self.controlPanel.alphaValue == 0) {
-		[[self.controlPanel animator] setAlphaValue:1];
+	if (controlPanelController.window.alphaValue == 0) {
+		[[controlPanelController.window animator] setAlphaValue:1];
 	}
 }
 
@@ -207,7 +186,7 @@
 }
 
 -(void)hideControlPanel {
-	[[self.controlPanel	animator] setAlphaValue:0];
+	[[controlPanelController.window	animator] setAlphaValue:0];
 	if (self.window.styleMask & NSFullScreenWindowMask) {
 		[NSCursor setHiddenUntilMouseMoves:YES];
 	}
