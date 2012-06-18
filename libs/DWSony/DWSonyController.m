@@ -59,6 +59,7 @@
 }
 
 -(void)start {
+	DWSonyLog(@"");
 	if (!looping) {
 		looping = YES;
 		[NSThread detachNewThreadSelector:@selector(loopThread) toTarget:self withObject:nil];
@@ -66,6 +67,7 @@
 }
 
 -(void)stop {
+	DWSonyLog(@"");
 	looping = NO;
 }
 
@@ -86,7 +88,6 @@
 }
 
 -(void)processCmd1:(unsigned char)cmd1 andCmd2:(unsigned char)cmd2 withData:(const unsigned char*)dataIn {
-	
 }
 
 
