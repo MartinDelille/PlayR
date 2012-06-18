@@ -142,14 +142,13 @@
 	[self willChangeValueForKey:@"visibleTimecodeString"];
 	[super setTime:time];
 	if (state == kDWVideoClockStateReady) {
-		// TODO: handle out of bound
 		[_player seekToTime:CMTimeMake(time - _videoStartTime + [self videoDelayCompensationTime], DWTIMESCALE)];
 	}
 	[self didChangeValueForKey:@"visibleTimecodeString"];
 }
 
 -(DWTime)time {
-	if (state == kDWVideoClockStateReady) {
+	if ((state == kDWVideoClockStateReady) && (self.currentReference == nil)) {
 		return _player.currentTime.value * DWTIMESCALE / _player.currentTime.timescale + _videoStartTime - [self videoDelayCompensationTime];
 	}
 	else {
