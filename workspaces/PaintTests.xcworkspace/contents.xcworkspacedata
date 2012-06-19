@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:../libs"
+      name = "libs">
+   </Group>
+   <Group
+      location = "container:../tests"
+      name = "tests">
+      <FileRef
+         location = "group:BasicPaintTest01/BasicPaintTest01.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
