@@ -13,9 +13,10 @@
 		586EB2541590A27400F285D1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 586EB2521590A27400F285D1 /* Credits.rtf */; };
 		586EB2571590A27400F285D1 /* DWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2561590A27400F285D1 /* DWAppDelegate.m */; };
 		586EB25A1590A27400F285D1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586EB2581590A27400F285D1 /* MainMenu.xib */; };
-		586EB2621590A43F00F285D1 /* DWPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2611590A43F00F285D1 /* DWPaintView.m */; };
 		586EB2641590BEC500F285D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586EB2631590BEC500F285D1 /* OpenGL.framework */; };
 		586EB2661590BECC00F285D1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586EB2651590BECC00F285D1 /* CoreVideo.framework */; };
+		586EB2951590C9BA00F285D1 /* DWTestPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2941590C9BA00F285D1 /* DWTestPaintView.m */; };
+		586EB2B5159211C800F285D1 /* libDWPaint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586EB2B4159211C800F285D1 /* libDWPaint.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +33,11 @@
 		586EB2551590A27400F285D1 /* DWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWAppDelegate.h; sourceTree = "<group>"; };
 		586EB2561590A27400F285D1 /* DWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWAppDelegate.m; sourceTree = "<group>"; };
 		586EB2591590A27400F285D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		586EB2601590A43F00F285D1 /* DWPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPaintView.h; sourceTree = "<group>"; };
-		586EB2611590A43F00F285D1 /* DWPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPaintView.m; sourceTree = "<group>"; };
 		586EB2631590BEC500F285D1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		586EB2651590BECC00F285D1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		586EB2931590C9BA00F285D1 /* DWTestPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTestPaintView.h; sourceTree = "<group>"; };
+		586EB2941590C9BA00F285D1 /* DWTestPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTestPaintView.m; sourceTree = "<group>"; };
+		586EB2B4159211C800F285D1 /* libDWPaint.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDWPaint.a; path = "../../../../../Library/Developer/Xcode/DerivedData/PaintTests-flwnaudlwqwfnmglysbkhrogveax/Build/Products/Debug/libDWPaint.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				586EB2B5159211C800F285D1 /* libDWPaint.a in Frameworks */,
 				586EB2661590BECC00F285D1 /* CoreVideo.framework in Frameworks */,
 				586EB2641590BEC500F285D1 /* OpenGL.framework in Frameworks */,
 				586EB2441590A27400F285D1 /* Cocoa.framework in Frameworks */,
@@ -55,6 +58,7 @@
 		586EB2341590A27300F285D1 = {
 			isa = PBXGroup;
 			children = (
+				586EB2B4159211C800F285D1 /* libDWPaint.a */,
 				586EB2651590BECC00F285D1 /* CoreVideo.framework */,
 				586EB2631590BEC500F285D1 /* OpenGL.framework */,
 				586EB2491590A27400F285D1 /* BasicPaintTest01 */,
@@ -97,8 +101,8 @@
 				586EB2561590A27400F285D1 /* DWAppDelegate.m */,
 				586EB2581590A27400F285D1 /* MainMenu.xib */,
 				586EB24A1590A27400F285D1 /* Supporting Files */,
-				586EB2601590A43F00F285D1 /* DWPaintView.h */,
-				586EB2611590A43F00F285D1 /* DWPaintView.m */,
+				586EB2931590C9BA00F285D1 /* DWTestPaintView.h */,
+				586EB2941590C9BA00F285D1 /* DWTestPaintView.m */,
 			);
 			path = BasicPaintTest01;
 			sourceTree = "<group>";
@@ -182,7 +186,7 @@
 			files = (
 				586EB2501590A27400F285D1 /* main.m in Sources */,
 				586EB2571590A27400F285D1 /* DWAppDelegate.m in Sources */,
-				586EB2621590A43F00F285D1 /* DWPaintView.m in Sources */,
+				586EB2951590C9BA00F285D1 /* DWTestPaintView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +244,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Debug;
 		};
@@ -260,6 +265,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ../../libs;
 			};
 			name = Release;
 		};
@@ -269,6 +275,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BasicPaintTest01/BasicPaintTest01-Prefix.pch";
 				INFOPLIST_FILE = "BasicPaintTest01/BasicPaintTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/PaintTests-flwnaudlwqwfnmglysbkhrogveax/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -280,6 +290,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BasicPaintTest01/BasicPaintTest01-Prefix.pch";
 				INFOPLIST_FILE = "BasicPaintTest01/BasicPaintTest01-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/PaintTests-flwnaudlwqwfnmglysbkhrogveax/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -304,6 +318,7 @@
 				586EB25F1590A27400F285D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

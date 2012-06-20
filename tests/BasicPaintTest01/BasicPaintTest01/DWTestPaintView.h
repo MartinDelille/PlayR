@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Dubware. All rights reserved.
 //
 
-#import "DWPaintView.h"
+#import "DWPaint/DWPaintView.h"
 
 @interface DWTestPaintView : DWPaintView
 

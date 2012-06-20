@@ -7,22 +7,17 @@
 //
 
 #import "DWTestPaintView.h"
+#import <OpenGL/gl.h>
 
 @implementation DWTestPaintView
 
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
+-(void)doPaint {
+	// Clear the screen buffer
+	glClear( GL_COLOR_BUFFER_BIT );
+	glLoadIdentity();   // Reset the current modelview matrix
+	
+	[self drawQuad:NSMakeRect(0, 0, 50, 50)];
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
 }
 
 @end

@@ -18,6 +18,20 @@
 	CVDisplayLinkStop(displayLink);
 }
 
+-(void)render {
+	CGLContextObj ctx = [self.openGLContext CGLContextObj];
+	CGLLockContext(ctx);
+	
+	[self.openGLContext makeCurrentContext];
+	
+	[self doPaint];
+	
+	glFlush();
+	
+	CGLUnlockContext(ctx);
+}
+
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [self render];
@@ -103,21 +117,9 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTime
 	
 }
 
--(void)render {
-	CGLContextObj ctx = [self.openGLContext CGLContextObj];
-	CGLLockContext(ctx);
-	
-	[self.openGLContext makeCurrentContext];
-	// Clear the screen buffer
-	glClear( GL_COLOR_BUFFER_BIT );
-	glLoadIdentity();   // Reset the current modelview matrix
-	
-	[self drawQuad:NSMakeRect(0, 0, 50, 50)];
-	
-	glFlush();
-	
-	CGLUnlockContext(ctx);
+-(void)doPaint {
+	// just clear the view: override to perform custom painting
+	glClear( GL_COLOR_BUFFER_BIT );	
 }
-
 
 @end

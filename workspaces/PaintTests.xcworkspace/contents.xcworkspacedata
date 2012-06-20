@@ -4,6 +4,9 @@
    <Group
       location = "container:../libs"
       name = "libs">
+      <FileRef
+         location = "group:DWPaint/DWPaint.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:../tests"
