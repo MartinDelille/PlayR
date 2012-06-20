@@ -1,16 +1,16 @@
 //
-//  DWPlayRVideoView.h
+//  DWPlayRWindow.h
 //  DWPlayRVideo
 //
-//  Created by Martin Delille on 17/05/12.
+//  Created by Martin Delille on 20/06/12.
 //  Copyright (c) 2012 Dubware. All rights reserved.
 //
 
-#import "DWVideo/DWVideoView.h"
+#import <Cocoa/Cocoa.h>
 
 @class DWAppDelegate;
 
-@interface DWPlayRVideoView : DWVideoView
+@interface DWPlayRWindow : NSWindow
 
 @property DWAppDelegate * mainController;
 

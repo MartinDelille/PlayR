@@ -81,12 +81,11 @@
 		[sony start];
 	}	
 	
-	self.videoView.mainController = self;
+	self.window.mainController = self;
 	self.videoView.player = clock.player;
 	
 	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
 //	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
-
 
 	[self showControlPanel];
 	[self.window setAcceptsMouseMovedEvents:YES];

@@ -34,8 +34,8 @@
 		5859714E1563F24F0002C24A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859714D1563F24F0002C24A /* CoreMedia.framework */; };
 		585F5101158F98F20073B971 /* DWControlPanelWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 585F50FF158F98F20073B971 /* DWControlPanelWindowController.m */; };
 		585F5102158F98F20073B971 /* DWControlPanelWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585F5100158F98F20073B971 /* DWControlPanelWindowController.xib */; };
+		586EB2C415921B3100F285D1 /* DWPlayRWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2C315921B3100F285D1 /* DWPlayRWindow.m */; };
 		587DAC8D15863A84002B929A /* DWDisplayDelayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DAC8C15863A84002B929A /* DWDisplayDelayValueTransformer.m */; };
-		589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 589CCA9A15650D160027263A /* DWPlayRVideoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,10 +76,10 @@
 		585F50FE158F98F20073B971 /* DWControlPanelWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWControlPanelWindowController.h; sourceTree = "<group>"; };
 		585F50FF158F98F20073B971 /* DWControlPanelWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWControlPanelWindowController.m; sourceTree = "<group>"; };
 		585F5100158F98F20073B971 /* DWControlPanelWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DWControlPanelWindowController.xib; sourceTree = "<group>"; };
+		586EB2C215921B3100F285D1 /* DWPlayRWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPlayRWindow.h; sourceTree = "<group>"; };
+		586EB2C315921B3100F285D1 /* DWPlayRWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPlayRWindow.m; sourceTree = "<group>"; };
 		587DAC8B15863A84002B929A /* DWDisplayDelayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDisplayDelayValueTransformer.h; sourceTree = "<group>"; };
 		587DAC8C15863A84002B929A /* DWDisplayDelayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDisplayDelayValueTransformer.m; sourceTree = "<group>"; };
-		589CCA9915650D160027263A /* DWPlayRVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPlayRVideoView.h; sourceTree = "<group>"; };
-		589CCA9A15650D160027263A /* DWPlayRVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPlayRVideoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +167,6 @@
 				585971351563F0630002C24A /* DWAppDelegate.m */,
 				585971371563F0630002C24A /* MainMenu.xib */,
 				585971291563F0630002C24A /* Supporting Files */,
-				589CCA9915650D160027263A /* DWPlayRVideoView.h */,
-				589CCA9A15650D160027263A /* DWPlayRVideoView.m */,
 				5843F8EC156CF5A90005B4E8 /* DWTimestampWindowController.h */,
 				5843F8ED156CF5A90005B4E8 /* DWTimestampWindowController.m */,
 				5843F8EE156CF5A90005B4E8 /* DWTimestampWindowController.xib */,
@@ -179,6 +177,8 @@
 				585F50FE158F98F20073B971 /* DWControlPanelWindowController.h */,
 				585F50FF158F98F20073B971 /* DWControlPanelWindowController.m */,
 				585F5100158F98F20073B971 /* DWControlPanelWindowController.xib */,
+				586EB2C215921B3100F285D1 /* DWPlayRWindow.h */,
+				586EB2C315921B3100F285D1 /* DWPlayRWindow.m */,
 			);
 			path = DWPlayRVideo;
 			sourceTree = "<group>";
@@ -282,11 +282,11 @@
 			files = (
 				5859712F1563F0630002C24A /* main.m in Sources */,
 				585971361563F0630002C24A /* DWAppDelegate.m in Sources */,
-				589CCA9B15650D160027263A /* DWPlayRVideoView.m in Sources */,
 				5843F8EF156CF5A90005B4E8 /* DWTimestampWindowController.m in Sources */,
 				5843F908156D41920005B4E8 /* DWTimecodeDatabase.m in Sources */,
 				587DAC8D15863A84002B929A /* DWDisplayDelayValueTransformer.m in Sources */,
 				585F5101158F98F20073B971 /* DWControlPanelWindowController.m in Sources */,
+				586EB2C415921B3100F285D1 /* DWPlayRWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

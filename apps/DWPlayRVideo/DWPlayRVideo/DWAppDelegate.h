@@ -7,13 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "DWPlayRVideoView.h"
+#import "DWVideo/DWVideoView.h"
 #import "DWVideo/DWVideoClock.h"
+#import "DWPlayRWindow.h"
 
 @interface DWAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet DWPlayRVideoView *videoView;
+@property (assign) IBOutlet DWPlayRWindow *window;
+@property (weak) IBOutlet DWVideoView *videoView;
 @property (weak) IBOutlet DWVideoClock *clock;
 @property (unsafe_unretained) IBOutlet NSPanel *preferencesPanel;
 

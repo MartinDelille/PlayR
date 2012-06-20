@@ -1,32 +1,17 @@
 //
-//  DWPlayRVideoView.m
+//  DWPlayRWindow.m
 //  DWPlayRVideo
 //
-//  Created by Martin Delille on 17/05/12.
+//  Created by Martin Delille on 20/06/12.
 //  Copyright (c) 2012 Dubware. All rights reserved.
 //
 
-#import "DWPlayRVideoView.h"
+#import "DWPlayRWindow.h"
 #import "DWAppDelegate.h"
 
-@implementation DWPlayRVideoView
+@implementation DWPlayRWindow
 
 @synthesize mainController;
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
-}
 
 -(BOOL)acceptsFirstResponder {
 	return YES;
@@ -47,5 +32,6 @@
 -(void)mouseMoved:(NSEvent *)theEvent {
 	[mainController showControlPanelAndHide];
 }
+
 
 @end
