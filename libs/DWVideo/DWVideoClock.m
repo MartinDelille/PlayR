@@ -252,6 +252,8 @@
 	_videoStartTime += newCurrentTime - oldCurrentTime;
 	[self didChangeValueForKey:@"time"];
 	[self didChangeValueForKey:@"timeStampString"];
+	
+	self.time = newCurrentTime;
 
 }
 @end
