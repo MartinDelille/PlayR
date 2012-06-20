@@ -17,21 +17,8 @@
 	return YES;
 }
 
--(void)keyDown:(NSEvent *)theEvent {
-	DWLog(@"keyCode: %X", theEvent.keyCode);
-	switch (theEvent.keyCode) {
-		case 0x31:
-			[mainController playPause];
-			break;
-		default:
-			[super keyDown:theEvent];
-			break;
-	}
-}
-
 -(void)mouseMoved:(NSEvent *)theEvent {
 	[mainController showControlPanelAndHide];
 }
-
 
 @end

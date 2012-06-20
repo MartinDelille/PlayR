@@ -18,8 +18,6 @@
 @property (weak) IBOutlet DWVideoClock *clock;
 @property (unsafe_unretained) IBOutlet NSPanel *preferencesPanel;
 
-- (IBAction)playPause;
-
 -(void)showControlPanel;
 -(void)showControlPanelAndHide;
 -(void)hideControlPanel;

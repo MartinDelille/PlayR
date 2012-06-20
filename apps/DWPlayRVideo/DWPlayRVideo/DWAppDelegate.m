@@ -87,8 +87,8 @@
 	[clock addObserver:self forKeyPath:@"state" options:0 context:nil];
 //	[clock addObserver:self forKeyPath:@"time" options:0 context:nil];
 
-	[self showControlPanel];
-	[self.window setAcceptsMouseMovedEvents:YES];
+	[self showControlPanelAndHide];
+	self.window.acceptsMouseMovedEvents = YES;
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DWPlayRReloadLastFile"]) {
 		NSURL * lastVideoFile = [[NSUserDefaults standardUserDefaults] URLForKey:@"DWPlayRLastVideoFile"];
@@ -149,15 +149,6 @@
 				[self performSelector:@selector(changeTimestamp:) withObject:self afterDelay:0.5];
 			}
 		}
-	}
-}
-
-- (IBAction)playPause {
-	if (clock.rate == 0) {
-		clock.rate = 1;
-	}
-	else {
-		clock.rate = 0;
 	}
 }
 
