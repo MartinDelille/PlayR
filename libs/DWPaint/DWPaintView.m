@@ -48,18 +48,9 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTime
 	return kCVReturnSuccess;
 }
 
--(void)prepareOpenGL {
-	// Create a display link capable of being used with all active displays
-    CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
-	
-	
-    // Set the renderer output callback function
-    CVDisplayLinkSetOutputCallback(displayLink, &MyDisplayLinkCallback, (__bridge void*)self);
-	
+-(void)prepareOpenGL {	
     // Set the display link for the current renderer
     CGLContextObj cglContext = [[self openGLContext] CGLContextObj];
-    CGLPixelFormatObj cglPixelFormat = [[self pixelFormat] CGLPixelFormatObj];
-    CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat);
 	
 	CGLError err =  CGLEnable( cglContext, kCGLCEMPEngine);
 	
@@ -74,7 +65,18 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTime
 	glClearColor( 0.0f, 0.0f, 0.0f, 0.5f );   // Black background
 	// Really nice perspective calculations
 	glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
+
+	// Create a display link capable of being used with all active displays
+    CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);	
 	
+    // Set the renderer output callback function
+    CVDisplayLinkSetOutputCallback(displayLink, &MyDisplayLinkCallback, (__bridge void*)self);
+
+	CGLPixelFormatObj cglPixelFormat = [[self pixelFormat] CGLPixelFormatObj];
+    CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat);
+	
+	CVDisplayLinkStart(displayLink);
+
 	NSLog(@"%s over", __PRETTY_FUNCTION__);
 }
 
