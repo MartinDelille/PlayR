@@ -102,23 +102,6 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTime
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-
--(void)drawQuad:(NSRect)rect {
-	glBegin( GL_QUADS );
-	
-	glTexCoord2f( 0.0f, 0.0f );
-	glVertex2f( rect.origin.x, rect.origin.y);   // Bottom left
-	glTexCoord2f( 1.0f, 0.0f );
-	glVertex2f(  rect.origin.x + rect.size.width, rect.origin.y);   // Bottom right
-	glTexCoord2f( 1.0f, 1.0f );
-	glVertex2f(  rect.origin.x + rect.size.width, rect.origin.y + rect.size.height );   // Top right
-	glTexCoord2f( 0.0f, 1.0f );
-	glVertex2f( rect.origin.x, rect.origin.y + rect.size.height );   // Top left
-	
-	glEnd();
-	
-}
-
 -(void)doPaint {
 	// just clear the view: override to perform custom painting
 	glClear( GL_COLOR_BUFFER_BIT );	

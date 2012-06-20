@@ -10,7 +10,6 @@
 
 @interface DWPaintView : NSOpenGLView
 
--(void)drawQuad:(NSRect)rect;
 -(void)doPaint;
 
 @end

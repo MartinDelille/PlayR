@@ -10,6 +10,8 @@
 		586EB27A1590C7B400F285D1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586EB2791590C7B400F285D1 /* Cocoa.framework */; };
 		586EB2911590C93300F285D1 /* DWPaintView.h in Headers */ = {isa = PBXBuildFile; fileRef = 586EB28F1590C93300F285D1 /* DWPaintView.h */; };
 		586EB2921590C93300F285D1 /* DWPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2901590C93300F285D1 /* DWPaintView.m */; };
+		586EB2B81592154300F285D1 /* DWPaintFigure.h in Headers */ = {isa = PBXBuildFile; fileRef = 586EB2B61592154300F285D1 /* DWPaintFigure.h */; };
+		586EB2B91592154300F285D1 /* DWPaintFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 586EB2B71592154300F285D1 /* DWPaintFigure.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		586EB2811590C7B400F285D1 /* DWPaint-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DWPaint-Prefix.pch"; path = "../DWPaint-Prefix.pch"; sourceTree = "<group>"; };
 		586EB28F1590C93300F285D1 /* DWPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPaintView.h; sourceTree = "<group>"; };
 		586EB2901590C93300F285D1 /* DWPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPaintView.m; sourceTree = "<group>"; };
+		586EB2B61592154300F285D1 /* DWPaintFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPaintFigure.h; sourceTree = "<group>"; };
+		586EB2B71592154300F285D1 /* DWPaintFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPaintFigure.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 		586EB26B1590C7B400F285D1 = {
 			isa = PBXGroup;
 			children = (
+				586EB2B61592154300F285D1 /* DWPaintFigure.h */,
+				586EB2B71592154300F285D1 /* DWPaintFigure.m */,
 				586EB28F1590C93300F285D1 /* DWPaintView.h */,
 				586EB2901590C93300F285D1 /* DWPaintView.m */,
 				586EB2801590C7B400F285D1 /* Supporting Files */,
@@ -90,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				586EB2911590C93300F285D1 /* DWPaintView.h in Headers */,
+				586EB2B81592154300F285D1 /* DWPaintFigure.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				586EB2921590C93300F285D1 /* DWPaintView.m in Sources */,
+				586EB2B91592154300F285D1 /* DWPaintFigure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

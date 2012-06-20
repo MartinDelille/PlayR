@@ -7,6 +7,7 @@
 //
 
 #import "DWTestPaintView.h"
+#import "DWPaint/DWPaintFigure.h"
 #import <OpenGL/gl.h>
 
 @implementation DWTestPaintView {
@@ -19,7 +20,7 @@
 	glLoadIdentity();   // Reset the current modelview matrix
 	glTranslatef( x, 0.0, -1 );      // Move into screen 5 units
 
-	[self drawQuad:NSMakeRect(0, 0, 50, 50)];
+	[DWPaintFigure drawQuad:NSMakeRect(0, 0, 50, 50)];
 
 	x -= 4;
 	if (x <  -200) {
