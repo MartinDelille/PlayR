@@ -62,6 +62,7 @@
 	controlPanelController = [[DWControlPanelWindowController alloc] init];
 	[self.window addChildWindow:controlPanelController.window ordered:NSWindowAbove];
 	controlPanelController.clockController.content = self.clock;
+	[self updateControlPanelPosition:nil];
 	
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 	
@@ -148,7 +149,6 @@
 				[clock updateTimestampWithCurrentTimecodeString:tc];
 				[self performSelector:@selector(changeTimestamp:) withObject:self afterDelay:0.5];
 			}
-			
 		}
 	}
 }
@@ -169,7 +169,8 @@
 	subFrameRect.origin.x = frameRect.origin.x + (frameRect.size.width - subFrameRect.size.width)/2;
 	subFrameRect.origin.y = frameRect.origin.y + (frameRect.size.height)/32;
 	
-	[controlPanelController.window setFrame:subFrameRect display:YES animate:YES];
+	// animate only if this message is triggered by a notification
+	[controlPanelController.window setFrame:subFrameRect display:YES animate:(note != nil)];
 //	[self.controlPanel orderFront:self];
 }
 
