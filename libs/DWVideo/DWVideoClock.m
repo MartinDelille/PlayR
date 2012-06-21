@@ -37,6 +37,8 @@
 }
 
 -(BOOL)loadWithUrl:(NSURL *)anUrl {
+	self.rate = 0;
+
 	// TODO: check if AVURLAssetPreferPreciseDurationAndTimingKey is needed
 	self.url = anUrl;
 	NSDictionary * options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];

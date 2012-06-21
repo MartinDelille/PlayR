@@ -112,6 +112,17 @@
 	[sony stop];
 }
 
+-(BOOL)processVideoUrl:(NSURL*)url {
+	DWLog(@"%@", url);
+	if ([clock loadWithUrl:url]) {
+		[[NSUserDefaults standardUserDefaults] setURL:url forKey:@"DWPlayRLastVideoFile"];
+		return YES;
+	}
+	else {
+		return NO;
+	}
+}
+
 - (void)openDocument:(id)sender {
 	NSLog(@"openDocument");
 	[self showControlPanel];
@@ -122,19 +133,16 @@
 	
     [panel  beginWithCompletionHandler:^(NSInteger result)
 	 {
-		 if (result==NSFileHandlingPanelOKButton)
-		 {
-			 DWLog(@"Loading %@", panel.URL);
-			 if ([clock loadWithUrl:panel.URL]) {
-				 [[NSUserDefaults standardUserDefaults] setURL:panel.URL forKey:@"DWPlayRLastVideoFile"];
-			 }
-			 else {
-				 // TODO : add error message
-				 DWLog(@"error");
-			 }
+		 if (result==NSFileHandlingPanelOKButton) {
+			 [self processVideoUrl:panel.URL];
 		 }
 		[self showControlPanelAndHide];
 	 }];	
+}
+
+-(BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+	NSURL * url = [NSURL fileURLWithPath:filename];
+	return [self processVideoUrl:url];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
