@@ -47,6 +47,16 @@
 	}
 }
 
+-(void)enterFullscreen:(NSNotification*)note {
+	DWLog(@"");
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DWPlayRFullscreen"];
+}
+
+-(void)exitFullscreen:(NSNotification*)note {
+	DWLog(@"");
+	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"DWPlayRFullscreen"];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Load default defaults
@@ -58,6 +68,9 @@
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidResizeNotification object:self.window];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateControlPanelPosition:) name:NSWindowDidBecomeMainNotification object:self.window];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterFullscreen:) name:NSWindowDidEnterFullScreenNotification object:self.window];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitFullscreen:) name:NSWindowDidExitFullScreenNotification object:self.window];
+	
 	
 	controlPanelController = [[DWControlPanelWindowController alloc] init];
 	[self.window addChildWindow:controlPanelController.window ordered:NSWindowAbove];
@@ -65,6 +78,9 @@
 	[self updateControlPanelPosition:nil];
 	
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DWPlayRFullscreen"]) {
+//		[self.window.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
+	}
 	
 	// TODO : add full screen state in the settings
 
