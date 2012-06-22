@@ -80,6 +80,7 @@
 	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DWPlayRFullscreen"]) {
 //		[self.window.contentView enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
+//		self.window.styleMask |= NSFullScreenWindowMask;
 	}
 	
 	// TODO : add full screen state in the settings
@@ -189,6 +190,7 @@
 }
 
 -(void)showControlPanel {
+	[NSCursor unhide];
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControlPanel) object:nil];
 	if (controlPanelController.window.alphaValue == 0) {
 		[[controlPanelController.window animator] setAlphaValue:1];
@@ -203,7 +205,7 @@
 -(void)hideControlPanel {
 	[[controlPanelController.window	animator] setAlphaValue:0];
 	if (self.window.styleMask & NSFullScreenWindowMask) {
-		[NSCursor setHiddenUntilMouseMoves:YES];
+		[NSCursor hide];
 	}
 }
 
