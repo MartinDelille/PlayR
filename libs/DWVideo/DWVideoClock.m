@@ -36,6 +36,10 @@
 	return self;
 }
 
+-(void)dealloc {
+	DWLog(@"");
+}
+
 -(BOOL)loadWithUrl:(NSURL *)anUrl {
 	self.rate = 0;
 
@@ -77,11 +81,53 @@
 -(void)assetDidLoad {	
 	for (AVAssetTrack * track in [_asset tracks]) {
 		if ([[track mediaType] isEqualToString:AVMediaTypeVideo]) {
-			self.videoFrameRate = track.nominalFrameRate;
 			self.videoResolution = track.naturalSize;
 			CMVideoFormatDescriptionRef format = (__bridge CMFormatDescriptionRef)[track.formatDescriptions objectAtIndex:0];
 			self.videoCodec = CMVideoFormatDescriptionGetCodecType(format);
 			DWLog(@"codec: %@", [DWFourCCToStringTransformer stringWithFourCC:self.videoCodec]);
+
+			if (track.nominalFrameRate != 0) {
+				self.videoFrameRate = track.nominalFrameRate;
+			}
+			else {
+				// if the nominalFrameRate is not specified, compute the framerate from the first sample duration
+				AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:_asset error:nil];
+				AVAssetReaderTrackOutput *assetReaderOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:track outputSettings:nil]; 
+				if ([assetReader canAddOutput:assetReaderOutput]) {
+					[assetReader addOutput:assetReaderOutput];
+					if ([assetReader startReading] == YES) {
+						int count = 0;
+						
+						while ( [assetReader status]==AVAssetReaderStatusReading ) {
+							CMSampleBufferRef sampleBuffer = [assetReaderOutput copyNextSampleBuffer];
+							if (sampleBuffer == NULL) {
+								if ([assetReader status] == AVAssetReaderStatusFailed) 
+									break;
+								else    
+									continue;
+							}
+							count++;
+							
+							CMSampleTimingInfo timingInfo;
+							CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &timingInfo);
+							//	DWLog(@"reading sample %d: %lld / %d", count, timingInfo.duration.value, timingInfo.duration.timescale);
+							self.videoFrameRate = (float)timingInfo.duration.timescale / timingInfo.duration.value;
+							
+							CFRelease(sampleBuffer);
+							break;
+						}
+						
+						if (count == 0) {
+							DWLog(@"No sample in the track: %@", [assetReader error]);
+						}
+					}
+					
+				}
+				
+				if ([assetReader status] != AVAssetReaderStatusCompleted)
+					[assetReader cancelReading];
+
+			}
 		}
 	}
 
@@ -91,17 +137,17 @@
 		DWLog(@"Bad framerate value");
 		return;
 	}
-	else if (self.videoFrameRate < 24) {
+	else if (self.videoFrameRate < 23.99) { // check if the framerate is within the interval [0 - 23.99]
 		self.type = kDWTimeCode2398;
 	}
-	else if (self.videoFrameRate < 25) {
+	else if (self.videoFrameRate < 24.5) { // check if the framerate is within the interval [23.99 - 24.5]
 		self.type = kDWTimeCode24;
 	}
-	else if (self.videoFrameRate == 25) {
+	else if (self.videoFrameRate < 25.5) { // check if the framerate is within the interval [24.5 - 25.5]
 		self.type = kDWTimeCode25;
 	}
 	else {
-		self.type = kDWTimeCode2997;
+		self.type = kDWTimeCode2997; // check if the framerate is greater than 25.5
 	}
 
 	_playerItem = [AVPlayerItem playerItemWithAsset:_asset];

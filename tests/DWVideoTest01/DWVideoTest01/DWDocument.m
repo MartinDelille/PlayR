@@ -35,10 +35,12 @@
 }
 
 -(void)dealloc {
+	DWLog(@"");
 	if (self.clock != nil) {
 		clock.rate = 0;
 		[self.clock removeObserver:self forKeyPath:@"state"];
 		[self.clock removeObserver:self forKeyPath:@"time"];
+		self.clock = nil;
 	}
 }
 
