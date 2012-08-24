@@ -146,7 +146,7 @@
 	NSOpenPanel * panel = [NSOpenPanel openPanel];
 	
 	[panel setCanChooseDirectories:NO];
-    [panel setAllowedFileTypes:[NSArray arrayWithObjects:@"mov", @"mp4", @"avi", nil]];
+    [panel setAllowedFileTypes:[NSArray arrayWithObjects:@"mov", @"mp4", @"avi", @"mpg", nil]];
 	
     [panel  beginWithCompletionHandler:^(NSInteger result)
 	 {
