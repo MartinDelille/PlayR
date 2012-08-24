@@ -62,7 +62,7 @@
 	// Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
 	
-	DWLogLevel logLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"DWLogLevel"];
+	DWLogLevel logLevel = (DWLogLevel)[[NSUserDefaults standardUserDefaults] integerForKey:@"DWLogLevel"];
 	[DWLogger configureLogLevel:logLevel];
 	DWLog(@"Configuring log level to %X", logLevel);
 	
@@ -217,7 +217,7 @@
 	[self showControlPanel];
 	
 	timestampController.tcString = clock.tcString;
-	int code = [NSApp runModalForWindow:timestampController.window];
+	NSInteger code = [NSApp runModalForWindow:timestampController.window];
 	
 	if (code == 1) {
 		DWLog(@"Changing timestamp with tc: %@", timestampController.tcString);

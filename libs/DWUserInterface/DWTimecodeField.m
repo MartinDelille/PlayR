@@ -9,7 +9,7 @@
 #import "DWTimecodeField.h"
 
 @implementation DWTimecodeField {
-	int cursorPosition;
+	NSUInteger cursorPosition;
 }
 
 -(id)init {

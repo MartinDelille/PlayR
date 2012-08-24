@@ -92,14 +92,14 @@
 	DWFrame framePerHour = 3600 * fps;
 	if(drop)
 		framePerHour -= 108;
-	*hh = n / framePerHour;
+	*hh = (unsigned int)(n / framePerHour);
 	n = n % framePerHour;
 	
 	// computing tenth of minutes
 	DWFrame framePerTenMinutes = 600 * fps;
 	if(drop)
 		framePerTenMinutes -= 18;
-	*mm = 10 * (n / framePerTenMinutes);
+	*mm = (unsigned int)(10 * (n / framePerTenMinutes));
 	n = n % framePerTenMinutes;
 	
 	// computing minutes
@@ -124,16 +124,16 @@
 			n += 2;
 		}
 		else {
-			*ss = 1 + (n - framePerSecond + 2) / framePerSecond;
+			*ss = (unsigned int)(1 + (n - framePerSecond + 2) / framePerSecond);
 			n = (n - framePerSecond + 2) % framePerSecond;
 		}
 	}
 	else {
-		*ss = n / framePerSecond;
+		*ss = (unsigned int)(n / framePerSecond);
 		n = n % framePerSecond;
 	}
 	
-	*ff = n;
+	*ff = (unsigned int)n;
 }
 
 +(DWFrame)frameFromHh:(unsigned int)hh Mm:(unsigned int)mm Ss:(unsigned int)ss Ff:(unsigned int)ff andType:(DWTimeCodeType)type {
