@@ -217,7 +217,7 @@
 		58D6CAA21539A64D00CAB720 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Dubware;
 			};
 			buildConfigurationList = 58D6CAA51539A64D00CAB720 /* Build configuration list for PBXProject "DWClocking" */;
@@ -302,6 +302,7 @@
 		58ADAB341546EA0900C9C40E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
@@ -319,6 +320,7 @@
 		58ADAB351546EA0900C9C40E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClockingUnitTests/DWClockingUnitTests-Prefix.pch";
@@ -385,6 +387,7 @@
 		58D6CABD1539A64D00CAB720 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClocking-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
@@ -398,6 +401,7 @@
 		58D6CABE1539A64D00CAB720 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWClocking-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (

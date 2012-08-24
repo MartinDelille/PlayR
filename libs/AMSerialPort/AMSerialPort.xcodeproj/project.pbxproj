@@ -148,7 +148,7 @@
 		58086532152B3BCF0006989A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Dubware;
 			};
 			buildConfigurationList = 58086535152B3BCF0006989A /* Build configuration list for PBXProject "AMSerialPort" */;
@@ -233,6 +233,7 @@
 		5808654D152B3BD00006989A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSerialPort-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -242,6 +243,7 @@
 		5808654E152B3BD00006989A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMSerialPort-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";

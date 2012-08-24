@@ -119,7 +119,7 @@
 		588957E6156B8A5000CDD6E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Dubware;
 			};
 			buildConfigurationList = 588957E9156B8A5000CDD6E4 /* Build configuration list for PBXProject "DWUserInterface" */;
@@ -201,6 +201,7 @@
 		58895801156B8A5000CDD6E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWUserInterface-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -210,6 +211,7 @@
 		58895802156B8A5000CDD6E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWUserInterface-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -235,6 +237,7 @@
 				58895802156B8A5000CDD6E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
