@@ -139,7 +139,7 @@
 //	[NSApp beginSheet:tcWindow.window modalForWindow:self.mainWindow modalDelegate:self didEndSelector:@selector(didChangeTimestamp:returnCode:contextInfo:) contextInfo:nil];
 	DWLog(@"%@", self.clock.tcString);
 	tcWindow.tcString = self.clock.tcString;
-	int result = [NSApp runModalForWindow:tcWindow.window];
+	NSInteger result = [NSApp runModalForWindow:tcWindow.window];
 	if (result == 1) {
 		// TODO check valid timecode
 		DWLog(@"changing timestamp to %@", tcWindow.tcString);
@@ -149,7 +149,6 @@
 		DWLog(@"canceled: %d", result);
 	}
 }
-
 
 - (IBAction)play:(id)sender {
 	DWLog(@"play at %@", clock.tcString);
