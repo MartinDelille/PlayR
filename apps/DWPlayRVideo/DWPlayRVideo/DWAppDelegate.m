@@ -223,7 +223,7 @@
 	if (code == 1) {
 		DWLog(@"Changing timestamp with tc: %@", timestampController.tcString);
 		[clock updateTimestampWithCurrentTimecodeString:timestampController.tcString];
-		[DWTimecodeDatabase storeTimecode:timestampController.tcString forURL:clock.url];
+		[DWTimecodeDatabase storeTimecode:clock.timeStampString forURL:clock.url];
 	}
 	else {
 		DWLog(@"cancel with code : %d", code);
