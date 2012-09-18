@@ -12,7 +12,7 @@
 #import "DWFourCCToStringTransformer.h"
 
 @implementation DWVideoClock {
-	DWTime _videoStartTime;
+	DWTime _videoStartTime, _lastTime;
 	AVURLAsset * _asset;
 	AVPlayer * _player;
 	AVPlayerItem * _playerItem;
@@ -118,7 +118,7 @@
 						}
 						
 						if (count == 0) {
-							DWLog(@"No sample in the track: %@", [assetReader error]);
+							//DWLog(@"No sample in the track: %@", [assetReader error]);
 						}
 					}
 					
@@ -193,6 +193,11 @@
 		[_player seekToTime:CMTimeMake(time - _videoStartTime + [self videoDelayCompensationTime], DWTIMESCALE)];
 	}
 	[self didChangeValueForKey:@"visibleTimecodeString"];
+	if(time!=_lastTime)
+	{
+		DWLog([self visibleTimecodeString]);
+		_lastTime = time;
+	}
 }
 
 -(DWTime)time {
@@ -250,7 +255,7 @@
 						size_t length = CMBlockBufferGetDataLength(blockBuffer);
 						
 						if (length>0) {
-							unsigned char *buffer = malloc(length);
+							unsigned char *buffer = (unsigned char*)malloc(length);
 							memset(buffer, 0, length);
 							CMBlockBufferCopyDataBytes(blockBuffer, 0, length, buffer);
 							
@@ -265,10 +270,10 @@
 					}
 					
 					if (count == 0) {
-						DWLog(@"No sample in the timecode track: %@", [assetReader error]);
+						DWLog(@"No timetimestame information in the track: %@", [assetReader error]);
 					}
 					
-					DWLog(@"Processed %d sample", count);
+					DWLog(@"timestamp extracted: %d", timeStampFrame);
 					
 				}
 				

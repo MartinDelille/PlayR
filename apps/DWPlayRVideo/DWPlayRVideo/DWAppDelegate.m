@@ -187,6 +187,7 @@
 	// animate only if this message is triggered by a notification
 	[controlPanelController.window setFrame:subFrameRect display:YES animate:(note != nil)];
 //	[self.controlPanel orderFront:self];
+	[self showControlPanelAndHide];
 }
 
 -(void)showControlPanel {
