@@ -52,7 +52,7 @@
 		5843F904156D31420005B4E8 /* playr.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = playr.icns; sourceTree = "<group>"; };
 		5843F906156D41920005B4E8 /* DWTimecodeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimecodeDatabase.h; sourceTree = "<group>"; };
 		5843F907156D41920005B4E8 /* DWTimecodeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimecodeDatabase.m; sourceTree = "<group>"; };
-		5859711E1563F0630002C24A /* Play'R.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play'R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DWPlayRVideo.app; path = /Users/martindelille/Dropbox/code/PlayR/apps/DWPlayRVideo/build/Release/DWPlayRVideo.app; sourceTree = "<absolute>"; };
 		585971221563F0630002C24A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		585971251563F0630002C24A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		585971261563F0630002C24A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -124,16 +124,7 @@
 				5859714F1563F25A0002C24A /* libs */,
 				585971281563F0630002C24A /* DWPlayRVideo */,
 				585971211563F0630002C24A /* Frameworks */,
-				5859711F1563F0630002C24A /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		5859711F1563F0630002C24A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5859711E1563F0630002C24A /* Play'R.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		585971211563F0630002C24A /* Frameworks */ = {
@@ -211,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5859711D1563F0630002C24A /* Play'R */ = {
+		5859711D1563F0630002C24A /* DWPlayRVideo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "Play'R" */;
+			buildConfigurationList = 5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */;
 			buildPhases = (
 				5859711A1563F0630002C24A /* Sources */,
 				5859711B1563F0630002C24A /* Frameworks */,
@@ -223,9 +214,9 @@
 			);
 			dependencies = (
 			);
-			name = "Play'R";
+			name = DWPlayRVideo;
 			productName = DWPlayRVideo;
-			productReference = 5859711E1563F0630002C24A /* Play'R.app */;
+			productReference = 5859711E1563F0630002C24A /* DWPlayRVideo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -246,11 +237,11 @@
 				en,
 			);
 			mainGroup = 585971131563F0630002C24A;
-			productRefGroup = 5859711F1563F0630002C24A /* Products */;
+			productRefGroup = 585971131563F0630002C24A;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5859711D1563F0630002C24A /* Play'R */,
+				5859711D1563F0630002C24A /* DWPlayRVideo */,
 			);
 		};
 /* End PBXProject section */
@@ -415,7 +406,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "Play'R" */ = {
+		5859713C1563F0630002C24A /* Build configuration list for PBXNativeTarget "DWPlayRVideo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5859713D1563F0630002C24A /* Debug */,
