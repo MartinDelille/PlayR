@@ -4,3 +4,5 @@ xcuserdata
 doc/html
 doxygen_log.txt
 *.tmp
+
+*.swp

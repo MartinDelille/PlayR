@@ -52,7 +52,7 @@
 		5843F904156D31420005B4E8 /* playr.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = playr.icns; sourceTree = "<group>"; };
 		5843F906156D41920005B4E8 /* DWTimecodeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTimecodeDatabase.h; sourceTree = "<group>"; };
 		5843F907156D41920005B4E8 /* DWTimecodeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTimecodeDatabase.m; sourceTree = "<group>"; };
-		5859711E1563F0630002C24A /* DWPlayRVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DWPlayRVideo.app; path = "Play'R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5859711E1563F0630002C24A /* Play'R.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play'R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		585971221563F0630002C24A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		585971251563F0630002C24A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		585971261563F0630002C24A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -131,7 +131,7 @@
 		5859711F1563F0630002C24A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5859711E1563F0630002C24A /* DWPlayRVideo.app */,
+				5859711E1563F0630002C24A /* Play'R.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 			);
 			name = "Play'R";
 			productName = DWPlayRVideo;
-			productReference = 5859711E1563F0630002C24A /* DWPlayRVideo.app */;
+			productReference = 5859711E1563F0630002C24A /* Play'R.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DW;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Dubware;
 			};
 			buildConfigurationList = 585971181563F0630002C24A /* Build configuration list for PBXProject "DWPlayRVideo" */;
@@ -372,6 +372,7 @@
 		5859713D1563F0630002C24A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWPlayRVideo/DWPlayRVideo-Prefix.pch";
 				INFOPLIST_FILE = "DWPlayRVideo/DWPlayRVideo-Info.plist";
@@ -388,6 +389,7 @@
 		5859713E1563F0630002C24A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWPlayRVideo/DWPlayRVideo-Prefix.pch";
 				INFOPLIST_FILE = "DWPlayRVideo/DWPlayRVideo-Info.plist";
